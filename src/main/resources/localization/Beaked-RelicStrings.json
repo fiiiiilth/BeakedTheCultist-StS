@@ -1,0 +1,9 @@
+{
+  "MendingPlumage": {
+    "NAME": "Mending Plumage",
+    "FLAVOR": "The Plumage merges with your feathers and makes you feel ...",
+    "DESCRIPTIONS": [
+      "Upon playing a card, heal #b1 HP."
+    ]
+  }
+}

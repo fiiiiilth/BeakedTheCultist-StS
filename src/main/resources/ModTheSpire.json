@@ -1,0 +1,9 @@
+{
+	"modid": "beakedthecultist-sts",
+	"name": "Beaked The Cultist",
+	"author_list": ["fiiiiilth"],
+	"description": "Adds Beaked the Cultist as a new playable character.",
+	"dependencies": ["basemod"],
+	"version": "0.1",
+	"sts_version": "07-12-2018"
+}

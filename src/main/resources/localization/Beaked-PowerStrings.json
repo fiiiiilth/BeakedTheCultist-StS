@@ -1,0 +1,23 @@
+{
+	"RitualPlayer": {
+		"NAME": "Ritual",
+		"DESCRIPTIONS": [
+			"At the start of your turn, gain ",
+			" Strength."
+		]
+	},
+	"InsightPower": {
+		"NAME": "Insight",
+		"DESCRIPTIONS": [
+			"At the start of your turn, shuffle #b",
+			" Inspiration into your draw pile."
+		]
+	},
+	"MachineEssencePower": {
+		"NAME": "Machine Essence",
+		"DESCRIPTIONS": [
+			"Whenever you receive healing, heal",
+			"extra HP."
+		]
+	}
+}

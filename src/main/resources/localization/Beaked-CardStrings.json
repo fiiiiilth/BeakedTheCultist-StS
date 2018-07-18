@@ -1,0 +1,63 @@
+{
+	"Strike_Y": {
+		"NAME": "Strike",
+		"DESCRIPTION": "Deal !D! damage."
+	},
+	"Defend_Y": {
+		"NAME": "Defend",
+		"DESCRIPTION": "Gain !B! Block."
+	},
+	"Ceremony": {
+		"NAME": "Ceremony",
+		"DESCRIPTION": "Ethereal. NL Gain 1 Ritual.",
+		"UPGRADE_DESCRIPTION": "Gain 1 Ritual."
+	},
+	"Tweet": {
+		"NAME": "Tweet",
+		"DESCRIPTION": "Apply !M! Vulnerable."
+	},
+	"Insight": {
+		"NAME": "Insight",
+		"DESCRIPTION": "At the start of your turn, shuffle an Inspiration into your draw pile.",
+		"UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, shuffle an Inspiration into your draw pile."
+	},
+	"Inspiration": {
+		"NAME": "Inspiration",
+		"DESCRIPTION": "When drawn, draw 2 cards and Exhaust."
+	},
+	"Evade": {
+		"NAME": "Evade",
+		"DESCRIPTION": "If the enemy intends to attack, gain [E] [E].",
+		"EXTENDED_DESCRIPTION": ["This enemy isn't Weak."]
+	},
+	"Daydream": {
+		"NAME": "Daydream",
+		"DESCRIPTION": "Shuffle !M! Inspiration into your draw pile."
+	},
+	"Overpower": {
+		"NAME": "Overpower",
+		"DESCRIPTION": "Deal !D! damage, plus 1 for every !M! points of health you currently have."
+	},
+	"DarkPact": {
+		"NAME": "Dark Pact",
+		"DESCRIPTION": "Gain !M! Plated Armor. NL Shuffle a Regret into your draw pile."
+	},
+	"Flinch": {
+		"NAME": "Flinch",
+		"DESCRIPTION": "Gain !B! block. NL Wither 2.",
+		"UPGRADED_DESCRIPTION": "Gain !B! block. NL Wither 1."
+	},
+	"Roost": {
+		"NAME": "Roost",
+		"DESCRIPTION": "Gain !B! block. NL Increase this cards cost by 1 for the rest of combat."
+	},
+	"HuntressEssence": {
+		"NAME": "Huntress Essence",
+		"DESCRIPTION": "Heal !M! HP and draw !M! card for each card in your Exhaust pile. NL Exhaust",
+		"UPGRADE_DESCRIPTION": "Heal !M! HP and draw !M! cards for each card in your Exhaust pile. NL Exhaust"
+	},
+	"MachineEssence": {
+		"NAME": "Machine Essence",
+		"DESCRIPTION": "Whenever you receive healing, heal an additional !M! HP."
+	}
+}
