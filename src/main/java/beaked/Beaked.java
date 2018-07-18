@@ -2,12 +2,18 @@ package beaked;
 
 import java.nio.charset.StandardCharsets;
 
+import basemod.interfaces.*;
 import beaked.cards.*;
 import beaked.characters.BeakedTheCultist;
 import beaked.patches.AbstractCardEnum;
 import beaked.patches.BeakedEnum;
 import beaked.relics.MendingPlumage;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.relics.CultistMask;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,18 +29,11 @@ import com.megacrit.cardcrawl.localization.RelicStrings;
 
 import basemod.BaseMod;
 import basemod.ModPanel;
-import basemod.interfaces.EditCardsSubscriber;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditKeywordsSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
-import basemod.interfaces.SetUnlocksSubscriber;
 
 @SpireInitializer
 public class Beaked implements PostInitializeSubscriber,
         EditCardsSubscriber, EditRelicsSubscriber, EditCharactersSubscriber,
-        EditStringsSubscriber, SetUnlocksSubscriber, EditKeywordsSubscriber {
+        EditStringsSubscriber, SetUnlocksSubscriber, EditKeywordsSubscriber, OnCardUseSubscriber {
     public static final Logger logger = LogManager.getLogger(Beaked.class.getName());
 
     private static final String MODNAME = "BeakedTheCultist the Cultist";
@@ -103,6 +102,9 @@ public class Beaked implements PostInitializeSubscriber,
 
         logger.info("subscribing to editStrings event");
         BaseMod.subscribeToEditStrings(this);
+
+        logger.info("subscribing to oncardusesubscriber event");
+        BaseMod.subscribeToOnCardUse(this);
 
         /* Disable this during playtesting for being counterproductive */
         // logger.info("subscribing to setUnlocks event");
@@ -245,5 +247,13 @@ public class Beaked implements PostInitializeSubscriber,
     public void receiveEditKeywords() {
         logger.info("setting up custom keywords");
         BaseMod.addKeyword(new String[] {"ritual", "Ritual"}, "Gain Strength at the beginning of your turn.");
+    }
+
+    @Override
+    public void receiveCardUsed(AbstractCard c) {
+        if(AbstractDungeon.player.hasRelic(CultistMask.ID)) {
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("VO_CULTIST_1A"));
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, "CAW", 1.0f, 2.0f));
+        }
     }
 }
