@@ -59,5 +59,17 @@
 	"MachineEssence": {
 		"NAME": "Machine Essence",
 		"DESCRIPTION": "Whenever you receive healing, heal an additional !M! HP."
+	},
+	"WarriorEssence": {
+		"NAME": "Warrior Essence",
+		"DESCRIPTION": "Deal !D! damage to a random enemy !M! X times. Heal equal to half the unblocked damage dealt. NL Exhaust."
+	},
+	"FakeOut": {
+		"NAME": "Fake Out",
+		"DESCRIPTION": "Deal !D! damage to ALL enemies. NL Swap your draw pile and discard pile."
+	},
+	"Hexing": {
+		"NAME": "Hexing",
+		"DESCRIPTION": "At the start of your turn, apply 2 Weak and 1 Vulnerable to all enemies that don't intend to attack."
 	}
 }

@@ -2,22 +2,30 @@
 	"RitualPlayer": {
 		"NAME": "Ritual",
 		"DESCRIPTIONS": [
-			"At the start of your turn, gain ",
-			" Strength."
+			"At the start of your turn, gain #b",
+			" #yStrength."
 		]
 	},
 	"InsightPower": {
 		"NAME": "Insight",
 		"DESCRIPTIONS": [
 			"At the start of your turn, shuffle #b",
-			" Inspiration into your draw pile."
+			" #yInspiration card(s) into your draw pile."
 		]
 	},
 	"MachineEssencePower": {
 		"NAME": "Machine Essence",
 		"DESCRIPTIONS": [
-			"Whenever you receive healing, heal",
-			"extra HP."
+			"Whenever you receive healing, heal #b",
+			" extra HP."
+		]
+	},
+	"HexingPower": {
+		"NAME": "Hexing",
+		"DESCRIPTIONS": [
+			"At the start of your turn, apply #b",
+			" #yWeak and #b",
+			" #yVulnerable to all enemies that don't intend to attack."
 		]
 	}
 }

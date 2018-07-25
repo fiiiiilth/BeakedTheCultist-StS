@@ -88,31 +88,7 @@ public class Beaked implements PostInitializeSubscriber,
     }
 
     public Beaked() {
-        logger.info("subscribing to postInitialize event");
-        BaseMod.subscribeToPostInitialize(this);
-
-        logger.info("subscribing to editCharacters event");
-        BaseMod.subscribeToEditCharacters(this);
-
-        logger.info("subscribing to editRelics event");
-        BaseMod.subscribeToEditRelics(this);
-
-        logger.info("subscribing to editCards event");
-        BaseMod.subscribeToEditCards(this);
-
-        logger.info("subscribing to editStrings event");
-        BaseMod.subscribeToEditStrings(this);
-
-        logger.info("subscribing to oncardusesubscriber event");
-        BaseMod.subscribeToOnCardUse(this);
-
-        /* Disable this during playtesting for being counterproductive */
-        // logger.info("subscribing to setUnlocks event");
-        // BaseMod.subscribeToSetUnlocks(this);
-
-
-        logger.info("subscribing to editKeywords event");
-        BaseMod.subscribeToEditKeywords(this);
+        BaseMod.subscribe(this);
 
         logger.info("creating the color " + AbstractCardEnum.BEAKED_YELLOW.toString());
         BaseMod.addColor(AbstractCardEnum.BEAKED_YELLOW.toString(),
@@ -183,6 +159,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Inspiration());
 
         //Common
+        BaseMod.addCard(new WarriorEssence());
         BaseMod.addCard(new Tweet());
         BaseMod.addCard(new Insight());
         BaseMod.addCard(new Evade());
@@ -192,8 +169,10 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Overpower());
         BaseMod.addCard(new Roost());
         BaseMod.addCard(new HuntressEssence());
+        BaseMod.addCard(new Hexing());
 
         //Rare
+        BaseMod.addCard(new FakeOut());
         BaseMod.addCard(new DarkPact());
         BaseMod.addCard(new MachineEssence());
 
@@ -201,6 +180,7 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard("Strike_Y");
         UnlockTracker.unlockCard("Defend_Y");
         UnlockTracker.unlockCard("Ceremony");
+        UnlockTracker.unlockCard("WarriorEssence");
         UnlockTracker.unlockCard("Tweet");
         UnlockTracker.unlockCard("Insight");
         UnlockTracker.unlockCard("Evade");
@@ -209,6 +189,8 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard("Overpower");
         UnlockTracker.unlockCard("Roost");
         UnlockTracker.unlockCard("HuntressEssence");
+        UnlockTracker.unlockCard("Hexing");
+        UnlockTracker.unlockCard("FakeOut");
         UnlockTracker.unlockCard("DarkPact");
         UnlockTracker.unlockCard("MachineEssence");
 
@@ -246,7 +228,8 @@ public class Beaked implements PostInitializeSubscriber,
     @Override
     public void receiveEditKeywords() {
         logger.info("setting up custom keywords");
-        BaseMod.addKeyword(new String[] {"ritual", "Ritual"}, "Gain Strength at the beginning of your turn.");
+        BaseMod.addKeyword(new String[] {"ritual", "Ritual"}, "Gain #yStrength at the beginning of your turn.");
+        BaseMod.addKeyword(new String[] {"inspiration"}, "An unplayable status card. When drawn, it #yExhausts and draws #b2 more cards.");
     }
 
     @Override
