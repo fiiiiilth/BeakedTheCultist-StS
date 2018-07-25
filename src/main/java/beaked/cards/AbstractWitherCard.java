@@ -23,18 +23,17 @@ public abstract class AbstractWitherCard extends CustomCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m){
-        return super.canUse(p,m) && this.misc > 0;
+        return super.canUse(p,m) && !this.isDepleted;
     }
 
     @Override
     public void applyPowers() {
-        super.applyPowers();
         if (!this.isDepleted && ((this.baseMisc > 0 && this.misc <= 0) || (this.baseMisc < 0 && this.misc >= 0))){
-            isDepleted = true;
+            this.isDepleted = true;
             this.misc = 0;
             onDepleted();
         } else if (this.isDepleted && ((this.baseMisc < 0 && this.misc < 0) || (this.baseMisc > 0 && this.misc > 0))){
-            isDepleted = false;
+            this.isDepleted = false;
             onRestored();
         }
         super.applyPowers();

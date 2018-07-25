@@ -233,7 +233,7 @@ public class Beaked implements PostInitializeSubscriber,
         logger.info("setting up custom keywords");
         BaseMod.addKeyword(new String[] {"ritual", "Ritual"}, "Gain #yStrength at the beginning of your turn.");
         BaseMod.addKeyword(new String[] {"inspiration"}, "An unplayable status card. When drawn, it #yExhausts and draws #b2 more cards.");
-        BaseMod.addKeyword(new String[] {"wither"}, "Permanently decrease this card's power by the wither amount. When it reaches 0, the card becomes #yUnplayable.");
+        BaseMod.addKeyword(new String[] {"wither"}, "Permanently decrease this card's power by the wither amount. When it reaches #b0, the card becomes #yUnplayable.");
     }
 
     @Override
