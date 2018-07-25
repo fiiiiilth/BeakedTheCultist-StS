@@ -164,6 +164,8 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Insight());
         BaseMod.addCard(new Evade());
         BaseMod.addCard(new Daydream());
+        BaseMod.addCard(new Flinch());
+        BaseMod.addCard(new Redirect());
 
         //Uncommon
         BaseMod.addCard(new Overpower());
@@ -186,6 +188,7 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard("Evade");
         UnlockTracker.unlockCard("Daydream");
         UnlockTracker.unlockCard("Flinch");
+        UnlockTracker.unlockCard("Redirect");
         UnlockTracker.unlockCard("Overpower");
         UnlockTracker.unlockCard("Roost");
         UnlockTracker.unlockCard("HuntressEssence");
@@ -230,6 +233,7 @@ public class Beaked implements PostInitializeSubscriber,
         logger.info("setting up custom keywords");
         BaseMod.addKeyword(new String[] {"ritual", "Ritual"}, "Gain #yStrength at the beginning of your turn.");
         BaseMod.addKeyword(new String[] {"inspiration"}, "An unplayable status card. When drawn, it #yExhausts and draws #b2 more cards.");
+        BaseMod.addKeyword(new String[] {"wither"}, "Permanently decrease this card's power by the wither amount. When it reaches 0, the card becomes #yUnplayable.");
     }
 
     @Override

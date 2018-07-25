@@ -44,8 +44,7 @@
 	},
 	"Flinch": {
 		"NAME": "Flinch",
-		"DESCRIPTION": "Gain !B! block. NL Wither 2.",
-		"UPGRADED_DESCRIPTION": "Gain !B! block. NL Wither 1."
+		"DESCRIPTION": "Gain !B! Block. NL Wither !M!."
 	},
 	"Roost": {
 		"NAME": "Roost",
@@ -71,5 +70,10 @@
 	"Hexing": {
 		"NAME": "Hexing",
 		"DESCRIPTION": "At the start of your turn, apply 2 Weak and 1 Vulnerable to all enemies that don't intend to attack."
+	},
+	"Redirect": {
+		"NAME": "Redirect",
+		"DESCRIPTION": "Gain Block equal to !M! times your Strength, then lose all Strength. NL Wither 1.",
+		"EXTENDED_DESCRIPTION": ["(Gain !B! Block.) NL "]
 	}
 }
