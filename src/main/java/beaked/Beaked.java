@@ -38,7 +38,7 @@ public class Beaked implements PostInitializeSubscriber,
 
     private static final String MODNAME = "BeakedTheCultist the Cultist";
     private static final String AUTHOR = "fiiiiilth";
-    private static final String DESCRIPTION = "v0.1\n Adds BeakedTheCultist the Cultist as a new playable characters.";
+    private static final String DESCRIPTION = "v0.1\n Adds Beaked the Cultist as a new playable characters.";
 
     private static final Color YELLOW = CardHelper.getColor(255.0f, 255.0f, 0.0f);
     private static final String BEAKED_ASSETS_FOLDER = "img";
@@ -157,6 +157,7 @@ public class Beaked implements PostInitializeSubscriber,
 
         //Special
         BaseMod.addCard(new Inspiration());
+        BaseMod.addCard(new Respite());
 
         //Common
         BaseMod.addCard(new WarriorEssence());
@@ -166,12 +167,16 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Daydream());
         BaseMod.addCard(new Flinch());
         BaseMod.addCard(new Redirect());
+        BaseMod.addCard(new Foresight());
+        BaseMod.addCard(new Resilience());
+
 
         //Uncommon
         BaseMod.addCard(new Overpower());
         BaseMod.addCard(new Roost());
         BaseMod.addCard(new HuntressEssence());
         BaseMod.addCard(new Hexing());
+        BaseMod.addCard(new SowTheSeeds());
 
         //Rare
         BaseMod.addCard(new FakeOut());
@@ -196,8 +201,16 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard("FakeOut");
         UnlockTracker.unlockCard("DarkPact");
         UnlockTracker.unlockCard("MachineEssence");
+        UnlockTracker.unlockCard("Flinch");
+        UnlockTracker.unlockCard("Redirect");
+        UnlockTracker.unlockCard("DesperateSwing");
+        UnlockTracker.unlockCard("Foresight");
+        UnlockTracker.unlockCard("Resilience");
+        UnlockTracker.unlockCard("SowTheSeeds");
+
 
         UnlockTracker.unlockCard("Inspiration");
+        UnlockTracker.unlockCard("Respite");
 
         logger.info("done editting cards");
     }

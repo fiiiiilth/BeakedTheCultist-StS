@@ -75,5 +75,26 @@
 		"NAME": "Redirect",
 		"DESCRIPTION": "Gain Block equal to !M! times your Strength, then lose all Strength. NL Wither 1.",
 		"EXTENDED_DESCRIPTION": ["(Gain !B! Block.) NL "]
+	},
+	"DesperateSwing": {
+		"NAME": "Desperate Swing",
+		"DESCRIPTION": "Deal !D! damage, plus 1 for every !M! points of HP missing."
+	},
+	"Foresight": {
+		"NAME": "Foresight",
+		"DESCRIPTION": "Gain !B! Block. NL Next turn, gain [E].",
+		"UPGRADE_DESCRIPTION": "Gain !B! Block. NL Next turn, gain [E] [E]."
+	},
+	"Resilience": {
+		"NAME": "Resilience",
+		"DESCRIPTION": "Lose 3 Strength. NL Gain 1 Artifact."
+	},
+	"SowTheSeeds": {
+		"Name": "Sow the Seeds",
+		"DESCRIPTION": "Shuffle !M! Respite into your draw pile."
+	},
+	"Respite": {
+		"NAME": "Respite",
+		"DESCRIPTION": "At the end of your turn, heal !M! HP."
 	}
 }

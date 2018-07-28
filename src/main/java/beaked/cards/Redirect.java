@@ -36,8 +36,8 @@ public class Redirect extends AbstractWitherCard {
         AbstractDungeon.actionManager.addToBottom(new WitherAction(this, WITHER));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
 
-        if (AbstractDungeon.player.hasPower("Strength")){
-            final int str = AbstractDungeon.player.getPower("Strength").amount;
+        if (AbstractDungeon.player.hasPower(StrengthPower.POWER_ID)){
+            final int str = AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount;
             if (str > 0) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p,-str),-str));
         }
     }
@@ -46,8 +46,8 @@ public class Redirect extends AbstractWitherCard {
     public void applyPowers() {
         this.baseMagicNumber = this.misc;
         this.baseBlock = 0;
-        if (AbstractDungeon.player.hasPower("Strength") && AbstractDungeon.player.getPower("Strength").amount > 0){
-            this.baseBlock = AbstractDungeon.player.getPower("Strength").amount * this.magicNumber;
+        if (AbstractDungeon.player.hasPower(StrengthPower.POWER_ID) && AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount > 0){
+            this.baseBlock = AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount * this.magicNumber;
         }
         super.applyPowers();
         if (!this.isDepleted) this.rawDescription = EXTENDED_DESCRIPTION + DESCRIPTION;
