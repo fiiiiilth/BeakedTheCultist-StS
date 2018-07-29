@@ -20,7 +20,7 @@ public class DesperateSwing extends CustomCard {
     public static final int COST = 1;
     public static final int DAMAGE = 9;
     public static final int DIVIDE_BY = 5;
-    public static final int UPGRADE_DIVIDE_BY = 4;
+    public static final int UPGRADE_DIVIDE_BY = -1;
 
     public DesperateSwing() {
         super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
