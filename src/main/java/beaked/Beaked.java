@@ -184,6 +184,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Pecker());
         BaseMod.addCard(new Negation());
         BaseMod.addCard(new Recite());
+        BaseMod.addCard(new DesperateSwing());
 
         //Rare
         BaseMod.addCard(new FakeOut());
