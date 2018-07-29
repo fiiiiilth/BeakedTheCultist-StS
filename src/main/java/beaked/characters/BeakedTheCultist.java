@@ -83,7 +83,10 @@ public class BeakedTheCultist extends CustomPlayer {
     }
 
     public static CharSelectInfo getLoadout() {
-        return new CharSelectInfo("Beaked the Cultist", " ",
+        return new CharSelectInfo("Beaked the Cultist",
+                "Blessed by the cult of the Awakened One, then cursed for stealing sacred knowledge. NL " +
+                        "Relies on healing and familiar techniques to power through, NL " +
+                        "resorting to potent but hard to replicate spells.",
                 50, 50, 0, 99, 5,
                 BeakedEnum.BEAKED_THE_CULTIST, getStartingRelics(), getStartingDeck(), false);
     }

@@ -34,6 +34,13 @@ public abstract class AbstractWitherCard extends CustomCard {
     }
 
     @Override
+    public AbstractCard makeStatEquivalentCopy(){
+        AbstractCard c = super.makeStatEquivalentCopy();
+        if (c.misc == 0) ((AbstractWitherCard)c).onDepleted();
+        return c;
+    }
+
+    @Override
     public void applyPowers() {
         if (!this.isDepleted && ((this.baseMisc > 0 && this.misc <= 0) || (this.baseMisc < 0 && this.misc >= 0))){
             onDepleted();

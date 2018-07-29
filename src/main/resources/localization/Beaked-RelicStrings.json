@@ -5,5 +5,12 @@
     "DESCRIPTIONS": [
       "Upon playing a card, heal #b1 HP."
     ]
+  },
+  "FlawlessSticks": {
+    "NAME": "Flawless Sticks",
+    "FLAVOR": "A bundle of surprisingly beautiful sticks.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yExhaust all #yDepleted cards."
+    ]
   }
 }

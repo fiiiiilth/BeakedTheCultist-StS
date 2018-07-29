@@ -7,6 +7,7 @@ import beaked.cards.*;
 import beaked.characters.BeakedTheCultist;
 import beaked.patches.AbstractCardEnum;
 import beaked.patches.BeakedEnum;
+import beaked.relics.FlawlessSticks;
 import beaked.relics.MendingPlumage;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
@@ -67,7 +68,7 @@ public class Beaked implements PostInitializeSubscriber,
 
     // beaked assets
     private static final String BEAKED_BUTTON = "charSelect/beakedButton.png";
-    private static final String BEAKED_PORTRAIT = "charSelect/beakedPortraitBG.jpg";
+    private static final String BEAKED_PORTRAIT = "charSelect/beakedPortrait.jpg";
     public static final String BEAKED_SHOULDER_1 = "char/beaked/shoulder.png";
     public static final String BEAKED_SHOULDER_2 = "char/beaked/shoulder2.png";
     public static final String BEAKED_CORPSE = "char/beaked/corpse.png";
@@ -140,6 +141,7 @@ public class Beaked implements PostInitializeSubscriber,
 
         // Add relics
         BaseMod.addRelicToCustomPool(new MendingPlumage(), AbstractCardEnum.BEAKED_YELLOW.toString());
+        BaseMod.addRelicToCustomPool(new FlawlessSticks(), AbstractCardEnum.BEAKED_YELLOW.toString());
 
         logger.info("done editting relics");
     }
