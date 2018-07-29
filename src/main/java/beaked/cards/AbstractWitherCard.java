@@ -71,6 +71,6 @@ public abstract class AbstractWitherCard extends CustomCard {
     protected void upgradeMisc(int amount){
         this.baseMisc += amount;
         this.misc += amount;
-        applyPowers();
+        if (AbstractDungeon.player != null) applyPowers();
     }
 }

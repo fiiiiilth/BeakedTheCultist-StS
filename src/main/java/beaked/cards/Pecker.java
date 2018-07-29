@@ -59,7 +59,7 @@ public class Pecker extends AbstractWitherCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradedMagicNumber = true;
+            this.upgradeMagicNumber(UPGRADE_PLUS_NUM_HITS);
             this.upgradeMisc(UPGRADE_PLUS_NUM_HITS);  // use upgradeMisc to update the witherable value (calls ApplyPowers)
             this.upgradeBaseCost(UPGRADE_NEW_COST);
         }
