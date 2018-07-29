@@ -13,9 +13,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public abstract class AbstractWitherCard extends CustomCard {
 
-    public static final String DEPLETED_DESCRIPTION = "Unplayable. NL ";
+    public static final String DEPLETED_DESCRIPTION = "Depleted. NL ";
     public int baseMisc;
     public boolean isDepleted = false;
+
+    private String savedDesc = "";
 
     public AbstractWitherCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardColor color, CardRarity rarity, CardTarget target) {
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
@@ -27,18 +29,41 @@ public abstract class AbstractWitherCard extends CustomCard {
     }
 
     @Override
+    public boolean hasEnoughEnergy(){
+        return super.hasEnoughEnergy() && !isDepleted;
+    }
+
+    @Override
     public void applyPowers() {
         if (!this.isDepleted && ((this.baseMisc > 0 && this.misc <= 0) || (this.baseMisc < 0 && this.misc >= 0))){
-            this.isDepleted = true;
-            this.misc = 0;
             onDepleted();
         } else if (this.isDepleted && ((this.baseMisc < 0 && this.misc < 0) || (this.baseMisc > 0 && this.misc > 0))){
-            this.isDepleted = false;
             onRestored();
         }
         super.applyPowers();
+        this.initializeDescription();
     }
 
-    public abstract void onDepleted();
-    public abstract void onRestored();
+    public void onDepleted(){
+        if (this.isDepleted) return;
+
+        this.isDepleted = true;
+        this.savedDesc = this.rawDescription;
+        this.misc = 0;
+        this.rawDescription = DEPLETED_DESCRIPTION + this.rawDescription;
+        this.initializeDescription();
+    }
+    public void onRestored(){
+        if (!this.isDepleted) return;
+
+        this.isDepleted = false;
+        this.rawDescription = this.savedDesc;
+        this.initializeDescription();
+    }
+
+    protected void upgradeMisc(int amount){
+        this.baseMisc += amount;
+        this.misc += amount;
+        applyPowers();
+    }
 }

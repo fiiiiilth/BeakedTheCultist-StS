@@ -27,5 +27,12 @@
 			" #yWeak and #b",
 			" #yVulnerable to all enemies that don't intend to attack."
 		]
+	},
+	"NegationPower": {
+		"NAME": "Negation",
+		"DESCRIPTIONS": [
+			"Ignore the next #b",
+			" #yWither effect(s) this combat."
+		]
 	}
 }

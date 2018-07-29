@@ -44,27 +44,14 @@ public class Redirect extends AbstractWitherCard {
 
     @Override
     public void applyPowers() {
-        this.baseMagicNumber = this.misc;
+        this.baseMagicNumber = this.magicNumber = this.misc;
         this.baseBlock = 0;
         if (AbstractDungeon.player.hasPower(StrengthPower.POWER_ID) && AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount > 0){
             this.baseBlock = AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount * this.magicNumber;
         }
         super.applyPowers();
-        if (!this.isDepleted) this.rawDescription = EXTENDED_DESCRIPTION + DESCRIPTION;
-        this.initializeDescription();
-    }
-
-    @Override
-    public void onDepleted(){
-        this.cost = -2;
-        this.rawDescription = DEPLETED_DESCRIPTION + DESCRIPTION;
-        this.initializeDescription();
-    }
-
-    @Override
-    public void onRestored(){
-        this.cost = COST;
-        this.rawDescription = DESCRIPTION;
+        if (!this.isDepleted && AbstractDungeon.player.hand.contains(this)) this.rawDescription = EXTENDED_DESCRIPTION + DESCRIPTION;
+        else if (this.isDepleted) this.rawDescription = DEPLETED_DESCRIPTION + DESCRIPTION;
         this.initializeDescription();
     }
 

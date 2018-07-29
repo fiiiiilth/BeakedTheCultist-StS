@@ -23,7 +23,7 @@
 	},
 	"Inspiration": {
 		"NAME": "Inspiration",
-		"DESCRIPTION": "When drawn, draw 2 cards and Exhaust."
+		"DESCRIPTION": "Unplayable. NL When drawn, draw 2 cards and Exhaust."
 	},
 	"Evade": {
 		"NAME": "Evade",
@@ -90,11 +90,33 @@
 		"DESCRIPTION": "Lose 3 Strength. NL Gain 1 Artifact."
 	},
 	"SowTheSeeds": {
-		"Name": "Sow the Seeds",
+		"NAME": "Sow the Seeds",
 		"DESCRIPTION": "Shuffle !M! Respite into your draw pile."
 	},
 	"Respite": {
 		"NAME": "Respite",
-		"DESCRIPTION": "At the end of your turn, heal !M! HP."
+		"DESCRIPTION": "Unplayable. NL At the end of your turn, heal !M! HP."
+	},
+	"Pecker": {
+		"NAME": "Pecker",
+		"DESCRIPTION": "Deal !D! damage !M! times. NL Wither 1.",
+		"EXTENDED_DESCRIPTION": ["Deal !D! damage !M! time. NL Wither 1."]
+	},
+	"TuckingFeathers": {
+		"NAME": "Tucking Feathers",
+		"DESCRIPTION": "Draw !M! cards. Gain Block equal to their total cost."
+	},
+	"Negation": {
+		"NAME": "Negation",
+		"DESCRIPTION": "Ignore the next Wither effect this combat. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Ignore the next !M! Wither effects this combat. NL Exhaust."
+	},
+	"Recite": {
+		"NAME": "Recite",
+		"DESCRIPTION": "Add !M! Psalm cards to your hand."
+	},
+	"Psalm": {
+		"NAME": "Psalm",
+		"DESCRIPTION": "Deal !D! damage to ALL enemies. NL Wither !M!."
 	}
 }

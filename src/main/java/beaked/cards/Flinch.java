@@ -47,23 +47,8 @@ public class Flinch extends AbstractWitherCard {
 
     @Override
     public void applyPowers() {
-        this.baseBlock = this.misc;
+        this.baseBlock = this.block = this.misc;
         super.applyPowers();
-        this.initializeDescription();
-    }
-
-    @Override
-    public void onDepleted(){
-        this.cost = -2;
-        this.rawDescription = DEPLETED_DESCRIPTION + DESCRIPTION;
-        this.initializeDescription();
-    }
-
-    @Override
-    public void onRestored(){
-        this.cost = COST;
-        this.rawDescription = DESCRIPTION;
-        this.initializeDescription();
     }
 
     public AbstractCard makeCopy() {

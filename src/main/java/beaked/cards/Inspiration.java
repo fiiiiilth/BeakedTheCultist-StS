@@ -19,7 +19,7 @@ public class Inspiration extends CustomCard {
     public static final int COST = -2;
 
     public Inspiration() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.NONE);
+        super(ID, NAME, "img/cards/"+ID+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.NONE);
 
         this.magicNumber = this.baseMagicNumber = 2;
     }

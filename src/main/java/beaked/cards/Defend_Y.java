@@ -20,7 +20,7 @@ public class Defend_Y extends CustomCard {
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public Defend_Y() {
-        super(ID, NAME, null, COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+        super(ID, NAME, "img/cards/"+ID+".png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
                 AbstractCardEnum.BEAKED_YELLOW, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
 
         this.baseBlock = BLOCK_AMT;

@@ -21,7 +21,7 @@ public class Strike_Y extends CustomCard {
     private static final int UPGRADE_PLUS_DMG = 3;
 
     public Strike_Y() {
-        super(ID, NAME, null, COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+        super(ID, NAME, "img/cards/"+ID+".png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, AbstractCard.CardRarity.BASIC,
                 AbstractCard.CardTarget.ENEMY);
 

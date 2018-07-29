@@ -158,6 +158,7 @@ public class Beaked implements PostInitializeSubscriber,
         //Special
         BaseMod.addCard(new Inspiration());
         BaseMod.addCard(new Respite());
+        BaseMod.addCard(new Psalm());
 
         //Common
         BaseMod.addCard(new WarriorEssence());
@@ -169,6 +170,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Redirect());
         BaseMod.addCard(new Foresight());
         BaseMod.addCard(new Resilience());
+        BaseMod.addCard(new TuckingFeathers());
 
 
         //Uncommon
@@ -177,6 +179,9 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new HuntressEssence());
         BaseMod.addCard(new Hexing());
         BaseMod.addCard(new SowTheSeeds());
+        BaseMod.addCard(new Pecker());
+        BaseMod.addCard(new Negation());
+        BaseMod.addCard(new Recite());
 
         //Rare
         BaseMod.addCard(new FakeOut());
@@ -207,10 +212,15 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard("Foresight");
         UnlockTracker.unlockCard("Resilience");
         UnlockTracker.unlockCard("SowTheSeeds");
+        UnlockTracker.unlockCard("Pecker");
+        UnlockTracker.unlockCard("TuckingFeathers");
+        UnlockTracker.unlockCard("Negation");
+        UnlockTracker.unlockCard("Recite");
 
 
         UnlockTracker.unlockCard("Inspiration");
         UnlockTracker.unlockCard("Respite");
+        UnlockTracker.unlockCard("Psalm");
 
         logger.info("done editting cards");
     }
@@ -245,8 +255,11 @@ public class Beaked implements PostInitializeSubscriber,
     public void receiveEditKeywords() {
         logger.info("setting up custom keywords");
         BaseMod.addKeyword(new String[] {"ritual", "Ritual"}, "Gain #yStrength at the beginning of your turn.");
+        BaseMod.addKeyword(new String[] {"wither"}, "Permanently decrease this card's power by the wither amount. When it reaches #b0, the card becomes #yDepleted.");
+        BaseMod.addKeyword(new String[] {"depleted"}, "#yUnplayable unless the #yWither effect is reversed.");
         BaseMod.addKeyword(new String[] {"inspiration"}, "An unplayable status card. When drawn, it #yExhausts and draws #b2 more cards.");
-        BaseMod.addKeyword(new String[] {"wither"}, "Permanently decrease this card's power by the wither amount. When it reaches #b0, the card becomes #yUnplayable.");
+        BaseMod.addKeyword(new String[] {"respite"}, "An unplayable status card. Heals #b2 HP at the end of your turn.");
+        BaseMod.addKeyword(new String[] {"psalm"}, "A 0-cost card that deals #b3 damage to ALL enemies and has #yWither #b2.");
     }
 
     @Override
