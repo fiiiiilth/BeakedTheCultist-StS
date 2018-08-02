@@ -34,5 +34,12 @@
 			"Ignore the next #b",
 			" #yWither effect(s) this combat."
 		]
+	},
+	"beaked:DevastationPower": {
+		"NAME": "Devastation",
+		"DESCRIPTIONS": [
+			"When you draw a #yDepleted card, draw #b",
+			" more card(s)."
+		]
 	}
 }

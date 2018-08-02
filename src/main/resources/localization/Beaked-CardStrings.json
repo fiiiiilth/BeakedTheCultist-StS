@@ -118,5 +118,29 @@
 	"Psalm": {
 		"NAME": "Psalm",
 		"DESCRIPTION": "Deal !D! damage to ALL enemies. NL Wither !M!."
+	},
+	"Struggle": {
+		"NAME": "Struggle",
+		"DESCRIPTION": "Can only be played if Struggle is the only playable card in hand. NL Deal !D! damage. NL Take 1 damage. NL Deals !M! more damage for each card in hand.",
+		"EXTENDED_DESCRIPTION": ["I have playable cards in my hand!"]
+	},
+	"Devastation": {
+		"NAME": "Devastation",
+		"DESCRIPTION": "When you draw a Depleted card, draw !M! more card.",
+		"UPGRADE_DESCRIPTION": "When you draw a Depleted card, draw !M! more cards."
+	},
+	"Sacrifice": {
+		"NAME": "Sacrifice",
+		"DESCRIPTION": "Deal !D! damage, then heal the enemy for !M! HP. Gain !I! Strength. When this kills an enemy, permanently increase the Strength by 1. Exhaust."
+	},
+	"Brainwash": {
+		"NAME": "Brainwash",
+		"DESCRIPTION": "Exhaust all Depleted cards in your hand. NL Retain your hand this turn. NL Exhaust."
+	},
+	"DarkTribute": {
+		"NAME": "Dark Tribute",
+		"DESCRIPTION": "Heal ALL HP. NL Gain !I! Poison. NL Wither !M!."
 	}
+
+
 }

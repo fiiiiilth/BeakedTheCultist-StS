@@ -9,6 +9,7 @@ import beaked.patches.AbstractCardEnum;
 import beaked.patches.BeakedEnum;
 import beaked.relics.FlawlessSticks;
 import beaked.relics.MendingPlumage;
+import beaked.variables.MiscVariable;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -152,6 +153,8 @@ public class Beaked implements PostInitializeSubscriber,
 
         logger.info("add cards for " + BeakedEnum.BEAKED_THE_CULTIST.toString());
 
+        BaseMod.addDynamicVariable(new MiscVariable());
+
         //Basic
         BaseMod.addCard(new Strike_Y());
         BaseMod.addCard(new Defend_Y());
@@ -185,11 +188,16 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Negation());
         BaseMod.addCard(new Recite());
         BaseMod.addCard(new DesperateSwing());
+        BaseMod.addCard(new Devastation());
+        BaseMod.addCard(new Struggle());
 
         //Rare
         BaseMod.addCard(new FakeOut());
         BaseMod.addCard(new DarkPact());
         BaseMod.addCard(new MachineEssence());
+        BaseMod.addCard(new Sacrifice());
+        BaseMod.addCard(new Brainwash());
+        BaseMod.addCard(new DarkTribute());
 
         // make sure everything is always unlocked
         UnlockTracker.unlockCard("Strike_Y");
@@ -219,6 +227,11 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard("TuckingFeathers");
         UnlockTracker.unlockCard("Negation");
         UnlockTracker.unlockCard("Recite");
+        UnlockTracker.unlockCard("Sacrifice");
+        UnlockTracker.unlockCard("Devastation");
+        UnlockTracker.unlockCard("Struggle");
+        UnlockTracker.unlockCard("Brainwash");
+        UnlockTracker.unlockCard("DarkTribute");
 
 
         UnlockTracker.unlockCard("Inspiration");
