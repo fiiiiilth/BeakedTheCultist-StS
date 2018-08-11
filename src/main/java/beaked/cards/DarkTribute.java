@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
 public class DarkTribute extends AbstractWitherCard {
-    public static final String ID = "DarkTribute";
+    public static final String ID = "beaked:DarkTribute";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;

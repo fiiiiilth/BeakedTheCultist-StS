@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 public class Brainwash extends CustomCard {
-    public static final String ID = "Brainwash";
+    public static final String ID = "beaked:Brainwash";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;

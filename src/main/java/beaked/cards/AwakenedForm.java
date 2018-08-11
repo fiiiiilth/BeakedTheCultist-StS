@@ -20,7 +20,7 @@ import com.megacrit.cardcrawl.vfx.AwakenedEyeParticle;
 import com.megacrit.cardcrawl.vfx.combat.IntenseZoomEffect;
 
 public class AwakenedForm extends CustomCard {
-    public static final String ID = "AwakenedForm";
+    public static final String ID = "beaked:AwakenedForm";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;

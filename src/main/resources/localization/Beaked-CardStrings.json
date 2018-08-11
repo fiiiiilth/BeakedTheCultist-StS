@@ -1,179 +1,179 @@
 {
-	"Strike_Y": {
+	"beaked:Strike_Y": {
 		"NAME": "Strike",
 		"DESCRIPTION": "Deal !D! damage."
 	},
-	"Defend_Y": {
+	"beaked:Defend_Y": {
 		"NAME": "Defend",
 		"DESCRIPTION": "Gain !B! Block."
 	},
-	"Ceremony": {
+	"beaked:Ceremony": {
 		"NAME": "Ceremony",
 		"DESCRIPTION": "Ethereal. NL Gain 1 Ritual.",
 		"UPGRADE_DESCRIPTION": "Gain 1 Ritual."
 	},
-	"Tweet": {
+	"beaked:Tweet": {
 		"NAME": "Tweet",
 		"DESCRIPTION": "Apply !M! Vulnerable."
 	},
-	"Insight": {
+	"beaked:Insight": {
 		"NAME": "Insight",
 		"DESCRIPTION": "At the start of your turn, shuffle an Inspiration into your draw pile.",
 		"UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, shuffle an Inspiration into your draw pile."
 	},
-	"Inspiration": {
+	"beaked:Inspiration": {
 		"NAME": "Inspiration",
 		"DESCRIPTION": "Unplayable. NL When drawn, draw 2 cards and Exhaust."
 	},
-	"Evade": {
+	"beaked:Evade": {
 		"NAME": "Evade",
 		"DESCRIPTION": "If the enemy intends to attack, gain [E] [E].",
 		"EXTENDED_DESCRIPTION": ["This enemy isn't Weak."]
 	},
-	"Daydream": {
+	"beaked:Daydream": {
 		"NAME": "Daydream",
 		"DESCRIPTION": "Shuffle !M! Inspiration into your draw pile."
 	},
-	"Overpower": {
+	"beaked:Overpower": {
 		"NAME": "Overpower",
 		"DESCRIPTION": "Deal !D! damage, plus 1 for every !M! points of health you currently have."
 	},
-	"DarkPact": {
+	"beaked:DarkPact": {
 		"NAME": "Dark Pact",
 		"DESCRIPTION": "Gain !M! Plated Armor. NL Shuffle a Regret into your draw pile."
 	},
-	"Flinch": {
+	"beaked:Flinch": {
 		"NAME": "Flinch",
 		"DESCRIPTION": "Gain !B! Block. NL Wither !M!."
 	},
-	"Roost": {
+	"beaked:Roost": {
 		"NAME": "Roost",
 		"DESCRIPTION": "Gain !B! block. NL Increase this cards cost by 1 for the rest of combat."
 	},
-	"HuntressEssence": {
+	"beaked:HuntressEssence": {
 		"NAME": "Huntress Essence",
 		"DESCRIPTION": "Heal !M! HP and draw !M! card for each card in your Exhaust pile. NL Exhaust",
 		"UPGRADE_DESCRIPTION": "Heal !M! HP and draw !M! cards for each card in your Exhaust pile. NL Exhaust"
 	},
-	"MachineEssence": {
+	"beaked:MachineEssence": {
 		"NAME": "Machine Essence",
 		"DESCRIPTION": "Whenever you receive healing, heal an additional !M! HP."
 	},
-	"WarriorEssence": {
+	"beaked:WarriorEssence": {
 		"NAME": "Warrior Essence",
 		"DESCRIPTION": "Deal !D! damage to a random enemy !M! X times. Heal equal to half the unblocked damage dealt. NL Exhaust."
 	},
-	"FakeOut": {
+	"beaked:FakeOut": {
 		"NAME": "Fake Out",
 		"DESCRIPTION": "Deal !D! damage to ALL enemies. NL Swap your draw pile and discard pile."
 	},
-	"Hexing": {
+	"beaked:Hexing": {
 		"NAME": "Hexing",
 		"DESCRIPTION": "At the start of your turn, apply 2 Weak and 1 Vulnerable to all enemies that don't intend to attack."
 	},
-	"Redirect": {
+	"beaked:Redirect": {
 		"NAME": "Redirect",
 		"DESCRIPTION": "Gain Block equal to !M! times your Strength, then lose all Strength. NL Wither 1.",
 		"EXTENDED_DESCRIPTION": ["(Gain !B! Block.) NL "]
 	},
-	"DesperateSwing": {
+	"beaked:DesperateSwing": {
 		"NAME": "Desperate Swing",
 		"DESCRIPTION": "Deal !D! damage, plus 1 for every !M! points of HP missing."
 	},
-	"Foresight": {
+	"beaked:Foresight": {
 		"NAME": "Foresight",
 		"DESCRIPTION": "Gain !B! Block. NL Next turn, gain [E].",
 		"UPGRADE_DESCRIPTION": "Gain !B! Block. NL Next turn, gain [E] [E]."
 	},
-	"Resilience": {
+	"beaked:Resilience": {
 		"NAME": "Resilience",
 		"DESCRIPTION": "Lose 3 Strength. NL Gain 1 Artifact."
 	},
-	"SowTheSeeds": {
+	"beaked:SowTheSeeds": {
 		"NAME": "Sow the Seeds",
 		"DESCRIPTION": "Shuffle !M! Respite into your draw pile."
 	},
-	"Respite": {
+	"beaked:Respite": {
 		"NAME": "Respite",
 		"DESCRIPTION": "Unplayable. NL At the end of your turn, heal !M! HP."
 	},
-	"Pecker": {
+	"beaked:Pecker": {
 		"NAME": "Pecker",
 		"DESCRIPTION": "Deal !D! damage !M! times. NL Wither 1.",
 		"EXTENDED_DESCRIPTION": ["Deal !D! damage !M! time. NL Wither 1."]
 	},
-	"TuckingFeathers": {
+	"beaked:TuckingFeathers": {
 		"NAME": "Tucking Feathers",
 		"DESCRIPTION": "Draw !M! cards. Gain Block equal to their total cost."
 	},
-	"Negation": {
+	"beaked:Negation": {
 		"NAME": "Negation",
 		"DESCRIPTION": "Ignore the next Wither effect this combat. NL Exhaust.",
 		"UPGRADE_DESCRIPTION": "Ignore the next !M! Wither effects this combat. NL Exhaust."
 	},
-	"Recite": {
+	"beaked:Recite": {
 		"NAME": "Recite",
 		"DESCRIPTION": "Add !M! Psalm cards to your hand."
 	},
-	"Psalm": {
+	"beaked:Psalm": {
 		"NAME": "Psalm",
 		"DESCRIPTION": "Deal !D! damage to ALL enemies. NL Wither !M!."
 	},
-	"Struggle": {
+	"beaked:Struggle": {
 		"NAME": "Struggle",
 		"DESCRIPTION": "Can only be played if Struggle is the only playable card in hand. NL Deal !D! damage. NL Take 1 damage. NL Deals !M! more damage for each card in hand.",
 		"EXTENDED_DESCRIPTION": ["I have playable cards in my hand!"]
 	},
-	"Devastation": {
+	"beaked:Devastation": {
 		"NAME": "Devastation",
 		"DESCRIPTION": "When you draw a Depleted card, draw !M! more card.",
 		"UPGRADE_DESCRIPTION": "When you draw a Depleted card, draw !M! more cards."
 	},
-	"Sacrifice": {
+	"beaked:Sacrifice": {
 		"NAME": "Sacrifice",
 		"DESCRIPTION": "Deal !D! damage, then heal the enemy for !M! HP. Gain !I! Strength. When this kills an enemy, permanently increase the Strength by 1. Exhaust."
 	},
-	"Brainwash": {
+	"beaked:Brainwash": {
 		"NAME": "Brainwash",
 		"DESCRIPTION": "Exhaust all Depleted cards in your hand. NL Retain your hand this turn. NL Exhaust."
 	},
-	"DarkTribute": {
+	"beaked:DarkTribute": {
 		"NAME": "Dark Tribute",
 		"DESCRIPTION": "Heal ALL HP. NL Gain !I! Poison. NL Wither !M!."
 	},
-	"LiftOff": {
+	"beaked:LiftOff": {
 		"NAME": "Lift Off",
 		"DESCRIPTION": "Take 50% less damage from attacks. If you are attacked !M! times in one turn, lose this power and skip your next turn."
 	},
-	"FullHouse": {
+	"beaked:FullHouse": {
 		"NAME": "Full House",
 		"DESCRIPTION": "Draw !I! cards. NL Wither !M!."
 	},
-	"Caw": {
+	"beaked:Caw": {
 		"NAME": "CAW!",
 		"DESCRIPTION": "Deal !D! damage to ALL enemies X times. Apply X Weak and Vulnerable to ALL enemies. NL Wither !M!.",
 		"UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies X+1 times. Apply X+1 Weak and Vulnerable to ALL enemies. NL Wither !M!."
 	},
-	"SacrificialScars": {
+	"beaked:SacrificialScars": {
 		"NAME": "Sacrificial Scars",
 		"DESCRIPTION": "Lose 6 HP. NL Gain !M! Max HP. NL You cannot heal for 3 turns. NL Exhaust.",
 		"UPGRADE_DESCRIPTION": "Lose 7 HP. NL Gain !M! Max HP. NL You cannot heal for 3 turns. Exhaust."
 	},
-	"AwakenedForm": {
+	"beaked:AwakenedForm": {
 		"NAME": "Awakened Form",
 		"DESCRIPTION": "Costs 1 less [E] for each Boss killed. NL Your cards cost 1 less [E].",
 		"UPGRADE_DESCRIPTION": " Can reduce costs below 0."
 	},
-	"BounceBack": {
+	"beaked:BounceBack": {
 		"NAME": "Bounce Back",
 		"DESCRIPTION": "Remove all of your Debuffs. NL Exhaust."
 	},
-	"StickSmack": {
+	"beaked:StickSmack": {
 		"NAME": "Stick Smack",
 		"DESCRIPTION": "Deal !D! damage. NL Shuffle a Stick into your draw pile.",
 		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle an Upgraded Stick into your draw pile."
 	},
-	"Stick": {
+	"beaked:Stick": {
 		"NAME": "Stick",
 		"DESCRIPTION": "ALL Stick-Smack cards deal !M! additional damage this combat. Return the last played Stick-Smack card to your hand."
 	}

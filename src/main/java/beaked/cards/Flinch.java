@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 
 public class Flinch extends AbstractWitherCard {
-    public static final String ID = "Flinch";
+    public static final String ID = "beaked:Flinch";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
