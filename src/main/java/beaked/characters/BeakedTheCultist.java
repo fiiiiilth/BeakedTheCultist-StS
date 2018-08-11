@@ -52,11 +52,6 @@ public class BeakedTheCultist extends CustomPlayer {
         }
     }
 
-    @Override
-    public void applyEndOfTurnTriggers() {
-
-    }
-
     public static ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add(Strike_Y.ID);

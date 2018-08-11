@@ -16,6 +16,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.relics.CultistMask;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -35,7 +37,8 @@ import basemod.ModPanel;
 @SpireInitializer
 public class Beaked implements PostInitializeSubscriber,
         EditCardsSubscriber, EditRelicsSubscriber, EditCharactersSubscriber,
-        EditStringsSubscriber, SetUnlocksSubscriber, EditKeywordsSubscriber, OnCardUseSubscriber {
+        EditStringsSubscriber, SetUnlocksSubscriber, EditKeywordsSubscriber, OnCardUseSubscriber, PostBattleSubscriber,
+        StartGameSubscriber{
     public static final Logger logger = LogManager.getLogger(Beaked.class.getName());
 
     private static final String MODNAME = "BeakedTheCultist the Cultist";
@@ -164,6 +167,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Inspiration());
         BaseMod.addCard(new Respite());
         BaseMod.addCard(new Psalm());
+        BaseMod.addCard(new Stick());
 
         //Common
         BaseMod.addCard(new WarriorEssence());
@@ -190,6 +194,8 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new DesperateSwing());
         BaseMod.addCard(new Devastation());
         BaseMod.addCard(new Struggle());
+        BaseMod.addCard(new BounceBack());
+        BaseMod.addCard(new StickSmack());
 
         //Rare
         BaseMod.addCard(new FakeOut());
@@ -198,6 +204,11 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Sacrifice());
         BaseMod.addCard(new Brainwash());
         BaseMod.addCard(new DarkTribute());
+        BaseMod.addCard(new LiftOff());
+        BaseMod.addCard(new FullHouse());
+        BaseMod.addCard(new SacrificialScars());
+        BaseMod.addCard(new Caw());
+        BaseMod.addCard(new AwakenedForm());
 
         // make sure everything is always unlocked
         UnlockTracker.unlockCard("Strike_Y");
@@ -232,11 +243,19 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard("Struggle");
         UnlockTracker.unlockCard("Brainwash");
         UnlockTracker.unlockCard("DarkTribute");
+        UnlockTracker.unlockCard("LiftOff");
+        UnlockTracker.unlockCard("BounceBack");
+        UnlockTracker.unlockCard("FullHouse");
+        UnlockTracker.unlockCard("SacrificialScars");
+        UnlockTracker.unlockCard("Caw");
+        UnlockTracker.unlockCard("AwakenedForm");
+        UnlockTracker.unlockCard("StickSmack");
 
 
         UnlockTracker.unlockCard("Inspiration");
         UnlockTracker.unlockCard("Respite");
         UnlockTracker.unlockCard("Psalm");
+        UnlockTracker.unlockCard("Stick");
 
         logger.info("done editting cards");
     }
@@ -276,6 +295,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addKeyword(new String[] {"inspiration"}, "An unplayable status card. When drawn, it #yExhausts and draws #b2 more cards.");
         BaseMod.addKeyword(new String[] {"respite"}, "An unplayable status card. Heals #b2 HP at the end of your turn.");
         BaseMod.addKeyword(new String[] {"psalm"}, "A 0-cost card that deals #b3 damage to ALL enemies and has #yWither #b2.");
+        BaseMod.addKeyword(new String[] {"stick"}, "A 0-cost card that increases Stick Smack damage and returns a Stick Smack to your hand.");
     }
 
     @Override
@@ -283,6 +303,28 @@ public class Beaked implements PostInitializeSubscriber,
         if(AbstractDungeon.player.hasRelic(CultistMask.ID)) {
             AbstractDungeon.actionManager.addToBottom(new SFXAction("VO_CULTIST_1A"));
             AbstractDungeon.actionManager.addToBottom(new TalkAction(true, "CAW", 1.0f, 2.0f));
+        }
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom battleRoom){
+        if (battleRoom instanceof MonsterRoomBoss) {
+            //BaseMod.logger.debug("BOSSES KILLED: " + AbstractDungeon.bossCount);
+            for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+                if (c instanceof AwakenedForm) {
+                    ((AwakenedForm) c).updateAwakenCost();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void receiveStartGame(){
+       // BaseMod.logger.debug("BOSSES KILLED: " + AbstractDungeon.bossCount);
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if (c instanceof AwakenedForm) {
+                ((AwakenedForm) c).updateAwakenCost();
+            }
         }
     }
 }

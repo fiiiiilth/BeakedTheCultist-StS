@@ -24,7 +24,8 @@ public class RitualPlayerPower extends AbstractPower {
         this.amount = amount;
         this.isTurnBased = true;
         updateDescription();
-        this.img = new Texture("img/powers/ritual.png");
+        this.loadRegion("ritual");
+        //this.img = new Texture("img/powers/ritual.png");
     }
 
     @Override

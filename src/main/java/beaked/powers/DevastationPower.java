@@ -35,7 +35,7 @@ public class DevastationPower extends AbstractPower implements PostDrawSubscribe
 		updateDescription();
 		this.type = PowerType.BUFF;
 		this.isTurnBased = false;
-		this.img = new Texture("img/powers/ritual.png");
+		this.loadRegion("anger");
 	}
 
 	@Override
@@ -55,6 +55,9 @@ public class DevastationPower extends AbstractPower implements PostDrawSubscribe
 			AbstractDungeon.actionManager.addToTop(new DrawCardAction(this.owner,this.amount));
 		}
 	}
+
+	@Override
+	public void onRemove(){ BaseMod.unsubscribe(this); }
 
 	@Override
 	public void receivePostBattle(AbstractRoom battleRoom) {

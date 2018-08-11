@@ -24,7 +24,7 @@ public class InsightPower extends AbstractPower {
         this.amount = amount;
         this.isTurnBased = false;
         updateDescription();
-        this.img = new Texture("img/powers/ritual.png");
+        this.loadRegion("curiosity");
     }
 
     @Override

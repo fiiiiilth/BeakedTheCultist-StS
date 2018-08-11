@@ -17,8 +17,6 @@ public abstract class AbstractWitherCard extends CustomCard {
     public int baseMisc;
     public boolean isDepleted = false;
 
-    private String savedDesc = "";
-
     public AbstractWitherCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardColor color, CardRarity rarity, CardTarget target) {
         super(id, name, img, cost, rawDescription, type, color, rarity, target);
     }
@@ -42,7 +40,14 @@ public abstract class AbstractWitherCard extends CustomCard {
         } else if (this.isDepleted && ((this.baseMisc < 0 && this.misc < 0) || (this.baseMisc > 0 && this.misc > 0))){
             onRestored();
         }
+
+        boolean tmp = this.isMultiDamage;
+        if (AbstractDungeon.currMapNode == null){
+            this.isMultiDamage = false; // game crashes if calculating multidamage in a null room (ie. when loading a file), so avoid that.
+        }
         super.applyPowers();
+        this.isMultiDamage = tmp;
+
         this.initializeDescription();
     }
 
@@ -50,17 +55,24 @@ public abstract class AbstractWitherCard extends CustomCard {
         if (this.isDepleted) return;
 
         this.isDepleted = true;
-        this.savedDesc = this.rawDescription;
         this.misc = 0;
-        this.rawDescription = DEPLETED_DESCRIPTION + this.rawDescription;
         this.initializeDescription();
     }
     public void onRestored(){
         if (!this.isDepleted) return;
 
         this.isDepleted = false;
-        this.rawDescription = this.savedDesc;
         this.initializeDescription();
+    }
+
+    @Override
+    public void initializeDescription(){
+        if (this.isDepleted && !this.rawDescription.startsWith(DEPLETED_DESCRIPTION)){
+            this.rawDescription = DEPLETED_DESCRIPTION + this.rawDescription;
+        } else if (!this.isDepleted && this.rawDescription.startsWith(DEPLETED_DESCRIPTION)){
+            this.rawDescription = this.rawDescription.replaceFirst(DEPLETED_DESCRIPTION,"");
+        }
+        super.initializeDescription();
     }
 
     protected void upgradeMisc(int amount){

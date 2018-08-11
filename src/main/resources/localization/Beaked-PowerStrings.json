@@ -41,5 +41,38 @@
 			"When you draw a #yDepleted card, draw #b",
 			" more card(s)."
 		]
+	},
+	"beaked:FlightPlayerPower": {
+		"NAME": "Flight",
+		"DESCRIPTIONS": [
+			"Take #b50% less damage from #yAttacks. If you are attacked #b",
+			" times in one turn, lose this power and skip your next turn."
+		]
+	},
+	"beaked:StunnedPower": {
+		"NAME": "Stunned",
+		"DESCRIPTIONS": [
+			"Skip your next turn."
+		]
+	},
+	"beaked:NoHealPower": {
+		"NAME": "No Heal",
+		"DESCRIPTIONS": [
+			"You cannot heal for #b",
+			" turns."
+		]
+	},
+	"beaked:AwakenedPower": {
+		"NAME": "Awakened",
+		"DESCRIPTIONS": [
+			"ALL cards cost #b",
+			" [R] less."
+		]
+	},
+	"beaked:AwakenedPlusPower": {
+		"NAME": "Full Awakening",
+		"DESCRIPTIONS": [
+			"Awakened can reduce card costs below 0."
+		]
 	}
 }

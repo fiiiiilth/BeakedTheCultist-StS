@@ -51,7 +51,7 @@ public class Redirect extends AbstractWitherCard {
         }
         super.applyPowers();
         if (!this.isDepleted && AbstractDungeon.player.hand.contains(this)) this.rawDescription = EXTENDED_DESCRIPTION + DESCRIPTION;
-        else if (this.isDepleted) this.rawDescription = DEPLETED_DESCRIPTION + DESCRIPTION;
+        else this.rawDescription = DESCRIPTION;
         this.initializeDescription();
     }
 

@@ -47,8 +47,7 @@ public class Pecker extends AbstractWitherCard {
         this.baseMagicNumber = this.magicNumber = this.misc;
         super.applyPowers();
         // pluralization
-        if (this.magicNumber == 1) this.rawDescription = (this.isDepleted?DEPLETED_DESCRIPTION:"") + EXTENDED_DESCRIPTION;
-        else this.rawDescription = (this.isDepleted?DEPLETED_DESCRIPTION:"") + DESCRIPTION;
+        this.rawDescription = (this.magicNumber == 1 ? EXTENDED_DESCRIPTION : DESCRIPTION);
         this.initializeDescription();
     }
 
