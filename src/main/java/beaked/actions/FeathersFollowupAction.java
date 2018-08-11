@@ -23,7 +23,7 @@ public class FeathersFollowupAction extends AbstractGameAction
         if (this.duration == Settings.ACTION_DUR_FASTER) {
             int blockGain = 0;
             for (final AbstractCard drawn : FeathersDrawAction.drawnCards) {
-                blockGain += drawn.costForTurn;
+                if (drawn.costForTurn > 0) blockGain += drawn.costForTurn;
             }
             FeathersDrawAction.drawnCards.clear();
             AbstractDungeon.actionManager.addToTop(new GainBlockAction(p,p,blockGain));
