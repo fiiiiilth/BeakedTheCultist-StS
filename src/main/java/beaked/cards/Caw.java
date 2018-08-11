@@ -6,11 +6,9 @@ import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.PummelDamageAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -19,6 +17,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 
@@ -52,9 +51,9 @@ public class Caw extends AbstractWitherCard {
             this.energyOnUse = EnergyPanel.totalCount;
         }
         if (this.upgraded) this.energyOnUse += 1;
-        if (p.hasRelic("Chemical X")) {
+        if (p.hasRelic(ChemicalX.ID)) {
             this.energyOnUse += 2;
-            p.getRelic("Chemical X").flash();
+            p.getRelic(ChemicalX.ID).flash();
         }
 
         AbstractDungeon.actionManager.addToBottom(new SFXAction("VO_CULTIST_1B"));

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.*;
 import com.megacrit.cardcrawl.characters.*;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.dungeons.*;
+import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.*;
 
 public class WarriorEssenceAction extends AbstractGameAction
@@ -38,9 +39,9 @@ public class WarriorEssenceAction extends AbstractGameAction
         if (this.energyOnUse != -1) {
             effect = this.energyOnUse;
         }
-        if (this.p.hasRelic("Chemical X")) {
+        if (this.p.hasRelic(ChemicalX.ID)) {
             effect += 2;
-            this.p.getRelic("Chemical X").flash();
+            this.p.getRelic(ChemicalX.ID).flash();
         }
         if (effect > 0) {
             AbstractDungeon.actionManager.addToBottom(new DealMultiRandomVampireDamageAction(

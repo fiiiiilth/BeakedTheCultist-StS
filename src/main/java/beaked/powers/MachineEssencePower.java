@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class MachineEssencePower extends AbstractPower {
-    public static final String POWER_ID = "MachineEssencePower";
+    public static final String POWER_ID = "beaked:MachineEssencePower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;

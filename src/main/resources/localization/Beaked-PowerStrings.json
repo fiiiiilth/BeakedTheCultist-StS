@@ -1,26 +1,26 @@
 {
-	"RitualPlayer": {
+	"beaked:RitualPlayer": {
 		"NAME": "Ritual",
 		"DESCRIPTIONS": [
 			"At the start of your turn, gain #b",
 			" #yStrength."
 		]
 	},
-	"InsightPower": {
+	"beaked:InsightPower": {
 		"NAME": "Insight",
 		"DESCRIPTIONS": [
 			"At the start of your turn, shuffle #b",
 			" #yInspiration card(s) into your draw pile."
 		]
 	},
-	"MachineEssencePower": {
+	"beaked:MachineEssencePower": {
 		"NAME": "Machine Essence",
 		"DESCRIPTIONS": [
 			"Whenever you receive healing, heal #b",
 			" extra HP."
 		]
 	},
-	"HexingPower": {
+	"beaked:HexingPower": {
 		"NAME": "Hexing",
 		"DESCRIPTIONS": [
 			"At the start of your turn, apply #b",
@@ -28,7 +28,7 @@
 			" #yVulnerable to all enemies that don't intend to attack."
 		]
 	},
-	"NegationPower": {
+	"beaked:NegationPower": {
 		"NAME": "Negation",
 		"DESCRIPTIONS": [
 			"Ignore the next #b",
@@ -74,5 +74,6 @@
 		"DESCRIPTIONS": [
 			"Awakened can reduce card costs below 0."
 		]
-	}
+	},
+	"beaked"
 }

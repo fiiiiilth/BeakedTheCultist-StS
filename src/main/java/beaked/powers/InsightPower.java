@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class InsightPower extends AbstractPower {
 
-    public static final String POWER_ID = "InsightPower";
+    public static final String POWER_ID = "beaked:InsightPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;

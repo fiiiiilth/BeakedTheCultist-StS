@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class FlawlessSticks extends CustomRelic {
-    public static final String ID = "FlawlessSticks";
+    public static final String ID = "beaked:FlawlessSticks";
 
     public FlawlessSticks() {
         super(ID, new Texture("img/relics/" + ID + ".png"),

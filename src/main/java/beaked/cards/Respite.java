@@ -12,6 +12,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.EvolvePower;
+import com.megacrit.cardcrawl.powers.NoDrawPower;
+import com.megacrit.cardcrawl.relics.MedicalKit;
 
 public class Respite extends CustomCard {
     public static final String ID = "Respite";
@@ -29,7 +32,7 @@ public class Respite extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!this.dontTriggerOnUseCard && p.hasRelic("Medical Kit")) {
+        if (!this.dontTriggerOnUseCard && p.hasRelic(MedicalKit.ID)) {
             this.useMedicalKit(p);
         }
         else {
@@ -40,9 +43,9 @@ public class Respite extends CustomCard {
 
     @Override
     public void triggerWhenDrawn() {
-        if (AbstractDungeon.player.hasPower("Evolve") && !AbstractDungeon.player.hasPower("No Draw")) {
-            AbstractDungeon.player.getPower("Evolve").flash();
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, AbstractDungeon.player.getPower("Evolve").amount));
+        if (AbstractDungeon.player.hasPower(EvolvePower.POWER_ID) && !AbstractDungeon.player.hasPower(NoDrawPower.POWER_ID)) {
+            AbstractDungeon.player.getPower(EvolvePower.POWER_ID).flash();
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, AbstractDungeon.player.getPower(EvolvePower.POWER_ID).amount));
         }
     }
 

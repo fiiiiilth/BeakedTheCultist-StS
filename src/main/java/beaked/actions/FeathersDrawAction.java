@@ -3,6 +3,7 @@ package beaked.actions;
 import com.megacrit.cardcrawl.actions.*;
 import java.util.*;
 import com.megacrit.cardcrawl.dungeons.*;
+import com.megacrit.cardcrawl.powers.NoDrawPower;
 import com.megacrit.cardcrawl.vfx.*;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.cards.*;
@@ -21,8 +22,8 @@ public class FeathersDrawAction extends AbstractGameAction
         if (endTurnDraw) {
             AbstractDungeon.topLevelEffects.add(new PlayerTurnEffect());
         }
-        else if (AbstractDungeon.player.hasPower("No Draw")) {
-            AbstractDungeon.player.getPower("No Draw").flash();
+        else if (AbstractDungeon.player.hasPower(NoDrawPower.POWER_ID)) {
+            AbstractDungeon.player.getPower(NoDrawPower.POWER_ID).flash();
             this.setValues(AbstractDungeon.player, source, amount);
             this.isDone = true;
             this.duration = 0.0f;

@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class MendingPlumage extends CustomRelic {
-    public static final String ID = "MendingPlumage";
+    public static final String ID = "beaked:MendingPlumage";
     private static final int HEAL_PER_CARD = 1;
 
     public MendingPlumage() {

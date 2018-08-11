@@ -1,12 +1,12 @@
 {
-  "MendingPlumage": {
+  "beaked:MendingPlumage": {
     "NAME": "Mending Plumage",
     "FLAVOR": "The Plumage merges with your feathers and makes you feel ...",
     "DESCRIPTIONS": [
       "Upon playing a card, heal #b1 HP."
     ]
   },
-  "FlawlessSticks": {
+  "beaked:FlawlessSticks": {
     "NAME": "Flawless Sticks",
     "FLAVOR": "A bundle of surprisingly beautiful sticks.",
     "DESCRIPTIONS": [
