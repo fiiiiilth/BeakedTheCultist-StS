@@ -4,6 +4,6 @@
 	"author_list": ["fiiiiilth"],
 	"description": "Adds Beaked the Cultist as a new playable character.",
 	"dependencies": ["basemod"],
-	"version": "0.1",
-	"sts_version": "07-26-2018"
+	"version": "0.2",
+	"sts_version": "08-09-2018"
 }
