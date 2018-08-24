@@ -20,7 +20,7 @@ public class Insight extends CustomCard {
     public static final int COST = 1;
 
     public Insight() {
-        super(ID, NAME, "img/cards/"+ID+".png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, NAME, "img/cards/Insight.png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
     }
 
     @Override

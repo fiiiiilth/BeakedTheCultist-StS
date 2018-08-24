@@ -12,7 +12,7 @@ public class MendingPlumage extends CustomRelic {
     private static final int HEAL_PER_CARD = 1;
 
     public MendingPlumage() {
-        super(ID, new Texture("img/relics/" + ID + ".png"),
+        super(ID, new Texture("img/relics/MendingPlumage.png"),
                 RelicTier.STARTER, LandingSound.MAGICAL);
     }
 

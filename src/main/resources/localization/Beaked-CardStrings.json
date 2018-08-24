@@ -176,8 +176,24 @@
 	"beaked:Stick": {
 		"NAME": "Stick",
 		"DESCRIPTION": "ALL Stick-Smack cards deal !M! additional damage this combat. Return the last played Stick-Smack card to your hand."
+	},
+	"beaked:WarriorSpirit": {
+		"NAME": "Warrior Spirit",
+		"DESCRIPTION": "Your next Attack this turn is played twice. NL Gain Strength equal to its cost.",
+		"UPGRADE_DESCRIPTION": "Your next Attack this turn is played twice. NL Gain Strength equal to twice its cost."
+	},
+	"beaked:HuntressSpirit": {
+		"NAME": "Huntress Spirit",
+		"DESCRIPTION": "Your next Skill this turn is played twice. NL Gain Dexterity equal to its cost.",
+		"UPGRADE_DESCRIPTION": "Your next Skill this turn is played twice. NL Gain Dexterity equal to twice its cost."
+	},
+	"beaked:MachineSpirit": {
+		"NAME": "Machine Spirit",
+		"DESCRIPTION": "Your next Power this turn is played twice. NL Heal for 3 times its cost.",
+		"UPGRADE_DESCRIPTION": "Your next Power this turn is played twice. NL Heal for 5 times its cost."
+	},
+	"beaked:WildInstinct": {
+		"NAME": "Wild Instinct",
+		"DESCRIPTION": "If you have less than 50% HP when drawn, deal !D! damage to ALL enemies."
 	}
-
-
-
 }

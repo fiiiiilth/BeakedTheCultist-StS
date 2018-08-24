@@ -10,6 +10,7 @@ import beaked.patches.BeakedEnum;
 import beaked.relics.FlawlessSticks;
 import beaked.relics.MendingPlumage;
 import beaked.variables.MiscVariable;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -42,7 +43,7 @@ public class Beaked implements PostInitializeSubscriber,
     public static final Logger logger = LogManager.getLogger(Beaked.class.getName());
 
     private static final String MODNAME = "BeakedTheCultist the Cultist";
-    private static final String AUTHOR = "fiiiiilth";
+    private static final String AUTHOR = "fiiiiilth, Moocowsgomoo";
     private static final String DESCRIPTION = "v0.1\n Adds Beaked the Cultist as a new playable characters.";
 
     private static final Color YELLOW = CardHelper.getColor(255.0f, 255.0f, 0.0f);
@@ -96,7 +97,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.subscribe(this);
 
         logger.info("creating the color " + AbstractCardEnum.BEAKED_YELLOW.toString());
-        BaseMod.addColor(AbstractCardEnum.BEAKED_YELLOW.toString(),
+        BaseMod.addColor(AbstractCardEnum.BEAKED_YELLOW,
                 YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW,
                 makePath(ATTACK_YELLOW), makePath(SKILL_YELLOW),
                 makePath(POWER_YELLOW), makePath(ENERGY_ORB_YELLOW),
@@ -117,7 +118,6 @@ public class Beaked implements PostInitializeSubscriber,
         // Mod badge
         Texture badgeTexture = new Texture(makePath(BADGE_IMG));
         ModPanel settingsPanel = new ModPanel();
-        settingsPanel.addLabel("This mod does not have any settings (yet)!", 400.0f, 700.0f, (me) -> {});
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
         Settings.isDailyRun = false;
@@ -127,32 +127,32 @@ public class Beaked implements PostInitializeSubscriber,
 
     @Override
     public void receiveEditCharacters() {
-        logger.info("begin editting characters");
+        logger.info("begin editing characters");
 
         logger.info("add " + BeakedEnum.BEAKED_THE_CULTIST.toString());
         BaseMod.addCharacter(BeakedTheCultist.class, "The Beaked", "BeakedTheCultist class string",
-                AbstractCardEnum.BEAKED_YELLOW.toString(), "Beaked the Cultist",
+                AbstractCardEnum.BEAKED_YELLOW, "Beaked the Cultist",
                 makePath(BEAKED_BUTTON), makePath(BEAKED_PORTRAIT),
-                BeakedEnum.BEAKED_THE_CULTIST.toString());
+                BeakedEnum.BEAKED_THE_CULTIST);
 
-        logger.info("done editting characters");
+        logger.info("done editing characters");
     }
 
 
     @Override
     public void receiveEditRelics() {
-        logger.info("begin editting relics");
+        logger.info("begin editing relics");
 
         // Add relics
-        BaseMod.addRelicToCustomPool(new MendingPlumage(), AbstractCardEnum.BEAKED_YELLOW.toString());
-        BaseMod.addRelicToCustomPool(new FlawlessSticks(), AbstractCardEnum.BEAKED_YELLOW.toString());
+        BaseMod.addRelicToCustomPool(new MendingPlumage(), AbstractCardEnum.BEAKED_YELLOW);
+        BaseMod.addRelicToCustomPool(new FlawlessSticks(), AbstractCardEnum.BEAKED_YELLOW);
 
-        logger.info("done editting relics");
+        logger.info("done editing relics");
     }
 
     @Override
     public void receiveEditCards() {
-        logger.info("begin editting cards");
+        logger.info("begin editing cards");
 
         logger.info("add cards for " + BeakedEnum.BEAKED_THE_CULTIST.toString());
 
@@ -196,6 +196,9 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Struggle());
         BaseMod.addCard(new BounceBack());
         BaseMod.addCard(new StickSmack());
+        BaseMod.addCard(new WarriorSpirit());
+        BaseMod.addCard(new HuntressSpirit());
+        BaseMod.addCard(new MachineSpirit());
 
         //Rare
         BaseMod.addCard(new FakeOut());
@@ -209,6 +212,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new SacrificialScars());
         BaseMod.addCard(new Caw());
         BaseMod.addCard(new AwakenedForm());
+        BaseMod.addCard(new WildInstinct());
 
         // make sure everything is always unlocked
         UnlockTracker.unlockCard(Strike_Y.ID);
@@ -250,6 +254,10 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(Caw.ID);
         UnlockTracker.unlockCard(AwakenedForm.ID);
         UnlockTracker.unlockCard(StickSmack.ID);
+        UnlockTracker.unlockCard(WarriorSpirit.ID);
+        UnlockTracker.unlockCard(HuntressSpirit.ID);
+        UnlockTracker.unlockCard(MachineSpirit.ID);
+        UnlockTracker.unlockCard(WildInstinct.ID);
 
 
         UnlockTracker.unlockCard(Inspiration.ID);
@@ -257,12 +265,12 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(Psalm.ID);
         UnlockTracker.unlockCard(Stick.ID);
 
-        logger.info("done editting cards");
+        logger.info("done editing cards");
     }
 
     @Override
     public void receiveEditStrings() {
-        logger.info("begin editting strings");
+        logger.info("begin editing strings");
 
         // RelicStrings
         String relicStrings = Gdx.files.internal("localization/Beaked-RelicStrings.json").readString(
@@ -277,7 +285,7 @@ public class Beaked implements PostInitializeSubscriber,
                 String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
 
-        logger.info("done editting strings");
+        logger.info("done editing strings");
     }
 
     @Override

@@ -14,7 +14,7 @@ public class FlawlessSticks extends CustomRelic {
     public static final String ID = "beaked:FlawlessSticks";
 
     public FlawlessSticks() {
-        super(ID, new Texture("img/relics/" + ID + ".png"),
+        super(ID, new Texture("img/relics/FlawlessSticks.png"),
                 RelicTier.BOSS, LandingSound.SOLID);
     }
 

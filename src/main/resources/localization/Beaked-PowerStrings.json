@@ -74,5 +74,59 @@
 		"DESCRIPTIONS": [
 			"Awakened can reduce card costs below 0."
 		]
+	},
+	"beaked:WarriorSpiritPower": {
+		"NAME": "Warrior Spirit",
+		"DESCRIPTIONS": [
+			"This turn, play your next #yAttack twice.",
+			"This turn, play your next #b",
+			" #yAttacks twice.",
+			" NL Gain #yStrength equal to its cost."
+		]
+	},
+	"beaked:WarriorSpiritPlusPower": {
+		"NAME": "Warrior Spirit",
+		"DESCRIPTIONS": [
+			"This turn, play your next #yAttack twice.",
+			"This turn, play your next #b",
+			" #yAttacks twice.",
+			" NL Gain #yStrength equal to twice its cost."
+		]
+	},
+	"beaked:HuntressSpiritPower": {
+		"NAME": "Huntress Spirit",
+		"DESCRIPTIONS": [
+			"This turn, play your next #ySkill twice.",
+			"This turn, play your next #b",
+			" #ySkills twice.",
+			" NL Gain #yDexterity equal to its cost."
+		]
+	},
+	"beaked:HuntressSpiritPlusPower": {
+		"NAME": "Huntress Spirit",
+		"DESCRIPTIONS": [
+			"This turn, play your next #ySkill twice.",
+			"This turn, play your next #b",
+			" #ySkills twice.",
+			" NL Gain #yDexterity equal to twice its cost."
+		]
+	},
+	"beaked:MachineSpiritPower": {
+		"NAME": "Machine Spirit",
+		"DESCRIPTIONS": [
+			"This turn, play your next #yPower twice.",
+			"This turn, play your next #b",
+			" #yPowers twice.",
+			" NL Heal for 3 times its cost."
+		]
+	},
+	"beaked:MachineSpiritPlusPower": {
+		"NAME": "Machine Spirit",
+		"DESCRIPTIONS": [
+			"This turn, play your next #yPower twice.",
+			"This turn, play your next #b",
+			" #yPowers twice.",
+			" NL Heal for 5 times its cost."
+		]
 	}
 }
