@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -21,7 +22,7 @@ public class Strike_Y extends CustomCard {
     private static final int UPGRADE_PLUS_DMG = 3;
 
     public Strike_Y() {
-        super(ID, NAME, "img/cards/Strike_Y.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, AbstractCard.CardRarity.BASIC,
                 AbstractCard.CardTarget.ENEMY);
 

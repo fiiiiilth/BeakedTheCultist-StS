@@ -161,8 +161,8 @@
 	},
 	"beaked:AwakenedForm": {
 		"NAME": "Awakened Form",
-		"DESCRIPTION": "Costs 1 less [E] for each Boss killed. NL Your cards cost 1 less [E].",
-		"UPGRADE_DESCRIPTION": " Can reduce costs below 0."
+		"DESCRIPTION": "Costs 1 less [E] for each Boss killed. NL Cards cost 1 less [E].",
+		"UPGRADE_DESCRIPTION": " NL Can reduce costs below 0."
 	},
 	"beaked:BounceBack": {
 		"NAME": "Bounce Back",
@@ -195,5 +195,21 @@
 	"beaked:WildInstinct": {
 		"NAME": "Wild Instinct",
 		"DESCRIPTION": "If you have less than 50% HP when drawn, deal !D! damage to ALL enemies."
+	},
+	"beaked:Tradeoff": {
+		"NAME": "Tradeoff",
+		"DESCRIPTION": "Exhaust |^a^|{^!I!^} random card{^s^} in your hand. NL Draw !M! card{s}. NL Wither 1."
+	},
+	"beaked:BloodForTheGods": {
+		"NAME": "Blood For The Gods",
+		"DESCRIPTION": "Take !M! damage. NL Next turn, heal twice that much HP."
+	},
+	"beaked:Poke": {
+		"NAME": "Poke",
+		"DESCRIPTION": "Draw !M! card{s}. NL |If it's an Attack|{For each Attack drawn this way}, deal !D! damage."
+	},
+	"beaked:Replenish": {
+		"NAME": "Replenish",
+		"DESCRIPTION": "Replenish !M! use{s} of a Withered card in your hand."
 	}
 }

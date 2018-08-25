@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.InsightPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -20,7 +21,7 @@ public class Insight extends CustomCard {
     public static final int COST = 1;
 
     public Insight() {
-        super(ID, NAME, "img/cards/Insight.png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
     }
 
     @Override
@@ -39,6 +40,7 @@ public class Insight extends CustomCard {
             this.upgradeName();
             this.rawDescription = UPGRADED_DESCRIPTION;
             this.initializeDescription();
+            this.isInnate = true;
         }
     }
 }

@@ -22,7 +22,7 @@ public class RitualPlayerPower extends AbstractPower {
         this.ID = POWER_ID;
         this.owner = owner;
         this.amount = amount;
-        this.isTurnBased = true;
+        this.isTurnBased = false;
         updateDescription();
         this.loadRegion("ritual");
         //this.img = new Texture("img/powers/ritual.png");

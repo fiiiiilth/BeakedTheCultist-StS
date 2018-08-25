@@ -1,6 +1,7 @@
 package beaked.relics;
 
 import basemod.abstracts.CustomRelic;
+import beaked.Beaked;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,7 +13,7 @@ public class MendingPlumage extends CustomRelic {
     private static final int HEAL_PER_CARD = 1;
 
     public MendingPlumage() {
-        super(ID, new Texture("img/relics/MendingPlumage.png"),
+        super(ID, new Texture("img/relics/" + Beaked.getActualID(ID) + ".png"),
                 RelicTier.STARTER, LandingSound.MAGICAL);
     }
 

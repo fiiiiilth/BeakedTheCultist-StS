@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -19,7 +20,7 @@ public class Inspiration extends CustomCard {
     public static final int COST = -2;
 
     public Inspiration() {
-        super(ID, NAME, "img/cards/Inspiration.png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.NONE);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.NONE);
 
         this.magicNumber = this.baseMagicNumber = 2;
     }

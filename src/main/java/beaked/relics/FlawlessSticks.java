@@ -1,6 +1,7 @@
 package beaked.relics;
 
 import basemod.abstracts.CustomRelic;
+import beaked.Beaked;
 import beaked.cards.AbstractWitherCard;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -14,7 +15,7 @@ public class FlawlessSticks extends CustomRelic {
     public static final String ID = "beaked:FlawlessSticks";
 
     public FlawlessSticks() {
-        super(ID, new Texture("img/relics/FlawlessSticks.png"),
+        super(ID, new Texture("img/relics/" + Beaked.getActualID(ID) + ".png"),
                 RelicTier.BOSS, LandingSound.SOLID);
     }
 

@@ -2,46 +2,48 @@ package beaked.cards;
 
 import basemod.abstracts.CustomCard;
 import beaked.Beaked;
+import beaked.actions.ReplenishCardInHandAction;
 import beaked.patches.AbstractCardEnum;
-import beaked.powers.InsightPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
-public class Recite extends CustomCard {
-    public static final String ID = "beaked:Recite";
+public class Replenish extends CustomCard {
+    public static final String ID = "beaked:Replenish";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final int COST = 2;
-    public static final int NUM_CARDS = 2;
-    public static final int UPGRADE_PLUS_NUM_CARDS = 1;
+    public static final int COST = 3;
+    public static final int UPGRADED_COST = 2;
+    public static final int REPLENISH_USES = 1;
 
-    public Recite() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.NONE);
-        this.magicNumber = this.baseMagicNumber = NUM_CARDS;
+    public Replenish() {
+        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.NONE);
+        this.magicNumber = this.baseMagicNumber = REPLENISH_USES;
+        Beaked.setDescription(this,DESCRIPTION);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Psalm(),this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ReplenishCardInHandAction(this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return new Recite();
+        return new Replenish();
     }
 
     @Override
     public void upgrade() {
         if(!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_NUM_CARDS);
+            this.upgradeBaseCost(UPGRADED_COST);
         }
     }
+
 }

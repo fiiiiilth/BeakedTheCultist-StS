@@ -20,18 +20,20 @@ public class FullHouse extends AbstractWitherCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final int COST = 0;
     public static final int DRAW = 9;
-    public static final int WITHER = 3;
+    public static final int WITHER_MINUS_CARDS = 3;
     public static final int UPGRADE_PLUS_WITHER = -1;
 
     public FullHouse() {
         super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.NONE);
-        this.baseMagicNumber = this.magicNumber = WITHER;
+        this.baseMagicNumber = this.magicNumber = WITHER_MINUS_CARDS;
         this.baseMisc = this.misc = DRAW;
+        this.witherEffect = "Decreases the number of cards drawn.";
+        this.linkWitherAmountToMagicNumber = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new WitherAction(this,this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new WitherAction(this));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,this.misc,false));
     }
 

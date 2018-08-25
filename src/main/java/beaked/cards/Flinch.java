@@ -27,7 +27,7 @@ public class Flinch extends AbstractWitherCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final int COST = 1;
     private static final int BLOCK_AMT = 12;
-    private static final int WITHER = 2;
+    private static final int WITHER_MINUS_BLOCK = 2;
     private static final int UPGRADE_PLUS_WITHER = -1;
 
     public Flinch() {
@@ -36,12 +36,14 @@ public class Flinch extends AbstractWitherCard {
 
         this.baseMisc = this.misc = BLOCK_AMT;
         this.baseBlock = this.block = misc;
-        this.baseMagicNumber = this.magicNumber = WITHER;
+        this.baseMagicNumber = this.magicNumber = WITHER_MINUS_BLOCK;
+        this.witherEffect = "Decreases #yBlock.";
+        this.linkWitherAmountToMagicNumber = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new WitherAction(this, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new WitherAction(this));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
     }
 

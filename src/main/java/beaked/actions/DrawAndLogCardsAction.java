@@ -4,25 +4,21 @@ import com.megacrit.cardcrawl.actions.*;
 import java.util.*;
 import com.megacrit.cardcrawl.dungeons.*;
 import com.megacrit.cardcrawl.powers.NoDrawPower;
-import com.megacrit.cardcrawl.vfx.*;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.cards.*;
 import com.badlogic.gdx.*;
 import com.megacrit.cardcrawl.actions.common.*;
 import org.apache.logging.log4j.*;
 
-public class FeathersDrawAction extends AbstractGameAction
+public class DrawAndLogCardsAction extends AbstractGameAction
 {
     private boolean shuffleCheck;
     private static final Logger logger;
     public static ArrayList<AbstractCard> drawnCards;
 
-    public FeathersDrawAction(final AbstractCreature source, final int amount, final boolean endTurnDraw) {
+    public DrawAndLogCardsAction(final AbstractCreature source, final int amount) {
         this.shuffleCheck = false;
-        if (endTurnDraw) {
-            AbstractDungeon.topLevelEffects.add(new PlayerTurnEffect());
-        }
-        else if (AbstractDungeon.player.hasPower(NoDrawPower.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(NoDrawPower.POWER_ID)) {
             AbstractDungeon.player.getPower(NoDrawPower.POWER_ID).flash();
             this.setValues(AbstractDungeon.player, source, amount);
             this.isDone = true;
@@ -38,10 +34,6 @@ public class FeathersDrawAction extends AbstractGameAction
         else {
             this.duration = Settings.ACTION_DUR_FASTER;
         }
-    }
-
-    public FeathersDrawAction(final AbstractCreature source, final int amount) {
-        this(source, amount, false);
     }
 
     @Override
@@ -67,10 +59,10 @@ public class FeathersDrawAction extends AbstractGameAction
         if (!this.shuffleCheck) {
             if (this.amount > deckSize) {
                 final int tmp = this.amount - deckSize;
-                AbstractDungeon.actionManager.addToTop(new FeathersDrawAction(AbstractDungeon.player, tmp));
+                AbstractDungeon.actionManager.addToTop(new DrawAndLogCardsAction(AbstractDungeon.player, tmp));
                 AbstractDungeon.actionManager.addToTop(new EmptyDeckShuffleAction());
                 if (deckSize != 0) {
-                    AbstractDungeon.actionManager.addToTop(new FeathersDrawAction(AbstractDungeon.player, deckSize));
+                    AbstractDungeon.actionManager.addToTop(new DrawAndLogCardsAction(AbstractDungeon.player, deckSize));
                 }
                 this.amount = 0;
                 this.isDone = true;
@@ -87,12 +79,12 @@ public class FeathersDrawAction extends AbstractGameAction
             }
             --this.amount;
             if (!AbstractDungeon.player.drawPile.isEmpty()) {
-                FeathersDrawAction.drawnCards.add(AbstractDungeon.player.drawPile.getTopCard());
+                DrawAndLogCardsAction.drawnCards.add(AbstractDungeon.player.drawPile.getTopCard());
                 AbstractDungeon.player.draw();
                 AbstractDungeon.player.hand.refreshHandLayout();
             }
             else {
-                FeathersDrawAction.logger.warn("Player attempted to draw from an empty drawpile mid-DrawAction?MASTER DECK: " + AbstractDungeon.player.masterDeck.getCardNames());
+                DrawAndLogCardsAction.logger.warn("Player attempted to draw from an empty drawpile mid-DrawAction?MASTER DECK: " + AbstractDungeon.player.masterDeck.getCardNames());
                 this.isDone = true;
             }
             if (this.amount == 0) {
@@ -103,6 +95,6 @@ public class FeathersDrawAction extends AbstractGameAction
 
     static {
         logger = LogManager.getLogger(DrawCardAction.class.getName());
-        FeathersDrawAction.drawnCards = new ArrayList<AbstractCard>();
+        DrawAndLogCardsAction.drawnCards = new ArrayList<AbstractCard>();
     }
 }

@@ -46,10 +46,6 @@ public class BeakedTheCultist extends CustomPlayer {
         this.loadAnimation("img/char/beaked/skeleton.atlas", "img/char/beaked/skeleton.json", 1.0f);
         AnimationState.TrackEntry e = this.state.setAnimation(0, "animation", true);
         e.setTime(e.getEndTime() * MathUtils.random());
-
-        if (Settings.dailyModsEnabled() && DailyMods.cardMods.get("Diverse")) {
-            this.masterMaxOrbs = 1;
-        }
     }
 
     public static ArrayList<String> getStartingDeck() {

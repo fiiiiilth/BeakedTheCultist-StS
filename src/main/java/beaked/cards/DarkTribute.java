@@ -22,20 +22,22 @@ public class DarkTribute extends AbstractWitherCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final int COST = 3;
     public static final int POISON = 3;
-    public static final int WITHER = 3;
-    public static final int UPGRADE_PLUS_WITHER = -1;
+    public static final int WITHER_MINUS_POISON = -3;
+    public static final int UPGRADE_PLUS_WITHER = 1;
 
     public DarkTribute() {
         super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.NONE);
-        this.baseMagicNumber = this.magicNumber = WITHER;
+        this.baseMagicNumber = this.magicNumber = WITHER_MINUS_POISON;
         this.baseMisc = this.misc = POISON;
+        this.witherEffect = "Increases #yPoison.";
+        this.linkWitherAmountToMagicNumber = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new HealAction(p,p,p.maxHealth));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PoisonPower(p, p,this.misc), this.misc));
-        AbstractDungeon.actionManager.addToBottom(new WitherAction(this,this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new WitherAction(this));
     }
 
     @Override

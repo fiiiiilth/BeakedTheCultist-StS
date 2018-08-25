@@ -20,22 +20,24 @@ public class Psalm extends AbstractWitherCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final int COST = 0;
     private static final int DAMAGE = 3;
-    private static final int WITHER = 2;
+    private static final int WITHER_MINUS_DAMAGE = 2;
     private static final int UPGRADE_PLUS_DAMAGE = 2;
 
     public Psalm() {
         super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.ALL_ENEMY);
 
-        this.baseMagicNumber = this.magicNumber = WITHER;
+        this.baseMagicNumber = this.magicNumber = WITHER_MINUS_DAMAGE;
         this.baseDamage = this.damage = DAMAGE;
         this.baseMisc = this.misc = damage;
         this.isMultiDamage = true;
+        this.witherEffect = "Decreases damage.";
+        this.linkWitherAmountToMagicNumber = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new WitherAction(this, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new WitherAction(this));
         AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p,this.multiDamage,DamageInfo.DamageType.NORMAL,AbstractGameAction.AttackEffect.FIRE));
     }
 

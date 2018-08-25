@@ -31,21 +31,23 @@ public class Caw extends AbstractWitherCard {
     public static final String UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final int COST = -1;
     public static final int DAMAGE = 5;
-    public static final int WITHER = 1;
+    public static final int WITHER_MINUS_DAMAGE = 1;
 
     public Caw() {
         super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.ALL_ENEMY);
         this.baseDamage = this.damage = DAMAGE;
-        this.baseMagicNumber = this.magicNumber = WITHER;
+        this.baseMagicNumber = this.magicNumber = WITHER_MINUS_DAMAGE;
         this.baseMisc = this.misc = this.damage;
         this.isMultiDamage = true;
+        this.witherEffect = "Decreases damage.";
+        this.linkWitherAmountToMagicNumber = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        AbstractDungeon.actionManager.addToBottom(new WitherAction(this, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new WitherAction(this));
 
         if (this.energyOnUse < EnergyPanel.totalCount) {
             this.energyOnUse = EnergyPanel.totalCount;
@@ -62,11 +64,13 @@ public class Caw extends AbstractWitherCard {
 
         AbstractDungeon.actionManager.addToBottom(new CawAction(p, this.multiDamage, this.damageTypeForTurn, this.freeToPlayOnce, this.energyOnUse));
 
-        Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-        while(var3.hasNext()) {
-            AbstractMonster mo = (AbstractMonster)var3.next();
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new WeakPower(mo, this.energyOnUse, false), this.energyOnUse, true, AbstractGameAction.AttackEffect.NONE));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.energyOnUse, false), this.energyOnUse, true, AbstractGameAction.AttackEffect.NONE));
+        if (this.energyOnUse > 0) {
+            Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+            while (var3.hasNext()) {
+                AbstractMonster mo = (AbstractMonster) var3.next();
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new WeakPower(mo, this.energyOnUse, false), this.energyOnUse, true, AbstractGameAction.AttackEffect.NONE));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.energyOnUse, false), this.energyOnUse, true, AbstractGameAction.AttackEffect.NONE));
+            }
         }
     }
 

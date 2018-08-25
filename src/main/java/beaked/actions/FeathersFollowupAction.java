@@ -5,10 +5,9 @@ import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.cards.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.*;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import com.megacrit.cardcrawl.actions.*;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class FeathersFollowupAction extends AbstractGameAction
 {
@@ -22,10 +21,12 @@ public class FeathersFollowupAction extends AbstractGameAction
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FASTER) {
             int blockGain = 0;
-            for (final AbstractCard drawn : FeathersDrawAction.drawnCards) {
-                if (drawn.costForTurn > 0) blockGain += drawn.costForTurn;
+            for (final AbstractCard drawn : DrawAndLogCardsAction.drawnCards) {
+                // when you draw an X-cost card, gain block equal to your current energy.
+                if (drawn.cost == -1) blockGain += EnergyPanel.getCurrentEnergy();
+                else if (drawn.costForTurn > 0) blockGain += drawn.costForTurn;
             }
-            FeathersDrawAction.drawnCards.clear();
+            DrawAndLogCardsAction.drawnCards.clear();
             AbstractDungeon.actionManager.addToTop(new GainBlockAction(p,p,blockGain));
         }
         this.tickDuration();

@@ -5,8 +5,10 @@ import java.nio.charset.StandardCharsets;
 import basemod.interfaces.*;
 import beaked.cards.*;
 import beaked.characters.BeakedTheCultist;
+import beaked.monsters.SuperParasite;
 import beaked.patches.AbstractCardEnum;
 import beaked.patches.BeakedEnum;
+import beaked.patches.PluralizeFieldsPatch;
 import beaked.relics.FlawlessSticks;
 import beaked.relics.MendingPlumage;
 import beaked.variables.MiscVariable;
@@ -15,6 +17,8 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.relics.CultistMask;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -123,6 +127,9 @@ public class Beaked implements PostInitializeSubscriber,
         Settings.isDailyRun = false;
         Settings.isTrial = false;
         Settings.isDemo = false;
+
+        BaseMod.addMonster(SuperParasite.ID, ()->new SuperParasite());
+        BaseMod.addBoss(TheCity.ID, SuperParasite.ID,"img/ui/map/boss/parasite.png","img/ui/map/bossOutline/parasite.png");
     }
 
     @Override
@@ -180,7 +187,8 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Foresight());
         BaseMod.addCard(new Resilience());
         BaseMod.addCard(new TuckingFeathers());
-
+        BaseMod.addCard(new Poke());
+        BaseMod.addCard(new Tradeoff());
 
         //Uncommon
         BaseMod.addCard(new Overpower());
@@ -199,6 +207,8 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new WarriorSpirit());
         BaseMod.addCard(new HuntressSpirit());
         BaseMod.addCard(new MachineSpirit());
+        BaseMod.addCard(new BloodForTheGods());
+        BaseMod.addCard(new Replenish());
 
         //Rare
         BaseMod.addCard(new FakeOut());
@@ -258,6 +268,10 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(HuntressSpirit.ID);
         UnlockTracker.unlockCard(MachineSpirit.ID);
         UnlockTracker.unlockCard(WildInstinct.ID);
+        UnlockTracker.unlockCard(BloodForTheGods.ID);
+        UnlockTracker.unlockCard(Tradeoff.ID);
+        UnlockTracker.unlockCard(Poke.ID);
+        UnlockTracker.unlockCard(Replenish.ID);
 
 
         UnlockTracker.unlockCard(Inspiration.ID);
@@ -284,6 +298,10 @@ public class Beaked implements PostInitializeSubscriber,
         String powerStrings = Gdx.files.internal("localization/Beaked-PowerStrings.json").readString(
                 String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
+        //MonsterStrings
+        String monsterStrings = Gdx.files.internal("localization/Beaked-MonsterStrings.json").readString(
+                String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(MonsterStrings.class, monsterStrings);
 
         logger.info("done editing strings");
     }
@@ -334,5 +352,65 @@ public class Beaked implements PostInitializeSubscriber,
                 ((AwakenedForm) c).updateAwakenCost();
             }
         }
+    }
+
+    public static String getActualID(String cardID){
+        return cardID.replaceFirst("beaked:","");
+    }
+
+    public static void setDescription(AbstractCard card, String desc){
+
+        // This should be called whenever you would normally use:
+
+        // this.rawDescription = desc;
+        // this.initializeDescription(desc);
+
+        // in a card, IF you want that card to use auto-pluralization. Make sure to call it in the card's constructor as well.
+
+        PluralizeFieldsPatch.trueRawDescription.set(card,desc);
+        createPluralizedDescription(card);
+    }
+
+    public static void createPluralizedDescription(AbstractCard card){
+
+        // {text} displayed when !M! != 1
+        // |text| displayed when !M! == 1
+        // $text$ repeated as many times as !M!
+
+        // {^text^} displayed when !I! != 1
+        // |^text^| displayed when !I! == 1
+
+        // Can be freely used with other dynamic text or keywords like [E] or !M!.
+
+        PluralizeFieldsPatch.savedMagicNumber.set(card,card.magicNumber);
+        PluralizeFieldsPatch.savedMisc.set(card,card.misc);
+        card.rawDescription = PluralizeFieldsPatch.trueRawDescription.get(card);
+
+        if (card.misc == 1){
+            card.rawDescription = card.rawDescription.replaceAll("\\{\\^.+?\\^\\}", "");
+        }
+        else{
+            card.rawDescription = card.rawDescription.replaceAll("\\|\\^.+?\\^\\|", "");
+        }
+
+        card.rawDescription = card.rawDescription.replace("{^", "");
+        card.rawDescription = card.rawDescription.replace("^}", "");
+        card.rawDescription = card.rawDescription.replace("|^", "");
+        card.rawDescription = card.rawDescription.replace("^|", "");
+
+        if (card.magicNumber == 1) {
+            card.rawDescription = card.rawDescription.replaceAll("\\{.+?\\}", "");
+        }
+        else {
+            card.rawDescription = card.rawDescription.replaceAll("\\|.+?\\|", "");
+        }
+        String tmp = "";
+        for (int i=0;i<card.magicNumber;i++) tmp += "$1 ";
+        card.rawDescription = card.rawDescription.replaceAll("(\\$.+?\\$)", tmp);
+        card.rawDescription = card.rawDescription.replace("{", "");
+        card.rawDescription = card.rawDescription.replace("}", "");
+        card.rawDescription = card.rawDescription.replace("|", "");
+        card.rawDescription = card.rawDescription.replace("$", "");
+        card.initializeDescription();
     }
 }

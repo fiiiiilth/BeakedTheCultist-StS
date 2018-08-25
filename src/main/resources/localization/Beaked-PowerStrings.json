@@ -128,5 +128,12 @@
 			" #yPowers twice.",
 			" NL Heal for 5 times its cost."
 		]
+	},
+	"beaked:NextTurnHealPower": {
+		"NAME": "Next Turn Heal",
+		"DESCRIPTIONS": [
+			"At the start of your next turn, heal #b",
+			" HP."
+		]
 	}
 }

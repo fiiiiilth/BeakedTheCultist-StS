@@ -1,10 +1,12 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
-import beaked.actions.DrawAndLogCardsAction;
-import beaked.actions.FeathersFollowupAction;
+import beaked.Beaked;
+import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -12,31 +14,36 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class TuckingFeathers extends CustomCard {
-    public static final String ID = "beaked:TuckingFeathers";
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+public class Tradeoff extends AbstractWitherCard {
+    public static final String ID = "beaked:Tradeoff";
+    private static CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final int COST = 1;
+    public static final int EXHAUST = 1;
+    public static final int WITHER_MINUS_EXHAUST = -1;
     public static final int DRAW = 2;
     public static final int UPGRADE_PLUS_DRAW = 1;
 
-    public TuckingFeathers() {
+    public Tradeoff() {
         super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.NONE);
+        this.misc = this.baseMisc = EXHAUST;
         this.magicNumber = this.baseMagicNumber = DRAW;
+        this.witherEffect = "Increases number of #yExhausted cards.";
+        this.witherAmount = WITHER_MINUS_EXHAUST;
+        Beaked.setDescription(this,DESCRIPTION);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DrawAndLogCardsAction(p,this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new WaitAction(0.3f));
-        AbstractDungeon.actionManager.addToBottom(new FeathersFollowupAction());
+        AbstractDungeon.actionManager.addToBottom(new WitherAction(this));
+        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p,p,this.misc,true));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,this.magicNumber));
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return new TuckingFeathers();
+        return new Tradeoff();
     }
 
     @Override

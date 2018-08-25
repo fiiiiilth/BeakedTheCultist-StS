@@ -21,7 +21,7 @@ public class Pecker extends AbstractWitherCard {
     private static final int COST = 2;
     private static final int DAMAGE = 1;
     private static final int NUM_HITS = 5;
-    private static final int WITHER = 1;
+    private static final int WITHER_MINUS_NUM_HITS = 1;
     private static final int UPGRADE_PLUS_NUM_HITS = 2;
     private static final int UPGRADE_NEW_COST = 1;
 
@@ -32,11 +32,13 @@ public class Pecker extends AbstractWitherCard {
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = NUM_HITS;
         this.baseMisc = this.misc = this.magicNumber;
+        this.witherEffect = "Decreases the number of hits.";
+        this.witherAmount = WITHER_MINUS_NUM_HITS;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new WitherAction(this, WITHER));
+        AbstractDungeon.actionManager.addToBottom(new WitherAction(this));
         for (int i=0;i<magicNumber;i++){
             AbstractDungeon.actionManager.addToBottom(new PummelDamageAction(m, new DamageInfo(p,this.damage,this.damageTypeForTurn)));
         }

@@ -1,7 +1,6 @@
 package beaked.actions;
 
 import beaked.cards.AbstractWitherCard;
-import beaked.cards.Negation;
 import beaked.powers.NegationPower;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -10,24 +9,31 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.Iterator;
 
-public class WitherAction extends AbstractGameAction {
-    private AbstractCard card;
+public class ReplenishWitherAction extends AbstractGameAction {
+    private AbstractWitherCard card;
     private int miscIncrease;
 
-    public WitherAction(AbstractWitherCard card) {
-        this.miscIncrease = -card.witherAmount;
+    public ReplenishWitherAction(AbstractWitherCard card){
+        this(card,1);
+    }
+
+    public ReplenishWitherAction(AbstractWitherCard card, int numTimes) {
+        this.miscIncrease = card.witherAmount * numTimes;
         this.card = card;
+        this.amount = numTimes;
     }
 
     public void update() {
 
-        if (AbstractDungeon.player.hasPower(NegationPower.POWER_ID)){
-            AbstractDungeon.player.getPower(NegationPower.POWER_ID).onSpecificTrigger();
-            this.isDone = true;
-            return;
-        }
+        this.card.flash();
 
-        this.card.darkFlash(Color.RED);
+        // Can't replenish past initial value
+        if (card.misc <= card.baseMisc && card.misc + this.miscIncrease > card.baseMisc){
+            this.miscIncrease = card.baseMisc - card.misc;
+        }
+        else if (card.misc >= card.baseMisc && card.misc + this.miscIncrease < card.baseMisc){
+            this.miscIncrease = card.baseMisc - card.misc;
+        }
 
         Iterator var2 = AbstractDungeon.player.masterDeck.group.iterator();
 
