@@ -1,6 +1,8 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import basemod.helpers.BaseModTags;
+import basemod.helpers.CardTags;
 import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -27,11 +29,7 @@ public class Strike_Y extends CustomCard {
                 AbstractCard.CardTarget.ENEMY);
 
         this.baseDamage = ATTACK_DMG;
-    }
-
-    @Override
-    public boolean isStrike() {
-        return true;
+        CardTags.addTags(this, BaseModTags.BASIC_STRIKE);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

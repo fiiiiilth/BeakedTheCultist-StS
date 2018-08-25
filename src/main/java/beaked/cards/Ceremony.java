@@ -1,6 +1,8 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import basemod.helpers.BaseModTags;
+import basemod.helpers.CardTags;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.RitualPlayerPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -24,6 +26,7 @@ public class Ceremony extends CustomCard {
                 AbstractCardEnum.BEAKED_YELLOW, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
 
         this.isEthereal = true;
+        CardTags.addTags(this, BaseModTags.GREMLIN_MATCH);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

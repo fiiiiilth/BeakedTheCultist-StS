@@ -4,7 +4,8 @@
 	"author_list": ["fiiiiilth","Moocowsgomoo"],
 	"description": "Adds Beaked the Cultist as a new playable character.",
 	"dependencies": ["basemod"],
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"sts_version": "08-23-2018",
+	"mts_version": "3.0.0",
 	"update_json": "https://api.github.com/repos/fiiiiilth/BeakedTheCultist-StS/releases/latest"
 }
