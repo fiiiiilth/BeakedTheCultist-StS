@@ -38,9 +38,10 @@ public class WildInstinct extends CustomCard {
 
     @Override
     public void triggerWhenDrawn() {
+        this.applyPowers();
         if(AbstractDungeon.player.currentHealth < AbstractDungeon.player.maxHealth / 2.0f) {
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage,
-                    this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                   this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         }
     }
 

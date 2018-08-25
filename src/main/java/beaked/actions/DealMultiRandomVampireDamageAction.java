@@ -50,7 +50,7 @@ public class DealMultiRandomVampireDamageAction extends AbstractGameAction
             this.target.damageFlash = true;
             this.target.damageFlashFrames = 4;
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect));
-            this.info.applyPowers(this.info.owner, this.target);
+            //this.info.applyPowers(this.info.owner, this.target);
             this.heal(this.info);
             this.target.damage(this.info);
             if (this.numTimes > 1 && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
