@@ -3,9 +3,7 @@ package beaked.actions;
 import com.megacrit.cardcrawl.actions.*;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.*;
-import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.dungeons.*;
-import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.vfx.combat.*;
 import com.megacrit.cardcrawl.actions.utility.*;
 
@@ -51,14 +49,14 @@ public class DealMultiRandomVampireDamageAction extends AbstractGameAction
             this.target.damageFlashFrames = 4;
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect));
             //this.info.applyPowers(this.info.owner, this.target);
-            this.heal(this.info);
             this.target.damage(this.info);
+            this.addHealing(this.info);
             if (this.numTimes > 1 && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
                 --this.numTimes;
                 AbstractDungeon.actionManager.addToTop(new DealMultiRandomVampireDamageAction(this.info, this.numTimes, this.healMult, this.attackEffect, this.existingHeal));
             }
             else {
-                AbstractDungeon.actionManager.addToTop(new HealAction(this.source, this.source, this.existingHeal));
+                AbstractDungeon.actionManager.addToTop(new HealAction(this.source, this.source, (int)(this.existingHeal*this.healMult)));
                 AbstractDungeon.actionManager.addToTop(new WaitAction(0.1f));
             }
             AbstractDungeon.actionManager.addToTop(new WaitAction(0.2f));
@@ -66,8 +64,8 @@ public class DealMultiRandomVampireDamageAction extends AbstractGameAction
         this.isDone = true;
     }
 
-    private void heal(final DamageInfo info) {
-        int healAmount = (int)(info.output * healMult); // rounds down
+    private void addHealing(final DamageInfo info) {
+        int healAmount = info.output;
         if (healAmount < 0) {
             return;
         }

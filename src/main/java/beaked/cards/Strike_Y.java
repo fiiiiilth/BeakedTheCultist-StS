@@ -29,7 +29,7 @@ public class Strike_Y extends CustomCard {
                 AbstractCard.CardTarget.ENEMY);
 
         this.baseDamage = ATTACK_DMG;
-        CardTags.addTags(this, BaseModTags.BASIC_STRIKE);
+        CardTags.addTags(this, BaseModTags.BASIC_STRIKE, BaseModTags.STRIKE);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

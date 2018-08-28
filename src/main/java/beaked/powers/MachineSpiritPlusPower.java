@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.*;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class MachineSpiritPlusPower extends AbstractPower
 {
@@ -56,7 +57,11 @@ public class MachineSpiritPlusPower extends AbstractPower
             tmp.purgeOnUse = true;
             AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, m, card.energyOnUse));
 
-            AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, card.cost * 5));
+            int cost = card.cost;
+            if (cost == -1) cost = EnergyPanel.getCurrentEnergy();
+            if (cost > 0) {
+                AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, cost*5));
+            }
 
             --this.amount;
             if (this.amount == 0) {

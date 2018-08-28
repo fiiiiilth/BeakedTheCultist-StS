@@ -54,7 +54,9 @@ public class WildInstinct extends CustomCard {
 
     @Override
     public void upgrade() {
-        this.upgradeName();
-        this.upgradeDamage(UPGRADE_DAMAGE);
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.upgradeDamage(UPGRADE_DAMAGE);
+        }
     }
 }

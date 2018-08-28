@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class HuntressSpiritPlusPower extends AbstractPower
 {
@@ -63,7 +64,11 @@ public class HuntressSpiritPlusPower extends AbstractPower
                 AbstractDungeon.actionManager.addToBottom(new IncreaseMiscAction(card, tmp.magicNumber));
             }
 
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, card.cost * 2), card.cost * 2));
+            int cost = card.cost;
+            if (cost == -1) cost = EnergyPanel.getCurrentEnergy();
+            if (cost > 0) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, cost*2), cost*2));
+            }
 
             --this.amount;
             if (this.amount == 0) {

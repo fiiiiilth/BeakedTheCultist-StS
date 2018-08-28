@@ -189,6 +189,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new TuckingFeathers());
         BaseMod.addCard(new Poke());
         BaseMod.addCard(new Tradeoff());
+        BaseMod.addCard(new BraceForImpact());
 
         //Uncommon
         BaseMod.addCard(new Overpower());
@@ -272,6 +273,7 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(Tradeoff.ID);
         UnlockTracker.unlockCard(Poke.ID);
         UnlockTracker.unlockCard(Replenish.ID);
+        UnlockTracker.unlockCard(BraceForImpact.ID);
 
 
         UnlockTracker.unlockCard(Inspiration.ID);

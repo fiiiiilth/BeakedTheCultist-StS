@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class WarriorSpiritPower extends AbstractPower
 {
@@ -62,7 +63,11 @@ public class WarriorSpiritPower extends AbstractPower
                 AbstractDungeon.actionManager.addToBottom(new ModifyDamageAction(card, tmp.magicNumber));
             }
 
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, card.cost), card.cost));
+            int cost = card.cost;
+            if (cost == -1) cost = EnergyPanel.getCurrentEnergy();
+            if (cost > 0){
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, cost), cost));
+            }
 
             --this.amount;
             if (this.amount == 0) {

@@ -61,7 +61,8 @@
 	},
 	"beaked:WarriorEssence": {
 		"NAME": "Warrior Essence",
-		"DESCRIPTION": "Deal !D! damage to a random enemy !M! X times. Heal equal to half the unblocked damage dealt. NL Exhaust."
+		"DESCRIPTION": "Deal !D! damage to a random enemy X times. Heal for 25% of unblocked damage dealt. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage to a random enemy X+1 times. Heal for 25% of unblocked damage dealt. NL Exhaust."
 	},
 	"beaked:FakeOut": {
 		"NAME": "Fake Out",
@@ -198,7 +199,7 @@
 	},
 	"beaked:Tradeoff": {
 		"NAME": "Tradeoff",
-		"DESCRIPTION": "Exhaust |^a^|{^!I!^} random card{^s^} in your hand. NL Draw !M! card{s}. NL Wither 1."
+		"DESCRIPTION": "Exhaust !I! random card{^s^} in your hand. NL Draw !M! card{s}. NL Wither -1."
 	},
 	"beaked:BloodForTheGods": {
 		"NAME": "Blood For The Gods",
@@ -211,5 +212,9 @@
 	"beaked:Replenish": {
 		"NAME": "Replenish",
 		"DESCRIPTION": "Replenish !M! use{s} of a Withered card in your hand."
+	},
+	"beaked:BraceForImpact": {
+		"NAME": "Brace for Impact",
+		"DESCRIPTION": "Gain !M! Plated Armor."
 	}
 }

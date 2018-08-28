@@ -17,23 +17,23 @@ public class WarriorEssence extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final int COST = -1;
     public static final int DAMAGE = 2;
-    public static final int TIMES = 2;
-    public static final float HEALING_MULTIPLIER = 0.5f;
-    public static final int UPGRADE_PLUS_TIMES = 1;
+    //public static final int TIMES = 2;
+    public static final float HEALING_MULTIPLIER = 0.25f;
+    //public static final int UPGRADE_PLUS_TIMES = 1;
 
     public WarriorEssence() {
         super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.ALL_ENEMY);
 
-        this.magicNumber = this.baseMagicNumber = TIMES;
         this.baseDamage = DAMAGE;
         this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new WarriorEssenceAction(p, this.damage, this.damageTypeForTurn, this.freeToPlayOnce, this.energyOnUse, this.magicNumber, HEALING_MULTIPLIER));
+        AbstractDungeon.actionManager.addToBottom(new WarriorEssenceAction(p, this.damage, this.damageTypeForTurn, this.freeToPlayOnce, this.energyOnUse, true, HEALING_MULTIPLIER));
     }
 
     @Override
@@ -45,7 +45,8 @@ public class WarriorEssence extends CustomCard {
     public void upgrade() {
         if(!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_TIMES);
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 }
