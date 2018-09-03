@@ -12,5 +12,19 @@
     "DESCRIPTIONS": [
       "At the start of each combat, #yExhaust all #yDepleted cards."
     ]
+  },
+  "beaked:ShinyBauble": {
+    "NAME": "Shiny Bauble",
+    "FLAVOR": "You no take my shiny.",
+    "DESCRIPTIONS": [
+      "Whenever you enter a Rest Site, start the next combat with #b1 #yRitual."
+    ]
+  },
+  "beaked:ThroatLozenge": {
+    "NAME": "Throat Lozenge",
+    "FLAVOR": "Soothing relief! Not for reuse.",
+    "DESCRIPTIONS": [
+      "Ignore the first #yWither effect each combat."
+    ]
   }
 }

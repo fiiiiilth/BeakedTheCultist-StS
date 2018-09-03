@@ -9,7 +9,7 @@ public class MiscVariable extends DynamicVariable
     @Override
     public String key()
     {
-        return "I";
+        return "beaked:I";
     }
 
     @Override

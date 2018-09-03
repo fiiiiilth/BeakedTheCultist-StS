@@ -132,7 +132,7 @@
 	},
 	"beaked:Sacrifice": {
 		"NAME": "Sacrifice",
-		"DESCRIPTION": "Deal !D! damage, then heal the enemy for !M! HP. Gain !I! Strength. When this kills an enemy, permanently increase the Strength by 1. Exhaust."
+		"DESCRIPTION": "Deal !D! damage, then heal the enemy for !M! HP. Gain !beaked:I! Strength. When this kills an enemy, permanently increase the Strength by 1. Exhaust."
 	},
 	"beaked:Brainwash": {
 		"NAME": "Brainwash",
@@ -140,7 +140,7 @@
 	},
 	"beaked:DarkTribute": {
 		"NAME": "Dark Tribute",
-		"DESCRIPTION": "Heal ALL HP. NL Gain !I! Poison. NL Wither !M!."
+		"DESCRIPTION": "Heal ALL HP. NL Gain !beaked:I! Poison. NL Wither !M!."
 	},
 	"beaked:LiftOff": {
 		"NAME": "Lift Off",
@@ -148,7 +148,7 @@
 	},
 	"beaked:FullHouse": {
 		"NAME": "Full House",
-		"DESCRIPTION": "Draw !I! cards. NL Wither !M!."
+		"DESCRIPTION": "Draw !beaked:I! cards. NL Wither !M!."
 	},
 	"beaked:Caw": {
 		"NAME": "CAW!",
@@ -199,7 +199,7 @@
 	},
 	"beaked:Tradeoff": {
 		"NAME": "Tradeoff",
-		"DESCRIPTION": "Exhaust !I! random card{^s^} in your hand. NL Draw !M! card{s}. NL Wither -1."
+		"DESCRIPTION": "Exhaust !beaked:I! random card{^s^} in your hand. NL Wither -1. NL Draw !M! card{s}."
 	},
 	"beaked:BloodForTheGods": {
 		"NAME": "Blood For The Gods",
@@ -216,5 +216,50 @@
 	"beaked:BraceForImpact": {
 		"NAME": "Brace for Impact",
 		"DESCRIPTION": "Gain !M! Plated Armor."
+	},
+	"beaked:Brace": {
+		"NAME": "Brace",
+		"DESCRIPTION": "Retain. Gain !B! Block. NL Block increases by !M! for each Skill you play while this is in your hand. Exhaust."
+	},
+	"beaked:CursingBlood": {
+		"NAME": "Cursing Blood",
+		"DESCRIPTION": "Enemy loses !beaked:I! Strength. Wither 1. NL Lose !M! HP."
+	},
+	"beaked:Molting": {
+		"NAME": "Molting",
+		"DESCRIPTION": "Exhaust a card. NL Gain !B! Block, or !beaked:B+M! Block if it was a Depleted card."
+	},
+	"beaked:DigDeep": {
+		"NAME": "Dig Deep",
+		"DESCRIPTION": "Heal !M! HP for each Ritual you have. NL Exhaust."
+	},
+	"beaked:DigDeeper": {
+		"NAME": "Dig Deeper",
+		"DESCRIPTION": "Heal !M! HP for each Strength you have. NL Lose all Strength. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Heal !M! HP for each Strength you have. NL Lose all Strength."
+	},
+	"beaked:SacrificialAttack": {
+		"NAME": "Sacrificial Attack",
+		"DESCRIPTION": "Deal !D! damage to ALL enemies. Strength affects Sacrificial Attack !M! time{s}. NL Lose all Strength."
+	},
+	"beaked:BarbedWire": {
+		"NAME": "Barbed Wire",
+		"DESCRIPTION": "Gain Thorns equal to your Strength. NL Lose all Strength."
+	},
+	"beaked:PrayerOfSafety": {
+		"NAME": "Prayer of Safety",
+		"DESCRIPTION": "Gain 1 Intangible. NL Gain !B! Block. NL Lose !M! Dexterity."
+	},
+	"beaked:Overexert": {
+		"NAME": "Overexert",
+		"DESCRIPTION": "Double your Energy. NL For each Energy gained, lose !M! HP."
+	},
+	"beaked:RuinSticks": {
+		"NAME": "Ruin Sticks",
+		"DESCRIPTION": "Deal !D! damage. NL Add a Regret to your hand."
+	},
+	"beaked:BloodRitual": {
+		"NAME": "Blood Ritual",
+		"DESCRIPTION": "Lose 12 HP. NL Gain !M! Ritual."
 	}
 }

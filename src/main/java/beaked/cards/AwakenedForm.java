@@ -51,15 +51,11 @@ public class AwakenedForm extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new AwakenedPower(p, 1),1));
     }
 
-    @Override
-    public void applyPowers(){
-        super.applyPowers();
-    }
-
     public void updateAwakenCost(){
         BaseMod.logger.debug("BOSSES: " + AbstractDungeon.bossCount);
         this.cost = this.costForTurn = AwakenedForm.COST - AbstractDungeon.bossCount;
         this.isCostModified = this.cost < COST;
+        this.applyPowers();
     }
 
     @Override

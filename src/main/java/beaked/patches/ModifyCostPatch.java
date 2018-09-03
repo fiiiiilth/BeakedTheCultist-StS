@@ -14,7 +14,7 @@ public class ModifyCostPatch {
     @SpirePatch(cls = "com.megacrit.cardcrawl.cards.AbstractCard", method = "modifyCostForTurn")
     public static class ModifyCostForTurn {
         public static SpireReturn Prefix(AbstractCard obj, int amt) {
-            // if the costForTurn would be negative, skip it - otherwise it resets to 0.
+            // if the costForTurn would be negative, skip this function - otherwise it resets to 0.
             if (CardAwakenedPatch.negativeCost.get(obj) && obj.costForTurn + amt < 0){
                 if (amt > 0) obj.costForTurn += amt; // increase cost but it's still below 0
                 return SpireReturn.Return(null);
@@ -26,11 +26,11 @@ public class ModifyCostPatch {
     @SpirePatch(cls = "com.megacrit.cardcrawl.cards.AbstractCard", method = "modifyCostForCombat")
     public static class ModifyCostForCombat {
         public static SpireReturn Prefix(AbstractCard obj, int amt) {
-            // if the costForTurn would be negative, skip it - otherwise it resets to 0.
+            // if the costForTurn would be negative, skip this function - otherwise it resets to 0.
             // reduce cost (for combat) up to 0. Since Awakened Form only affects costForTurn this doesn't matter.
             if (CardAwakenedPatch.negativeCost.get(obj) && obj.costForTurn + amt < 0){
                 if (amt > 0) obj.costForTurn += amt; // increase cost but it's still below 0
-                obj.cost -= amt;
+                obj.cost += amt;
                 if (obj.cost < 0) obj.cost = 0;
                 return SpireReturn.Return(null);
             }
@@ -45,7 +45,7 @@ public class ModifyCostPatch {
             // reduce cost (for combat) up to 0. Since Awakened Form only affects costForTurn this doesn't matter.
             if (CardAwakenedPatch.negativeCost.get(obj) && obj.costForTurn + amt < 0){
                 if (amt > 0) obj.costForTurn += amt; // increase cost but it's still below 0
-                obj.cost -= amt;
+                obj.cost += amt;
                 if (obj.cost < 0) obj.cost = 0;
                 return SpireReturn.Return(null);
             }

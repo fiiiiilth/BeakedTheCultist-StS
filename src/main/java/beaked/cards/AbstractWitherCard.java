@@ -81,8 +81,8 @@ public abstract class AbstractWitherCard extends CustomCard {
         if (AbstractDungeon.currMapNode == null){
             this.isMultiDamage = false;
         }
-        // Don't do base applyPowers for cards in master deck. This causes their displayed dmg/block to change based on in-battle effects.
-        if (AbstractDungeon.player != null && !AbstractDungeon.player.masterDeck.contains(this)) super.applyPowers();
+        // Only do base applyPowers for cards in hand. This causes their displayed dmg/block to change based on in-battle effects.
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hand.contains(this)) super.applyPowers();
         this.isMultiDamage = tmp;
 
         if (linkWitherAmountToMagicNumber){

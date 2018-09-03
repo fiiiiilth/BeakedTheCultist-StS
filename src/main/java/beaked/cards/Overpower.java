@@ -31,7 +31,7 @@ public class Overpower extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int dmg = DAMAGE + (p.currentHealth / this.magicNumber);
+        int dmg = this.damage + (p.currentHealth / this.magicNumber);
 
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, dmg, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
     }

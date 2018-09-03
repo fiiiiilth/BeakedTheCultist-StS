@@ -33,7 +33,7 @@ public class WarriorEssence extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new WarriorEssenceAction(p, this.damage, this.damageTypeForTurn, this.freeToPlayOnce, this.energyOnUse, true, HEALING_MULTIPLIER));
+        AbstractDungeon.actionManager.addToBottom(new WarriorEssenceAction(p, this.damage, this.damageTypeForTurn, this.freeToPlayOnce, this.energyOnUse, this.upgraded, HEALING_MULTIPLIER));
     }
 
     @Override

@@ -2,6 +2,7 @@ package beaked;
 
 import java.nio.charset.StandardCharsets;
 
+import basemod.helpers.BaseModTags;
 import basemod.interfaces.*;
 import beaked.cards.*;
 import beaked.characters.BeakedTheCultist;
@@ -11,6 +12,9 @@ import beaked.patches.BeakedEnum;
 import beaked.patches.PluralizeFieldsPatch;
 import beaked.relics.FlawlessSticks;
 import beaked.relics.MendingPlumage;
+import beaked.relics.ShinyBauble;
+import beaked.relics.ThroatLozenge;
+import beaked.variables.BlockPlusMagicVariable;
 import beaked.variables.MiscVariable;
 import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
@@ -60,9 +64,9 @@ public class Beaked implements PostInitializeSubscriber,
     private static final String ENERGY_ORB_YELLOW = "512/card_purple_orb.png";
     private static final String CARD_ENERGY_ORB = "512/card_small_orb.png";
 
-    private static final String ATTACK_YELLOW_PORTRAIT = "1024/bg_attack_purple.png";
-    private static final String SKILL_YELLOW_PORTRAIT = "1024/bg_skill_purple.png";
-    private static final String POWER_YELLOW_PORTRAIT = "1024/bg_power_purple.png";
+    private static final String ATTACK_YELLOW_PORTRAIT = "1024/bg_attack_yellow.png";
+    private static final String SKILL_YELLOW_PORTRAIT = "1024/bg_skill_yellow.png";
+    private static final String POWER_YELLOW_PORTRAIT = "1024/bg_power_yellow.png";
     private static final String ENERGY_ORB_YELLOW_PORTRAIT = "1024/card_purple_orb.png";
 
     // card images
@@ -153,6 +157,8 @@ public class Beaked implements PostInitializeSubscriber,
         // Add relics
         BaseMod.addRelicToCustomPool(new MendingPlumage(), AbstractCardEnum.BEAKED_YELLOW);
         BaseMod.addRelicToCustomPool(new FlawlessSticks(), AbstractCardEnum.BEAKED_YELLOW);
+        BaseMod.addRelicToCustomPool(new ShinyBauble(), AbstractCardEnum.BEAKED_YELLOW); // could be colorless
+        BaseMod.addRelicToCustomPool(new ThroatLozenge(), AbstractCardEnum.BEAKED_YELLOW);
 
         logger.info("done editing relics");
     }
@@ -164,6 +170,7 @@ public class Beaked implements PostInitializeSubscriber,
         logger.info("add cards for " + BeakedEnum.BEAKED_THE_CULTIST.toString());
 
         BaseMod.addDynamicVariable(new MiscVariable());
+        BaseMod.addDynamicVariable(new BlockPlusMagicVariable());
 
         //Basic
         BaseMod.addCard(new Strike_Y());
@@ -190,6 +197,10 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Poke());
         BaseMod.addCard(new Tradeoff());
         BaseMod.addCard(new BraceForImpact());
+        BaseMod.addCard(new Brace());
+        BaseMod.addCard(new Molting());
+        BaseMod.addCard(new CursingBlood());
+        BaseMod.addCard(new DigDeep());
 
         //Uncommon
         BaseMod.addCard(new Overpower());
@@ -210,6 +221,13 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new MachineSpirit());
         BaseMod.addCard(new BloodForTheGods());
         BaseMod.addCard(new Replenish());
+        BaseMod.addCard(new PrayerOfSafety());
+        BaseMod.addCard(new BarbedWire());
+        BaseMod.addCard(new SacrificialAttack());
+        BaseMod.addCard(new DigDeeper());
+        BaseMod.addCard(new BloodRitual());
+        BaseMod.addCard(new RuinSticks());
+        BaseMod.addCard(new Overexert());
 
         //Rare
         BaseMod.addCard(new FakeOut());
@@ -274,6 +292,17 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(Poke.ID);
         UnlockTracker.unlockCard(Replenish.ID);
         UnlockTracker.unlockCard(BraceForImpact.ID);
+        UnlockTracker.unlockCard(Brace.ID);
+        UnlockTracker.unlockCard(Molting.ID);
+        UnlockTracker.unlockCard(CursingBlood.ID);
+        UnlockTracker.unlockCard(DigDeep.ID);
+        UnlockTracker.unlockCard(DigDeeper.ID);
+        UnlockTracker.unlockCard(PrayerOfSafety.ID);
+        UnlockTracker.unlockCard(BarbedWire.ID);
+        UnlockTracker.unlockCard(SacrificialAttack.ID);
+        UnlockTracker.unlockCard(BloodRitual.ID);
+        UnlockTracker.unlockCard(RuinSticks.ID);
+        UnlockTracker.unlockCard(Overexert.ID);
 
 
         UnlockTracker.unlockCard(Inspiration.ID);
@@ -362,12 +391,12 @@ public class Beaked implements PostInitializeSubscriber,
 
     public static void setDescription(AbstractCard card, String desc){
 
-        // This should be called whenever you would normally use:
+        // IF you want a card to use auto-pluralization, this should be called whenever you would normally use:
 
         // this.rawDescription = desc;
         // this.initializeDescription(desc);
 
-        // in a card, IF you want that card to use auto-pluralization. Make sure to call it in the card's constructor as well.
+        // Make sure to call it in the card's constructor as well.
 
         PluralizeFieldsPatch.trueRawDescription.set(card,desc);
         createPluralizedDescription(card);
