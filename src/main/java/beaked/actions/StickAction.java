@@ -28,6 +28,7 @@ public class StickAction extends AbstractGameAction
         if (this.duration == Settings.ACTION_DUR_FAST) {
             for (final AbstractCard c : AbstractDungeon.player.hand.group) {
                 if (c instanceof StickSmack) {
+                    c.flash();
                     c.baseDamage += this.amount;
                     c.applyPowers();
                     if (c == StickSmack.lastPlayed){

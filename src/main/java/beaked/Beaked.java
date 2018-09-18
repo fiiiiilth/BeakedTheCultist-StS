@@ -201,6 +201,10 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Molting());
         BaseMod.addCard(new CursingBlood());
         BaseMod.addCard(new DigDeep());
+        BaseMod.addCard(new FeelMyPain());
+        BaseMod.addCard(new Windmill());
+        BaseMod.addCard(new Cower());
+        BaseMod.addCard(new SurvivalInstinct());
 
         //Uncommon
         BaseMod.addCard(new Overpower());
@@ -228,6 +232,13 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new BloodRitual());
         BaseMod.addCard(new RuinSticks());
         BaseMod.addCard(new Overexert());
+        BaseMod.addCard(new SacrificialDive());
+        BaseMod.addCard(new Mantra());
+        BaseMod.addCard(new MaddeningMurmurs());
+        BaseMod.addCard(new TurnTheTables());
+        BaseMod.addCard(new StunningBlow());
+        BaseMod.addCard(new WindBringer());
+
 
         //Rare
         BaseMod.addCard(new FakeOut());
@@ -242,6 +253,10 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Caw());
         BaseMod.addCard(new AwakenedForm());
         BaseMod.addCard(new WildInstinct());
+        BaseMod.addCard(new VolatileMisfortune());
+        BaseMod.addCard(new ShadowFade());
+        BaseMod.addCard(new CheekyTricks());
+        BaseMod.addCard(new ScreechingChant());
 
         // make sure everything is always unlocked
         UnlockTracker.unlockCard(Strike_Y.ID);
@@ -303,6 +318,20 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(BloodRitual.ID);
         UnlockTracker.unlockCard(RuinSticks.ID);
         UnlockTracker.unlockCard(Overexert.ID);
+        UnlockTracker.unlockCard(SacrificialDive.ID);
+        UnlockTracker.unlockCard(FeelMyPain.ID);
+        UnlockTracker.unlockCard(Mantra.ID);
+        UnlockTracker.unlockCard(Windmill.ID);
+        UnlockTracker.unlockCard(MaddeningMurmurs.ID);
+        UnlockTracker.unlockCard(TurnTheTables.ID);
+        UnlockTracker.unlockCard(Cower.ID);
+        UnlockTracker.unlockCard(VolatileMisfortune.ID);
+        UnlockTracker.unlockCard(SurvivalInstinct.ID);
+        UnlockTracker.unlockCard(ShadowFade.ID);
+        UnlockTracker.unlockCard(StunningBlow.ID);
+        UnlockTracker.unlockCard(CheekyTricks.ID);
+        UnlockTracker.unlockCard(WindBringer.ID);
+        UnlockTracker.unlockCard(ScreechingChant.ID);
 
 
         UnlockTracker.unlockCard(Inspiration.ID);

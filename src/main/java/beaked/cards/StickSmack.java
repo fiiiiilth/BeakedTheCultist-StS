@@ -32,7 +32,7 @@ public class StickSmack extends CustomCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        lastPlayed = this;
+        if (!purgeOnUse) lastPlayed = this;
 
         AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(m,
                 new DamageInfo(p, this.damage, this.damageTypeForTurn),

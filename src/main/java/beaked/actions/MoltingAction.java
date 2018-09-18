@@ -34,6 +34,7 @@ public class MoltingAction extends AbstractGameAction {
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
             if (this.p.hand.size() == 0) {
+                AbstractDungeon.actionManager.addToTop(new GainBlockAction(p,p,this.block));
                 this.isDone = true;
                 return;
             }

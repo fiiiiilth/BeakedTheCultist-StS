@@ -135,5 +135,35 @@
 			"At the start of your next turn, heal #b",
 			" HP."
 		]
+	},
+	"beaked:WindmillPower": {
+		"NAME": "Windmill",
+		"DESCRIPTIONS": [
+			"Whenever you play a #ySkill this turn, deal #b",
+			" damage to a random enemy."
+		]
+	},
+	"beaked:MurmursPower": {
+		"NAME": "Maddening Murmurs",
+		"DESCRIPTIONS": [
+			"At the start of your turn, place ",
+			"a random card from your discard pile into your hand. It costs 1 less this turn.",
+			" random cards from your discard pile into your hand. They cost 1 less this turn."
+		]
+	},
+	"beaked:MurmursPlusPower": {
+		"NAME": "Maddening Murmurs+",
+		"DESCRIPTIONS": [
+			"At the start of your turn, place ",
+			"a random card from your discard pile into your hand. It costs 0 this turn.",
+			" random cards from your discard pile into your hand. They cost 0 this turn."
+		]
+	},
+	"beaked:MisfortunePower": {
+		"NAME": "Volatile Misfortune",
+		"DESCRIPTIONS": [
+			"At the end of your turn, #yRetain all #yUnplayable cards and deal #b",
+			" damage to a random enemy for each. (Affected by #yStrength.)"
+		]
 	}
 }

@@ -28,7 +28,7 @@
 	"beaked:Evade": {
 		"NAME": "Evade",
 		"DESCRIPTION": "If the enemy intends to attack, gain [E] [E].",
-		"EXTENDED_DESCRIPTION": ["This enemy isn't Weak."]
+		"EXTENDED_DESCRIPTION": ["This enemy doesn't intend to attack."]
 	},
 	"beaked:Daydream": {
 		"NAME": "Daydream",
@@ -48,7 +48,7 @@
 	},
 	"beaked:Roost": {
 		"NAME": "Roost",
-		"DESCRIPTION": "Gain !B! block. NL Increase this cards cost by 1 for the rest of combat."
+		"DESCRIPTION": "Gain !B! Block. NL Increase this card's cost by 1 for the rest of combat."
 	},
 	"beaked:HuntressEssence": {
 		"NAME": "Huntress Essence",
@@ -261,5 +261,68 @@
 	"beaked:BloodRitual": {
 		"NAME": "Blood Ritual",
 		"DESCRIPTION": "Lose 12 HP. NL Gain !M! Ritual."
+	},
+	"beaked:SacrificialDive": {
+		"NAME": "Sacrificial Dive",
+		"DESCRIPTION": "If the enemy intends to attack, lose HP equal to half of its total attack damage. It loses 99 Strength this turn. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "If the enemy intends to attack, lose HP equal to half of its total attack damage. It loses 99 Strength this turn.",
+		"EXTENDED_DESCRIPTION": ["This enemy doesn't intend to attack."]
+	},
+	"beaked:FeelMyPain": {
+		"NAME": "Feel My Pain",
+		"DESCRIPTION": "Lose 50% of your current HP. NL Gain !M! Strength."
+	},
+	"beaked:Mantra": {
+		"NAME": "Mantra",
+		"DESCRIPTION": "Deal !D! damage for every Wither card in your deck.",
+		"EXTENDED_DESCRIPTION": [" NL (You have !M! Wither card{s}.)"]
+	},
+	"beaked:Windmill": {
+		"NAME": "Windmill",
+		"DESCRIPTION": "Deal !D! damage. NL Whenever you play a Skill this turn, deal !M! damage to a random enemy."
+	},
+	"beaked:MaddeningMurmurs": {
+		"NAME": "Maddening Murmurs",
+		"DESCRIPTION": "At the start of your turn, place a random card from your discard pile into your hand. It costs 1 less this turn.",
+		"UPGRADE_DESCRIPTION": "At the start of your turn, place a random card from your discard pile into your hand. It costs 0 this turn."
+	},
+	"beaked:TurnTheTables": {
+		"NAME": "Turn the Tables",
+		"DESCRIPTION": "Replace ALL enemies' Weak with Vulnerable.",
+		"UPGRADE_DESCRIPTION": "Replace ALL enemies' Weak with Vulnerable. Apply 1 Vulnerable to ALL enemies."
+	},
+	"beaked:Cower": {
+		"NAME": "Cower",
+		"DESCRIPTION": "Gain 1 Vulnerable. NL Apply !M! Weak to ALL enemies."
+	},
+	"beaked:VolatileMisfortune": {
+		"NAME": "Volatile Misfortune",
+		"DESCRIPTION": "At the end of your turn, Retain all Unplayable cards. For each, deal damage to a random enemy equal to your Strength + 1.",
+		"UPGRADE_DESCRIPTION": "Innate. At the end of your turn, Retain all Unplayable cards. For each, deal damage to a random enemy equal to your Strength + 1."
+	},
+	"beaked:SurvivalInstinct": {
+		"NAME": "Survival Instinct",
+		"DESCRIPTION": "Can only be played if you haven't played any other cards this turn. NL Gain 1 Intangible. NL Become Entangled.",
+		"EXTENDED_DESCRIPTION": ["I have played other cards this turn!"]
+	},
+	"beaked:ShadowFade": {
+		"NAME": "Shadow Fade",
+		"DESCRIPTION": "Gain !beaked:I! Intangible. NL Wither !M!."
+	},
+	"beaked:StunningBlow": {
+		"NAME": "Stunning Blow",
+		"DESCRIPTION": "Deal !D! damage. NL Gain !M! Intangible."
+	},
+	"beaked:ScreechingChant": {
+		"NAME": "Screeching Chant",
+		"DESCRIPTION": "Double your Ritual. NL Exhaust."
+	},
+	"beaked:WindBringer": {
+		"NAME": "Wind Bringer",
+		"DESCRIPTION": "Deal !D! damage to ALL enemies. NL Wither !M!."
+	},
+	"beaked:CheekyTricks": {
+		"NAME": "Cheeky Tricks",
+		"DESCRIPTION": "Ignore the next !beaked:I! Wither effect{^s^} this combat. NL Wither !M!."
 	}
 }
