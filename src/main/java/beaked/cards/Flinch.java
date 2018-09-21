@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
 import com.badlogic.gdx.graphics.Color;
@@ -31,7 +32,7 @@ public class Flinch extends AbstractWitherCard {
     private static final int UPGRADE_PLUS_WITHER = -1;
 
     public Flinch() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
 
         this.baseMisc = this.misc = BLOCK_AMT;

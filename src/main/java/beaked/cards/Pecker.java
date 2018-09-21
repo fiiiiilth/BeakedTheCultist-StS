@@ -1,5 +1,6 @@
 package beaked.cards;
 
+import beaked.Beaked;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -26,7 +27,7 @@ public class Pecker extends AbstractWitherCard {
     private static final int UPGRADE_NEW_COST = 1;
 
     public Pecker() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         this.baseDamage = this.damage = DAMAGE;

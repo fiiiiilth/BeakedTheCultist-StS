@@ -35,7 +35,7 @@ public class DevastationPower extends AbstractPower implements PostDrawSubscribe
 		updateDescription();
 		this.type = PowerType.BUFF;
 		this.isTurnBased = false;
-		this.loadRegion("anger");
+		this.loadRegion("corruption");
 	}
 
 	@Override

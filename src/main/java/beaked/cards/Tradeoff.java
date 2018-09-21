@@ -26,7 +26,7 @@ public class Tradeoff extends AbstractWitherCard {
     public static final int UPGRADE_PLUS_DRAW = 1;
 
     public Tradeoff() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.NONE);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.NONE);
         this.misc = this.baseMisc = EXHAUST;
         this.magicNumber = this.baseMagicNumber = DRAW;
         this.witherEffect = "Increases number of #yExhausted cards.";

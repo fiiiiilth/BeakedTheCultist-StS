@@ -1,5 +1,6 @@
 package beaked.cards;
 
+import beaked.Beaked;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -24,7 +25,7 @@ public class WindBringer extends AbstractWitherCard {
     private static final int UPGRADE_PLUS_WITHER = -1;
 
     public WindBringer() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
 
         this.isMultiDamage = true;

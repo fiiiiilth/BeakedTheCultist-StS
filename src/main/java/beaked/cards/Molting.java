@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.actions.MoltingAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
@@ -24,7 +25,7 @@ public class Molting extends CustomCard {
     public static final int UPGRADE_PLUS_BLOCK = 3;
 
     public Molting() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.SELF);
         this.block = this.baseBlock = BLOCK;
         this.magicNumber = this.baseMagicNumber = BONUS_BLOCK;
     }

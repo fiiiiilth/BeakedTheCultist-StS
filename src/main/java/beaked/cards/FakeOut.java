@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.actions.SwapDrawPileAndDiscardAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -26,7 +27,7 @@ public class FakeOut extends CustomCard {
     private static final int UPGRADE_NEW_COST = 0;
 
     public FakeOut() {
-        super(ID, NAME, null, COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, AbstractCard.CardRarity.RARE,
                 AbstractCard.CardTarget.ALL_ENEMY);
 

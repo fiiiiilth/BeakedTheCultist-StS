@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.actions.IncreaseMiscOnKillAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -26,7 +27,7 @@ public class Sacrifice extends CustomCard {
     private static final int UPGRADE_PLUS_DMG = 9;
 
     public Sacrifice() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE,
                 CardTarget.ENEMY);
 

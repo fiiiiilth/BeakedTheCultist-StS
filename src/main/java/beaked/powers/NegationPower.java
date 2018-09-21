@@ -23,7 +23,7 @@ public class NegationPower extends AbstractPower {
         this.amount = amount;
         this.isTurnBased = false;
         updateDescription();
-        this.loadRegion("winter");
+        this.loadRegion("fading");
     }
 
     @Override

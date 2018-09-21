@@ -1,5 +1,6 @@
 package beaked.cards;
 
+import beaked.Beaked;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -24,7 +25,7 @@ public class CursingBlood extends AbstractWitherCard {
     public static final int HP_LOSS = 3;
 
     public CursingBlood() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.ENEMY);
 
         this.baseMisc = this.misc = STR_DOWN;

@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.actions.BackfireDamageAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -27,7 +28,7 @@ public class Struggle extends CustomCard {
     private static final int UPGRADE_PLUS_DMG_PER_CARD = 2;
 
     public Struggle() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON,
                 CardTarget.ENEMY);
         this.baseDamage = this.damage = ATTACK_DMG;

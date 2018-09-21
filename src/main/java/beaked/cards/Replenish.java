@@ -23,7 +23,7 @@ public class Replenish extends CustomCard {
     public static final int REPLENISH_USES = 1;
 
     public Replenish() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.NONE);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.NONE);
         this.magicNumber = this.baseMagicNumber = REPLENISH_USES;
         Beaked.setDescription(this,DESCRIPTION);
     }

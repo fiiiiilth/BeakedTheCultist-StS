@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.actions.DrawAndLogCardsAction;
 import beaked.actions.FeathersFollowupAction;
 import beaked.patches.AbstractCardEnum;
@@ -23,7 +24,7 @@ public class TuckingFeathers extends CustomCard {
     public static final int UPGRADE_PLUS_DRAW = 1;
 
     public TuckingFeathers() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.NONE);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.NONE);
         this.magicNumber = this.baseMagicNumber = DRAW;
     }
 

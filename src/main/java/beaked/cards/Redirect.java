@@ -1,5 +1,6 @@
 package beaked.cards;
 
+import beaked.Beaked;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -24,7 +25,7 @@ public class Redirect extends AbstractWitherCard {
     private static final int UPGRADE_NEW_COST = 0;
 
     public Redirect() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
 
         this.baseMisc = this.misc = BLOCK_PER_STRENGTH;

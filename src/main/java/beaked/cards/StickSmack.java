@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
@@ -24,7 +25,7 @@ public class StickSmack extends CustomCard {
     public static StickSmack lastPlayed = null;
 
     public StickSmack() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON,
                 CardTarget.ENEMY);
         this.baseDamage = ATTACK_DMG;

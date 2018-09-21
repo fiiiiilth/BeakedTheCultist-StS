@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.FlightPlayerPower;
 import beaked.powers.HexingPower;
@@ -23,7 +24,7 @@ public class LiftOff extends CustomCard {
     public static final int FLIGHT_AMT = 3;
 
     public LiftOff() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = FLIGHT_AMT;
     }
 

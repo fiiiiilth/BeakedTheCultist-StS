@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.WindmillPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -27,7 +28,7 @@ public class Windmill extends CustomCard {
     public static final int UPGRADE_PLUS_SKILL_DAMAGE = 3;
 
     public Windmill() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.ENEMY);
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = SKILL_DAMAGE;
     }

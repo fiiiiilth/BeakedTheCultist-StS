@@ -5,6 +5,7 @@ import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModTags;
 import basemod.helpers.CardTags;
 import basemod.interfaces.StartActSubscriber;
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.AwakenedPlusPower;
 import beaked.powers.AwakenedPower;
@@ -30,7 +31,7 @@ public class AwakenedForm extends CustomCard {
     public static final int COST = 5;
 
     public AwakenedForm() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
         this.cost = this.costForTurn = COST - AbstractDungeon.bossCount;
         this.isCostModified = this.cost < COST;
         CardTags.addTags(this, BaseModTags.FORM);

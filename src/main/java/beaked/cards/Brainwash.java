@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.actions.ExhaustAllDepletedAction;
 import beaked.actions.FlashHandAction;
 import beaked.patches.AbstractCardEnum;
@@ -24,7 +25,7 @@ public class Brainwash extends CustomCard {
     public static final int UPGRADED_COST = 2;
 
     public Brainwash() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.NONE);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.NONE);
         this.exhaust = true;
     }
 

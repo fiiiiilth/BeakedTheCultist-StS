@@ -3,6 +3,7 @@ package beaked.cards;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModTags;
 import basemod.helpers.CardTags;
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.RitualPlayerPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -22,7 +23,7 @@ public class Ceremony extends CustomCard {
     private static final int COST = 2;
 
     public Ceremony() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.POWER,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER,
                 AbstractCardEnum.BEAKED_YELLOW, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
 
         this.isEthereal = true;

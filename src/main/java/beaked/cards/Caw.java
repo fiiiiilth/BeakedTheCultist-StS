@@ -1,5 +1,6 @@
 package beaked.cards;
 
+import beaked.Beaked;
 import beaked.actions.CawAction;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;

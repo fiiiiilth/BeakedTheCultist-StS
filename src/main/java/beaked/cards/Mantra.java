@@ -28,7 +28,7 @@ public class Mantra extends CustomCard {
     public static final int UPGRADE_NEW_COST = 1;
 
     public Mantra() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseDamage = this.damage = DAMAGE;
         Beaked.setDescription(this, DESCRIPTION);
     }

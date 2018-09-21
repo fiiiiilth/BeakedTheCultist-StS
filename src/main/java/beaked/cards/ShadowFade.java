@@ -1,5 +1,6 @@
 package beaked.cards;
 
+import beaked.Beaked;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -23,7 +24,7 @@ public class ShadowFade extends AbstractWitherCard {
     private static final int UPGRADE_PLUS_WITHER = -1;
 
     public ShadowFade() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
         this.baseMisc = this.misc = INTANGIBLE;
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_INTANGIBLE;

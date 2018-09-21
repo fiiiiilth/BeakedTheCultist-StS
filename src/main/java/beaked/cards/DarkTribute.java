@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.actions.ExhaustAllDepletedAction;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
@@ -26,7 +27,7 @@ public class DarkTribute extends AbstractWitherCard {
     public static final int UPGRADE_PLUS_WITHER = 1;
 
     public DarkTribute() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.NONE);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.NONE);
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_POISON;
         this.baseMisc = this.misc = POISON;
         this.witherEffect = "Increases #yPoison.";

@@ -1,5 +1,6 @@
 package beaked.cards;
 
+import beaked.Beaked;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -24,7 +25,7 @@ public class FullHouse extends AbstractWitherCard {
     public static final int UPGRADE_PLUS_WITHER = -1;
 
     public FullHouse() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.NONE);
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.NONE);
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_CARDS;
         this.baseMisc = this.misc = DRAW;
         this.witherEffect = "Decreases the number of cards drawn.";

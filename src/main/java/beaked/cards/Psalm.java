@@ -1,5 +1,6 @@
 package beaked.cards;
 
+import beaked.Beaked;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -24,7 +25,7 @@ public class Psalm extends AbstractWitherCard {
     private static final int UPGRADE_PLUS_DAMAGE = 2;
 
     public Psalm() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK,
+        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.ALL_ENEMY);
 
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_DAMAGE;
