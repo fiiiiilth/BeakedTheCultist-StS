@@ -2,7 +2,6 @@ package beaked;
 
 import java.nio.charset.StandardCharsets;
 
-import basemod.helpers.BaseModTags;
 import basemod.interfaces.*;
 import beaked.cards.*;
 import beaked.characters.BeakedTheCultist;
@@ -16,7 +15,6 @@ import beaked.relics.ShinyBauble;
 import beaked.relics.ThroatLozenge;
 import beaked.variables.BlockPlusMagicVariable;
 import beaked.variables.MiscVariable;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -472,5 +470,14 @@ public class Beaked implements PostInitializeSubscriber,
         card.rawDescription = card.rawDescription.replace("|", "");
         card.rawDescription = card.rawDescription.replace("$", "");
         card.initializeDescription();
+    }
+
+    public static boolean hasWitheredCards() {
+        for(AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+            if(card instanceof AbstractWitherCard && ((AbstractWitherCard)card).misc != ((AbstractWitherCard)card).baseMisc) {
+                return true;
+            }
+        }
+        return false;
     }
 }
