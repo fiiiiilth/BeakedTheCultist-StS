@@ -43,6 +43,7 @@ public class ReverseWitherEffect extends AbstractGameEffect {
             card.applyPowers();
             AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(card, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));
             AbstractDungeon.topLevelEffects.add(new CardGlowBorder(card));
+            AbstractDungeon.gridSelectScreen.selectedCards.clear();
         }
         if(this.duration < 1.0f && !this.openedScreen) {
             this.openedScreen = true;

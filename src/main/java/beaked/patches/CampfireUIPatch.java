@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 import java.util.ArrayList;
 
 @SpirePatch(clz=CampfireUI.class,
-        method="initializeButtons")
+            method="initializeButtons")
 
 public class CampfireUIPatch {
     public static void Postfix(Object meObj) {
