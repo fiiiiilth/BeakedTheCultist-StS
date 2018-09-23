@@ -22,7 +22,7 @@ public class MurmursPlusPower extends AbstractPower {
         this.amount = amount;
         this.isTurnBased = false;
         updateDescription();
-        this.loadRegion("attackBurn");
+        this.loadRegion("skillBurn");
     }
 
     @Override

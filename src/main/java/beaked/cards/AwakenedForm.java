@@ -32,7 +32,7 @@ public class AwakenedForm extends CustomCard {
 
     public AwakenedForm() {
         super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
-        this.cost = this.costForTurn = COST - AbstractDungeon.bossCount;
+        this.cost = this.costForTurn = Math.max(0,AwakenedForm.COST - AbstractDungeon.bossCount);
         this.isCostModified = this.cost < COST;
         CardTags.addTags(this, BaseModTags.FORM);
     }
@@ -54,7 +54,7 @@ public class AwakenedForm extends CustomCard {
 
     public void updateAwakenCost(){
         BaseMod.logger.debug("BOSSES: " + AbstractDungeon.bossCount);
-        this.cost = this.costForTurn = AwakenedForm.COST - AbstractDungeon.bossCount;
+        this.cost = this.costForTurn = Math.max(0,AwakenedForm.COST - AbstractDungeon.bossCount);
         this.isCostModified = this.cost < COST;
         this.applyPowers();
     }

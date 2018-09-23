@@ -211,7 +211,7 @@
 	},
 	"beaked:Replenish": {
 		"NAME": "Replenish",
-		"DESCRIPTION": "Replenish !M! use{s} of a Withered card in your hand."
+		"DESCRIPTION": "Replenish !M! use{s} of a Wither card in your hand."
 	},
 	"beaked:BraceForImpact": {
 		"NAME": "Brace for Impact",
