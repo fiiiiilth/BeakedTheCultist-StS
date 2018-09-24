@@ -4,9 +4,7 @@ import basemod.abstracts.CustomCard;
 import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -39,7 +37,10 @@ public class SacrificialAttack extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p,this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY));
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p,p,StrengthPower.POWER_ID));
+        if (p.hasPower(StrengthPower.POWER_ID)){
+            int str = p.getPower(StrengthPower.POWER_ID).amount;
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new StrengthPower(p,-str),-str));
+        }
     }
 
     @Override

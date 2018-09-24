@@ -4,8 +4,8 @@ import basemod.abstracts.CustomCard;
 import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.RitualPlayerPower;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -39,7 +39,7 @@ public class DigDeeper extends CustomCard {
                 AbstractDungeon.actionManager.addToBottom(new HealAction(p,p,this.magicNumber));
             }
 
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p,p,StrengthPower.POWER_ID));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new StrengthPower(p,-str),-str));
         }
     }
 

@@ -4,8 +4,6 @@ import basemod.abstracts.CustomCard;
 import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -33,7 +31,7 @@ public class BarbedWire extends CustomCard {
         if (AbstractDungeon.player.hasPower(StrengthPower.POWER_ID)){
             int str = AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new ThornsPower(p,str),str));
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p,p,StrengthPower.POWER_ID));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new StrengthPower(p,-str),-str));
         }
     }
 
