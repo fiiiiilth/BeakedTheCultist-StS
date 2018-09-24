@@ -2,6 +2,7 @@ package beaked.cards;
 
 import basemod.abstracts.CustomCard;
 import beaked.Beaked;
+import beaked.actions.HealIfAliveAction;
 import beaked.actions.IncreaseMiscOnKillAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -40,7 +41,7 @@ public class Sacrifice extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new IncreaseMiscOnKillAction(m,
                 new DamageInfo(p, this.damage, this.damageTypeForTurn), 1, this));
-        AbstractDungeon.actionManager.addToBottom(new HealAction(m,p,this.baseDamage));
+        AbstractDungeon.actionManager.addToBottom(new HealIfAliveAction(m,p,this.baseDamage));
         if (this.misc > 0) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new StrengthPower(p,this.misc),this.misc));
     }
 

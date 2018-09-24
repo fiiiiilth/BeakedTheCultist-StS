@@ -2,8 +2,10 @@ package beaked.cards;
 
 import basemod.abstracts.CustomCard;
 import beaked.Beaked;
+import beaked.actions.ModifyCostAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -29,7 +31,7 @@ public class Roost extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.baseBlock));
-        this.modifyCostForCombat(+1);
+        AbstractDungeon.actionManager.addToBottom(new ModifyCostAction(this,+1));
     }
 
     @Override
