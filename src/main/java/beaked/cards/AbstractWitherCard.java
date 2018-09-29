@@ -5,7 +5,7 @@ import basemod.helpers.TooltipInfo;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
 import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -25,6 +25,8 @@ public abstract class AbstractWitherCard extends CustomCard {
     public String witherEffect = "";    // a description of what value the Wither effect changes.
     public int witherAmount = 0;        // how much the card withers, ie. the 2 in "Wither 2." Also used by replenish effects.
     public boolean linkWitherAmountToMagicNumber = false; // is witherAmount always equal to this card's magicNumber?
+
+    // Use dynamic variables !beaked:wI!, !beaked:wD!, !beaked:wB! to represent the card's current power in purple.
 
     // IN THE CONSTRUCTOR OF A NEW WITHER CARD:
     // this.misc = this.baseMisc = <Initial Card Value>;

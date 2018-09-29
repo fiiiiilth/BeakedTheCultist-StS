@@ -2,11 +2,13 @@ package beaked.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class RitualPlayerPower extends AbstractPower {
@@ -25,7 +27,38 @@ public class RitualPlayerPower extends AbstractPower {
         this.isTurnBased = false;
         updateDescription();
         this.loadRegion("ritual");
+        this.canGoNegative = true;
         //this.img = new Texture("img/powers/ritual.png");
+    }
+
+    @Override
+    public void stackPower(final int stackAmount) {
+        this.fontScale = 8.0f;
+        this.amount += stackAmount;
+        if (this.amount == 0) {
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+        }
+        if (this.amount >= 999) {
+            this.amount = 999;
+        }
+        if (this.amount <= -999) {
+            this.amount = -999;
+        }
+    }
+
+    @Override
+    public void reducePower(final int reduceAmount) {
+        this.fontScale = 8.0f;
+        this.amount -= reduceAmount;
+        if (this.amount == 0) {
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+        }
+        if (this.amount >= 999) {
+            this.amount = 999;
+        }
+        if (this.amount <= -999) {
+            this.amount = -999;
+        }
     }
 
     @Override
@@ -36,7 +69,15 @@ public class RitualPlayerPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        this.description = RitualPlayerPower.DESCRIPTIONS[0] + this.amount + RitualPlayerPower.DESCRIPTIONS[1];
+        if (this.amount > 0) {
+            this.description = RitualPlayerPower.DESCRIPTIONS[0] + this.amount + RitualPlayerPower.DESCRIPTIONS[2];
+            this.type = PowerType.BUFF;
+        }
+        else{
+            final int tmp = -this.amount;
+            this.description = RitualPlayerPower.DESCRIPTIONS[1] + tmp + RitualPlayerPower.DESCRIPTIONS[2];
+            this.type = PowerType.DEBUFF;
+        }
     }
 
 }

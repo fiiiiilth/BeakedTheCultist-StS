@@ -2,10 +2,10 @@
 	"modid": "beakedthecultist-sts",
 	"name": "Beaked The Cultist",
 	"author_list": ["fiiiiilth","Moocowsgomoo"],
-	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- Roost no longer costs more than it says. \n- Sacrifice no longer heals half-dead Darklings. \n- Awakened Form caps at 5 bosses killed. \n- Power icon for Maddening Murmurs+. \n- Replenish card wording. \n- Artifact now blocks the Strength loss from cards.",
+	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- 5 new cards. \n- New config option: Crazy Rituals. \n- Wither values now displayed in purple. \n- Shortened flavor text.",
 	"dependencies": ["basemod"],
-	"version": "0.4.1",
-	"sts_version": "09-20-2018",
+	"version": "0.4.2",
+	"sts_version": "09-27-2018",
 	"mts_version": "3.0.0",
 	"update_json": "https://api.github.com/repos/fiiiiilth/BeakedTheCultist-StS/releases/latest"
 }

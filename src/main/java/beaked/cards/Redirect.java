@@ -29,7 +29,6 @@ public class Redirect extends AbstractWitherCard {
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
 
         this.baseMisc = this.misc = BLOCK_PER_STRENGTH;
-        this.baseMagicNumber = this.magicNumber = this.misc;
         this.witherEffect = "Decreases the #yStrength multiplier.";
         this.witherAmount = WITHER_MINUS_BLOCK_PER_STRENGTH;
     }
@@ -47,10 +46,9 @@ public class Redirect extends AbstractWitherCard {
 
     @Override
     public void applyPowers() {
-        this.baseMagicNumber = this.magicNumber = this.misc;
         this.baseBlock = 0;
         if (AbstractDungeon.player.hasPower(StrengthPower.POWER_ID) && AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount > 0){
-            this.baseBlock = AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount * this.magicNumber;
+            this.baseBlock = AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount * this.misc;
         }
         super.applyPowers();
         if (!this.isDepleted && AbstractDungeon.player.hand.contains(this)) this.rawDescription = EXTENDED_DESCRIPTION + DESCRIPTION;

@@ -18,7 +18,6 @@ public class Pecker extends AbstractWitherCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION[0];
     private static final int COST = 2;
     private static final int DAMAGE = 1;
     private static final int NUM_HITS = 5;
@@ -31,27 +30,18 @@ public class Pecker extends AbstractWitherCard {
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         this.baseDamage = this.damage = DAMAGE;
-        this.baseMagicNumber = this.magicNumber = NUM_HITS;
-        this.baseMisc = this.misc = this.magicNumber;
+        this.baseMisc = this.misc = NUM_HITS;
         this.witherEffect = "Decreases the number of hits.";
         this.witherAmount = WITHER_MINUS_NUM_HITS;
+        Beaked.setDescription(this,DESCRIPTION);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new WitherAction(this));
-        for (int i=0;i<magicNumber;i++){
+        for (int i=0;i<misc;i++){
             AbstractDungeon.actionManager.addToBottom(new PummelDamageAction(m, new DamageInfo(p,this.damage,this.damageTypeForTurn)));
         }
-    }
-
-    @Override
-    public void applyPowers() {
-        this.baseMagicNumber = this.magicNumber = this.misc;
-        super.applyPowers();
-        // pluralization
-        this.rawDescription = (this.magicNumber == 1 ? EXTENDED_DESCRIPTION : DESCRIPTION);
-        this.initializeDescription();
     }
 
     public AbstractCard makeCopy() {
@@ -61,8 +51,7 @@ public class Pecker extends AbstractWitherCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_NUM_HITS);
-            this.upgradeMisc(UPGRADE_PLUS_NUM_HITS);  // use upgradeMisc to update the witherable value (calls ApplyPowers)
+            this.upgradeMisc(UPGRADE_PLUS_NUM_HITS);
             this.upgradeBaseCost(UPGRADE_NEW_COST);
         }
     }

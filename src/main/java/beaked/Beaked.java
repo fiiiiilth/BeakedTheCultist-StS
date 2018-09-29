@@ -1,7 +1,10 @@
 package beaked;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
+import basemod.ModLabeledToggleButton;
+import basemod.ReflectionHacks;
 import basemod.interfaces.*;
 import beaked.cards.*;
 import beaked.characters.BeakedTheCultist;
@@ -13,18 +16,22 @@ import beaked.relics.FlawlessSticks;
 import beaked.relics.MendingPlumage;
 import beaked.relics.ShinyBauble;
 import beaked.relics.ThroatLozenge;
-import beaked.variables.BlockPlusMagicVariable;
-import beaked.variables.MiscVariable;
+import beaked.variables.*;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.relics.CultistMask;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
+import com.megacrit.cardcrawl.screens.charSelect.CharacterOption;
+import com.megacrit.cardcrawl.screens.charSelect.CharacterSelectScreen;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -87,6 +94,8 @@ public class Beaked implements PostInitializeSubscriber,
     // badge
     public static final String BADGE_IMG = "RelicBadge.png";
 
+    public static boolean crazyRituals = false;
+
     // texture loaders
 
 
@@ -126,12 +135,43 @@ public class Beaked implements PostInitializeSubscriber,
         ModPanel settingsPanel = new ModPanel();
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
+        try {
+            SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig");
+            config.load();
+            crazyRituals = config.getBool("crazyRituals");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        ModLabeledToggleButton crazyBtn = new ModLabeledToggleButton("Replace 2 of your starting Ceremony cards with Crazy Rituals",
+                350.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                crazyRituals, settingsPanel, (label) -> {}, (button) -> {
+            crazyRituals = button.enabled;
+            try {
+                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig");
+                config.setBool("crazyRituals", crazyRituals);
+                config.save();
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+            resetCharSelect();
+        });
+        settingsPanel.addUIElement(crazyBtn);
+
         Settings.isDailyRun = false;
         Settings.isTrial = false;
         Settings.isDemo = false;
 
         BaseMod.addMonster(SuperParasite.ID, ()->new SuperParasite());
         BaseMod.addBoss(TheCity.ID, SuperParasite.ID,"img/ui/map/boss/parasite.png","img/ui/map/bossOutline/parasite.png");
+    }
+
+    @SuppressWarnings("unchecked")
+    private void resetCharSelect() {
+        ((ArrayList<CharacterOption>) ReflectionHacks.getPrivate(CardCrawlGame.mainMenuScreen.charSelectScreen, CharacterSelectScreen.class, "options")).clear();
+        CardCrawlGame.mainMenuScreen.charSelectScreen.initialize();
     }
 
     @Override
@@ -169,6 +209,9 @@ public class Beaked implements PostInitializeSubscriber,
 
         BaseMod.addDynamicVariable(new MiscVariable());
         BaseMod.addDynamicVariable(new BlockPlusMagicVariable());
+        BaseMod.addDynamicVariable(new WitherMiscVariable());
+        BaseMod.addDynamicVariable(new WitherBlockVariable());
+        BaseMod.addDynamicVariable(new WitherDamageVariable());
 
         //Basic
         BaseMod.addCard(new Strike_Y());
@@ -236,6 +279,11 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new TurnTheTables());
         BaseMod.addCard(new StunningBlow());
         BaseMod.addCard(new WindBringer());
+        BaseMod.addCard(new MimicWarrior());
+        BaseMod.addCard(new MimicHuntress());
+        BaseMod.addCard(new MimicMachine());
+        BaseMod.addCard(new CrazyRituals());
+        BaseMod.addCard(new RitualOfBody());
 
 
         //Rare
@@ -330,6 +378,11 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(CheekyTricks.ID);
         UnlockTracker.unlockCard(WindBringer.ID);
         UnlockTracker.unlockCard(ScreechingChant.ID);
+        UnlockTracker.unlockCard(MimicWarrior.ID);
+        UnlockTracker.unlockCard(MimicHuntress.ID);
+        UnlockTracker.unlockCard(MimicMachine.ID);
+        UnlockTracker.unlockCard(CrazyRituals.ID);
+        UnlockTracker.unlockCard(RitualOfBody.ID);
 
 
         UnlockTracker.unlockCard(Inspiration.ID);

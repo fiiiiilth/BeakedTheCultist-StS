@@ -44,7 +44,7 @@
 	},
 	"beaked:Flinch": {
 		"NAME": "Flinch",
-		"DESCRIPTION": "Gain !B! Block. NL Wither !M!."
+		"DESCRIPTION": "Gain !beaked:wB! Block. NL Wither !M!."
 	},
 	"beaked:Roost": {
 		"NAME": "Roost",
@@ -74,7 +74,7 @@
 	},
 	"beaked:Redirect": {
 		"NAME": "Redirect",
-		"DESCRIPTION": "Gain Block equal to !M! times your Strength, then lose all Strength. NL Wither 1.",
+		"DESCRIPTION": "Gain Block equal to !beaked:wI! times your Strength, then lose all Strength. NL Wither 1.",
 		"EXTENDED_DESCRIPTION": ["(Gain !B! Block.) NL "]
 	},
 	"beaked:DesperateSwing": {
@@ -100,8 +100,7 @@
 	},
 	"beaked:Pecker": {
 		"NAME": "Pecker",
-		"DESCRIPTION": "Deal !D! damage !M! times. NL Wither 1.",
-		"EXTENDED_DESCRIPTION": ["Deal !D! damage !M! time. NL Wither 1."]
+		"DESCRIPTION": "Deal !D! damage !beaked:wI! time{s}. NL Wither 1."
 	},
 	"beaked:TuckingFeathers": {
 		"NAME": "Tucking Feathers",
@@ -118,7 +117,7 @@
 	},
 	"beaked:Psalm": {
 		"NAME": "Psalm",
-		"DESCRIPTION": "Deal !D! damage to ALL enemies. NL Wither !M!."
+		"DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies. NL Wither !M!."
 	},
 	"beaked:Struggle": {
 		"NAME": "Struggle",
@@ -140,7 +139,7 @@
 	},
 	"beaked:DarkTribute": {
 		"NAME": "Dark Tribute",
-		"DESCRIPTION": "Heal ALL HP. NL Gain !beaked:I! Poison. NL Wither !M!."
+		"DESCRIPTION": "Heal ALL HP. NL Gain !beaked:wI! Poison. NL Wither !M!."
 	},
 	"beaked:LiftOff": {
 		"NAME": "Lift Off",
@@ -148,12 +147,12 @@
 	},
 	"beaked:FullHouse": {
 		"NAME": "Full House",
-		"DESCRIPTION": "Draw !beaked:I! cards. NL Wither !M!."
+		"DESCRIPTION": "Draw !beaked:wI! cards. NL Wither !M!."
 	},
 	"beaked:Caw": {
 		"NAME": "CAW!",
-		"DESCRIPTION": "Deal !D! damage to ALL enemies X times. Apply X Weak and Vulnerable to ALL enemies. NL Wither !M!.",
-		"UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies X+1 times. Apply X+1 Weak and Vulnerable to ALL enemies. NL Wither !M!."
+		"DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies X times. Apply X Weak and Vulnerable to ALL enemies. NL Wither !M!.",
+		"UPGRADE_DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies X+1 times. Apply X+1 Weak and Vulnerable to ALL enemies. NL Wither !M!."
 	},
 	"beaked:SacrificialScars": {
 		"NAME": "Sacrificial Scars",
@@ -199,7 +198,7 @@
 	},
 	"beaked:Tradeoff": {
 		"NAME": "Tradeoff",
-		"DESCRIPTION": "Exhaust !beaked:I! random card{^s^} in your hand. NL Wither -1. NL Draw !M! card{s}."
+		"DESCRIPTION": "Exhaust !beaked:wI! random card{^s^} in your hand. NL Wither -1. NL Draw !M! card{s}."
 	},
 	"beaked:BloodForTheGods": {
 		"NAME": "Blood For The Gods",
@@ -223,7 +222,7 @@
 	},
 	"beaked:CursingBlood": {
 		"NAME": "Cursing Blood",
-		"DESCRIPTION": "Enemy loses !beaked:I! Strength. Wither 1. NL Lose !M! HP."
+		"DESCRIPTION": "Enemy loses !beaked:wI! Strength. Wither 1. NL Lose !M! HP."
 	},
 	"beaked:Molting": {
 		"NAME": "Molting",
@@ -307,7 +306,7 @@
 	},
 	"beaked:ShadowFade": {
 		"NAME": "Shadow Fade",
-		"DESCRIPTION": "Gain !beaked:I! Intangible. NL Wither !M!."
+		"DESCRIPTION": "Gain !beaked:wI! Intangible. NL Wither !M!."
 	},
 	"beaked:StunningBlow": {
 		"NAME": "Stunning Blow",
@@ -319,10 +318,33 @@
 	},
 	"beaked:WindBringer": {
 		"NAME": "Wind Bringer",
-		"DESCRIPTION": "Deal !D! damage to ALL enemies. NL Wither !M!."
+		"DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies. NL Wither !M!."
 	},
 	"beaked:CheekyTricks": {
 		"NAME": "Cheeky Tricks",
-		"DESCRIPTION": "Ignore the next !beaked:I! Wither effect{^s^} this combat. NL Wither !M!."
+		"DESCRIPTION": "Ignore the next !beaked:wI! Wither effect{^s^} this combat. NL Wither !M!."
+	},
+	"beaked:MimicWarrior": {
+		"NAME": "Mimic Warrior",
+		"DESCRIPTION": "Add a random Ironclad card to your hand. It costs 0 this turn.",
+		"UPGRADE_DESCRIPTION": "Add a random upgraded Ironclad card to your hand. It costs 0 this turn."
+	},
+	"beaked:MimicHuntress": {
+		"NAME": "Mimic Huntress",
+		"DESCRIPTION": "Add a random Silent card to your hand. It costs 0 this turn.",
+		"UPGRADE_DESCRIPTION": "Add a random upgraded Silent card to your hand. It costs 0 this turn."
+	},
+	"beaked:MimicMachine": {
+		"NAME": "Mimic Machine",
+		"DESCRIPTION": "Add a random Defect card to your hand. It costs 0 this turn.",
+		"UPGRADE_DESCRIPTION": "Add a random upgraded Defect card to your hand. It costs 0 this turn."
+	},
+	"beaked:CrazyRituals": {
+		"NAME": "Crazy Rituals",
+		"DESCRIPTION": "At the start of your turn, play the effect of a random card from a random class on a random target."
+	},
+	"beaked:RitualOfBody": {
+		"NAME": "Ritual Of Body",
+		"DESCRIPTION": "Lose 1 Ritual. NL Gain !M! Plated Armor at the start of each turn."
 	}
 }

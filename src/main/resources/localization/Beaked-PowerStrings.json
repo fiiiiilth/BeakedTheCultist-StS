@@ -3,6 +3,7 @@
 		"NAME": "Ritual",
 		"DESCRIPTIONS": [
 			"At the start of your turn, gain #b",
+			"At the start of your turn, lose #b",
 			" #yStrength."
 		]
 	},
@@ -164,6 +165,19 @@
 		"DESCRIPTIONS": [
 			"At the end of your turn, #yRetain all #yUnplayable cards and deal #b",
 			" damage to a random enemy for each. (Affected by #yStrength.)"
+		]
+	},
+	"beaked:CrazyRitualsPower": {
+		"NAME": "Crazy Rituals",
+		"DESCRIPTIONS": [
+			"At the start of your turn, play the effect of a random card from a random class on a random target."
+		]
+	},
+	"beaked:BodyRitual": {
+		"NAME": "Ritual of Body",
+		"DESCRIPTIONS": [
+			"At the start of your turn, gain #b",
+			" #yPlated #yArmor."
 		]
 	}
 }

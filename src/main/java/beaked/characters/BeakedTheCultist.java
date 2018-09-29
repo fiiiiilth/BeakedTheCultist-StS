@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import beaked.Beaked;
 import beaked.cards.Ceremony;
+import beaked.cards.CrazyRituals;
 import beaked.cards.Defend_Y;
 import beaked.cards.Strike_Y;
 import beaked.relics.MendingPlumage;
@@ -60,9 +61,16 @@ public class BeakedTheCultist extends CustomPlayer {
         retVal.add(Defend_Y.ID);
         retVal.add(Defend_Y.ID);
         retVal.add(Defend_Y.ID);
-        retVal.add(Ceremony.ID);
-        retVal.add(Ceremony.ID);
-        retVal.add(Ceremony.ID);
+        if (Beaked.crazyRituals) {
+            retVal.add(Ceremony.ID);
+            retVal.add(CrazyRituals.ID);
+            retVal.add(CrazyRituals.ID);
+        }
+        else{
+            retVal.add(Ceremony.ID);
+            retVal.add(Ceremony.ID);
+            retVal.add(Ceremony.ID);
+        }
         return retVal;
     }
 
@@ -75,8 +83,7 @@ public class BeakedTheCultist extends CustomPlayer {
 
     public static CharSelectInfo getLoadout() {
         return new CharSelectInfo("Beaked the Cultist",
-                "Blessed by the cult of the Awakened One, then cursed for stealing sacred knowledge. NL " +
-                        "Relies on healing and familiar techniques to power through, NL " +
+                "Relies on healing and familiar techniques to power through, NL " +
                         "resorting to potent but hard to replicate spells.",
                 50, 50, 0, 99, 5,
                 BeakedEnum.BEAKED_THE_CULTIST, getStartingRelics(), getStartingDeck(), false);
