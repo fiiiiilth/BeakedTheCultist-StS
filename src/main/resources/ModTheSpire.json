@@ -1,10 +1,10 @@
 {
 	"modid": "beakedthecultist-sts",
 	"name": "Beaked The Cultist",
-	"author_list": ["fiiiiilth","Moocowsgomoo"],
-	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- 5 new cards. \n- New config option: Crazy Rituals. \n- Wither values now displayed in purple. \n- Shortened flavor text.",
+	"author_list": ["EARL, fiiiiilth","Moocowsgomoo, TemmieAnimations, BlueKnight, Rhapsody and community."],
+	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- Updated credits.",
 	"dependencies": ["basemod"],
-	"version": "0.4.2",
+	"version": "0.4.3",
 	"sts_version": "09-27-2018",
 	"mts_version": "3.0.0",
 	"update_json": "https://api.github.com/repos/fiiiiilth/BeakedTheCultist-StS/releases/latest"
