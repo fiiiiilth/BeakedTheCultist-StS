@@ -37,7 +37,15 @@ public class Struggle extends CustomCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m){
-        boolean seenStruggle = false;
+        for (AbstractCard card : p.hand.group){
+            if (card.cost == -2 || (card instanceof AbstractWitherCard && ((AbstractWitherCard) card).isDepleted) || card == this) continue;
+            else{
+                this.cantUseMessage = EXTENDED_DESCRIPTION[0];
+                return false;
+            }
+        }
+        return true;
+        /*boolean seenStruggle = false;
         boolean canUse = super.canUse(p, m);
         if (!canUse) {
             return false;
@@ -57,7 +65,7 @@ public class Struggle extends CustomCard {
             }
 
             return canUse;
-        }
+        }*/
     }
 
     @Override

@@ -36,7 +36,7 @@
 	},
 	"beaked:Overpower": {
 		"NAME": "Overpower",
-		"DESCRIPTION": "Deal !D! damage, plus 1 for every !M! points of health you currently have."
+		"DESCRIPTION": "Deal !D! damage. NL Deals 1 more damage for every !M! HP you currently have."
 	},
 	"beaked:DarkPact": {
 		"NAME": "Dark Pact",
@@ -79,7 +79,7 @@
 	},
 	"beaked:DesperateSwing": {
 		"NAME": "Desperate Swing",
-		"DESCRIPTION": "Deal !D! damage, plus 1 for every !M! points of HP missing."
+		"DESCRIPTION": "Deal !D! damage. NL Deals 1 more damage for every !M! points of HP missing."
 	},
 	"beaked:Foresight": {
 		"NAME": "Foresight",
@@ -121,8 +121,8 @@
 	},
 	"beaked:Struggle": {
 		"NAME": "Struggle",
-		"DESCRIPTION": "Can only be played if Struggle is the only playable card in hand. NL Deal !D! damage. NL Take 1 damage. NL Deals !M! more damage for each card in hand.",
-		"EXTENDED_DESCRIPTION": ["I have playable cards in my hand!"]
+		"DESCRIPTION": "Can only be played if every other card in hand is Unplayable. NL Deal !D! damage. NL Take 1 damage. NL Deals !M! more damage for each card in hand.",
+		"EXTENDED_DESCRIPTION": ["Not all of my cards are Unplayable."]
 	},
 	"beaked:Devastation": {
 		"NAME": "Devastation",
@@ -131,7 +131,7 @@
 	},
 	"beaked:Sacrifice": {
 		"NAME": "Sacrifice",
-		"DESCRIPTION": "Deal !D! damage, then heal the enemy for !M! HP. Gain !beaked:I! Strength. When this kills an enemy, permanently increase the Strength by 1. Exhaust."
+		"DESCRIPTION": "Deal !D! damage. NL Enemy heals for !M! HP. NL If this kills a non-minion enemy, gain 3 Max HP. Exhaust."
 	},
 	"beaked:Brainwash": {
 		"NAME": "Brainwash",
@@ -147,7 +147,7 @@
 	},
 	"beaked:FullHouse": {
 		"NAME": "Full House",
-		"DESCRIPTION": "Draw !beaked:wI! cards. NL Wither !M!."
+		"DESCRIPTION": "Draw !beaked:wI! card{^s^}. NL Wither !M!."
 	},
 	"beaked:Caw": {
 		"NAME": "CAW!",
@@ -194,7 +194,7 @@
 	},
 	"beaked:WildInstinct": {
 		"NAME": "Wild Instinct",
-		"DESCRIPTION": "If you have less than 50% HP when drawn, deal !D! damage to ALL enemies."
+		"DESCRIPTION": "Unplayable. NL If you have less than 50% HP when drawn, deal !D! damage to ALL enemies."
 	},
 	"beaked:Tradeoff": {
 		"NAME": "Tradeoff",
@@ -310,7 +310,7 @@
 	},
 	"beaked:StunningBlow": {
 		"NAME": "Stunning Blow",
-		"DESCRIPTION": "Deal !D! damage. NL Gain !M! Intangible."
+		"DESCRIPTION": "Deal !beaked:wD! damage. NL Gain 1 Intangible. NL Wither !M!."
 	},
 	"beaked:ScreechingChant": {
 		"NAME": "Screeching Chant",

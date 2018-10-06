@@ -1,7 +1,6 @@
 package beaked.powers;
 
 import beaked.patches.CardAwakenedPatch;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -34,7 +33,7 @@ public class AwakenedPower extends AbstractPower {
 
     @Override
     public void onInitialApplication(){
-        AwakenCards();
+        awakenCards();
         for (AbstractCard c : AbstractDungeon.player.hand.group){
             if (c.cost >= 0){
                 c.flash();
@@ -55,7 +54,7 @@ public class AwakenedPower extends AbstractPower {
 
     @Override
     public void onDrawOrDiscard(){
-        AwakenCards();
+        awakenCards();
     }
 
     //@Override
@@ -65,10 +64,10 @@ public class AwakenedPower extends AbstractPower {
 
     //@Override
     //public void onAfterUseCard(final AbstractCard card, final UseCardAction action) {
-    //    AwakenCards();
+    //    awakenCards();
     //}
 
-    public void AwakenCards(){
+    public void awakenCards(){
 
         for (AbstractCard c : AbstractDungeon.player.drawPile.group){
             if (!awakenedCards.contains(c)){
@@ -84,6 +83,12 @@ public class AwakenedPower extends AbstractPower {
             if (!awakenedCards.contains(c)){
                 awakenModifyCostForTurn(c,-this.amount);
             }
+        }
+    }
+
+    public void awakenSpecificCard(AbstractCard c, boolean ignoreAwakenedStatus){
+        if (ignoreAwakenedStatus || !awakenedCards.contains(c)) {
+            awakenModifyCostForTurn(c, -this.amount);
         }
     }
 

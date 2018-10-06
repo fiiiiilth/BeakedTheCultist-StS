@@ -23,6 +23,8 @@ public class Overpower extends CustomCard {
     public static final int DIVIDE_BY = 5;
     public static final int UPGRADED_DIVIDE_BY = -1;
 
+    public int realBaseDamage = -1;
+
     public Overpower() {
         super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
@@ -32,9 +34,25 @@ public class Overpower extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int dmg = this.damage + (p.currentHealth / this.magicNumber);
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+    }
 
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, dmg, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+    @Override
+    public void applyPowers(){
+        if (this.realBaseDamage == -1) this.realBaseDamage = this.baseDamage; // in case something like ring of chaos modified base damage
+        this.baseDamage = this.realBaseDamage + (AbstractDungeon.player.currentHealth / this.magicNumber);
+        super.applyPowers();
+        this.baseDamage = this.realBaseDamage;
+        if (this.damage != this.baseDamage) this.isDamageModified = true;
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo){
+        if (this.realBaseDamage == -1) this.realBaseDamage = this.baseDamage; // in case something like ring of chaos modified base damage
+        this.baseDamage = this.realBaseDamage + (AbstractDungeon.player.currentHealth / this.magicNumber);
+        super.calculateCardDamage(mo);
+        this.baseDamage = this.realBaseDamage;
+        if (this.damage != this.baseDamage) this.isDamageModified = true;
     }
 
     @Override

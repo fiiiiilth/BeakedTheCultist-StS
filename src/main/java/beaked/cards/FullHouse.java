@@ -30,6 +30,7 @@ public class FullHouse extends AbstractWitherCard {
         this.baseMisc = this.misc = DRAW;
         this.witherEffect = "Decreases the number of cards drawn.";
         this.linkWitherAmountToMagicNumber = true;
+        Beaked.setDescription(this,DESCRIPTION);
     }
 
     @Override

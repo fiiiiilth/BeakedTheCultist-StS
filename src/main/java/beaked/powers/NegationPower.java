@@ -28,6 +28,7 @@ public class NegationPower extends AbstractPower {
 
     @Override
     public void onSpecificTrigger(){
+        this.flash();
         if (this.amount <= 0) {
             AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         } else {

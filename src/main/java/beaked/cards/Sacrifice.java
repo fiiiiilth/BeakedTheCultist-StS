@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.unique.FeedAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -26,6 +27,7 @@ public class Sacrifice extends CustomCard {
     private static final int COST = 2;
     private static final int ATTACK_DMG = 18;
     private static final int UPGRADE_PLUS_DMG = 9;
+    public static final int MAX_HP = 3;
 
     public Sacrifice() {
         super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
@@ -34,15 +36,13 @@ public class Sacrifice extends CustomCard {
 
         this.baseDamage = this.damage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = ATTACK_DMG;
-        this.misc = 0;
         this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new IncreaseMiscOnKillAction(m,
-                new DamageInfo(p, this.damage, this.damageTypeForTurn), 1, this));
-        AbstractDungeon.actionManager.addToBottom(new HealIfAliveAction(m,p,this.baseDamage));
-        if (this.misc > 0) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new StrengthPower(p,this.misc),this.misc));
+        AbstractDungeon.actionManager.addToBottom(new FeedAction(m,
+                new DamageInfo(p, this.damage, this.damageTypeForTurn), MAX_HP));
+        AbstractDungeon.actionManager.addToBottom(new HealIfAliveAction(m,p,this.magicNumber));
     }
 
     public AbstractCard makeCopy() {

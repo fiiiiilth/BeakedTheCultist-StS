@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import basemod.helpers.BaseModCardTags;
 import basemod.helpers.BaseModTags;
 import basemod.helpers.CardTags;
 import beaked.Beaked;
@@ -27,7 +28,7 @@ public class Defend_Y extends CustomCard {
                 AbstractCardEnum.BEAKED_YELLOW, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
 
         this.baseBlock = BLOCK_AMT;
-        CardTags.addTags(this, BaseModTags.BASIC_DEFEND);
+        this.tags.add(BaseModCardTags.BASIC_DEFEND);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

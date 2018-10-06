@@ -48,25 +48,29 @@ public class CrazyRitualsPower extends AbstractPower {
             AbstractCard card;
             do{
                 card = cards.get(AbstractDungeon.cardRandomRng.random(0, cards.size() - 1)).makeCopy();
-            } while (card.rarity == AbstractCard.CardRarity.SPECIAL || card.type == AbstractCard.CardType.CURSE || card.type == AbstractCard.CardType.STATUS);
+            } while (card.rarity == AbstractCard.CardRarity.SPECIAL ||
+                    card.type == AbstractCard.CardType.CURSE ||
+                    card.rarity == AbstractCard.CardRarity.CURSE ||
+                    card.type == AbstractCard.CardType.STATUS ||
+                    // Servant's Vision cards currently cause a crash when used by a non-Servant character.
+                    card.cardID == "Read" || card.cardID == "Deadline" ||
+                    card.cardID == "ReturningBlade" || card.cardID == "Snipe" ||
+                    card.cardID == "TimeTheft" || card.cardID == "TrueSight");
 
             // if the card is a power, purging it just gives a weird visual effect. It goes away anyway so no need.
             if (card.type != AbstractCard.CardType.POWER) card.purgeOnUse = true;
             card.freeToPlayOnce = true;
             AbstractDungeon.player.limbo.addToTop(card);
-            card.target_x = Settings.WIDTH / 2 + (i*Settings.WIDTH*0.15f);
+            card.target_x = Settings.WIDTH / 2 + (i*Settings.WIDTH*0.15f) - Math.min((this.amount-1) * Settings.WIDTH * .075f, Settings.WIDTH * .375f);
             card.target_y = Settings.HEIGHT / 2;
             card.targetDrawScale = card.targetDrawScale*1.2f;
             AbstractDungeon.actionManager.addToBottom(new QueueCardAction(card,AbstractDungeon.getRandomMonster()));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
+            for (int waitTimer = 9;waitTimer>i;waitTimer--) {
+                // wait a long time PER CARD, getting slightly shorter for each card as more are added.
+                // ie. Wait 0.9s for 1 card. Wait 0.9s + 0.8s + 0.7s = 2.4s for 3 cards.
+                // It'd be nice to play each card THEN wait for the next, but tough to do w/ action queueing.
+                AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
+            }
         }
     }
 

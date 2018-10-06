@@ -23,6 +23,7 @@ public class FlightPlayerPower extends AbstractPower implements PostBattleSubscr
 	public static float FLY_HEIGHT = 0.15f;
 
 	public int maxAmount = 0;
+	public float initialHeight;
 
 	public FlightPlayerPower(AbstractCreature owner, int amount) {
 		this.name = NAME;
@@ -39,6 +40,7 @@ public class FlightPlayerPower extends AbstractPower implements PostBattleSubscr
 	@Override
 	public void onInitialApplication(){
 		AbstractDungeon.player.state.setTimeScale(5);
+		this.initialHeight = AbstractDungeon.player.drawY;
 		AbstractDungeon.player.drawY += Settings.HEIGHT*FLY_HEIGHT * Settings.scale;
 		BaseMod.subscribe(this);
 	}
@@ -80,7 +82,7 @@ public class FlightPlayerPower extends AbstractPower implements PostBattleSubscr
 
 	@Override
 	public void onRemove() {
-		AbstractDungeon.player.drawY -= Settings.HEIGHT*FLY_HEIGHT * Settings.scale;
+		AbstractDungeon.player.drawY = initialHeight;
 		AbstractDungeon.player.state.setTimeScale(1);
 		AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.owner, this.owner, new StunnedPower(this.owner,1), 1));
 		BaseMod.unsubscribe(this);
@@ -88,14 +90,14 @@ public class FlightPlayerPower extends AbstractPower implements PostBattleSubscr
 
 	@Override
 	public void receivePostBattle(AbstractRoom battleRoom) {
-		AbstractDungeon.player.drawY -= Settings.HEIGHT*FLY_HEIGHT * Settings.scale;
+		AbstractDungeon.player.drawY = initialHeight;
 		AbstractDungeon.player.state.setTimeScale(1);
 		BaseMod.unsubscribeLater(this);
 	}
 
 	@Override
 	public void receivePostDungeonInitialize() {
-		AbstractDungeon.player.drawY -= Settings.HEIGHT*FLY_HEIGHT * Settings.scale;
+		AbstractDungeon.player.drawY = initialHeight;
 		AbstractDungeon.player.state.setTimeScale(1);
 		BaseMod.unsubscribeLater(this);
 	}

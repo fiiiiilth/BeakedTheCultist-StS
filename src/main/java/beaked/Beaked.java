@@ -95,6 +95,7 @@ public class Beaked implements PostInitializeSubscriber,
     public static final String BADGE_IMG = "RelicBadge.png";
 
     public static boolean crazyRituals = false;
+    public static boolean disableBosses = false;
 
     // texture loaders
 
@@ -135,37 +136,56 @@ public class Beaked implements PostInitializeSubscriber,
         ModPanel settingsPanel = new ModPanel();
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
+        Beaked.logger.debug("==========================================POST INITIALIZE");
+
         try {
             SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig");
             config.load();
             crazyRituals = config.getBool("crazyRituals");
-        }
-        catch(Exception e){
+            disableBosses = config.getBool("disableBosses");
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        ModLabeledToggleButton crazyBtn = new ModLabeledToggleButton("Replace 2 of your starting Ceremony cards with Crazy Rituals",
-                350.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                crazyRituals, settingsPanel, (label) -> {}, (button) -> {
+        ModLabeledToggleButton crazyBtn = new ModLabeledToggleButton("Replace 2 of your starting Ceremony cards with Crazy Rituals.",
+                350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                crazyRituals, settingsPanel, (label) -> {
+        }, (button) -> {
             crazyRituals = button.enabled;
             try {
                 SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig");
                 config.setBool("crazyRituals", crazyRituals);
                 config.save();
-            }
-            catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             resetCharSelect();
         });
         settingsPanel.addUIElement(crazyBtn);
+        ModLabeledToggleButton bossesBtn = new ModLabeledToggleButton("Disable content: Giant Parasite Act 2 Boss. REQUIRES RESTART.",
+                350.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                disableBosses, settingsPanel, (label) -> {
+        }, (button) -> {
+            disableBosses = button.enabled;
+            try {
+                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig");
+                config.setBool("disableBosses", disableBosses);
+                config.save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            resetCharSelect();
+        });
+        settingsPanel.addUIElement(bossesBtn);
 
         Settings.isDailyRun = false;
         Settings.isTrial = false;
         Settings.isDemo = false;
 
-        BaseMod.addMonster(SuperParasite.ID, ()->new SuperParasite());
-        BaseMod.addBoss(TheCity.ID, SuperParasite.ID,"img/ui/map/boss/parasite.png","img/ui/map/bossOutline/parasite.png");
+        if (!disableBosses){
+            BaseMod.addMonster(SuperParasite.ID, () -> new SuperParasite());
+            BaseMod.addBoss(TheCity.ID, SuperParasite.ID, "img/ui/map/boss/parasite.png", "img/ui/map/bossOutline/parasite.png");
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -426,13 +446,15 @@ public class Beaked implements PostInitializeSubscriber,
     @Override
     public void receiveEditKeywords() {
         logger.info("setting up custom keywords");
-        BaseMod.addKeyword(new String[] {"ritual", "Ritual"}, "Gain #yStrength at the beginning of your turn.");
+        BaseMod.addKeyword(new String[] {"ritual"}, "Gain #yStrength at the beginning of your turn.");
         BaseMod.addKeyword(new String[] {"wither"}, "Permanently decrease this card's power by the wither amount. When it reaches #b0, the card becomes #yDepleted.");
         BaseMod.addKeyword(new String[] {"depleted"}, "#yUnplayable unless the #yWither effect is reversed.");
         BaseMod.addKeyword(new String[] {"inspiration"}, "An unplayable status card. When drawn, it #yExhausts and draws #b2 more cards.");
         BaseMod.addKeyword(new String[] {"respite"}, "An unplayable status card. Heals #b2 HP at the end of your turn.");
         BaseMod.addKeyword(new String[] {"psalm"}, "A 0-cost card that deals #b3 damage to ALL enemies and has #yWither #b2.");
         BaseMod.addKeyword(new String[] {"stick"}, "A 0-cost card that increases Stick Smack damage and returns a Stick Smack to your hand.");
+        BaseMod.addKeyword(new String[] {"entangled"}, "You cannot play #yAttack cards for one turn.");
+        BaseMod.addKeyword(new String[] {"regret"}, "An unplayable curse card. While in your hand, lose 1 HP for each card in your hand at the end of the turn.");
     }
 
     @Override
@@ -446,7 +468,7 @@ public class Beaked implements PostInitializeSubscriber,
     @Override
     public void receivePostBattle(AbstractRoom battleRoom){
         if (battleRoom instanceof MonsterRoomBoss) {
-            //BaseMod.logger.debug("BOSSES KILLED: " + AbstractDungeon.bossCount);
+            //Beaked.logger.debug("BOSSES KILLED: " + AbstractDungeon.bossCount);
             for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
                 if (c instanceof AwakenedForm) {
                     ((AwakenedForm) c).updateAwakenCost();
@@ -457,7 +479,7 @@ public class Beaked implements PostInitializeSubscriber,
 
     @Override
     public void receiveStartGame(){
-       // BaseMod.logger.debug("BOSSES KILLED: " + AbstractDungeon.bossCount);
+        //Beaked.logger.debug("BOSSES KILLED: " + AbstractDungeon.bossCount);
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (c instanceof AwakenedForm) {
                 ((AwakenedForm) c).updateAwakenCost();

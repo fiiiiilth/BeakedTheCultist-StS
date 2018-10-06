@@ -1,11 +1,11 @@
 {
 	"modid": "beakedthecultist-sts",
 	"name": "Beaked The Cultist",
-	"author_list": ["EARL, fiiiiilth","Moocowsgomoo, TemmieAnimations, BlueKnight, Rhapsody and community."],
-	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- Updated credits.",
+	"author_list": ["EARL", "fiiiiilth","Moocowsgomoo", "TemmieAnimations", "BlueKnight", "giuseppe", "Rhapsody and community"],
+	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- Giant Parasite can be disabled in Config menu.\n- Stunning Blow now withers.\n- Sacrifice now grants Max HP.\n- Struggle effect changed & reworded for clarity.\n- Awakened Form discounts cards when Confused.\n- Crazy Rituals no longer crashes with Servant, and can't summon Curses.\n- Player no longer starts next run underground after dying while in flight.\n- Desperate Swing & Overpower reworded.\n- Wild Instinct labeled as Unplayable.\n- Added tooltips for Regret and Entangled.\n- Lots of other minor UI changes. \n- Updated credits. If you contributed and don't see your name here, please let us know!",
 	"dependencies": ["basemod"],
-	"version": "0.4.3",
-	"sts_version": "09-27-2018",
+	"version": "0.4.4",
+	"sts_version": "10-04-2018",
 	"mts_version": "3.0.0",
 	"update_json": "https://api.github.com/repos/fiiiiilth/BeakedTheCultist-StS/releases/latest"
 }

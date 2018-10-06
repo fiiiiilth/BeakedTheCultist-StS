@@ -2,7 +2,7 @@ package beaked.cards;
 
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
-import basemod.helpers.BaseModTags;
+import basemod.helpers.BaseModCardTags;
 import basemod.helpers.CardTags;
 import basemod.interfaces.StartActSubscriber;
 import beaked.Beaked;
@@ -34,7 +34,7 @@ public class AwakenedForm extends CustomCard {
         super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
         this.cost = this.costForTurn = Math.max(0,AwakenedForm.COST - AbstractDungeon.bossCount);
         this.isCostModified = this.cost < COST;
-        CardTags.addTags(this, BaseModTags.FORM);
+        this.tags.add(BaseModCardTags.FORM);
     }
 
     @Override
