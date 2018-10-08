@@ -22,7 +22,6 @@ public class ReverseWitherEffect extends AbstractGameEffect {
 
     private static final float DUR = 1.5f;
     private boolean openedScreen = false;
-    private boolean selectedCard = false;
     private Color screenColor = AbstractDungeon.fadeColor.cpy();
 
     public ReverseWitherEffect() {
@@ -37,13 +36,14 @@ public class ReverseWitherEffect extends AbstractGameEffect {
             this.duration -= Gdx.graphics.getDeltaTime();
             this.updateBlackScreenColor();
         }
-        if((!this.selectedCard) && (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty())) {
+        if(!AbstractDungeon.isScreenUp && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             AbstractWitherCard card = (AbstractWitherCard)AbstractDungeon.gridSelectScreen.selectedCards.get(0);
             card.misc = card.baseMisc;
             card.applyPowers();
-            AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(card, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));
+            AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(card.makeStatEquivalentCopy()));
             AbstractDungeon.topLevelEffects.add(new CardGlowBorder(card));
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
+            ((RestRoom)AbstractDungeon.getCurrRoom()).fadeIn();
         }
         if(this.duration < 1.0f && !this.openedScreen) {
             this.openedScreen = true;
@@ -53,7 +53,7 @@ public class ReverseWitherEffect extends AbstractGameEffect {
                     group.group.add(card);
                 }
             }
-            AbstractDungeon.gridSelectScreen.open(group, 1, ReverseWitherOption.LABEL, false);
+            AbstractDungeon.gridSelectScreen.open(group, 1, ReverseWitherOption.LABEL, false, false, true, true);
         }
         if(this.duration < 0.0f) {
             this.isDone = true;

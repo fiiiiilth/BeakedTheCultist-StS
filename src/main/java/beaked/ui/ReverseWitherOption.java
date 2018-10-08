@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 public class ReverseWitherOption extends AbstractCampfireOption {
 
     public static final String LABEL = "Reverse Withering";
-    public static final String DESCRIPTION = "Restore a cards Wither back to it's default.";
+    public static final String DESCRIPTION = "Restore a cards Wither back to its default.";
 
     public ReverseWitherOption(boolean active) {
         this.label = LABEL;
