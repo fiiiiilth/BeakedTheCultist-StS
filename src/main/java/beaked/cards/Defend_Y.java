@@ -2,8 +2,6 @@ package beaked.cards;
 
 import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;
-import basemod.helpers.BaseModTags;
-import basemod.helpers.CardTags;
 import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;

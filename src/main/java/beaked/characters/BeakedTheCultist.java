@@ -7,16 +7,22 @@ import beaked.cards.Ceremony;
 import beaked.cards.CrazyRituals;
 import beaked.cards.Defend_Y;
 import beaked.cards.Strike_Y;
+import beaked.patches.BeakedEnum;
 import beaked.relics.MendingPlumage;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
-import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import basemod.abstracts.CustomPlayer;
-import beaked.patches.BeakedEnum;
 
 public class BeakedTheCultist extends CustomPlayer {
     public static final int ENERGY_PER_TURN = 3;
@@ -48,7 +54,44 @@ public class BeakedTheCultist extends CustomPlayer {
         e.setTime(e.getEndTime() * MathUtils.random());
     }
 
-    public static ArrayList<String> getStartingDeck() {
+    @Override
+    public String getLocalizedCharacterName(){
+        return "Beaked The Cultist";
+    }
+
+    @Override
+    public AbstractPlayer newInstance() {
+        return new BeakedTheCultist("Beaked The Cultist", BeakedEnum.BEAKED_THE_CULTIST);
+    }
+
+    @Override
+    public Color getCardTrailColor(){
+        return Color.YELLOW;
+    }
+
+    @Override
+    public int getAscensionMaxHPLoss() {
+        return 0;
+    }
+
+    @Override
+    public BitmapFont getEnergyNumFont() {
+        return FontHelper.energyNumFontRed;
+    }
+
+    @Override
+    public void doCharSelectScreenSelectEffect() {
+        CardCrawlGame.sound.playA("VO_CULTIST_1C", MathUtils.random(-0.2f, 0.2f));
+        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT, false);
+    }
+
+    @Override
+    public String getCustomModeCharacterButtonSoundKey() {
+        return "VO_CULTIST_1C";
+    }
+
+    @Override
+    public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add(Strike_Y.ID);
         retVal.add(Strike_Y.ID);
@@ -73,19 +116,36 @@ public class BeakedTheCultist extends CustomPlayer {
         return retVal;
     }
 
-    public static ArrayList<String> getStartingRelics() {
+    @Override
+    public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add(MendingPlumage.ID);
         UnlockTracker.markRelicAsSeen(MendingPlumage.ID);
         return retVal;
     }
 
-    public static CharSelectInfo getLoadout() {
+    @Override
+    public CharSelectInfo getLoadout() {
         return new CharSelectInfo("Beaked the Cultist",
                 "Relies on healing and familiar techniques to power through, NL " +
                         "resorting to potent but hard to replicate spells.",
-                50, 50, 0, 99, 5,
-                BeakedEnum.BEAKED_THE_CULTIST, getStartingRelics(), getStartingDeck(), false);
+                50, 50, 0, 99, 5, this,
+                getStartingRelics(), getStartingDeck(), false);
+    }
+
+    @Override
+    public String getTitle(PlayerClass playerClass) {
+        return "The Beaked";
+    }
+
+    @Override
+    public Color getCardColor() {
+        return Color.YELLOW;
+    }
+
+    @Override
+    public AbstractCard getStartCardForEvent() {
+        return new Ceremony();
     }
 
 }

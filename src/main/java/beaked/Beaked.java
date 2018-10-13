@@ -21,6 +21,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheCity;
@@ -199,9 +200,10 @@ public class Beaked implements PostInitializeSubscriber,
         logger.info("begin editing characters");
 
         logger.info("add " + BeakedEnum.BEAKED_THE_CULTIST.toString());
-        BaseMod.addCharacter(BeakedTheCultist.class, "The Beaked", "BeakedTheCultist class string",
-                AbstractCardEnum.BEAKED_YELLOW, "Beaked the Cultist",
-                makePath(BEAKED_BUTTON), makePath(BEAKED_PORTRAIT),
+        BaseMod.addCharacter(new BeakedTheCultist("Beaked The Cultist", BeakedEnum.BEAKED_THE_CULTIST),
+                AbstractCardEnum.BEAKED_YELLOW,
+                makePath(BEAKED_BUTTON),
+                makePath(BEAKED_PORTRAIT),
                 BeakedEnum.BEAKED_THE_CULTIST);
 
         logger.info("done editing characters");
