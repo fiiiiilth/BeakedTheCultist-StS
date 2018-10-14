@@ -44,10 +44,8 @@ public class Brace extends CustomCard {
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c){
-        if (c.type == CardType.SKILL) {
-            this.flash();
-            this.baseBlock += this.magicNumber;
-        }
+        this.flash();
+        this.baseBlock += this.magicNumber;
     }
 
     @Override

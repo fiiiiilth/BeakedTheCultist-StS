@@ -67,7 +67,7 @@
 		"NAME": "Awakened",
 		"DESCRIPTIONS": [
 			"ALL cards cost #b",
-			" [R] less."
+			" [E] less."
 		]
 	},
 	"beaked:AwakenedPlusPower": {
@@ -170,7 +170,7 @@
 	"beaked:CrazyRitualsPower": {
 		"NAME": "Crazy Rituals",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play the effect of a random card from a random class on a random target."
+			"At the start of your turn, play a random card from a random class on a random target."
 		]
 	},
 	"beaked:BodyRitual": {

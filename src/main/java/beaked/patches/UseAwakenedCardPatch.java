@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 @SpirePatch(cls="com.megacrit.cardcrawl.characters.AbstractPlayer", method = "useCard")
 public class UseAwakenedCardPatch {
     public static void Postfix(AbstractPlayer obj, final AbstractCard c, final AbstractMonster monster, final int energyOnUse) {
-        // card cost is skipped entirely in useCard if cost is <= 0.
-        // costs of <0 denote special cards (-1 is X-cost, -2 is unplayable), but 0-cost cards are fair game.
-        if (c.cost == 0) obj.energy.use(c.costForTurn);
+        // card cost is skipped entirely in useCard if costForTurn is <= 0.
+        // we still want to trigger it as long as costForTurn isn't actually = 0.
+        if (c.costForTurn < 0) obj.energy.use(c.costForTurn);
     }
 }

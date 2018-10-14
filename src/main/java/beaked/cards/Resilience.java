@@ -21,7 +21,7 @@ public class Resilience extends CustomCard {
     public static int COST = 1;
     public static int UPGRADED_COST = 0;
     public static int STRENGTH = -3;
-    public static int ARTIFACT = 1;
+    public static int ARTIFACT = 2;
 
     public Resilience() {
         super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);

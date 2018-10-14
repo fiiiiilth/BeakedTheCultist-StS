@@ -5,6 +5,7 @@ import beaked.Beaked;
 import beaked.actions.DrawAndLogCardsAction;
 import beaked.actions.FeathersFollowupAction;
 import beaked.patches.AbstractCardEnum;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -32,7 +33,15 @@ public class TuckingFeathers extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DrawAndLogCardsAction(p,this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.3f));
-        AbstractDungeon.actionManager.addToBottom(new FeathersFollowupAction());
+        AbstractDungeon.actionManager.addToBottom(new FeathersFollowupAction(this));
+    }
+
+    public void gainBlock(int blockGain){
+        AbstractPlayer p = AbstractDungeon.player;
+        this.baseBlock = this.block = blockGain;
+        applyPowers();
+        AbstractDungeon.actionManager.addToTop(new GainBlockAction(p,p,this.block));
+        this.baseBlock = 0;
     }
 
     @Override

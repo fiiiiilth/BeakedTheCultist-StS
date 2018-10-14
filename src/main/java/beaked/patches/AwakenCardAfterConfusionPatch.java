@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.ConfusionPower;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 
@@ -17,8 +18,8 @@ public class AwakenCardAfterConfusionPatch {
     @SpireInsertPatch(locator = TriggerWhenDrawnLocator.class, localvars = {"c"})
     public static void atSingleFinalDamageGive(AbstractPlayer obj, int numCards, AbstractCard c) {
         try {
-            if (AbstractDungeon.player.hasPower(AwakenedPower.POWER_ID)){
-                if (c.costForTurn < 0 && c.cost >= 0) c.costForTurn = c.cost;
+            if (AbstractDungeon.player.hasPower(AwakenedPower.POWER_ID) && AbstractDungeon.player.hasPower(ConfusionPower.POWER_ID)){
+                if (c.cost >= 0) c.costForTurn = c.cost; // cost is set by confusion right before this
                 ((AwakenedPower)AbstractDungeon.player.getPower(AwakenedPower.POWER_ID)).awakenSpecificCard(c,true);
             }
         } catch (Exception e) {

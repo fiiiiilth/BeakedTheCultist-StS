@@ -1,5 +1,6 @@
 package beaked.actions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -28,7 +29,7 @@ public class FetchRandomCardToHandAction extends AbstractGameAction {
                 return;
             }
 
-            if (AbstractDungeon.player.hand.size() < 10 && !group.isEmpty()) {
+            if (AbstractDungeon.player.hand.size() < BaseMod.MAX_HAND_SIZE && !group.isEmpty()) {
                 AbstractCard card = group.getRandomCard(true);
                 AbstractDungeon.player.hand.addToHand(card);
                 card.unfadeOut();

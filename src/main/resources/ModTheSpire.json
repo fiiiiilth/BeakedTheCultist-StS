@@ -2,10 +2,10 @@
 	"modid": "beakedthecultist-sts",
 	"name": "Beaked The Cultist",
 	"author_list": ["EARL", "fiiiiilth","Moocowsgomoo", "TemmieAnimations", "BlueKnight", "giuseppe", "Rhapsody and community"],
-	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- Giant Parasite can be disabled in Config menu.\n- Stunning Blow now withers.\n- Sacrifice now grants Max HP.\n- Struggle effect changed & reworded for clarity.\n- Awakened Form discounts cards when Confused.\n- Crazy Rituals no longer crashes with Servant, and can't summon Curses.\n- Player no longer starts next run underground after dying while in flight.\n- Desperate Swing & Overpower reworded.\n- Wild Instinct labeled as Unplayable.\n- Added tooltips for Regret and Entangled.\n- Lots of other minor UI changes. \n- Updated credits. If you contributed and don't see your name here, please let us know!",
+	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- Crazy Rituals works better.\n- Brace now triggers when ANY card is played.\n- Resilience now gives 2 Artifact instead of 1.\n- Struggle now always playable but ends your turn.\n- Awakened Form fixed. Hopefully.\n- Cheeky Tricks renamed to Deep Focus.\n- Tucking Feathers now affected by Block modifiers.\n- Awakened Form power text updated.\n\nIf you contributed and don't see your name in the credits, please let us know!",
 	"dependencies": ["basemod"],
-	"version": "0.4.5",
-	"sts_version": "10-04-2018",
-	"mts_version": "3.0.0",
+	"version": "0.4.6",
+	"sts_version": "10-11-2018",
+	"mts_version": "3.3.0",
 	"update_json": "https://api.github.com/repos/fiiiiilth/BeakedTheCultist-StS/releases/latest"
 }

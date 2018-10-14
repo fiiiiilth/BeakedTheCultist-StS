@@ -1,5 +1,6 @@
 package beaked.actions;
 
+import beaked.cards.TuckingFeathers;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.cards.*;
@@ -12,9 +13,11 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 public class FeathersFollowupAction extends AbstractGameAction
 {
     private final AbstractPlayer p = AbstractDungeon.player;
+    public TuckingFeathers card;
 
-    public FeathersFollowupAction() {
+    public FeathersFollowupAction(TuckingFeathers card) {
         this.duration = Settings.ACTION_DUR_FASTER;
+        this.card = card;
     }
 
     @Override
@@ -27,7 +30,7 @@ public class FeathersFollowupAction extends AbstractGameAction
                 else if (drawn.costForTurn > 0) blockGain += drawn.costForTurn;
             }
             DrawAndLogCardsAction.drawnCards.clear();
-            AbstractDungeon.actionManager.addToTop(new GainBlockAction(p,p,blockGain));
+            card.gainBlock(blockGain);
         }
         this.tickDuration();
     }

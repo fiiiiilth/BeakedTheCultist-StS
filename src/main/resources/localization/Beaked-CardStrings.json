@@ -88,7 +88,7 @@
 	},
 	"beaked:Resilience": {
 		"NAME": "Resilience",
-		"DESCRIPTION": "Lose 3 Strength. NL Gain 1 Artifact."
+		"DESCRIPTION": "Lose 3 Strength. NL Gain 2 Artifact."
 	},
 	"beaked:SowTheSeeds": {
 		"NAME": "Sow the Seeds",
@@ -121,8 +121,8 @@
 	},
 	"beaked:Struggle": {
 		"NAME": "Struggle",
-		"DESCRIPTION": "Can only be played if every other card in hand is Unplayable. NL Deal !D! damage. NL Take 1 damage. NL Deals !M! more damage for each card in hand.",
-		"EXTENDED_DESCRIPTION": ["Not all of my cards are Unplayable."]
+		"DESCRIPTION": "Deal !D! damage for each other card in your hand. End your turn.",
+		"EXTENDED_DESCRIPTION": ["(Hits !M! times.) NL "]
 	},
 	"beaked:Devastation": {
 		"NAME": "Devastation",
@@ -218,7 +218,7 @@
 	},
 	"beaked:Brace": {
 		"NAME": "Brace",
-		"DESCRIPTION": "Retain. Gain !B! Block. NL Block increases by !M! for each Skill you play while this is in your hand. Exhaust."
+		"DESCRIPTION": "Retain. Gain !B! Block. NL Block increases by !M! for each card you play while this is in your hand. Exhaust."
 	},
 	"beaked:CursingBlood": {
 		"NAME": "Cursing Blood",
@@ -321,7 +321,7 @@
 		"DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies. NL Wither !M!."
 	},
 	"beaked:CheekyTricks": {
-		"NAME": "Cheeky Tricks",
+		"NAME": "Deep Focus",
 		"DESCRIPTION": "Ignore the next !beaked:wI! Wither effect{^s^} this combat. NL Wither !M!."
 	},
 	"beaked:MimicWarrior": {
@@ -341,7 +341,7 @@
 	},
 	"beaked:CrazyRituals": {
 		"NAME": "Crazy Rituals",
-		"DESCRIPTION": "At the start of your turn, play the effect of a random card from a random class on a random target."
+		"DESCRIPTION": "At the start of your turn, play a random card from a random class on a random target."
 	},
 	"beaked:RitualOfBody": {
 		"NAME": "Ritual Of Body",
