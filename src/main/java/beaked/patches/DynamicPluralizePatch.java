@@ -19,7 +19,7 @@ public class DynamicPluralizePatch{
 		public static void Prefix(AbstractCard obj, final SpriteBatch sb) {
 			//Beaked.logger.debug(PluralizeFieldsPatch.savedMagicNumber.get(obj));
 			// Only do this if the card has used Beaked.setDescription to set trueRawDescription, indicating it uses pluralization.
-			if (obj.cardID.startsWith("beaked:") && obj.isSeen && !obj.isLocked) {
+			if (obj.cardID != null && obj.cardID.startsWith("beaked:") && obj.isSeen && !obj.isLocked) {
 				if (PluralizeFieldsPatch.trueRawDescription.get(obj) != PluralizeFieldsPatch.DEFAULT_DESCRIPTION && (
 						PluralizeFieldsPatch.savedMagicNumber.get(obj) != obj.magicNumber || PluralizeFieldsPatch.savedMisc.get(obj) != obj.misc )){
 					Beaked.createPluralizedDescription(obj);
