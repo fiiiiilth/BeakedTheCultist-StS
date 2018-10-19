@@ -44,7 +44,7 @@ public class MachineSpiritPlusPower extends AbstractPower
             if (action.target != null) {
                 m = (AbstractMonster)action.target;
             }
-            final AbstractCard tmp = card.makeStatEquivalentCopy();
+            final AbstractCard tmp = card.makeSameInstanceOf();
             AbstractDungeon.player.limbo.addToBottom(tmp);
             tmp.current_x = card.current_x;
             tmp.current_y = card.current_y;
@@ -56,13 +56,11 @@ public class MachineSpiritPlusPower extends AbstractPower
             }
             tmp.purgeOnUse = true;
             AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, m, card.energyOnUse));
-
-            int cost = card.cost;
-            if (cost == -1) cost = EnergyPanel.getCurrentEnergy();
-            if (cost > 0) {
-                AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, cost*5));
+            int cost = card.costForTurn;
+            if(card.cost == -1) {
+                cost = EnergyPanel.getCurrentEnergy();
             }
-
+            AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, cost*5));
             --this.amount;
             if (this.amount == 0) {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));

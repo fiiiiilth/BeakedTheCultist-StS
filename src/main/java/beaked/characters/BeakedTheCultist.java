@@ -7,12 +7,14 @@ import beaked.cards.Ceremony;
 import beaked.cards.CrazyRituals;
 import beaked.cards.Defend_Y;
 import beaked.cards.Strike_Y;
+import beaked.patches.AbstractCardEnum;
 import beaked.patches.BeakedEnum;
 import beaked.relics.MendingPlumage;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -65,13 +67,39 @@ public class BeakedTheCultist extends CustomPlayer {
     }
 
     @Override
+    public String getSpireHeartText() {
+        return "CA-CAW!!!";
+    }
+
+    @Override
+    public Color getSlashAttackColor() {
+        return Color.YELLOW;
+    }
+
+    @Override
+    public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
+        return new AbstractGameAction.AttackEffect[] {
+                AbstractGameAction.AttackEffect.SLASH_HEAVY,
+                AbstractGameAction.AttackEffect.FIRE,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
+                AbstractGameAction.AttackEffect.SLASH_HEAVY,
+                AbstractGameAction.AttackEffect.FIRE,
+                AbstractGameAction.AttackEffect.BLUNT_HEAVY };
+    }
+
+    @Override
+    public String getVampireText() {
+        return "CA-CAW!!!";
+    }
+
+    @Override
     public Color getCardTrailColor(){
         return Color.YELLOW;
     }
 
     @Override
     public int getAscensionMaxHPLoss() {
-        return 0;
+        return 5;
     }
 
     @Override
@@ -139,7 +167,12 @@ public class BeakedTheCultist extends CustomPlayer {
     }
 
     @Override
-    public Color getCardColor() {
+    public AbstractCard.CardColor getCardColor() {
+        return AbstractCardEnum.BEAKED_YELLOW;
+    }
+
+    @Override
+    public Color getCardRenderColor() {
         return Color.YELLOW;
     }
 

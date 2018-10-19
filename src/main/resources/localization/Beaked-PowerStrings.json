@@ -179,5 +179,42 @@
 			"At the start of your turn, gain #b",
 			" #yPlated #yArmor."
 		]
+	},
+	"beaked:NobsRagePower": {
+		"NAME": "Nob's Rage",
+		"DESCRIPTIONS": [
+			"Whenever you are attacked, gain #b",
+			" #yStrength."
+		]
+	},
+	"beaked:LagavulinsFerocityPower": {
+		"NAME": "Lagavulin's Ferocity",
+		"DESCRIPTIONS": [
+			"The first #yAttack you play each turn deals double damage.",
+			"The first #b",
+			" #yAttacks you play each turn deal double damage."
+		]
+	},
+	"beaked:LagavulinsFerocityPlusPower": {
+		"NAME": "Lagavulin's Ferocity",
+		"DESCRIPTIONS": [
+			"The first #yAttack you play each turn deals triple damage.",
+			"The first #b",
+			" #yAttacks you play each turn deal double damage."
+		]
+	},
+	"beaked:BleedPower": {
+		"NAME": "Bleed",
+		"DESCRIPTIONS": [
+			"This monster takes #b",
+			" damage at the end of the round. Does not decrease over time."
+		]
+	},
+	"beaked:HeadsImpatiencePower": {
+		"NAME": "Head's Impatience",
+		"DESCRIPTIONS": [
+			"Whenever you play a card, gain #b",
+			" #yStrength until the end of your turn."
+		]
 	}
 }

@@ -346,5 +346,48 @@
 	"beaked:RitualOfBody": {
 		"NAME": "Ritual Of Body",
 		"DESCRIPTION": "Lose 1 Ritual. NL Gain !M! Plated Armor at the start of each turn."
+	},
+	"beaked:NobsRage": {
+		"NAME": "Nob's Rage",
+		"DESCRIPTION": "Whenever you are attacked, gain !M! Strength."
+	},
+	"beaked:LagavulinsFerocity": {
+		"NAME": "Lagavulin's Ferocity",
+		"DESCRIPTION": "The first Attack you play each turn deals double damage.",
+		"UPGRADE_DESCRIPTIONS": "The first Attack you play each turn deals triple damage."
+	},
+	"beaked:SentriesPulse": {
+		"NAME": "Sentries Pulse",
+		"DESCRIPTION": "Remove ALL Buffs from an enemy.",
+		"UPGRADE_DESCRIPTION": "Remove ALL Buffs from ALL enemies."
+	},
+	"beaked:BooksFlurry": {
+		"NAME": "Book's Flurry",
+		"DESCRIPTION": "Deal !M! damage for every card played this combat. NL Unaffected by Strength."
+	},
+	"beaked:LeadersExecution": {
+		"NAME": "Leader's Execution",
+		"DESCRIPTION": "Deal !D! damage 3 times."
+	},
+	"beaked:TaskmastersTorture": {
+		"NAME": "Taskmaster's Torture",
+		"DESCRIPTION": "Deal !D! damage. NL Apply !M! Bleed."
+	},
+	"beaked:NemesisSlickness": {
+		"NAME": "Nemesis' Slickness",
+		"DESCRIPTION": "Gain !M! Intangible.",
+		"UPGRADE_DESCRIPTION": "Gain !M! Intangible. NL Deal !D! damage to ALL enemies."
+	},
+	"beaked:WalkersFury": {
+		"NAME": "Walker's Fury",
+		"DESCRIPTION": "Gain !M! Ritual."
+	},
+	"beaked:HeadsImpatience": {
+		"NAME": "Head's Impatience",
+		"DESCRIPTION": "Whenever you play a card, gain !M! Strength until the end of your turn."
+	},
+	"beaked:KnowThyFoe": {
+		"NAME": "Know Thy Foe",
+		"DESCRIPTION": "Add a random Elite card to your hand. NL Exhaust."
 	}
 }

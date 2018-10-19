@@ -101,6 +101,9 @@ public class CrazyRitualsPower extends AbstractPower {
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
+        AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
+        AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
+        AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
         if (!nextCard.canUse(AbstractDungeon.player,targetMonster)){
             AbstractDungeon.actionManager.addToBottom(new CrazyRitualsPlayAction(this));
         }

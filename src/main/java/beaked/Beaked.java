@@ -2,6 +2,7 @@ package beaked;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Map;
 
 import basemod.ModLabeledToggleButton;
 import basemod.ReflectionHacks;
@@ -11,29 +12,30 @@ import beaked.characters.BeakedTheCultist;
 import beaked.monsters.SuperParasite;
 import beaked.patches.AbstractCardEnum;
 import beaked.patches.BeakedEnum;
+import beaked.patches.CardTagsEnum;
 import beaked.patches.PluralizeFieldsPatch;
+import beaked.potions.RitualPotion;
 import beaked.relics.FlawlessSticks;
 import beaked.relics.MendingPlumage;
 import beaked.relics.ShinyBauble;
 import beaked.relics.ThroatLozenge;
 import beaked.variables.*;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.localization.MonsterStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.relics.CultistMask;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterOption;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterSelectScreen;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.SpeechBubble;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -43,8 +45,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
 
 import basemod.BaseMod;
 import basemod.ModPanel;
@@ -53,7 +53,7 @@ import basemod.ModPanel;
 public class Beaked implements PostInitializeSubscriber,
         EditCardsSubscriber, EditRelicsSubscriber, EditCharactersSubscriber,
         EditStringsSubscriber, SetUnlocksSubscriber, EditKeywordsSubscriber, OnCardUseSubscriber, PostBattleSubscriber,
-        StartGameSubscriber{
+        StartGameSubscriber, OnStartBattleSubscriber {
     public static final Logger logger = LogManager.getLogger(Beaked.class.getName());
 
     private static final String MODNAME = "BeakedTheCultist the Cultist";
@@ -109,6 +109,8 @@ public class Beaked implements PostInitializeSubscriber,
     public static final String makePath(String resource) {
         return BEAKED_ASSETS_FOLDER + "/" + resource;
     }
+
+    public static int cardsPlayedThisCombat = 0;
 
     public Beaked() {
         BaseMod.subscribe(this);
@@ -187,6 +189,7 @@ public class Beaked implements PostInitializeSubscriber,
             BaseMod.addMonster(SuperParasite.ID, () -> new SuperParasite());
             BaseMod.addBoss(TheCity.ID, SuperParasite.ID, "img/ui/map/boss/parasite.png", "img/ui/map/bossOutline/parasite.png");
         }
+        BaseMod.addPotion(RitualPotion.class, YELLOW, YELLOW, YELLOW, RitualPotion.POTION_ID, BeakedEnum.BEAKED_THE_CULTIST);
     }
 
     @SuppressWarnings("unchecked")
@@ -201,7 +204,6 @@ public class Beaked implements PostInitializeSubscriber,
 
         logger.info("add " + BeakedEnum.BEAKED_THE_CULTIST.toString());
         BaseMod.addCharacter(new BeakedTheCultist("Beaked The Cultist", BeakedEnum.BEAKED_THE_CULTIST),
-                AbstractCardEnum.BEAKED_YELLOW,
                 makePath(BEAKED_BUTTON),
                 makePath(BEAKED_PORTRAIT),
                 BeakedEnum.BEAKED_THE_CULTIST);
@@ -325,6 +327,18 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new ShadowFade());
         BaseMod.addCard(new CheekyTricks());
         BaseMod.addCard(new ScreechingChant());
+        BaseMod.addCard(new KnowThyFoe());
+
+        //Elite Pool
+        BaseMod.addCard(new NobsRage());
+        BaseMod.addCard(new LagavulinsFerocity());
+        BaseMod.addCard(new SentriesPulse());
+        BaseMod.addCard(new BooksFlurry());
+        BaseMod.addCard(new LeadersExecution());
+        BaseMod.addCard(new TaskmastersTorture());
+        BaseMod.addCard(new NemesisSlickness());
+        BaseMod.addCard(new WalkersFury());
+        BaseMod.addCard(new HeadsImpatience());
 
         // make sure everything is always unlocked
         UnlockTracker.unlockCard(Strike_Y.ID);
@@ -405,12 +419,23 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(MimicMachine.ID);
         UnlockTracker.unlockCard(CrazyRituals.ID);
         UnlockTracker.unlockCard(RitualOfBody.ID);
+        UnlockTracker.unlockCard(KnowThyFoe.ID);
 
 
         UnlockTracker.unlockCard(Inspiration.ID);
         UnlockTracker.unlockCard(Respite.ID);
         UnlockTracker.unlockCard(Psalm.ID);
         UnlockTracker.unlockCard(Stick.ID);
+
+        UnlockTracker.unlockCard(NobsRage.ID);
+        UnlockTracker.unlockCard(LagavulinsFerocity.ID);
+        UnlockTracker.unlockCard(SentriesPulse.ID);
+        UnlockTracker.unlockCard(BooksFlurry.ID);
+        UnlockTracker.unlockCard(LeadersExecution.ID);
+        UnlockTracker.unlockCard(TaskmastersTorture.ID);
+        UnlockTracker.unlockCard(NemesisSlickness.ID);
+        UnlockTracker.unlockCard(WalkersFury.ID);
+        UnlockTracker.unlockCard(HeadsImpatience.ID);
 
         logger.info("done editing cards");
     }
@@ -435,6 +460,10 @@ public class Beaked implements PostInitializeSubscriber,
         String monsterStrings = Gdx.files.internal("localization/Beaked-MonsterStrings.json").readString(
                 String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(MonsterStrings.class, monsterStrings);
+        //PotionStrings
+        String potionStrings = Gdx.files.internal("localization/Beaked-PotionStrings.json").readString(
+                String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
 
         logger.info("done editing strings");
     }
@@ -457,14 +486,22 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addKeyword(new String[] {"stick"}, "A 0-cost card that increases Stick Smack damage and returns a Stick Smack to your hand.");
         BaseMod.addKeyword(new String[] {"entangled"}, "You cannot play #yAttack cards for one turn.");
         BaseMod.addKeyword(new String[] {"regret"}, "An unplayable curse card. While in your hand, lose 1 HP for each card in your hand at the end of the turn.");
+        BaseMod.addKeyword(new String[] {"bleed"}, "Deals damage at the end of the round. Does not decrease over time.");
     }
 
     @Override
     public void receiveCardUsed(AbstractCard c) {
         if(AbstractDungeon.player.hasRelic(CultistMask.ID)) {
-            AbstractDungeon.actionManager.addToBottom(new SFXAction("VO_CULTIST_1A"));
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, "CAW", 1.0f, 2.0f));
+            CardCrawlGame.sound.playA("VO_CULTIST_1C", MathUtils.random(-0.2f, 0.2f));
+            AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.0f,
+                    "CAW", true));
         }
+        cardsPlayedThisCombat ++;
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom room) {
+        cardsPlayedThisCombat = 0;
     }
 
     @Override
@@ -556,5 +593,16 @@ public class Beaked implements PostInitializeSubscriber,
             }
         }
         return false;
+    }
+
+    public static AbstractCard returnTrulyRandomEliteCard() {
+        final ArrayList<AbstractCard> list = new ArrayList<>();
+        for(final Map.Entry<String, AbstractCard> eliteCard : CardLibrary.cards.entrySet()) {
+            final AbstractCard card = eliteCard.getValue();
+            if(card.hasTag(CardTagsEnum.ELITE_CARD)) {
+                list.add(card);
+            }
+        }
+        return list.get(AbstractDungeon.cardRandomRng.random(list.size() -1));
     }
 }

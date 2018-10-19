@@ -33,7 +33,7 @@ public class WitherAction extends AbstractGameAction {
 
         while(var2.hasNext()) {
             AbstractCard c = (AbstractCard)var2.next();
-            if (c.cardID.equals(card.cardID) && c.misc == card.misc) {
+            if (c.uuid.equals(card.uuid)) {
                 c.misc += this.miscIncrease;
                 c.applyPowers();
                 break;

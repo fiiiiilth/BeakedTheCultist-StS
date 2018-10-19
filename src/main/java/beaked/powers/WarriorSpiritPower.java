@@ -47,7 +47,7 @@ public class WarriorSpiritPower extends AbstractPower
             if (action.target != null) {
                 m = (AbstractMonster)action.target;
             }
-            final AbstractCard tmp = card.makeStatEquivalentCopy();
+            final AbstractCard tmp = card.makeSameInstanceOf();
             AbstractDungeon.player.limbo.addToBottom(tmp);
             tmp.current_x = card.current_x;
             tmp.current_y = card.current_y;
@@ -59,16 +59,11 @@ public class WarriorSpiritPower extends AbstractPower
             }
             tmp.purgeOnUse = true;
             AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, m, card.energyOnUse));
-            if (tmp.cardID.equals(Rampage.ID)) {
-                AbstractDungeon.actionManager.addToBottom(new ModifyDamageAction(card, tmp.magicNumber));
+            int cost = card.costForTurn;
+            if(card.cost == -1) {
+                cost = EnergyPanel.getCurrentEnergy();
             }
-
-            int cost = card.cost;
-            if (cost == -1) cost = EnergyPanel.getCurrentEnergy();
-            if (cost > 0){
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, cost), cost));
-            }
-
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, cost), cost));
             --this.amount;
             if (this.amount == 0) {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));

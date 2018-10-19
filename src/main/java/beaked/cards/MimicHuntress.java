@@ -28,7 +28,7 @@ public class MimicHuntress extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard c;
         do {
-            c = CardLibrary.getColorSpecificCard(AbstractPlayer.PlayerClass.THE_SILENT, AbstractDungeon.cardRandomRng).makeCopy();
+            c = CardLibrary.getColorSpecificCard(CardColor.GREEN, AbstractDungeon.cardRandomRng).makeCopy();
         } while (c.rarity == CardRarity.BASIC || c.rarity == CardRarity.SPECIAL);
         c.setCostForTurn(-9);
         if (this.upgraded) c.upgrade();

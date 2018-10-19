@@ -2,10 +2,10 @@
 	"modid": "beakedthecultist-sts",
 	"name": "Beaked The Cultist",
 	"author_list": ["EARL", "fiiiiilth","Moocowsgomoo", "TemmieAnimations", "BlueKnight", "giuseppe", "Rhapsody and community"],
-	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- Crazy Rituals works better.\n- Brace now triggers when ANY card is played.\n- Resilience now gives 2 Artifact instead of 1.\n- Struggle now always playable but ends your turn.\n- Awakened Form fixed. Hopefully.\n- Cheeky Tricks renamed to Deep Focus.\n- Tucking Feathers now affected by Block modifiers.\n- Awakened Form power text updated.\n- Unplayable cards no longer give energy.\n- Compatibility with Warrior mod.\n\nIf you contributed and don't see your name in the credits, please let us know!",
+	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- Week 46 compatibility.\n- Added a new card, Know Thy Foe, as well as the 9 cards it can spawn.\n- Added a new class specific potion: Ritual Potion.\n- Huntress/Machine/Warrior Spirit now interact with Awakened Form properly (IE: give negative Strength if the card's cost is negative).\n- Added a bit more delay to Crazy Rituals to make it easier to follow.\n- The Easter egg interaction no longer uses actions, so it shouldn't slow down playing cards anymore.\n\nIf you contributed and don't see your name in the credits, please let us know!",
 	"dependencies": ["basemod"],
-	"version": "0.4.7",
-	"sts_version": "10-11-2018",
-	"mts_version": "3.3.0",
+	"version": "0.5",
+	"sts_version": "10-18-2018",
+	"mts_version": "3.4.0",
 	"update_json": "https://api.github.com/repos/fiiiiilth/BeakedTheCultist-StS/releases/latest"
 }

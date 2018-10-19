@@ -56,8 +56,8 @@ public abstract class AbstractWitherCard extends CustomCard {
     }
 
     @Override
-    public AbstractCard makeStatEquivalentCopy(){
-        AbstractCard c = super.makeStatEquivalentCopy();
+    public AbstractCard makeSameInstanceOf(){
+        AbstractCard c = super.makeSameInstanceOf();
         if (c.misc == 0) ((AbstractWitherCard)c).onDepleted();
         return c;
     }
