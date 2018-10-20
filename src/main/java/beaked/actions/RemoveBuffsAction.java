@@ -20,7 +20,8 @@ public class RemoveBuffsAction extends AbstractGameAction {
         for(final AbstractPower p : this.c.powers) {
             if(p.type == AbstractPower.PowerType.BUFF
                     && !p.ID.equals(TimeWarpPower.POWER_ID)
-                    && !p.ID.equals(CuriosityPower.POWER_ID)) {
+                    && !p.ID.equals(CuriosityPower.POWER_ID)
+                    && !p.ID.equals(UnawakenedPower.POWER_ID)) {
                 AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.c, AbstractDungeon.player, p.ID));
             }
         }

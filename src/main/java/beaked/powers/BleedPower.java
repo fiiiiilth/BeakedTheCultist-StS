@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class BleedPower extends AbstractPower {
 
@@ -30,9 +31,10 @@ public class BleedPower extends AbstractPower {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        if(isPlayer) {
+        if(!isPlayer) {
             AbstractDungeon.actionManager.addToTop(new DamageAction(this.owner, new DamageInfo(this.owner, this.amount,
                     DamageInfo.DamageType.HP_LOSS)));
+            this.flash();
         }
     }
 

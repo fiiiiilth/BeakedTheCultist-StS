@@ -2,9 +2,9 @@
 	"modid": "beakedthecultist-sts",
 	"name": "Beaked The Cultist",
 	"author_list": ["EARL", "fiiiiilth","Moocowsgomoo", "TemmieAnimations", "BlueKnight", "giuseppe", "Rhapsody and community"],
-	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- Week 46 compatibility.\n- Added a new card, Know Thy Foe, as well as the 9 cards it can spawn.\n- Added a new class specific potion: Ritual Potion.\n- Huntress/Machine/Warrior Spirit now interact with Awakened Form properly (IE: give negative Strength if the card's cost is negative).\n- Added a bit more delay to Crazy Rituals to make it easier to follow.\n- The Easter egg interaction no longer uses actions, so it shouldn't slow down playing cards anymore.\n\nIf you contributed and don't see your name in the credits, please let us know!",
+	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- Fixed crash with Mimic Machine. \n- Fixed BleedPower not working. \n- Added attack effect for Taskmaster's Torture. \n- Sentries Pulse no longer removes UnawakenedPower (as removing it does nothing). \n\n- Week 46 compatibility. \n- Added a new card, Know Thy Foe, as well as the 9 cards it can spawn.\n- Added a new class specific potion: Ritual Potion.\n- Huntress/Machine/Warrior Spirit now interact with Awakened Form properly (IE: give negative Strength if the card's cost is negative).\n- Added a bit more delay to Crazy Rituals to make it easier to follow.\n- The Easter egg interaction no longer uses actions, so it shouldn't slow down playing cards anymore.\n\nIf you contributed and don't see your name in the credits, please let us know!",
 	"dependencies": ["basemod"],
-	"version": "0.5",
+	"version": "0.5.1",
 	"sts_version": "10-18-2018",
 	"mts_version": "3.4.0",
 	"update_json": "https://api.github.com/repos/fiiiiilth/BeakedTheCultist-StS/releases/latest"

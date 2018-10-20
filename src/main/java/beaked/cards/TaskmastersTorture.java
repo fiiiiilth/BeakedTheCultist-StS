@@ -3,6 +3,7 @@ package beaked.cards;
 import basemod.abstracts.CustomCard;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.BleedPower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -36,7 +37,8 @@ public class TaskmastersTorture extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn),
+                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BleedPower(m, magicNumber), magicNumber));
     }
 

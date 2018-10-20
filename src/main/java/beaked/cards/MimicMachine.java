@@ -28,7 +28,7 @@ public class MimicMachine extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard c;
         do {
-            c = CardLibrary.getColorSpecificCard(CardColor.BLUE, AbstractDungeon.cardRandomRng).makeCopy();
+            c = CardLibrary.getRandomColorSpecificCard(CardColor.BLUE, AbstractDungeon.cardRandomRng).makeCopy();
         } while (c.rarity == CardRarity.BASIC || c.rarity == CardRarity.SPECIAL);
         c.setCostForTurn(-9);
         if (this.upgraded) c.upgrade();
