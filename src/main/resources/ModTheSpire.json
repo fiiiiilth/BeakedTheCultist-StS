@@ -2,9 +2,9 @@
 	"modid": "beakedthecultist-sts",
 	"name": "Beaked The Cultist",
 	"author_list": ["EARL", "fiiiiilth","Moocowsgomoo", "TemmieAnimations", "BlueKnight", "Giuseppe", "MagicHampster", "Rhapsody and community"],
-	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- Shadow Fade reworked. \n- Quantum Egg upgrades Crazy Rituals' cards. \n- Art for Stick / Stick Smack, by MagicHampster. \n- Struggle now triggers end-of-turn effects. \n- Fake Out no longer crashes with gigantic decks. \n- Added tooltip for Volatile Misfortune.\n- Awakened Form behind-the-scenes refactoring.\n- Lagavulin's Ferocity+ no longer crashes.\n- Updated credits.\n\nIf you contributed and don't see your name in the credits, please let us know!",
+	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes: \n- Shadow Fade reworked. \n- Shadow Fade rarity fixed.\n- Quantum Egg upgrades Crazy Rituals' cards. \n- Art for Stick / Stick Smack, by MagicHampster. \n- Struggle now triggers end-of-turn effects. \n- Fake Out no longer crashes with gigantic decks. \n- Added tooltip for Volatile Misfortune.\n- Wither tooltip now shows current value.\n- Awakened Form behind-the-scenes refactoring.\n- Lagavulin's Ferocity+ no longer crashes.\n- Updated credits.\n\nIf you contributed and don't see your name in the credits, please let us know!",
 	"dependencies": ["basemod"],
-	"version": "0.5.2",
+	"version": "0.5.3",
 	"sts_version": "10-18-2018",
 	"mts_version": "3.4.0",
 	"update_json": "https://api.github.com/repos/fiiiiilth/BeakedTheCultist-StS/releases/latest"
