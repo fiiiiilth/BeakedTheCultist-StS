@@ -14,7 +14,6 @@ public class CopyAwakenedPatch{
                 ((AwakenedPower)AbstractDungeon.player.getPower(AwakenedPower.POWER_ID)).awakenedCards.contains(obj)){
             ((AwakenedPower)AbstractDungeon.player.getPower(AwakenedPower.POWER_ID)).awakenedCards.add(retVal);
         }
-        CardAwakenedPatch.negativeCost.set(retVal, CardAwakenedPatch.negativeCost.get(obj));
         return retVal;
     }
 }

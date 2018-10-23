@@ -94,6 +94,7 @@ public class CrazyRitualsPower extends AbstractPower {
         nextCard.target_x = Settings.WIDTH / 2;
         nextCard.target_y = Settings.HEIGHT / 2;
         nextCard.targetDrawScale = nextCard.targetDrawScale*1.4f;
+        if (AbstractDungeon.player.hasRelic("Quantum Egg")) nextCard.upgrade();
         AbstractMonster targetMonster = AbstractDungeon.getRandomMonster();
         AbstractDungeon.actionManager.addToBottom(new QueueCardFrontAction(nextCard,targetMonster,queueIndex));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));

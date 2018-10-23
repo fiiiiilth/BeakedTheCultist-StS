@@ -482,10 +482,10 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addKeyword(new String[] {"depleted"}, "#yUnplayable unless the #yWither effect is reversed.");
         BaseMod.addKeyword(new String[] {"inspiration"}, "An unplayable status card. When drawn, it #yExhausts and draws #b2 more cards.");
         BaseMod.addKeyword(new String[] {"respite"}, "An unplayable status card. Heals #b2 HP at the end of your turn.");
-        BaseMod.addKeyword(new String[] {"psalm"}, "A 0-cost card that deals #b3 damage to ALL enemies and has #yWither #b2.");
-        BaseMod.addKeyword(new String[] {"stick"}, "A 0-cost card that increases Stick Smack damage and returns a Stick Smack to your hand.");
+        BaseMod.addKeyword(new String[] {"psalm"}, "A 0-cost attack card that deals #b3 damage to ALL enemies and has #yWither #b2.");
+        BaseMod.addKeyword(new String[] {"stick"}, "A 0-cost skill card that increases Stick Smack damage and returns a Stick Smack to your hand.");
         BaseMod.addKeyword(new String[] {"entangled"}, "You cannot play #yAttack cards for one turn.");
-        BaseMod.addKeyword(new String[] {"regret"}, "An unplayable curse card. While in your hand, lose 1 HP for each card in your hand at the end of the turn.");
+        BaseMod.addKeyword(new String[] {"regret"}, "An unplayable curse card. While in your hand, lose #b1 HP for each card in your hand at the end of the turn.");
         BaseMod.addKeyword(new String[] {"bleed"}, "Deals damage at the end of the round. Does not decrease over time.");
     }
 

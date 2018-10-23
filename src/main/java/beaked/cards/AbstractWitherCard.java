@@ -56,8 +56,8 @@ public abstract class AbstractWitherCard extends CustomCard {
     }
 
     @Override
-    public AbstractCard makeSameInstanceOf(){
-        AbstractCard c = super.makeSameInstanceOf();
+    public AbstractCard makeStatEquivalentCopy(){
+        AbstractCard c = super.makeStatEquivalentCopy();
         if (c.misc == 0) ((AbstractWitherCard)c).onDepleted();
         return c;
     }
@@ -65,8 +65,12 @@ public abstract class AbstractWitherCard extends CustomCard {
     @Override
     public List<TooltipInfo> getCustomTooltips() {
         List<TooltipInfo> tips = new ArrayList<>();
-        tips.add(new TooltipInfo("Wither Effect",this.witherEffect));
+        tips.add(new TooltipInfo("Wither Effect",this.witherEffect + this.getMiscValueText()));
         return tips;
+    }
+
+    public String getMiscValueText(){
+        return " NL (Current value: #b" + this.misc + ")";
     }
 
     @Override

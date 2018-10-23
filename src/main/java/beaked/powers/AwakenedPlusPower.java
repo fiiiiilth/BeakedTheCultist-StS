@@ -19,10 +19,11 @@ public class AwakenedPlusPower extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
 
-    public AwakenedPlusPower(AbstractCreature owner) {
+    public AwakenedPlusPower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
+        this.amount = amount;
         this.isTurnBased = false;
         updateDescription();
         this.loadRegion("unawakened");
@@ -30,7 +31,7 @@ public class AwakenedPlusPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        this.description = AwakenedPlusPower.DESCRIPTIONS[0];
+        this.description = AwakenedPlusPower.DESCRIPTIONS[0] + this.amount + AwakenedPlusPower.DESCRIPTIONS[1];
     }
 
 }

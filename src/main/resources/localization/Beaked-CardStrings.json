@@ -52,8 +52,8 @@
 	},
 	"beaked:HuntressEssence": {
 		"NAME": "Huntress Essence",
-		"DESCRIPTION": "Heal !M! HP and draw !M! card for each card in your Exhaust pile. NL Exhaust",
-		"UPGRADE_DESCRIPTION": "Heal !M! HP and draw !M! cards for each card in your Exhaust pile. NL Exhaust"
+		"DESCRIPTION": "Heal !M! HP and draw !M! card for each card in your Exhaust pile. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Heal !M! HP and draw !M! cards for each card in your Exhaust pile. NL Exhaust."
 	},
 	"beaked:MachineEssence": {
 		"NAME": "Machine Essence",
@@ -122,7 +122,7 @@
 	"beaked:Struggle": {
 		"NAME": "Struggle",
 		"DESCRIPTION": "Deal !D! damage for each other card in your hand. End your turn.",
-		"EXTENDED_DESCRIPTION": ["(Hits !M! times.) NL "]
+		"EXTENDED_DESCRIPTION": ["(Hits !M! time{s}.) NL "]
 	},
 	"beaked:Devastation": {
 		"NAME": "Devastation",
@@ -297,16 +297,21 @@
 	"beaked:VolatileMisfortune": {
 		"NAME": "Volatile Misfortune",
 		"DESCRIPTION": "At the end of your turn, Retain all Unplayable cards. For each, deal damage to a random enemy equal to your Strength + 1.",
-		"UPGRADE_DESCRIPTION": "Innate. At the end of your turn, Retain all Unplayable cards. For each, deal damage to a random enemy equal to your Strength + 1."
+		"UPGRADE_DESCRIPTION": "Innate. At the end of your turn, Retain all Unplayable cards. For each, deal damage to a random enemy equal to your Strength + 1.",
+        "EXTENDED_DESCRIPTION": ["Auto-Discarding","Certain #yUnplayable cards, like #yBurns, automatically discard themselves at the end of your turn. These are ignored by Volatile Misfortune."]
 	},
 	"beaked:SurvivalInstinct": {
 		"NAME": "Survival Instinct",
 		"DESCRIPTION": "Can only be played if you haven't played any other cards this turn. NL Gain 1 Intangible. NL Become Entangled.",
 		"EXTENDED_DESCRIPTION": ["I have played other cards this turn!"]
 	},
+	"beaked:ShadowFade_DEPRECATED": {
+		"NAME": "Shadow Fade (DEPRECATED)",
+		"DESCRIPTION": "Gain !beaked:wI! Intangible. NL Wither !M!."
+	},
 	"beaked:ShadowFade": {
 		"NAME": "Shadow Fade",
-		"DESCRIPTION": "Gain !beaked:wI! Intangible. NL Wither !M!."
+		"DESCRIPTION": "Gain 1 Intangible for each !M! Strength you have. NL Lose all Strength."
 	},
 	"beaked:StunningBlow": {
 		"NAME": "Stunning Blow",
@@ -354,7 +359,7 @@
 	"beaked:LagavulinsFerocity": {
 		"NAME": "Lagavulin's Ferocity",
 		"DESCRIPTION": "The first Attack you play each turn deals double damage.",
-		"UPGRADE_DESCRIPTIONS": "The first Attack you play each turn deals triple damage."
+		"UPGRADE_DESCRIPTION": "The first Attack you play each turn deals triple damage."
 	},
 	"beaked:SentriesPulse": {
 		"NAME": "Sentries Pulse",

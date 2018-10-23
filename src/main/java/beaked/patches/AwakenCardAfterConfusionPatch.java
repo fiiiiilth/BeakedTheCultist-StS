@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @SpirePatch(clz = AbstractPlayer.class, method = "draw", paramtypez = {int.class})
 public class AwakenCardAfterConfusionPatch {
     @SpireInsertPatch(locator = TriggerWhenDrawnLocator.class, localvars = {"c"})
-    public static void atSingleFinalDamageGive(AbstractPlayer obj, int numCards, AbstractCard c) {
+    public static void Insert(AbstractPlayer obj, int numCards, AbstractCard c) {
         try {
             if (AbstractDungeon.player.hasPower(AwakenedPower.POWER_ID) && AbstractDungeon.player.hasPower(ConfusionPower.POWER_ID)){
                 if (c.cost >= 0) c.costForTurn = c.cost; // cost is set by confusion right before this

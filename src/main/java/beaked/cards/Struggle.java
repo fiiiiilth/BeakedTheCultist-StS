@@ -2,8 +2,7 @@ package beaked.cards;
 
 import basemod.abstracts.CustomCard;
 import beaked.Beaked;
-import beaked.actions.BackfireDamageAction;
-import beaked.actions.BeakedEndTurnAction;
+import beaked.actions.ForcedEndTurnAction;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -16,10 +15,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 
 public class Struggle extends CustomCard {
@@ -49,16 +46,15 @@ public class Struggle extends CustomCard {
             atkEffects.add(AbstractGameAction.AttackEffect.BLUNT_LIGHT);
         }
         this.baseDamage = this.damage = ATTACK_DMG;
+        Beaked.setDescription(this,DESCRIPTION);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i=0;i<this.magicNumber;i++){
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m,new DamageInfo(p,this.damage, DamageInfo.DamageType.NORMAL), getRandomAttackEffect()));
+        for (int i=0;i<this.magicNumber;i++) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), getRandomAttackEffect()));
             AbstractDungeon.actionManager.addToBottom(new WaitAction(0.05f));
         }
-
-        AbstractDungeon.actionManager.addToBottom(new BeakedEndTurnAction());
-        AbstractDungeon.overlayMenu.endTurnButton.disable(true);
+        AbstractDungeon.actionManager.addToBottom(new ForcedEndTurnAction());
     }
 
     public AbstractGameAction.AttackEffect getRandomAttackEffect(){

@@ -1,6 +1,5 @@
 package beaked.powers;
 
-import beaked.patches.CardAwakenedPatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -125,6 +124,9 @@ public class AwakenedPower extends AbstractPower {
         // cost < 0 means it's X-cost (-1) or unplayable (-2), don't want to mess with those.
         if (c.cost < 0) return;
 
+        c.modifyCostForTurn(amt);
+
+        /*
         c.costForTurn += amt;
 
         if (!AbstractDungeon.player.hasPower(AwakenedPlusPower.POWER_ID)){
@@ -135,8 +137,13 @@ public class AwakenedPower extends AbstractPower {
             c.isCostModified = true;
         }
 
-        if (c.costForTurn < 0) CardAwakenedPatch.negativeCost.set(c,true);
+        if (c.costForTurn < 0) CardAwakenedPatch.negativeCost.set(c,true);*/
         if (!awakenedCards.contains(c)) awakenedCards.add(c);
+    }
+
+    @Override
+    public void onRemove(){
+        awakenedCards.clear();
     }
 
     @Override

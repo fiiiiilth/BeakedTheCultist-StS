@@ -46,9 +46,7 @@ public class AwakenedForm extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new IntenseZoomEffect(p.hb.cX, p.hb.cY, false), 0.05f, true));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(1.5f));
 
-        if (this.upgraded && !p.hasPower(AwakenedPlusPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new AwakenedPlusPower(p)));
-        }
+        if (this.upgraded) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new AwakenedPlusPower(p, 1),1));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new AwakenedPower(p, 1),1));
     }
 

@@ -73,7 +73,8 @@
 	"beaked:AwakenedPlusPower": {
 		"NAME": "Full Awakening",
 		"DESCRIPTIONS": [
-			"Awakened can reduce card costs below 0."
+			"Card costs can be reduced to #b-",
+			"."
 		]
 	},
 	"beaked:WarriorSpiritPower": {
