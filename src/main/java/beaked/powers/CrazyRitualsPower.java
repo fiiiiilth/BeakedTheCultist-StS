@@ -41,6 +41,8 @@ public class CrazyRitualsPower extends AbstractPower {
         this.owner = owner;
         this.amount = this.maxAmount = amount;
         this.isTurnBased = false;
+        // have to set isFinishedThisTurn, otherwise starts trying to trigger for cards that we play after playing the power.
+        this.isFinishedThisTurn = true;
         updateDescription();
         this.loadRegion("hex");
     }
@@ -54,7 +56,9 @@ public class CrazyRitualsPower extends AbstractPower {
     @Override
     public void onAfterUseCard(AbstractCard c, UseCardAction action)
     {
-        if (!c.equals(nextCard) || isFinishedThisTurn) return;
+        // if the next card in the queue is the same uuid as the one just played, it's a copy created from Necronomicon/Echo Form.
+        // Let it play out immediately, then resume the chain afterwards (when this condition isn't true)
+        if ((!AbstractDungeon.actionManager.cardQueue.isEmpty() && AbstractDungeon.actionManager.cardQueue.get(0).card.uuid == nextCard.uuid) || isFinishedThisTurn) return;
         playCardEffect(0);
     }
 
@@ -65,6 +69,7 @@ public class CrazyRitualsPower extends AbstractPower {
         }
         this.amount = this.maxAmount;
         isFinishedThisTurn = false;
+        // start the chain
         playCardEffect(0);
     }
 
@@ -87,8 +92,7 @@ public class CrazyRitualsPower extends AbstractPower {
                 nextCard.cardID == "ReturningBlade" || nextCard.cardID == "Snipe" ||
                 nextCard.cardID == "TimeTheft" || nextCard.cardID == "TrueSight");
 
-        // if the card is a power, purging it just gives a weird visual effect. It goes away anyway so no need.
-        if (nextCard.type != AbstractCard.CardType.POWER) nextCard.purgeOnUse = true;
+        nextCard.purgeOnUse = true;
         nextCard.freeToPlayOnce = true;
         AbstractDungeon.player.limbo.addToTop(nextCard);
         nextCard.target_x = Settings.WIDTH / 2;
@@ -96,7 +100,9 @@ public class CrazyRitualsPower extends AbstractPower {
         nextCard.targetDrawScale = nextCard.targetDrawScale*1.4f;
         if (AbstractDungeon.player.hasRelic("Quantum Egg")) nextCard.upgrade();
         AbstractMonster targetMonster = AbstractDungeon.getRandomMonster();
+        // Typically, cards are added to the front of the queue so they can't be interrupted by player actions.
         AbstractDungeon.actionManager.addToBottom(new QueueCardFrontAction(nextCard,targetMonster,queueIndex));
+        // Wait action can't wait for more than 0.1s on fast mode, so just add a bunch of them
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
@@ -105,6 +111,8 @@ public class CrazyRitualsPower extends AbstractPower {
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
         AbstractDungeon.actionManager.addToBottom(new WaitAction(0.1f));
+        // If a card can't be used, it doesn't trigger onAfterUseCard, which would break the chain.
+        // Instead, after the typical wait time, we add the NEXT card to the queue early, placing it after the current unusable card.
         if (!nextCard.canUse(AbstractDungeon.player,targetMonster)){
             AbstractDungeon.actionManager.addToBottom(new CrazyRitualsPlayAction(this));
         }
