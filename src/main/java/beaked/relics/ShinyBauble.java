@@ -16,7 +16,8 @@ public class ShinyBauble extends CustomRelic {
     public static final String ID = "beaked:ShinyBauble";
 
     public ShinyBauble() {
-        super(ID, new Texture("img/relics/" + "DerpRock" + ".png"),
+        super(ID, new Texture("beaked_img/relics/" + Beaked.getActualID(ID) + ".png"),
+                new Texture("beaked_img/relics/outline/" + Beaked.getActualID(ID) + ".png"),
                 RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 

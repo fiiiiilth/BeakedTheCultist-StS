@@ -27,12 +27,12 @@ public class Flinch extends AbstractWitherCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final int COST = 1;
-    private static final int BLOCK_AMT = 12;
+    private static final int BLOCK_AMT = 16;
     private static final int WITHER_MINUS_BLOCK = 2;
     private static final int UPGRADE_PLUS_WITHER = -1;
 
     public Flinch() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
 
         this.baseMisc = this.misc = BLOCK_AMT;

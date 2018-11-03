@@ -26,7 +26,7 @@ public class BodyRitualPower extends AbstractPower {
         this.isTurnBased = false;
         updateDescription();
         this.loadRegion("ritual");
-        //this.img = new Texture("img/powers/ritual.png");
+        //this.beaked_img = new Texture("beaked_img/powers/ritual.png");
     }
 
     @Override

@@ -20,12 +20,12 @@ public class Redirect extends AbstractWitherCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION[0];
     private static final int COST = 1;
-    private static final int BLOCK_PER_STRENGTH = 5;
+    private static final int BLOCK_PER_STRENGTH = 6;
     private static final int WITHER_MINUS_BLOCK_PER_STRENGTH = 1;
     private static final int UPGRADE_NEW_COST = 0;
 
     public Redirect() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
 
         this.baseMisc = this.misc = BLOCK_PER_STRENGTH;

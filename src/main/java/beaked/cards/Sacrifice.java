@@ -30,7 +30,7 @@ public class Sacrifice extends CustomCard {
     public static final int MAX_HP = 3;
 
     public Sacrifice() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE,
                 CardTarget.ENEMY);
 

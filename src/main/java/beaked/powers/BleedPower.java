@@ -25,7 +25,7 @@ public class BleedPower extends AbstractPower {
         this.amount = amount;
         this.isTurnBased = false;
         updateDescription();
-        this.img = ImageMaster.loadImage("img/powers/bleed.png");
+        this.img = ImageMaster.loadImage("beaked_img/powers/bleed.png");
         this.type = PowerType.DEBUFF;
     }
 

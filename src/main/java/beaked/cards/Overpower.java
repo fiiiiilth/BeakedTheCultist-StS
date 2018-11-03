@@ -26,7 +26,7 @@ public class Overpower extends CustomCard {
     public int realBaseDamage = -1;
 
     public Overpower() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         this.magicNumber = this.baseMagicNumber = DIVIDE_BY;
         this.baseDamage = DAMAGE;

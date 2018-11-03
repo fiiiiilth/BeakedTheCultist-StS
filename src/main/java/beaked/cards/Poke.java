@@ -26,7 +26,7 @@ public class Poke extends CustomCard {
     public static final int DAMAGE = 5;
 
     public Poke() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.ENEMY);
         this.magicNumber = this.baseMagicNumber = DRAW;
         this.baseDamage = this.damage = DAMAGE;
         Beaked.setDescription(this,DESCRIPTION);

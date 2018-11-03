@@ -25,7 +25,7 @@ public class ShadowFade extends CustomCard {
     public static final int UPGRADE_PLUS_STR_PER_INTANGIBLE = -3;
 
     public ShadowFade() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = STR_PER_INTANGIBLE;
     }
 

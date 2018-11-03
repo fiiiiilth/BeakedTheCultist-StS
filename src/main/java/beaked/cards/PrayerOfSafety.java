@@ -27,7 +27,7 @@ public class PrayerOfSafety extends CustomCard {
     public static final int UPGRADE_PLUS_LOSE_DEX = -1;
 
     public PrayerOfSafety() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.SELF);
         this.block = this.baseBlock = BLOCK;
         this.magicNumber = this.baseMagicNumber = LOSE_DEX;
     }

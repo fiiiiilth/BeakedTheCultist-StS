@@ -26,7 +26,7 @@ public class Foresight extends CustomCard {
     public static final int UPGRADE_ENERGY = 1;
 
     public Foresight() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
 
         this.baseBlock = BLOCK;
         this.magicNumber = this.baseMagicNumber = ENERGY;

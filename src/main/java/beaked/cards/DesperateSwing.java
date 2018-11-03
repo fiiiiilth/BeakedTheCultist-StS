@@ -26,7 +26,7 @@ public class DesperateSwing extends CustomCard {
     public int realBaseDamage = -1;
 
     public DesperateSwing() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = DIVIDE_BY;

@@ -30,7 +30,7 @@ public class StunningBlow extends AbstractWitherCard {
     public static final int UPGRADE_PLUS_WITHER = -1;
 
     public StunningBlow() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseMisc = this.misc = DAMAGE;
         this.baseDamage = this.damage = this.misc;
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_DAMAGE;

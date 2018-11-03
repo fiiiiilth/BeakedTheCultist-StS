@@ -1,6 +1,7 @@
 package beaked.relics;
 
 import basemod.abstracts.CustomRelic;
+import beaked.Beaked;
 import beaked.powers.NegationPower;
 import beaked.powers.RitualPlayerPower;
 import com.badlogic.gdx.graphics.Texture;
@@ -12,7 +13,8 @@ public class ThroatLozenge extends CustomRelic {
     public static final String ID = "beaked:ThroatLozenge";
 
     public ThroatLozenge() {
-        super(ID, new Texture("img/relics/" + "DerpRock" + ".png"),
+        super(ID, new Texture("beaked_img/relics/" + Beaked.getActualID(ID) + ".png"),
+                new Texture("beaked_img/relics/outline/" + Beaked.getActualID(ID) + ".png"),
                 RelicTier.COMMON, LandingSound.FLAT);
     }
 

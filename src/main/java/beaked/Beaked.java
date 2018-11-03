@@ -3,9 +3,11 @@ package beaked;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Properties;
 
 import basemod.ModLabeledToggleButton;
 import basemod.ReflectionHacks;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import beaked.cards.*;
 import beaked.characters.BeakedTheCultist;
@@ -15,20 +17,19 @@ import beaked.patches.BeakedEnum;
 import beaked.patches.CardTagsEnum;
 import beaked.patches.PluralizeFieldsPatch;
 import beaked.potions.RitualPotion;
-import beaked.relics.FlawlessSticks;
-import beaked.relics.MendingPlumage;
-import beaked.relics.ShinyBauble;
-import beaked.relics.ThroatLozenge;
+import beaked.relics.*;
 import beaked.variables.*;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.relics.CultistMask;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
@@ -61,7 +62,7 @@ public class Beaked implements PostInitializeSubscriber,
     private static final String DESCRIPTION = "v0.1\n Adds Beaked the Cultist as a new playable characters.";
 
     private static final Color YELLOW = CardHelper.getColor(255.0f, 255.0f, 0.0f);
-    private static final String BEAKED_ASSETS_FOLDER = "img";
+    private static final String BEAKED_ASSETS_FOLDER = "beaked_img";
 
     // card backgrounds
     private static final String ATTACK_YELLOW = "512/bg_attack_yellow.png";
@@ -95,8 +96,13 @@ public class Beaked implements PostInitializeSubscriber,
     // badge
     public static final String BADGE_IMG = "RelicBadge.png";
 
+    public static Properties beakedDefaults = new Properties();
+    public static final String PROP_CRAZY_RITUALS = "crazyRituals";
+    public static final String PROP_ENABLE_PARASITE = "enableParasite";
+    public static final String PROP_RELIC_SHARING = "relicSharing";
     public static boolean crazyRituals = false;
-    public static boolean disableBosses = false;
+    public static boolean enableParasite = true;
+    public static boolean relicSharing = true;
 
     // texture loaders
 
@@ -122,6 +128,10 @@ public class Beaked implements PostInitializeSubscriber,
                 makePath(POWER_YELLOW), makePath(ENERGY_ORB_YELLOW),
                 makePath(ATTACK_YELLOW_PORTRAIT), makePath(SKILL_YELLOW_PORTRAIT),
                 makePath(POWER_YELLOW_PORTRAIT), makePath(ENERGY_ORB_YELLOW_PORTRAIT), makePath(CARD_ENERGY_ORB));
+
+        beakedDefaults.setProperty(PROP_CRAZY_RITUALS, "FALSE");
+        beakedDefaults.setProperty(PROP_ENABLE_PARASITE, "TRUE");
+        beakedDefaults.setProperty(PROP_RELIC_SHARING, "TRUE");
     }
 
     public static void initialize() {
@@ -142,10 +152,11 @@ public class Beaked implements PostInitializeSubscriber,
         Beaked.logger.debug("==========================================POST INITIALIZE");
 
         try {
-            SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig");
+            SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
             config.load();
-            crazyRituals = config.getBool("crazyRituals");
-            disableBosses = config.getBool("disableBosses");
+            crazyRituals = config.getBool(PROP_CRAZY_RITUALS);
+            enableParasite = config.getBool(PROP_ENABLE_PARASITE);
+            relicSharing = config.getBool(PROP_RELIC_SHARING);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -156,8 +167,8 @@ public class Beaked implements PostInitializeSubscriber,
         }, (button) -> {
             crazyRituals = button.enabled;
             try {
-                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig");
-                config.setBool("crazyRituals", crazyRituals);
+                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+                config.setBool(PROP_CRAZY_RITUALS, crazyRituals);
                 config.save();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -165,29 +176,44 @@ public class Beaked implements PostInitializeSubscriber,
             resetCharSelect();
         });
         settingsPanel.addUIElement(crazyBtn);
-        ModLabeledToggleButton bossesBtn = new ModLabeledToggleButton("Disable content: Giant Parasite Act 2 Boss. REQUIRES RESTART.",
+
+        ModLabeledToggleButton bossesBtn = new ModLabeledToggleButton("Enable Content: Giant Parasite Act 3 Elite (REQUIRES RESTART)",
                 350.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
-                disableBosses, settingsPanel, (label) -> {
+                enableParasite, settingsPanel, (label) -> {
         }, (button) -> {
-            disableBosses = button.enabled;
+            enableParasite = button.enabled;
             try {
-                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig");
-                config.setBool("disableBosses", disableBosses);
+                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+                config.setBool(PROP_ENABLE_PARASITE, enableParasite);
                 config.save();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            resetCharSelect();
         });
         settingsPanel.addUIElement(bossesBtn);
+
+        ModLabeledToggleButton relicSharingBtn = new ModLabeledToggleButton("Enable Beaked relics for other characters (REQUIRES RESTART)",
+                350.0f, 550.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                relicSharing, settingsPanel, (label) -> {
+        }, (button) -> {
+           relicSharing = button.enabled;
+            try {
+                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+                config.setBool(PROP_RELIC_SHARING, relicSharing);
+                config.save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        settingsPanel.addUIElement(relicSharingBtn);
 
         Settings.isDailyRun = false;
         Settings.isTrial = false;
         Settings.isDemo = false;
 
-        if (!disableBosses){
-            BaseMod.addMonster(SuperParasite.ID, () -> new SuperParasite());
-            BaseMod.addBoss(TheCity.ID, SuperParasite.ID, "img/ui/map/boss/parasite.png", "img/ui/map/bossOutline/parasite.png");
+        if (enableParasite){
+            BaseMod.addMonster(SuperParasite.ID, "Giant Parasite", () -> new SuperParasite());
+            BaseMod.addEliteEncounter(TheBeyond.ID, new MonsterInfo(SuperParasite.ID,1.0f));
         }
         BaseMod.addPotion(RitualPotion.class, YELLOW, YELLOW, YELLOW, RitualPotion.POTION_ID, BeakedEnum.BEAKED_THE_CULTIST);
     }
@@ -217,10 +243,20 @@ public class Beaked implements PostInitializeSubscriber,
         logger.info("begin editing relics");
 
         // Add relics
-        BaseMod.addRelicToCustomPool(new MendingPlumage(), AbstractCardEnum.BEAKED_YELLOW);
+        BaseMod.addRelicToCustomPool(new MendingPlumage(), AbstractCardEnum.BEAKED_YELLOW); // starter
+        BaseMod.addRelicToCustomPool(new BlessedCoat(), AbstractCardEnum.BEAKED_YELLOW);    // upgrade
         BaseMod.addRelicToCustomPool(new FlawlessSticks(), AbstractCardEnum.BEAKED_YELLOW);
-        BaseMod.addRelicToCustomPool(new ShinyBauble(), AbstractCardEnum.BEAKED_YELLOW); // could be colorless
         BaseMod.addRelicToCustomPool(new ThroatLozenge(), AbstractCardEnum.BEAKED_YELLOW);
+        if (relicSharing){
+            BaseMod.addRelic(new ShinyBauble(), RelicType.SHARED);
+            BaseMod.addRelic(new MawFillet(), RelicType.SHARED);
+            BaseMod.addRelic(new SacredNecklace(), RelicType.SHARED);
+        }
+        else {
+            BaseMod.addRelicToCustomPool(new ShinyBauble(), AbstractCardEnum.BEAKED_YELLOW);
+            BaseMod.addRelicToCustomPool(new MawFillet(), AbstractCardEnum.BEAKED_YELLOW);
+            BaseMod.addRelicToCustomPool(new SacredNecklace(), AbstractCardEnum.BEAKED_YELLOW);
+        }
 
         logger.info("done editing relics");
     }

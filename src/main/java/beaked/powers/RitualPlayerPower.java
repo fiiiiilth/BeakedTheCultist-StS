@@ -28,7 +28,7 @@ public class RitualPlayerPower extends AbstractPower {
         updateDescription();
         this.loadRegion("ritual");
         this.canGoNegative = true;
-        //this.img = new Texture("img/powers/ritual.png");
+        //this.beaked_img = new Texture("beaked_img/powers/ritual.png");
     }
 
     @Override

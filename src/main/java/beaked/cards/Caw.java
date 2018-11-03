@@ -35,7 +35,7 @@ public class Caw extends AbstractWitherCard {
     public static final int WITHER_MINUS_DAMAGE = 1;
 
     public Caw() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK,
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.ALL_ENEMY);
         this.baseDamage = this.damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_DAMAGE;

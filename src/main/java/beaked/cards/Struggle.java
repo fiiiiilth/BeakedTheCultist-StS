@@ -33,7 +33,7 @@ public class Struggle extends CustomCard {
     public static final ArrayList<AbstractGameAction.AttackEffect> atkEffects = new ArrayList<>();
 
     public Struggle() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON,
                 CardTarget.ENEMY);
         if (atkEffects.isEmpty()) {

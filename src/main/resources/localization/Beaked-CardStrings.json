@@ -222,7 +222,7 @@
 	},
 	"beaked:CursingBlood": {
 		"NAME": "Cursing Blood",
-		"DESCRIPTION": "Enemy loses !beaked:wI! Strength. Wither 1. NL Lose !M! HP."
+		"DESCRIPTION": "Enemy loses !beaked:wI! Strength. Wither !M!."
 	},
 	"beaked:Molting": {
 		"NAME": "Molting",

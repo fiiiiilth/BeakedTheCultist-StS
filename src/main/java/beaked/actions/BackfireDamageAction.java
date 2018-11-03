@@ -13,19 +13,21 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
    
    public class BackfireDamageAction extends AbstractGameAction
    {
+   		public boolean isHpLoss;
 	   
-		public BackfireDamageAction(int amount) {
+		public BackfireDamageAction(int amount, boolean isHpLoss) {
 			this.actionType = ActionType.DAMAGE;
 			this.duration = Settings.ACTION_DUR_XFAST;
 			this.target = AbstractDungeon.player;
 			this.amount = amount;
+			this.isHpLoss = isHpLoss;
 		}
      
 		public void update()
 		{
 			if (!AbstractDungeon.getCurrRoom().isBattleEnding() || AbstractDungeon.getCurrRoom().isBattleOver) {
 				AbstractDungeon.actionManager.addToTop(new com.megacrit.cardcrawl.actions.common.DamageAction(this.target,
-						new DamageInfo(this.target, this.amount, DamageType.THORNS), AttackEffect.FIRE));
+						new DamageInfo(this.target, this.amount, isHpLoss?DamageType.HP_LOSS:DamageType.THORNS), AttackEffect.FIRE));
 			}
 			this.isDone = true;
 		}

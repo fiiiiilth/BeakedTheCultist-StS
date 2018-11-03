@@ -22,7 +22,7 @@ public class HuntressEssence extends CustomCard {
     public static final int UPGRADE_HEAL_DRAW_AMT = 1;
 
     public HuntressEssence() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.SELF);
 
         this.magicNumber = this.baseMagicNumber = HEAL_DRAW_AMT;
         this.exhaustOnUseOnce = true;

@@ -22,7 +22,7 @@ public class WildInstinct extends CustomCard {
     public static final int UPGRADE_DAMAGE = 5;
 
     public WildInstinct() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.NONE);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.NONE);
         this.isMultiDamage = true;
         this.baseDamage = DAMAGE;
     }

@@ -24,7 +24,7 @@ public class BraceForImpact extends CustomCard {
     public static final int UPGRADE_PLUS_PLATED_ARMOR = 1;
 
     public BraceForImpact() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
 
         this.magicNumber = this.baseMagicNumber = PLATED_ARMOR;
     }

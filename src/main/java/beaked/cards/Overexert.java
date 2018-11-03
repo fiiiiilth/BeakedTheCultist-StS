@@ -26,7 +26,7 @@ public class Overexert extends CustomCard {
     public static final int UPGRADE_PLUS_SELF_DMG_PER_ENERGY = -1;
 
     public Overexert() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = SELF_DMG_PER_ENERGY;
     }
 
@@ -34,7 +34,7 @@ public class Overexert extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DoubleEnergyAction());
         for (int i=0;i< EnergyPanel.getCurrentEnergy();i++){
-            AbstractDungeon.actionManager.addToBottom(new BackfireDamageAction(this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new BackfireDamageAction(this.magicNumber,true));
         }
     }
 

@@ -22,7 +22,7 @@ public class MachineEssence extends CustomCard {
     public static final int UPGRADE_EXTRA_HP = 1;
 
     public MachineEssence() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
 
         this.magicNumber = this.baseMagicNumber = EXTRA_HP;
     }

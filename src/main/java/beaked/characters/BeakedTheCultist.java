@@ -30,28 +30,28 @@ public class BeakedTheCultist extends CustomPlayer {
     public static final int ENERGY_PER_TURN = 3;
 
     public static final String[] orbTextures = {
-            "img/char/beaked/orb/layer1.png",
-            "img/char/beaked/orb/layer2.png",
-            "img/char/beaked/orb/layer3.png",
-            "img/char/beaked/orb/layer4.png",
-            "img/char/beaked/orb/layer5.png",
-            "img/char/beaked/orb/layer6.png",
-            "img/char/beaked/orb/layer1d.png",
-            "img/char/beaked/orb/layer2d.png",
-            "img/char/beaked/orb/layer3d.png",
-            "img/char/beaked/orb/layer4d.png",
-            "img/char/beaked/orb/layer5d.png",
+            "beaked_img/char/beaked/orb/layer1.png",
+            "beaked_img/char/beaked/orb/layer2.png",
+            "beaked_img/char/beaked/orb/layer3.png",
+            "beaked_img/char/beaked/orb/layer4.png",
+            "beaked_img/char/beaked/orb/layer5.png",
+            "beaked_img/char/beaked/orb/layer6.png",
+            "beaked_img/char/beaked/orb/layer1d.png",
+            "beaked_img/char/beaked/orb/layer2d.png",
+            "beaked_img/char/beaked/orb/layer3d.png",
+            "beaked_img/char/beaked/orb/layer4d.png",
+            "beaked_img/char/beaked/orb/layer5d.png",
     };
 
     public BeakedTheCultist(String name, PlayerClass setClass) {
-        super(name, setClass, orbTextures, "img/char/beaked/orb/vfx.png", (String)null, null);
+        super(name, setClass, orbTextures, "beaked_img/char/beaked/orb/vfx.png", (String)null, null);
 
         initializeClass(null, beaked.Beaked.makePath(Beaked.BEAKED_SHOULDER_2),
                 beaked.Beaked.makePath(Beaked.BEAKED_SHOULDER_1),
                 beaked.Beaked.makePath(Beaked.BEAKED_CORPSE),
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        this.loadAnimation("img/char/beaked/skeleton.atlas", "img/char/beaked/skeleton.json", 1.0f);
+        this.loadAnimation("beaked_img/char/beaked/skeleton.atlas", "beaked_img/char/beaked/skeleton.json", 1.0f);
         AnimationState.TrackEntry e = this.state.setAnimation(0, "animation", true);
         e.setTime(e.getEndTime() * MathUtils.random());
     }

@@ -217,5 +217,21 @@
 			"Whenever you play a card, gain #b",
 			" #yStrength until the end of your turn."
 		]
+	},
+	"beaked:Hungry": {
+		"NAME": "Hungry",
+		"DESCRIPTIONS": [
+			"At the end of its turn, ",
+			" gains #b",
+			" #yStrength."
+		]
+	},
+	"beaked:AdaptiveArmor": {
+		"NAME": "Adaptive Armor",
+		"DESCRIPTIONS": [
+			"At the end of its turn, ",
+			" gains #b",
+			" #yPlated #yArmor."
+		]
 	}
 }

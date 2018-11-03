@@ -27,7 +27,7 @@ public class HuntressSpiritPower extends AbstractPower
         this.owner = owner;
         this.amount = amount;
         this.updateDescription();
-        this.img = ImageMaster.loadImage("img/powers/huntress_spirit.png");
+        this.img = ImageMaster.loadImage("beaked_img/powers/huntress_spirit.png");
     }
 
     @Override

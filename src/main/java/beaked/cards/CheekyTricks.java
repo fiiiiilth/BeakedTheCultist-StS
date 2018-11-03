@@ -24,7 +24,7 @@ public class CheekyTricks extends AbstractWitherCard {
     private static final int UPGRADE_PLUS_NEGATION = 1;
 
     public CheekyTricks() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER,
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
         this.baseMisc = this.misc = NEGATION;
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_NEGATION;

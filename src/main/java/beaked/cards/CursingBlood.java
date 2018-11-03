@@ -19,26 +19,24 @@ public class CursingBlood extends AbstractWitherCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final int COST = 1;
-    public static final int STR_DOWN = 2;
+    public static final int STR_DOWN = 4;
     public static final int WITHER_MINUS_STR_DOWN = 1;
     public static final int UPGRADE_PLUS_STR_DOWN = 1;
-    public static final int HP_LOSS = 3;
 
     public CursingBlood() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.ENEMY);
 
         this.baseMisc = this.misc = STR_DOWN;
-        this.baseMagicNumber = this.magicNumber = HP_LOSS;
         this.witherEffect = "Decreases #yStrength reduction.";
-        this.witherAmount = WITHER_MINUS_STR_DOWN;
+        this.magicNumber = this.baseMagicNumber = WITHER_MINUS_STR_DOWN;
+        this.linkWitherAmountToMagicNumber = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new WitherAction(this));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m,p,new StrengthPower(m,-this.misc),-this.misc));
-        AbstractDungeon.actionManager.addToBottom(new LoseHPAction(p,p,this.magicNumber));
     }
 
     public AbstractCard makeCopy() {

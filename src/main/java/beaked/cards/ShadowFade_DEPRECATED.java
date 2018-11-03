@@ -23,7 +23,7 @@ public class ShadowFade_DEPRECATED extends AbstractWitherCard {
     private static final int UPGRADE_PLUS_WITHER = -1;
 
     public ShadowFade_DEPRECATED() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
         this.baseMisc = this.misc = INTANGIBLE;
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_INTANGIBLE;

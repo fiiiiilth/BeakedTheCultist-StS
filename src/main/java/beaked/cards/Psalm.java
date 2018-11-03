@@ -20,12 +20,12 @@ public class Psalm extends AbstractWitherCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final int COST = 0;
-    private static final int DAMAGE = 3;
+    private static final int DAMAGE = 4;
     private static final int WITHER_MINUS_DAMAGE = 2;
     private static final int UPGRADE_PLUS_DAMAGE = 2;
 
     public Psalm() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.ALL_ENEMY);
 
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_DAMAGE;

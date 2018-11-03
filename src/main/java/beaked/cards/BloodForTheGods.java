@@ -29,7 +29,7 @@ public class BloodForTheGods extends CustomCard {
     public DamageInfo dmg;
 
     public BloodForTheGods() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON,
                 CardTarget.SELF);
         this.baseMagicNumber = this.magicNumber = SELF_ATTACK_DMG;

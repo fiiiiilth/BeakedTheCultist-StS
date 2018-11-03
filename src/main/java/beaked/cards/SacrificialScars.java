@@ -30,7 +30,7 @@ public class SacrificialScars extends CustomCard {
     public int hpLoss;
 
     public SacrificialScars() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
         this.exhaust = true;
         this.magicNumber = this.baseMagicNumber = MAX_HP_GAIN;
         this.hpLoss = HP_LOSS;

@@ -29,7 +29,7 @@ public class SurvivalInstinct extends CustomCard {
     public static final int INTANGIBLE = 1;
 
     public SurvivalInstinct() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
         this.baseMagicNumber = this.magicNumber = INTANGIBLE;
     }
 

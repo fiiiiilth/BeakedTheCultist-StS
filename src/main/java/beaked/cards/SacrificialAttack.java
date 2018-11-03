@@ -27,7 +27,7 @@ public class SacrificialAttack extends CustomCard {
     public static final int UPGRADE_PLUS_STR_APPLY_TIMES = 1;
 
     public SacrificialAttack() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ALL);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ALL);
         this.damage = this.baseDamage = BASE_DMG;
         this.magicNumber = this.baseMagicNumber = STR_APPLY_TIMES;
         this.isMultiDamage = true;

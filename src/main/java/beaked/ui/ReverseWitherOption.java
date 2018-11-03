@@ -14,10 +14,10 @@ public class ReverseWitherOption extends AbstractCampfireOption {
         this.usable = active;
         if(active) {
             this.description = DESCRIPTION;
-            this.img = new Texture("img/ui/campfire/reversewither.png");
+            this.img = new Texture("beaked_img/ui/campfire/reversewither.png");
         } else {
             this.description = DESCRIPTION;
-            this.img = new Texture("img/ui/campfire/reversewither_disabled.png");
+            this.img = new Texture("beaked_img/ui/campfire/reversewither_disabled.png");
         }
     }
 

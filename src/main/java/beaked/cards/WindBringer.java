@@ -20,12 +20,12 @@ public class WindBringer extends AbstractWitherCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final int COST = 1;
-    private static final int DAMAGE = 10;
+    private static final int DAMAGE = 16;
     private static final int WITHER_MINUS_DAMAGE = 2;
     private static final int UPGRADE_PLUS_WITHER = -1;
 
     public WindBringer() {
-        super(ID, NAME, "img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
 
         this.isMultiDamage = true;
