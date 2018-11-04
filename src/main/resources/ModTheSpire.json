@@ -1,8 +1,8 @@
 {
 	"modid": "beakedthecultist-sts",
 	"name": "Beaked The Cultist",
-	"author_list": ["EARL", "fiiiiilth","Moocowsgomoo", "TemmieAnimations", "BlueKnight", "Giuseppe", "MagicHampster", "Ashe", "Rhapsody and community"],
-	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes (0.5.4):\n- 3 new boss relics. \n- Many Wither cards buffed.\n- Giant Parasite is scarier, now an Act 3 Elite.\n- Beaked is now yellow! Change costumes in Config.\n- Start with Ceremony cards in certain custom modifiers.\n- Beaked relics now usable by other characters.\n- Disable Parasite and relic sharing in Config menu.\n- Art for Tweet, by MagicHampster.\n- Art for Mending Plumage, by Ashe.\n- Placeholder card & relic art cleaned up.\n- Overexert now properly causes HP loss.\n- Flight fixed, made more stable.\n- Added config menu image.\n- Cards in Run History are now yellow.\n- Ring of Chaos works better with Beaked.\n- Crazy Rituals ordering improved.\n- Updated credits.\n\nIf you contributed and don't see your name in the credits, please let us know!",
+	"author_list": ["EARL", "fiiiiilth","Moocowsgomoo", "TemmieAnimations", "BlueKnight", "Giuseppe", "MagicHampster", "Ashe","MunderW", "Rhapsody and community"],
+	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes (0.5.4):\n- 3 new boss relics. \n- Many Wither cards buffed.\n- Giant Parasite is scarier, now an Act 3 Elite.\n- Beaked is now yellow, thanks to MunderW!\n- Start with Ceremony cards in certain custom modifiers.\n- Beaked relics now usable by other characters.\n- Many new Config menu options.\n- Art for Tweet, by MagicHampster.\n- Art for Mending Plumage, by Ashe.\n- Placeholder card & relic art cleaned up.\n- Overexert now properly causes HP loss.\n- Flight fixed, made more stable.\n- Added config menu image.\n- Cards in Run History are now yellow.\n- Ring of Chaos works better with Beaked.\n- Crazy Rituals ordering improved.\n- Updated credits.\n\nIf you contributed and don't see your name in the credits, please let us know!",
 	"dependencies": ["basemod"],
 	"version": "0.5.4",
 	"sts_version": "11-01-2018",
