@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
+import replayTheSpire.patches.CardFieldStuff;
 
 public class PrayerOfSafety extends CustomCard {
     public static final String ID = "beaked:PrayerOfSafety";
@@ -30,6 +31,9 @@ public class PrayerOfSafety extends CustomCard {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.SELF);
         this.block = this.baseBlock = BLOCK;
         this.magicNumber = this.baseMagicNumber = LOSE_DEX;
+        if (Beaked.isReplayLoaded) {
+            this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse
+        }
     }
 
     @Override

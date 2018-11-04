@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import replayTheSpire.patches.CardFieldStuff;
 
 public class CheekyTricks extends AbstractWitherCard {
     public static final String ID = "beaked:CheekyTricks";
@@ -31,6 +32,9 @@ public class CheekyTricks extends AbstractWitherCard {
         this.witherEffect = "Decreases #yWither effects ignored. This card does not prevent its own #yWither effect.";
         this.linkWitherAmountToMagicNumber = true;
         Beaked.setDescription(this,DESCRIPTION);
+        if (Beaked.isReplayLoaded) {
+            this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse
+        }
     }
 
     @Override

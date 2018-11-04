@@ -92,10 +92,6 @@ public class CrazyRitualsPower extends AbstractPower {
                 nextCard.rarity == AbstractCard.CardRarity.CURSE ||
                 nextCard.type == AbstractCard.CardType.STATUS ||
                 nextCard.cost == -2 ||
-                // Servant's Vision cards currently cause a crash when used by a non-Servant character.
-                nextCard.cardID == "Read" || nextCard.cardID == "Deadline" ||
-                nextCard.cardID == "ReturningBlade" || nextCard.cardID == "Snipe" ||
-                nextCard.cardID == "TimeTheft" || nextCard.cardID == "TrueSight" ||
                 // Yohane's summons require a special FriendlyMinions-enabled character, which Beaked is not.
                 nextCard.cardID.startsWith("Yohane:Little_Demon_"));
 

@@ -305,10 +305,6 @@
 		"DESCRIPTION": "Can only be played if you haven't played any other cards this turn. NL Gain 1 Intangible. NL Become Entangled.",
 		"EXTENDED_DESCRIPTION": ["I have played other cards this turn!"]
 	},
-	"beaked:ShadowFade_DEPRECATED": {
-		"NAME": "Shadow Fade (DEPRECATED)",
-		"DESCRIPTION": "Gain !beaked:wI! Intangible. NL Wither !M!."
-	},
 	"beaked:ShadowFade": {
 		"NAME": "Shadow Fade",
 		"DESCRIPTION": "Gain 1 Intangible for each !M! Strength you have. NL Lose all Strength."

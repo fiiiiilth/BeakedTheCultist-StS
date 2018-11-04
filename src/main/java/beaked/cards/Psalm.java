@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import replayTheSpire.patches.CardFieldStuff;
 
 public class Psalm extends AbstractWitherCard {
     public static final String ID = "beaked:Psalm";
@@ -34,6 +35,9 @@ public class Psalm extends AbstractWitherCard {
         this.isMultiDamage = true;
         this.witherEffect = "Decreases damage.";
         this.linkWitherAmountToMagicNumber = true;
+        if (Beaked.isReplayLoaded) {
+            this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse
+        }
     }
 
     @Override

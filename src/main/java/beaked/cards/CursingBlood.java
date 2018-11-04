@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import replayTheSpire.patches.CardFieldStuff;
 
 public class CursingBlood extends AbstractWitherCard {
     public static final String ID = "beaked:CursingBlood";
@@ -31,6 +32,9 @@ public class CursingBlood extends AbstractWitherCard {
         this.witherEffect = "Decreases #yStrength reduction.";
         this.magicNumber = this.baseMagicNumber = WITHER_MINUS_STR_DOWN;
         this.linkWitherAmountToMagicNumber = true;
+        if (Beaked.isReplayLoaded) {
+            this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse
+        }
     }
 
     @Override

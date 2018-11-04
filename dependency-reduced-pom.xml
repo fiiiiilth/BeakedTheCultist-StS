@@ -70,6 +70,13 @@
       <scope>system</scope>
       <systemPath>${basedir}/../lib/BaseMod.jar</systemPath>
     </dependency>
+    <dependency>
+      <groupId>replay</groupId>
+      <artifactId>ReplayTheSpire</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/../lib/ReplayTheSpireMod.jar</systemPath>
+    </dependency>
   </dependencies>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>

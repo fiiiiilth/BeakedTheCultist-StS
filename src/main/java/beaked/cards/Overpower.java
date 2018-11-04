@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import replayTheSpire.patches.CardFieldStuff;
 
 public class Overpower extends CustomCard {
     public static final String ID = "beaked:Overpower";
@@ -30,6 +31,9 @@ public class Overpower extends CustomCard {
 
         this.magicNumber = this.baseMagicNumber = DIVIDE_BY;
         this.baseDamage = DAMAGE;
+        if (Beaked.isReplayLoaded) {
+            this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse
+        }
     }
 
     @Override

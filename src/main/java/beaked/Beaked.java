@@ -20,6 +20,7 @@ import beaked.potions.RitualPotion;
 import beaked.relics.*;
 import beaked.variables.*;
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -113,6 +114,23 @@ public class Beaked implements PostInitializeSubscriber,
     public static boolean customModeCeremony = true;
     public static boolean relicSharing = true;
     public static boolean blueCostume = false;
+
+    public static final boolean isReplayLoaded;
+    public static final boolean isInfiniteLoaded;
+
+    static
+    {
+        isReplayLoaded = Loader.isModLoaded("ReplayTheSpireMod");
+        // CROSSOVER: Add reverse magic number tags so ring of chaos works better.
+        if (isReplayLoaded) {
+            logger.info("Beaked | Detected Replay The Spire");
+        }
+        isInfiniteLoaded = Loader.isModLoaded("infinitespire");
+        // CROSSOVER: Nothing yet, but planning to add quests.
+        if (isInfiniteLoaded) {
+            logger.info("Beaked | Detected Infinite Spire");
+        }
+    }
 
     // texture loaders
 

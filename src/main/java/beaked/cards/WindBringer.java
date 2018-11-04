@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import replayTheSpire.patches.CardFieldStuff;
 
 public class WindBringer extends AbstractWitherCard {
     public static final String ID = "beaked:WindBringer";
@@ -35,6 +36,9 @@ public class WindBringer extends AbstractWitherCard {
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_DAMAGE;
         this.witherEffect = "Decreases damage.";
         this.linkWitherAmountToMagicNumber = true;
+        if (Beaked.isReplayLoaded) {
+            this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse
+        }
     }
 
     @Override

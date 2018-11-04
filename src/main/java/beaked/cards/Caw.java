@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
+import replayTheSpire.patches.CardFieldStuff;
 
 import java.util.Iterator;
 
@@ -43,6 +44,9 @@ public class Caw extends AbstractWitherCard {
         this.isMultiDamage = true;
         this.witherEffect = "Decreases damage.";
         this.linkWitherAmountToMagicNumber = true;
+        if (Beaked.isReplayLoaded) {
+            this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse
+        }
     }
 
     @Override

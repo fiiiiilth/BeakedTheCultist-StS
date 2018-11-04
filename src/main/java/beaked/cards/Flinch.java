@@ -20,6 +20,7 @@ import com.megacrit.cardcrawl.vfx.ExhaustEmberEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.CardDarkFlashVfx;
 import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
+import replayTheSpire.patches.CardFieldStuff;
 
 public class Flinch extends AbstractWitherCard {
     public static final String ID = "beaked:Flinch";
@@ -40,6 +41,9 @@ public class Flinch extends AbstractWitherCard {
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_BLOCK;
         this.witherEffect = "Decreases #yBlock.";
         this.linkWitherAmountToMagicNumber = true;
+        if (Beaked.isReplayLoaded) {
+            this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse
+        }
     }
 
     @Override

@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import replayTheSpire.patches.CardFieldStuff;
 
 public class Sacrifice extends CustomCard {
     public static final String ID = "beaked:Sacrifice";
@@ -37,6 +38,9 @@ public class Sacrifice extends CustomCard {
         this.baseDamage = this.damage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = ATTACK_DMG;
         this.exhaust = true;
+        if (Beaked.isReplayLoaded) {
+            this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse
+        }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

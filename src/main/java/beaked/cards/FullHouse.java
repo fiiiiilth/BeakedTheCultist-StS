@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+import replayTheSpire.patches.CardFieldStuff;
 
 public class FullHouse extends AbstractWitherCard {
     public static final String ID = "beaked:FullHouse";
@@ -31,6 +32,9 @@ public class FullHouse extends AbstractWitherCard {
         this.witherEffect = "Decreases the number of cards drawn.";
         this.linkWitherAmountToMagicNumber = true;
         Beaked.setDescription(this,DESCRIPTION);
+        if (Beaked.isReplayLoaded) {
+            this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse
+        }
     }
 
     @Override
