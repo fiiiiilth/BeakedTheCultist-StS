@@ -26,4 +26,9 @@ public class SacredNecklace extends CustomRelic {
         final EnergyManager energy = AbstractDungeon.player.energy;
         --energy.energyMaster;
     }
+
+    @Override
+    public String getUpdatedDescription() {
+        return DESCRIPTIONS[0];
+    }
 }

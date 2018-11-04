@@ -94,9 +94,6 @@ public abstract class AbstractWitherCard extends CustomCard {
         if (linkWitherAmountToMagicNumber){
             this.witherAmount = this.magicNumber;
         }
-
-        // What does this do and does the game still work without it??? Let's find out
-        //this.initializeDescription();
     }
 
     public void onDepleted(){
@@ -104,12 +101,14 @@ public abstract class AbstractWitherCard extends CustomCard {
 
         this.isDepleted = true;
         this.misc = 0;
+        this.applyPowers(); // updates damage/block values to 0 instead of negative if misc dips too low.
         this.initializeDescription();
     }
     public void onRestored(){
         if (!this.isDepleted) return;
 
         this.isDepleted = false;
+        this.applyPowers();
         this.initializeDescription();
     }
 

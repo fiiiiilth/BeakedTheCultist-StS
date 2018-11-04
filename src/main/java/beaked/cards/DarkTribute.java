@@ -28,6 +28,7 @@ public class DarkTribute extends AbstractWitherCard {
 
     public DarkTribute() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.NONE);
+        this.tags.add(CardTags.HEALING);
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_POISON;
         this.baseMisc = this.misc = POISON;
         this.witherEffect = "Increases #yPoison.";

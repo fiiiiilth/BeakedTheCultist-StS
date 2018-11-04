@@ -26,7 +26,7 @@ public class WarriorSpiritPower extends AbstractPower
         this.owner = owner;
         this.amount = amount;
         this.updateDescription();
-        this.img = ImageMaster.loadImage("img/powers/warrior_spirit.png");
+        this.img = ImageMaster.loadImage("beaked_img/powers/warrior_spirit.png");
     }
 
     @Override

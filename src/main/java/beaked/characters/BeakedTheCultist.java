@@ -16,10 +16,12 @@ import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.red.Bash;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -51,9 +53,29 @@ public class BeakedTheCultist extends CustomPlayer {
                 beaked.Beaked.makePath(Beaked.BEAKED_CORPSE),
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        this.loadAnimation("beaked_img/char/beaked/skeleton.atlas", "beaked_img/char/beaked/skeleton.json", 1.0f);
+        reloadAnimation();
         AnimationState.TrackEntry e = this.state.setAnimation(0, "animation", true);
         e.setTime(e.getEndTime() * MathUtils.random());
+    }
+
+    public void reloadAnimation(){
+        this.loadAnimation(Beaked.blueCostume?"beaked_img/char/beaked/skeleton.atlas":"beaked_img/char/beaked/skeleton_y.atlas",
+                "beaked_img/char/beaked/skeleton.json", 1.0f);
+    }
+
+    @Override
+    public void initializeStarterDeck(){
+        super.initializeStarterDeck();
+        if (!Beaked.customModeCeremony) return;
+        if (ModHelper.isModEnabled("Draft") || ModHelper.isModEnabled("Chimera") || ModHelper.isModEnabled("SealedDeck") || ModHelper.isModEnabled("Shiny") || ModHelper.isModEnabled("Insanity")) {
+            this.masterDeck.addToTop(new Ceremony());
+            this.masterDeck.addToTop(new Ceremony());
+            if (ModHelper.isModEnabled("Insanity")){
+                this.masterDeck.addToTop(new Ceremony());
+                this.masterDeck.addToTop(new Ceremony());
+                this.masterDeck.addToTop(new Ceremony());
+            }
+        }
     }
 
     @Override

@@ -56,9 +56,13 @@ public class CrazyRitualsPower extends AbstractPower {
     @Override
     public void onAfterUseCard(AbstractCard c, UseCardAction action)
     {
+        if (nextCard == null) return; // crazy rituals isn't playing a card, the player is; ignore it.
+
         // if the next card in the queue is the same uuid as the one just played, it's a copy created from Necronomicon/Echo Form.
         // Let it play out immediately, then resume the chain afterwards (when this condition isn't true)
-        if ((!AbstractDungeon.actionManager.cardQueue.isEmpty() && AbstractDungeon.actionManager.cardQueue.get(0).card.uuid == nextCard.uuid) || isFinishedThisTurn) return;
+        if ((!AbstractDungeon.actionManager.cardQueue.isEmpty() &&
+                AbstractDungeon.actionManager.cardQueue.get(0).card != null &&
+                AbstractDungeon.actionManager.cardQueue.get(0).card.uuid == nextCard.uuid) || isFinishedThisTurn) return;
         playCardEffect(0);
     }
 
@@ -87,10 +91,13 @@ public class CrazyRitualsPower extends AbstractPower {
                 nextCard.type == AbstractCard.CardType.CURSE ||
                 nextCard.rarity == AbstractCard.CardRarity.CURSE ||
                 nextCard.type == AbstractCard.CardType.STATUS ||
+                nextCard.cost == -2 ||
                 // Servant's Vision cards currently cause a crash when used by a non-Servant character.
                 nextCard.cardID == "Read" || nextCard.cardID == "Deadline" ||
                 nextCard.cardID == "ReturningBlade" || nextCard.cardID == "Snipe" ||
-                nextCard.cardID == "TimeTheft" || nextCard.cardID == "TrueSight");
+                nextCard.cardID == "TimeTheft" || nextCard.cardID == "TrueSight" ||
+                // Yohane's summons require a special FriendlyMinions-enabled character, which Beaked is not.
+                nextCard.cardID.startsWith("Yohane:Little_Demon_"));
 
         nextCard.purgeOnUse = true;
         nextCard.freeToPlayOnce = true;

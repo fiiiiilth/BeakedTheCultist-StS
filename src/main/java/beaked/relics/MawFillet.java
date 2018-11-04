@@ -57,4 +57,9 @@ public class MawFillet extends CustomRelic implements IPostMapGenerationRelic {
             node.setRoom(new ShopRoom());
         }
     }
+
+    @Override
+    public String getUpdatedDescription() {
+        return DESCRIPTIONS[0];
+    }
 }

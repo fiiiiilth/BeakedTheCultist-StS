@@ -25,6 +25,7 @@ public class DigDeeper extends CustomCard {
 
     public DigDeeper() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.SELF);
+        this.tags.add(CardTags.HEALING);
         this.magicNumber = this.baseMagicNumber = HEAL_PER_STR;
         this.exhaust = true;
     }

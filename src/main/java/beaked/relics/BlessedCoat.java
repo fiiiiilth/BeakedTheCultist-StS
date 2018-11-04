@@ -30,14 +30,12 @@ public class BlessedCoat extends CustomRelic {
 
     @Override
     public void onUseCard(final AbstractCard card, final UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK) {
-            ++this.counter;
-            if (this.counter % CARDS_PER_REGEN == 0) {
-                this.counter = 0;
-                this.flash();
-                AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RegenPower(AbstractDungeon.player, 1), 1));
-            }
+        ++this.counter;
+        if (this.counter % CARDS_PER_REGEN == 0) {
+            this.counter = 0;
+            this.flash();
+            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RegenPower(AbstractDungeon.player, 1), 1));
         }
     }
 

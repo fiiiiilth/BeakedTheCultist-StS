@@ -32,8 +32,8 @@ public class SuperParasite extends AbstractMonster
 
     private static final float HB_X_F = 20.0f;
     private static final float HB_Y_F = -6.0f;
-    private static final float HB_W = 350.0f*2f;
-    private static final float HB_H = 260.0f*2f;
+    private static final float HB_W = 350.0f*1.67f;
+    private static final float HB_H = 260.0f*1.67f;
 
     private static final int HP = 250;
     private static final int A9_HP = 270;
@@ -99,7 +99,7 @@ public class SuperParasite extends AbstractMonster
     public void usePreBattleAction() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new PlatedArmorPower(this, this.startingPlatedArmorAmt),this.startingPlatedArmorAmt));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HungryPower(this, this.startingStrGainAmt),this.startingStrGainAmt));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new AdaptiveArmorPower(this, this.startingPlatedArmorGainAmt),this.startingPlatedArmorGainAmt));
+       // AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new AdaptiveArmorPower(this, this.startingPlatedArmorGainAmt),this.startingPlatedArmorGainAmt));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.startingPlatedArmorAmt));
     }
 

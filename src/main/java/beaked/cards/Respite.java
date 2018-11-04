@@ -27,7 +27,7 @@ public class Respite extends CustomCard {
 
     public Respite() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.STATUS, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.NONE);
-
+        this.tags.add(CardTags.HEALING);
         this.magicNumber = this.baseMagicNumber = HEAL_AMT;
     }
 

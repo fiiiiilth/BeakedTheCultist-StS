@@ -54,7 +54,7 @@ import basemod.ModPanel;
 public class Beaked implements PostInitializeSubscriber,
         EditCardsSubscriber, EditRelicsSubscriber, EditCharactersSubscriber,
         EditStringsSubscriber, SetUnlocksSubscriber, EditKeywordsSubscriber, OnCardUseSubscriber, PostBattleSubscriber,
-        StartGameSubscriber, OnStartBattleSubscriber {
+        StartGameSubscriber, OnStartBattleSubscriber, PostDungeonInitializeSubscriber{
     public static final Logger logger = LogManager.getLogger(Beaked.class.getName());
 
     private static final String MODNAME = "BeakedTheCultist the Cultist";
@@ -89,6 +89,7 @@ public class Beaked implements PostInitializeSubscriber,
     // beaked assets
     private static final String BEAKED_BUTTON = "charSelect/beakedButton.png";
     private static final String BEAKED_PORTRAIT = "charSelect/beakedPortrait.jpg";
+    private static final String BEAKED_PORTRAIT_Y = "charSelect/beakedPortrait_y.jpg";
     public static final String BEAKED_SHOULDER_1 = "char/beaked/shoulder.png";
     public static final String BEAKED_SHOULDER_2 = "char/beaked/shoulder2.png";
     public static final String BEAKED_CORPSE = "char/beaked/corpse.png";
@@ -96,13 +97,22 @@ public class Beaked implements PostInitializeSubscriber,
     // badge
     public static final String BADGE_IMG = "RelicBadge.png";
 
+    public static BeakedTheCultist beakedCharacter;
+
+    public static boolean isFlying = false;
+    public static float initialPlayerHeight=-1.0f; // used to reset player position when flying ends
+
     public static Properties beakedDefaults = new Properties();
     public static final String PROP_CRAZY_RITUALS = "crazyRituals";
     public static final String PROP_ENABLE_PARASITE = "enableParasite";
+    public static final String PROP_CUSTOM_CEREMONY = "customModeCeremony";
     public static final String PROP_RELIC_SHARING = "relicSharing";
+    public static final String PROP_BLUE_COSTUME = "blueCostume";
     public static boolean crazyRituals = false;
     public static boolean enableParasite = true;
+    public static boolean customModeCeremony = true;
     public static boolean relicSharing = true;
+    public static boolean blueCostume = false;
 
     // texture loaders
 
@@ -131,7 +141,21 @@ public class Beaked implements PostInitializeSubscriber,
 
         beakedDefaults.setProperty(PROP_CRAZY_RITUALS, "FALSE");
         beakedDefaults.setProperty(PROP_ENABLE_PARASITE, "TRUE");
+        beakedDefaults.setProperty(PROP_CUSTOM_CEREMONY, "TRUE");
         beakedDefaults.setProperty(PROP_RELIC_SHARING, "TRUE");
+        beakedDefaults.setProperty(PROP_BLUE_COSTUME, "FALSE");
+
+        try {
+            SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+            config.load();
+            crazyRituals = config.getBool(PROP_CRAZY_RITUALS);
+            enableParasite = config.getBool(PROP_ENABLE_PARASITE);
+            customModeCeremony = config.getBool(PROP_CUSTOM_CEREMONY);
+            relicSharing = config.getBool(PROP_RELIC_SHARING);
+            blueCostume = config.getBool(PROP_BLUE_COSTUME);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void initialize() {
@@ -151,16 +175,6 @@ public class Beaked implements PostInitializeSubscriber,
 
         Beaked.logger.debug("==========================================POST INITIALIZE");
 
-        try {
-            SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
-            config.load();
-            crazyRituals = config.getBool(PROP_CRAZY_RITUALS);
-            enableParasite = config.getBool(PROP_ENABLE_PARASITE);
-            relicSharing = config.getBool(PROP_RELIC_SHARING);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         ModLabeledToggleButton crazyBtn = new ModLabeledToggleButton("Replace 2 of your starting Ceremony cards with Crazy Rituals.",
                 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 crazyRituals, settingsPanel, (label) -> {
@@ -177,8 +191,23 @@ public class Beaked implements PostInitializeSubscriber,
         });
         settingsPanel.addUIElement(crazyBtn);
 
+        ModLabeledToggleButton customModeCeremonyBtn = new ModLabeledToggleButton("Start with some Ceremony cards in deck-modifying Custom modes.",
+                350.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                customModeCeremony, settingsPanel, (label) -> {
+        }, (button) -> {
+            customModeCeremony = button.enabled;
+            try {
+                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+                config.setBool(PROP_CUSTOM_CEREMONY, customModeCeremony);
+                config.save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        settingsPanel.addUIElement(customModeCeremonyBtn);
+
         ModLabeledToggleButton bossesBtn = new ModLabeledToggleButton("Enable Content: Giant Parasite Act 3 Elite (REQUIRES RESTART)",
-                350.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                350.0f, 550.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 enableParasite, settingsPanel, (label) -> {
         }, (button) -> {
             enableParasite = button.enabled;
@@ -193,7 +222,7 @@ public class Beaked implements PostInitializeSubscriber,
         settingsPanel.addUIElement(bossesBtn);
 
         ModLabeledToggleButton relicSharingBtn = new ModLabeledToggleButton("Enable Beaked relics for other characters (REQUIRES RESTART)",
-                350.0f, 550.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                350.0f, 500.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 relicSharing, settingsPanel, (label) -> {
         }, (button) -> {
            relicSharing = button.enabled;
@@ -206,6 +235,25 @@ public class Beaked implements PostInitializeSubscriber,
             }
         });
         settingsPanel.addUIElement(relicSharingBtn);
+
+        ModLabeledToggleButton blueCostumeBtn = new ModLabeledToggleButton("Costume change: Blue",
+                350.0f, 400.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                blueCostume, settingsPanel, (label) -> {
+        }, (button) -> {
+            blueCostume = button.enabled;
+            try {
+                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+                config.setBool(PROP_BLUE_COSTUME, blueCostume);
+                config.save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            BaseMod.playerPortraitMap.remove(BeakedEnum.BEAKED_THE_CULTIST);
+            BaseMod.playerPortraitMap.put(BeakedEnum.BEAKED_THE_CULTIST, makePath(blueCostume?BEAKED_PORTRAIT:BEAKED_PORTRAIT_Y));
+            beakedCharacter.reloadAnimation();
+            resetCharSelect();
+        });
+        settingsPanel.addUIElement(blueCostumeBtn);
 
         Settings.isDailyRun = false;
         Settings.isTrial = false;
@@ -229,9 +277,9 @@ public class Beaked implements PostInitializeSubscriber,
         logger.info("begin editing characters");
 
         logger.info("add " + BeakedEnum.BEAKED_THE_CULTIST.toString());
-        BaseMod.addCharacter(new BeakedTheCultist("Beaked The Cultist", BeakedEnum.BEAKED_THE_CULTIST),
-                makePath(BEAKED_BUTTON),
-                makePath(BEAKED_PORTRAIT),
+        beakedCharacter = new BeakedTheCultist("Beaked The Cultist", BeakedEnum.BEAKED_THE_CULTIST);
+        BaseMod.addCharacter(beakedCharacter, makePath(BEAKED_BUTTON),
+                makePath(blueCostume?BEAKED_PORTRAIT:BEAKED_PORTRAIT_Y),
                 BeakedEnum.BEAKED_THE_CULTIST);
 
         logger.info("done editing characters");
@@ -549,6 +597,11 @@ public class Beaked implements PostInitializeSubscriber,
                     ((AwakenedForm) c).updateAwakenCost();
                 }
             }
+            if (isFlying) {
+                isFlying = false;
+                AbstractDungeon.player.drawY = initialPlayerHeight;
+                AbstractDungeon.player.state.setTimeScale(1);
+            }
         }
     }
 
@@ -559,6 +612,15 @@ public class Beaked implements PostInitializeSubscriber,
             if (c instanceof AwakenedForm) {
                 ((AwakenedForm) c).updateAwakenCost();
             }
+        }
+    }
+
+    @Override
+    public void receivePostDungeonInitialize() {
+        if (AbstractDungeon.player != null && isFlying) {
+            isFlying = false;
+            AbstractDungeon.player.drawY = initialPlayerHeight;
+            AbstractDungeon.player.state.setTimeScale(1);
         }
     }
 
