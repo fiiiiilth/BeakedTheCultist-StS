@@ -24,10 +24,10 @@ import java.util.Iterator;
 
 public class RitualPlumage extends CustomRelic implements ClickableRelic {
     public static final String ID = "beaked:RitualPlumage";
-    private boolean usedThisCombat = false;
+    private static boolean usedThisCombat = false;
     private AbstractPlayer p = AbstractDungeon.player;
     private GameActionManager am = AbstractDungeon.actionManager;
-    private int ritualAmount = 2;
+    private static int ritualAmount = 2;
 
     public RitualPlumage() {
         super(ID, TextureLoader.getTexture("beaked_images/relics/RitualPlumage.png"),
@@ -37,7 +37,7 @@ public class RitualPlumage extends CustomRelic implements ClickableRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + this.ritualAmount + DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + ritualAmount + DESCRIPTIONS[1];
     }
 
     @Override
@@ -47,10 +47,11 @@ public class RitualPlumage extends CustomRelic implements ClickableRelic {
 
     @Override
     public void onRightClick() {
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !this.usedThisCombat) {
-            this.usedThisCombat = true;
-            am.addToTop(new ApplyPowerAction(p, p, new RitualPlayerPower(p, this.ritualAmount), this.ritualAmount));
-            am.addToTop(new ForcedEndTurnAction());
+        System.out.println("??? " + AbstractDungeon.getCurrRoom().phase + " " + usedThisCombat);
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !usedThisCombat) {
+            am.addToBottom(new ApplyPowerAction(p, p, new RitualPlayerPower(p, ritualAmount), ritualAmount));
+            am.addToBottom(new ForcedEndTurnAction());
+            usedThisCombat = true;
         }
     }
 

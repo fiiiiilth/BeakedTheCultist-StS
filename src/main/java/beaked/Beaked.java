@@ -278,7 +278,7 @@ public class Beaked implements PostInitializeSubscriber,
         settingsPanel.addUIElement(blueCostumeBtn);
 
         ModLabeledToggleButton ritualPlumageBtn = new ModLabeledToggleButton("Start with Ritual Plumage relic instead.",
-                350.0f, 400.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                350.0f, 350.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 blueCostume, settingsPanel, (label) -> {
         }, (button) -> {
             ritualPlumage = button.enabled;

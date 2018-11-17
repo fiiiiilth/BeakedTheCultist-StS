@@ -1,5 +1,6 @@
 package beaked.actions;
 
+import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
@@ -23,9 +24,7 @@ public class SacrificeDollAction extends AbstractGameAction {
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
             if (!AbstractDungeon.player.hand.isEmpty()) {
-                for (int i = 0; i < AbstractDungeon.player.hand.size(); i++) {
-                    AbstractCard card = AbstractDungeon.player.hand.getRandomCard(true);
-                    AbstractDungeon.player.drawPile.group.remove(card);
+                for (AbstractCard card : AbstractDungeon.player.hand.group) {
                     AbstractDungeon.getCurrRoom().souls.remove(card);
                     card.freeToPlayOnce = true;
                     AbstractDungeon.player.limbo.group.add(card);
