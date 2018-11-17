@@ -10,6 +10,7 @@ import beaked.cards.Strike_Y;
 import beaked.patches.AbstractCardEnum;
 import beaked.patches.BeakedEnum;
 import beaked.relics.MendingPlumage;
+import beaked.relics.RitualPlumage;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -169,8 +170,13 @@ public class BeakedTheCultist extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(MendingPlumage.ID);
-        UnlockTracker.markRelicAsSeen(MendingPlumage.ID);
+        if (Beaked.ritualPlumage) {
+            retVal.add(RitualPlumage.ID);
+            UnlockTracker.markRelicAsSeen(RitualPlumage.ID);
+        } else {
+            retVal.add(MendingPlumage.ID);
+            UnlockTracker.markRelicAsSeen(MendingPlumage.ID);
+        }
         return retVal;
     }
 

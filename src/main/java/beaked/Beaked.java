@@ -109,11 +109,13 @@ public class Beaked implements PostInitializeSubscriber,
     public static final String PROP_CUSTOM_CEREMONY = "customModeCeremony";
     public static final String PROP_RELIC_SHARING = "relicSharing";
     public static final String PROP_BLUE_COSTUME = "blueCostume";
+    public static final String PROP_RITUAL_PLUMAGE = "ritualPlumage";
     public static boolean crazyRituals = false;
     public static boolean enableParasite = true;
     public static boolean customModeCeremony = true;
     public static boolean relicSharing = true;
     public static boolean blueCostume = false;
+    public static boolean ritualPlumage = false;
 
     public static final boolean isReplayLoaded;
     public static final boolean isInfiniteLoaded;
@@ -162,6 +164,7 @@ public class Beaked implements PostInitializeSubscriber,
         beakedDefaults.setProperty(PROP_CUSTOM_CEREMONY, "TRUE");
         beakedDefaults.setProperty(PROP_RELIC_SHARING, "TRUE");
         beakedDefaults.setProperty(PROP_BLUE_COSTUME, "FALSE");
+        beakedDefaults.setProperty(PROP_RITUAL_PLUMAGE, "FALSE");
 
         try {
             SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
@@ -171,6 +174,7 @@ public class Beaked implements PostInitializeSubscriber,
             customModeCeremony = config.getBool(PROP_CUSTOM_CEREMONY);
             relicSharing = config.getBool(PROP_RELIC_SHARING);
             blueCostume = config.getBool(PROP_BLUE_COSTUME);
+            ritualPlumage = config.getBool(PROP_RITUAL_PLUMAGE);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -273,6 +277,22 @@ public class Beaked implements PostInitializeSubscriber,
         });
         settingsPanel.addUIElement(blueCostumeBtn);
 
+        ModLabeledToggleButton ritualPlumageBtn = new ModLabeledToggleButton("Start with Ritual Plumage relic instead.",
+                350.0f, 400.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                blueCostume, settingsPanel, (label) -> {
+        }, (button) -> {
+            ritualPlumage = button.enabled;
+            try {
+                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+                config.setBool(PROP_RITUAL_PLUMAGE, ritualPlumage);
+                config.save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            resetCharSelect();
+        });
+        settingsPanel.addUIElement(ritualPlumageBtn);
+
         Settings.isDailyRun = false;
         Settings.isTrial = false;
         Settings.isDemo = false;
@@ -313,6 +333,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addRelicToCustomPool(new BlessedCoat(), AbstractCardEnum.BEAKED_YELLOW);    // upgrade
         BaseMod.addRelicToCustomPool(new FlawlessSticks(), AbstractCardEnum.BEAKED_YELLOW);
         BaseMod.addRelicToCustomPool(new ThroatLozenge(), AbstractCardEnum.BEAKED_YELLOW);
+        BaseMod.addRelicToCustomPool(new RitualPlumage(), AbstractCardEnum.BEAKED_YELLOW);
         if (relicSharing){
             BaseMod.addRelic(new ShinyBauble(), RelicType.SHARED);
             BaseMod.addRelic(new MawFillet(), RelicType.SHARED);
