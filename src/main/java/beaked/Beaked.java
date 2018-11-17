@@ -334,6 +334,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addRelicToCustomPool(new FlawlessSticks(), AbstractCardEnum.BEAKED_YELLOW);
         BaseMod.addRelicToCustomPool(new ThroatLozenge(), AbstractCardEnum.BEAKED_YELLOW);
         BaseMod.addRelicToCustomPool(new RitualPlumage(), AbstractCardEnum.BEAKED_YELLOW);
+        BaseMod.addRelicToCustomPool(new SacrificeDoll(), AbstractCardEnum.BEAKED_YELLOW);
         if (relicSharing){
             BaseMod.addRelic(new ShinyBauble(), RelicType.SHARED);
             BaseMod.addRelic(new MawFillet(), RelicType.SHARED);
