@@ -27,13 +27,6 @@ public class SacrificeDollAction extends AbstractGameAction {
                     AbstractDungeon.getCurrRoom().souls.remove(card);
                     card.freeToPlayOnce = true;
                     AbstractDungeon.player.limbo.group.add(card);
-                    card.current_y = -200.0F * Settings.scale;
-                    card.target_x = (float)Settings.WIDTH / 2.0F + 200.0F * Settings.scale;
-                    card.target_y = (float)Settings.HEIGHT / 2.0F;
-                    card.targetAngle = 0.0F;
-                    card.lighten(false);
-                    card.drawScale = 0.12F;
-                    card.targetDrawScale = 0.75F;
                     AbstractMonster target = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null,true, AbstractDungeon.monsterRng);
                     if (!card.canUse(AbstractDungeon.player, target)) {
                         AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));

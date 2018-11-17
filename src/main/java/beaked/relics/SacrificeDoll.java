@@ -31,6 +31,6 @@ public class SacrificeDoll extends CustomRelic {
 
     @Override
     public void atBattleStart() {
-        am.addToBottom(new SacrificeDollAction());
+        AbstractDungeon.actionManager.addToBottom(new SacrificeDollAction());
     }
 }
