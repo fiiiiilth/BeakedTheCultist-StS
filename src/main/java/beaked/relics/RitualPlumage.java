@@ -24,7 +24,7 @@ import java.util.Iterator;
 
 public class RitualPlumage extends CustomRelic implements ClickableRelic {
     public static final String ID = "beaked:RitualPlumage";
-    private static boolean usedThisCombat = false;
+    private boolean used = false;
     private AbstractPlayer p = AbstractDungeon.player;
     private GameActionManager am = AbstractDungeon.actionManager;
     private static int ritualAmount = 2;
@@ -47,16 +47,16 @@ public class RitualPlumage extends CustomRelic implements ClickableRelic {
 
     @Override
     public void onRightClick() {
-        System.out.println("??? " + AbstractDungeon.getCurrRoom().phase + " " + usedThisCombat);
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !usedThisCombat) {
-            am.addToBottom(new ApplyPowerAction(p, p, new RitualPlayerPower(p, ritualAmount), ritualAmount));
-            am.addToBottom(new ForcedEndTurnAction());
-            usedThisCombat = true;
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !this.used) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                    new RitualPlayerPower(AbstractDungeon.player, ritualAmount), ritualAmount));
+            AbstractDungeon.actionManager.addToBottom(new ForcedEndTurnAction());
+            this.used = true;
         }
     }
 
     @Override
     public void atBattleStart() {
-        this.usedThisCombat = false;
+        this.used= false;
     }
 }

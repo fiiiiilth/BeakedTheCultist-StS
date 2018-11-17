@@ -31,6 +31,6 @@ public class SacrificeDoll extends CustomRelic {
 
     @Override
     public void atBattleStart() {
-        am.addToBottom(new SacrificeDollAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null,true, AbstractDungeon.monsterRng)));
+        am.addToBottom(new SacrificeDollAction());
     }
 }

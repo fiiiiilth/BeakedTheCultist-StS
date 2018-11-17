@@ -14,11 +14,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class SacrificeDollAction extends AbstractGameAction {
 
-    public SacrificeDollAction(AbstractCreature target) {
+    public SacrificeDollAction() {
         this.duration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.WAIT;
         this.source = AbstractDungeon.player;
-        this.target = target;
     }
 
     public void update() {
@@ -35,7 +34,8 @@ public class SacrificeDollAction extends AbstractGameAction {
                     card.lighten(false);
                     card.drawScale = 0.12F;
                     card.targetDrawScale = 0.75F;
-                    if (!card.canUse(AbstractDungeon.player, (AbstractMonster)this.target)) {
+                    AbstractMonster target = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null,true, AbstractDungeon.monsterRng);
+                    if (!card.canUse(AbstractDungeon.player, target)) {
                         AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
                         AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(card, AbstractDungeon.player.limbo));
                         AbstractDungeon.actionManager.addToTop(new WaitAction(0.4F));
