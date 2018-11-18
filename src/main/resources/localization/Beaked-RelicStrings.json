@@ -47,5 +47,20 @@
     "DESCRIPTIONS": [
       "Replaces #pMending #pPlumage. Every time you play #b2 cards in a single turn, gain #b1 #yRegen."
     ]
+  },
+  "beaked:RitualPlumage": {
+    "NAME": "Ritual Plumage",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]combat [#2aecd7]to [#2aecd7]activate.[] Gain #b",
+      " Ritual and end your turn. This can only be used #ronce per combat."
+    ],
+    "FLAVOR": "The Strength of a Demon courses through you."
+  },
+  "beaked:SacrificeDoll": {
+    "NAME": "Sacrifice Doll",
+    "DESCRIPTIONS": [
+      "On the first turn of battle, play your entire hand with random targets at no cost."
+    ],
+    "FLAVOR": "This doll reminds you of a certain...robot. You feel as if it's always watching over you."
   }
 }
