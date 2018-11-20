@@ -1,11 +1,11 @@
 {
 	"modid": "beakedthecultist-sts",
 	"name": "Beaked The Cultist",
-	"author_list": ["EARL", "fiiiiilth","Moocowsgomoo", "TemmieAnimations", "BlueKnight", "Giuseppe", "MagicHampster", "Ashe","MunderW","kiooeht","Midn8","Reina","Rhapsody and community"],
-	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes (0.5.4):\n- 3 new boss relics. \n- Many Wither cards buffed.\n- Giant Parasite is scarier, now an Act 3 Elite.\n- Beaked is now yellow, thanks to MunderW!\n- Start with Ceremony cards in certain custom modifiers.\n- Beaked relics now usable by other characters.\n- Many new Config menu options.\n- Art for Tweet, by MagicHampster.\n- Art for Mending Plumage, by Ashe.\n- Placeholder card & relic art cleaned up.\n- Overexert now properly causes HP loss.\n- Flight fixed, made more stable.\n- Added config menu image.\n- Cards in Run History are now yellow.\n- Ring of Chaos works better with Beaked.\n- Crazy Rituals ordering improved.\n- Updated credits.\n\nIf you contributed and don't see your name in the credits, please let us know!",
+	"author_list": ["EARL", "fiiiiilth","Moocowsgomoo", "TemmieAnimations", "BlueKnight", "Giuseppe", "MagicHampster", "Ashe","MunderW","Midn8","kiooeht","Reina","Rhapsody and community"],
+	"description": "Adds Beaked the Cultist as a new playable character. \n\nRecent Changes (0.5.5):\n- Mending Plumage art cleaned up. (Ashe)\n- Sacred Necklace and Shiny Bauble art (Midn8)\n- 2 new Beaked costumes (Ashe, Kiooeht)\n- 2 new relics, 1 Boss and 1 Shop tier (Reina)\n- Sacred Necklace is now Super Rare.\n- Inspiration now Exhausts, then draws.\n- Giant Parasite now gains armor every turn.\n- Face Trader event now always gives Cultist Mask.\n- Flawless Sticks triggers earlier pre-battle.\n- Other relics given proper placeholder art.\n- Updated credits.\n\nIf you contributed and don't see your name in the credits, please let us know!",
 	"dependencies": ["basemod","stslib"],
-	"version": "0.5.4",
-	"sts_version": "11-01-2018",
+	"version": "0.5.5",
+	"sts_version": "11-08-2018",
 	"mts_version": "3.6.0",
 	"update_json": "https://api.github.com/repos/fiiiiilth/BeakedTheCultist-StS/releases/latest"
 }
