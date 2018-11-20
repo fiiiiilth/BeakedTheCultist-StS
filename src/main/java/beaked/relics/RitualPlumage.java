@@ -31,8 +31,8 @@ public class RitualPlumage extends CustomRelic {
     private static int ritualAmount = 2;
 
     public RitualPlumage() {
-        super(ID, TextureLoader.getTexture("beaked_images/relics/RitualPlumage.png"),
-                TextureLoader.getTexture("beaked_images/relics/outline/RitualPlumage.png"),
+        super(ID, TextureLoader.getTexture("beaked_img/relics/RitualPlumage.png"),
+                TextureLoader.getTexture("beaked_img/relics/outline/RitualPlumage.png"),
                 RelicTier.SHOP, LandingSound.MAGICAL);
     }
 
@@ -58,6 +58,7 @@ public class RitualPlumage extends CustomRelic {
 
     @Override
     public void onPlayerEndTurn() {
+        this.pulse = false;
         if (AbstractDungeon.player.cardsPlayedThisTurn == 0 && !this.used) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                     new RitualPlayerPower(AbstractDungeon.player, ritualAmount), ritualAmount));

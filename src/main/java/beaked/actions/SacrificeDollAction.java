@@ -1,5 +1,6 @@
 package beaked.actions;
 
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
@@ -27,7 +28,7 @@ public class SacrificeDollAction extends AbstractGameAction {
                     AbstractDungeon.getCurrRoom().souls.remove(card);
                     card.freeToPlayOnce = true;
                     AbstractDungeon.player.limbo.group.add(card);
-                    AbstractMonster target = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null,true, AbstractDungeon.monsterRng);
+                    AbstractMonster target = AbstractDungeon.getRandomMonster();
                     if (!card.canUse(AbstractDungeon.player, target)) {
                         AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
                         AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(card, AbstractDungeon.player.limbo));
@@ -35,7 +36,7 @@ public class SacrificeDollAction extends AbstractGameAction {
 
                     } else {
                         card.applyPowers();
-                        AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, this.target));
+                        AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, target));
                         AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
                         if (!Settings.FAST_MODE) {
                             AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));

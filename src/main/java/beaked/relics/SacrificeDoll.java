@@ -14,8 +14,8 @@ public class SacrificeDoll extends CustomRelic {
     private GameActionManager am = AbstractDungeon.actionManager;
 
     public SacrificeDoll() {
-        super(ID, TextureLoader.getTexture("beaked_images/relics/SacrificeDoll.png"),
-                TextureLoader.getTexture("beaked_images/relics/outline/SacrificeDoll.png"),
+        super(ID, TextureLoader.getTexture("beaked_img/relics/SacrificeDoll.png"),
+                TextureLoader.getTexture("beaked_img/relics/outline/SacrificeDoll.png"),
                 RelicTier.BOSS, LandingSound.FLAT);
     }
 

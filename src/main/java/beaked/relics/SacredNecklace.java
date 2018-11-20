@@ -3,10 +3,11 @@ package beaked.relics;
 import basemod.abstracts.CustomRelic;
 import beaked.Beaked;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.relics.SuperRareRelic;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class SacredNecklace extends CustomRelic {
+public class SacredNecklace extends CustomRelic implements SuperRareRelic{
     public static final String ID = "beaked:SacredNecklace";
 
     public SacredNecklace() {

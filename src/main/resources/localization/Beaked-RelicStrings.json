@@ -59,7 +59,7 @@
   "beaked:SacrificeDoll": {
     "NAME": "Sacrifice Doll",
     "DESCRIPTIONS": [
-      "On the first turn of battle, play your entire hand with random targets at no cost."
+      "On the first turn of each combat, play your entire hand on random targets at no cost."
     ],
     "FLAVOR": "This doll reminds you of a certain...robot. You feel as if it's always watching over you."
   }
