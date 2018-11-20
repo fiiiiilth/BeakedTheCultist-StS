@@ -55,13 +55,13 @@ public class BeakedTheCultist extends CustomPlayer {
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
         reloadAnimation();
-        AnimationState.TrackEntry e = this.state.setAnimation(0, "animation", true);
-        e.setTime(e.getEndTime() * MathUtils.random());
     }
 
     public void reloadAnimation(){
         this.loadAnimation("beaked_img/char/beaked/skeleton"+Beaked.SPRITE_POSTFIX_STRINGS[Beaked.costumeColor]+".atlas",
                         "beaked_img/char/beaked/skeleton"+Beaked.SPRITE_POSTFIX_STRINGS[Beaked.costumeColor]+".json", 1.0f);
+        AnimationState.TrackEntry e = this.state.setAnimation(0, "animation", true);
+        e.setTime(e.getEndTime() * MathUtils.random());
     }
 
     @Override

@@ -45,7 +45,7 @@
     "NAME": "Blessed Coat",
     "FLAVOR": "A protective alternative to fur.",
     "DESCRIPTIONS": [
-      "Replaces #pMending #pPlumage. Every time you play #b2 cards in a single turn, gain #b1 #yRegen."
+      "Replaces #pMending #pPlumage. Upon playing a card, heal #b1 HP. Every time you play #b3 cards in a single turn, gain #b1 #yRegen."
     ]
   },
   "beaked:RitualPlumage": {

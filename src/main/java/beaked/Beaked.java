@@ -640,11 +640,11 @@ public class Beaked implements PostInitializeSubscriber,
                     ((AwakenedForm) c).updateAwakenCost();
                 }
             }
-            if (isFlying) {
-                isFlying = false;
-                AbstractDungeon.player.drawY = initialPlayerHeight;
-                AbstractDungeon.player.state.setTimeScale(1);
-            }
+        }
+        if (isFlying) {
+            isFlying = false;
+            AbstractDungeon.player.drawY = initialPlayerHeight;
+            AbstractDungeon.player.state.setTimeScale(1);
         }
     }
 

@@ -93,7 +93,9 @@ public class CrazyRitualsPower extends AbstractPower {
                 nextCard.type == AbstractCard.CardType.STATUS ||
                 nextCard.cost == -2 ||
                 // Yohane's summons require a special FriendlyMinions-enabled character, which Beaked is not.
-                nextCard.cardID.startsWith("Yohane:Little_Demon_"));
+                nextCard.cardID.startsWith("Yohane:Little_Demon_") ||
+                // Mad Scientist's Mechanize apparently doesn't work
+                nextCard.cardID == "MadScienceMod:Mechanize");
 
         nextCard.purgeOnUse = true;
         nextCard.freeToPlayOnce = true;

@@ -15,7 +15,8 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class BlessedCoat extends CustomRelic {
     public static final String ID = "beaked:BlessedCoat";
-    public static final int CARDS_PER_REGEN = 2;
+    public static final int CARDS_PER_REGEN = 3;
+    public static final int HEAL_PER_CARD = 1;
 
     public BlessedCoat() {
         super(ID, new Texture("beaked_img/relics/" + Beaked.getActualID(ID) + ".png"),
@@ -37,6 +38,12 @@ public class BlessedCoat extends CustomRelic {
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RegenPower(AbstractDungeon.player, 1), 1));
         }
+    }
+
+    // I actually have no idea why these are 2 different functions
+    @Override
+    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+        AbstractDungeon.player.heal(HEAL_PER_CARD);
     }
 
     @Override
