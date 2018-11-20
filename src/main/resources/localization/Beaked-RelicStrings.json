@@ -51,8 +51,8 @@
   "beaked:RitualPlumage": {
     "NAME": "Ritual Plumage",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]combat [#2aecd7]to [#2aecd7]activate.[] Gain #b",
-      " Ritual and end your turn. This can only be used #ronce per combat."
+      "If you end your turn without playing any cards, gain #b",
+      " #yRitual. Only works once per combat."
     ],
     "FLAVOR": "The Strength of a Demon courses through you."
   },

@@ -17,6 +17,7 @@ public class AdaptiveArmorPower extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public static int ARMOR_CAP = 30;
 
 
     public AdaptiveArmorPower(AbstractCreature owner, int amount) {
@@ -34,14 +35,16 @@ public class AdaptiveArmorPower extends AbstractPower {
     public void atEndOfTurn(boolean isPlayer) {
         if (this.owner instanceof AbstractPlayer == isPlayer) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new PlatedArmorPower(this.owner, this.amount), this.amount));
+            int existingArmor = this.owner.hasPower(PlatedArmorPower.POWER_ID)?this.owner.getPower(PlatedArmorPower.POWER_ID).amount:0;
+            int armorToAdd = existingArmor+this.amount <= ARMOR_CAP?this.amount:ARMOR_CAP-existingArmor;
+            if (armorToAdd > 0) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new PlatedArmorPower(this.owner, armorToAdd), armorToAdd));
         }
     }
 
     @Override
     public void updateDescription() {
         if (this.amount > 0) {
-            this.description = AdaptiveArmorPower.DESCRIPTIONS[0] + FontHelper.colorString(this.owner.name, "y") + AdaptiveArmorPower.DESCRIPTIONS[1] + this.amount + AdaptiveArmorPower.DESCRIPTIONS[2];
+            this.description = AdaptiveArmorPower.DESCRIPTIONS[0] + FontHelper.colorString(this.owner.name, "y") + AdaptiveArmorPower.DESCRIPTIONS[1] + this.amount + AdaptiveArmorPower.DESCRIPTIONS[2] + ARMOR_CAP + DESCRIPTIONS[3];
             this.type = PowerType.BUFF;
         }
     }

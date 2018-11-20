@@ -5,6 +5,7 @@ import beaked.actions.ForcedEndTurnAction;
 import beaked.powers.RitualPlayerPower;
 import beaked.tools.TextureLoader;
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -22,7 +23,7 @@ import com.megacrit.cardcrawl.vfx.combat.TimeWarpTurnEndEffect;
 
 import java.util.Iterator;
 
-public class RitualPlumage extends CustomRelic implements ClickableRelic {
+public class RitualPlumage extends CustomRelic {
     public static final String ID = "beaked:RitualPlumage";
     private boolean used = false;
     private AbstractPlayer p = AbstractDungeon.player;
@@ -32,7 +33,7 @@ public class RitualPlumage extends CustomRelic implements ClickableRelic {
     public RitualPlumage() {
         super(ID, TextureLoader.getTexture("beaked_images/relics/RitualPlumage.png"),
                 TextureLoader.getTexture("beaked_images/relics/outline/RitualPlumage.png"),
-                RelicTier.STARTER, LandingSound.MAGICAL);
+                RelicTier.SHOP, LandingSound.MAGICAL);
     }
 
     @Override
@@ -46,11 +47,20 @@ public class RitualPlumage extends CustomRelic implements ClickableRelic {
     }
 
     @Override
-    public void onRightClick() {
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !this.used) {
+    public void atTurnStart(){
+        if (!this.used) this.flash();
+    }
+
+    @Override
+    public void onDrawOrDiscard(){
+        if (!this.used) this.pulse = AbstractDungeon.player.cardsPlayedThisTurn == 0;
+    }
+
+    @Override
+    public void onPlayerEndTurn() {
+        if (AbstractDungeon.player.cardsPlayedThisTurn == 0 && !this.used) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                     new RitualPlayerPower(AbstractDungeon.player, ritualAmount), ritualAmount));
-            AbstractDungeon.actionManager.addToBottom(new ForcedEndTurnAction());
             this.used = true;
         }
     }

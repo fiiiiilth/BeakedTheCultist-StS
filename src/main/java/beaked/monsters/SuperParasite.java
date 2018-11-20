@@ -99,7 +99,7 @@ public class SuperParasite extends AbstractMonster
     public void usePreBattleAction() {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new PlatedArmorPower(this, this.startingPlatedArmorAmt),this.startingPlatedArmorAmt));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new HungryPower(this, this.startingStrGainAmt),this.startingStrGainAmt));
-       // AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new AdaptiveArmorPower(this, this.startingPlatedArmorGainAmt),this.startingPlatedArmorGainAmt));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new AdaptiveArmorPower(this, this.startingPlatedArmorGainAmt),this.startingPlatedArmorGainAmt));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this, this, this.startingPlatedArmorAmt));
     }
 
@@ -146,6 +146,7 @@ public class SuperParasite extends AbstractMonster
                 break;
             }
             case "ARMOR_BREAK": {
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this,this,AdaptiveArmorPower.POWER_ID));
                 AbstractDungeon.actionManager.addToBottom(new AnimateHopAction(this));
                 AbstractDungeon.actionManager.addToBottom(new WaitAction(0.3f));
                 AbstractDungeon.actionManager.addToBottom(new AnimateHopAction(this));

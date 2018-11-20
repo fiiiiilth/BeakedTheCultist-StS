@@ -1,6 +1,7 @@
 package beaked.variables;
 
 import basemod.abstracts.DynamicVariable;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class WitherMiscVariable extends DynamicVariable
@@ -37,5 +38,10 @@ public class WitherMiscVariable extends DynamicVariable
     public boolean upgraded(AbstractCard card)
     {
         return false;
+    }
+
+    @Override
+    public Color getNormalColor() {
+        return Color.VIOLET;
     }
 }

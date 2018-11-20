@@ -21,7 +21,7 @@ public class FlawlessSticks extends CustomRelic {
     }
 
 	@Override
-    public void atBattleStartPreDraw() {
+    public void atPreBattle() {
         boolean foundCard = false;
         for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
             if (c instanceof AbstractWitherCard && ((AbstractWitherCard) c).isDepleted) {

@@ -231,7 +231,8 @@
 		"DESCRIPTIONS": [
 			"At the end of its turn, ",
 			" gains #b",
-			" #yPlated #yArmor."
+			" #yPlated #yArmor (max #b",
+			")."
 		]
 	}
 }

@@ -23,7 +23,7 @@
 	},
 	"beaked:Inspiration": {
 		"NAME": "Inspiration",
-		"DESCRIPTION": "Unplayable. NL When drawn, draw 2 cards and Exhaust."
+		"DESCRIPTION": "Unplayable. NL When drawn, Exhaust this and draw 2 more cards."
 	},
 	"beaked:Evade": {
 		"NAME": "Evade",

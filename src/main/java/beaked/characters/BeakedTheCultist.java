@@ -60,8 +60,8 @@ public class BeakedTheCultist extends CustomPlayer {
     }
 
     public void reloadAnimation(){
-        this.loadAnimation(Beaked.blueCostume?"beaked_img/char/beaked/skeleton.atlas":"beaked_img/char/beaked/skeleton_y.atlas",
-                "beaked_img/char/beaked/skeleton.json", 1.0f);
+        this.loadAnimation("beaked_img/char/beaked/skeleton"+Beaked.SPRITE_POSTFIX_STRINGS[Beaked.costumeColor]+".atlas",
+                        "beaked_img/char/beaked/skeleton"+Beaked.SPRITE_POSTFIX_STRINGS[Beaked.costumeColor]+".json", 1.0f);
     }
 
     @Override
@@ -170,13 +170,8 @@ public class BeakedTheCultist extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        if (Beaked.ritualPlumage) {
-            retVal.add(RitualPlumage.ID);
-            UnlockTracker.markRelicAsSeen(RitualPlumage.ID);
-        } else {
-            retVal.add(MendingPlumage.ID);
-            UnlockTracker.markRelicAsSeen(MendingPlumage.ID);
-        }
+        retVal.add(MendingPlumage.ID);
+        UnlockTracker.markRelicAsSeen(MendingPlumage.ID);
         return retVal;
     }
 
