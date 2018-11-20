@@ -29,20 +29,13 @@ public class SacrificeDollAction extends AbstractGameAction {
                     card.freeToPlayOnce = true;
                     AbstractDungeon.player.limbo.group.add(card);
                     AbstractMonster target = AbstractDungeon.getRandomMonster();
-                    if (!card.canUse(AbstractDungeon.player, target)) {
-                        AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
-                        AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(card, AbstractDungeon.player.limbo));
-                        AbstractDungeon.actionManager.addToTop(new WaitAction(0.4F));
-
+                    card.applyPowers();
+                    AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, target));
+                    AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
+                    if (!Settings.FAST_MODE) {
+                        AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
                     } else {
-                        card.applyPowers();
-                        AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, target));
-                        AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
-                        if (!Settings.FAST_MODE) {
-                            AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
-                        } else {
-                            AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
-                        }
+                        AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
                     }
                 }
             }
