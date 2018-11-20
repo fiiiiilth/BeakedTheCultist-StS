@@ -2,9 +2,9 @@
 	"modid": "beakedthecultist-sts",
 	"name": "Beaked The Cultist",
 	"author_list": ["EARL", "fiiiiilth","Moocowsgomoo", "TemmieAnimations", "BlueKnight", "Giuseppe", "MagicHampster", "Ashe","MunderW","Midn8","kiooeht","Reina","Rhapsody and community"],
-	"description": "Adds Beaked the Cultist as a new playable character. \n\nBEAKED NOW REQUIRES THE STSLIB MOD!\n\nRecent Changes (0.5.5):\n- Mending Plumage art cleaned up. (Ashe)\n- Sacred Necklace and Shiny Bauble art (Midn8)\n- 2 new Beaked costumes (Ashe, Kiooeht)\n- 2 new relics, 1 Boss and 1 Shop tier (Reina)\n- Sacred Necklace is now Super Rare.\n- Inspiration now Exhausts, then draws.\n- Giant Parasite now gains armor every turn.\n- Face Trader event now always gives Cultist Mask.\n- Flawless Sticks triggers earlier pre-battle.\n- Other relics given proper placeholder art.\n- Updated credits.\n\nIf you contributed and don't see your name in the credits, please let us know!",
+	"description": "Adds Beaked the Cultist as a new playable character. \n\nBEAKED NOW REQUIRES THE STSLIB MOD!\n\nRecent Changes (0.5.5):\n- Mending Plumage art cleaned up. (Ashe)\n- Sacred Necklace and Shiny Bauble art (Midn8)\n- 2 new Beaked costumes (Ashe, Kiooeht)\n- 2 new relics, 1 Boss and 1 Shop tier (Reina)\n- Sacred Necklace is now Super Rare.\n- Inspiration now Exhausts, then draws.\n- Giant Parasite now gains armor every turn.\n- Face Trader event now always gives Cultist Mask.\n- Flawless Sticks triggers earlier pre-battle.\n- Other relics given proper placeholder art.\n- Fix permanent flapping bug.\n- Blessed Coat now keeps starter effect and regens per 3 cards.\n- Crazy Rituals can no longer play Mechanize.\n- Updated credits.\n\nIf you contributed and don't see your name in the credits, please let us know!",
 	"dependencies": ["basemod","stslib"],
-	"version": "0.5.5",
+	"version": "0.5.6",
 	"sts_version": "11-08-2018",
 	"mts_version": "3.6.0",
 	"update_json": "https://api.github.com/repos/fiiiiilth/BeakedTheCultist-StS/releases/latest"
