@@ -3,7 +3,7 @@
     "NAME": "Mending Plumage",
     "FLAVOR": "The Plumage merges with your feathers and makes you feel ...",
     "DESCRIPTIONS": [
-      "Upon playing a card, heal #b1 HP."
+      "Whenever you play a card, heal #b1 HP."
     ]
   },
   "beaked:FlawlessSticks": {
@@ -31,7 +31,14 @@
     "NAME": "Sacred Necklace",
     "FLAVOR": "A sparkling trinket from an exotic land...",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of each turn."
+      "#ySuper-Rare! NL Gain [E] at the start of each turn."
+    ]
+  },
+  "beaked:SacredNecklace2": {
+    "NAME": "Fake-red Necklace",
+    "FLAVOR": "A sparkling trinket from an exotic land...",
+    "DESCRIPTIONS": [
+      "#ySuper-Rare! NL Upon pick up, choose ANY one card to obtain."
     ]
   },
   "beaked:MawFillet": {

@@ -1,5 +1,8 @@
 package beaked.powers;
 
+import basemod.BaseMod;
+import basemod.abstracts.DynamicVariable;
+import beaked.Beaked;
 import beaked.actions.CrazyRitualsPlayAction;
 import beaked.actions.QueueCardFrontAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -8,6 +11,9 @@ import com.megacrit.cardcrawl.actions.utility.ShowCardAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DescriptionLine;
+import com.megacrit.cardcrawl.cards.red.Abandon;
+import com.megacrit.cardcrawl.cards.replayxover.black.SuperSneckoCrazyCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,6 +25,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import org.apache.logging.log4j.Level;
 
 import java.util.ArrayList;
 
@@ -95,8 +102,23 @@ public class CrazyRitualsPower extends AbstractPower {
                 // Yohane's summons require a special FriendlyMinions-enabled character, which Beaked is not.
                 nextCard.cardID.startsWith("Yohane:Little_Demon_") ||
                 // Mad Scientist's Mechanize apparently doesn't work
-                nextCard.cardID == "MadScienceMod:Mechanize");
+                nextCard.cardID == "MadScienceMod:Mechanize" ||
+                // Pickle why is this ID not public, I'm far too lazy to use reflection
+                nextCard.cardID == "ReplayTheSpireMod:??????????????????????" ||
+                // blakkmod
+                nextCard.cardID == "BlakkBlade" ||
+                // blakkmod
+                nextCard.cardID == "LegSlice");
 
+        String fullDescription = "";
+        for (DescriptionLine line : nextCard.description){
+            fullDescription += line.text + " ";
+        }
+        fullDescription = fullDescription.replace("*","");
+        for (DynamicVariable dv : BaseMod.cardDynamicVariableMap.values()){
+            fullDescription = fullDescription.replace("!"+dv.key()+"!",""+dv.value(nextCard));
+        }
+        Beaked.logger.log(Level.INFO,"Crazy Rituals playing " + nextCard.name + ": " + fullDescription);
         nextCard.purgeOnUse = true;
         nextCard.freeToPlayOnce = true;
         AbstractDungeon.player.limbo.addToTop(nextCard);

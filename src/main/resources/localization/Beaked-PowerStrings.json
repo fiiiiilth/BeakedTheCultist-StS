@@ -3,7 +3,6 @@
 		"NAME": "Ritual",
 		"DESCRIPTIONS": [
 			"At the start of your turn, gain #b",
-			"At the start of your turn, lose #b",
 			" #yStrength."
 		]
 	},
@@ -171,7 +170,7 @@
 	"beaked:CrazyRitualsPower": {
 		"NAME": "Crazy Rituals",
 		"DESCRIPTIONS": [
-			"At the start of your turn, play a random card from a random class on a random target."
+			"At the start of your turn, play a random card of a random color on a random target."
 		]
 	},
 	"beaked:BodyRitual": {
@@ -233,6 +232,12 @@
 			" gains #b",
 			" #yPlated #yArmor (max #b",
 			")."
+		]
+	},
+	"beaked:Mending": {
+		"NAME": "Mending",
+		"DESCRIPTIONS": [
+			"Whenever you play a card, heal #b%s HP."
 		]
 	}
 }

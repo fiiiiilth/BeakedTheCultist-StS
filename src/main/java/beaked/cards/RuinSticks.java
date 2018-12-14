@@ -23,9 +23,9 @@ public class RuinSticks extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final int COST = 2;
-    public static final int DAMAGE = 22;
-    public static final int UPGRADE_PLUS_DAMAGE = 4;
+    public static final int COST = 1;
+    public static final int DAMAGE = 17;
+    public static final int UPGRADE_PLUS_DAMAGE = 3;
 
     public RuinSticks() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);

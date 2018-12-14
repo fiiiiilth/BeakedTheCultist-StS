@@ -2,6 +2,7 @@ package beaked.cards;
 
 import basemod.abstracts.CustomCard;
 import beaked.Beaked;
+import beaked.actions.FastHealAction;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.RitualPlayerPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -37,7 +38,7 @@ public class DigDeeper extends CustomCard {
             str = AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount;
 
             for (int i=0;i<str;i++){
-                AbstractDungeon.actionManager.addToBottom(new HealAction(p,p,this.magicNumber));
+                AbstractDungeon.actionManager.addToBottom(new FastHealAction(p,p,this.magicNumber));
             }
 
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new StrengthPower(p,-str),-str));

@@ -31,7 +31,7 @@ public class RitualPotion extends AbstractPotion {
     public void use(AbstractCreature target) {
         target = AbstractDungeon.player;
         if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new RitualPlayerPower(target, this.potency)));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target, new RitualPlayerPower(target, this.potency),this.potency));
         }
     }
 

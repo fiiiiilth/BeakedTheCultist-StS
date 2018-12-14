@@ -51,8 +51,14 @@ public abstract class AbstractWitherCard extends CustomCard {
     }
 
     @Override
-    public boolean cardPlayable (AbstractMonster m){
-        return super.cardPlayable(m) && !this.isDepleted;
+    public boolean canUse (AbstractPlayer p, AbstractMonster m){
+        return super.canUse(p,m) && !this.isDepleted;
+    }
+
+    @Override
+    public String getCantPlayMessage(){
+        if (this.isDepleted) return "This card is #rDepleted!";
+        else return super.getCantPlayMessage();
     }
 
     @Override

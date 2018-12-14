@@ -24,7 +24,7 @@ public class KnowThyFoe extends CustomCard {
     public static final int UPGRADED_COST = 2;
 
     public KnowThyFoe() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
         this.exhaust = true;
     }
 

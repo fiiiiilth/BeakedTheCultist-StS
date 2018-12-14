@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.actions.RemoveBuffsAction;
 import beaked.patches.AbstractCardEnum;
 import com.badlogic.gdx.graphics.Color;
@@ -24,7 +25,7 @@ public class SentriesPulse extends CustomCard {
     public static final int COST = 0;
 
     public SentriesPulse() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.ENEMY);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.ENEMY);
 
         this.tags.add(ELITE_CARD);
     }

@@ -27,7 +27,7 @@ public class BooksFlurry extends CustomCard {
     public static final int UPGRADE_DAMAGE = 1;
 
     public BooksFlurry() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.ENEMY);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.ENEMY);
 
         this.magicNumber = this.baseMagicNumber = DAMAGE;
         this.tags.add(ELITE_CARD);
@@ -37,8 +37,10 @@ public class BooksFlurry extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(Beaked.cardsPlayedThisCombat > 0) {
             for (int i = 0; i < Beaked.cardsPlayedThisCombat - 1; i++) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.magicNumber, DamageInfo.DamageType.THORNS),
-                        AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m,
+                        new DamageInfo(p, this.magicNumber, DamageInfo.DamageType.THORNS),
+                        AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
+                        true));
                 AbstractDungeon.actionManager.addToBottom(new SFXAction("MONSTER_BOOK_STAB_" + MathUtils.random(0, 3)));
             }
         }

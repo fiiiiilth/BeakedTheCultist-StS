@@ -52,8 +52,7 @@
 	},
 	"beaked:HuntressEssence": {
 		"NAME": "Huntress Essence",
-		"DESCRIPTION": "Heal !M! HP and draw !M! card for each card in your Exhaust pile. NL Exhaust.",
-		"UPGRADE_DESCRIPTION": "Heal !M! HP and draw !M! cards for each card in your Exhaust pile. NL Exhaust."
+		"DESCRIPTION": "Heal !M! HP and draw 1 card for each card in your Exhaust pile. NL Exhaust."
 	},
 	"beaked:MachineEssence": {
 		"NAME": "Machine Essence",
@@ -88,7 +87,7 @@
 	},
 	"beaked:Resilience": {
 		"NAME": "Resilience",
-		"DESCRIPTION": "Lose 3 Strength. NL Gain 2 Artifact."
+		"DESCRIPTION": "Lose 3 Strength. NL Lose !M! HP. NL Gain 2 Artifact."
 	},
 	"beaked:SowTheSeeds": {
 		"NAME": "Sow the Seeds",
@@ -346,7 +345,8 @@
 	},
 	"beaked:RitualOfBody": {
 		"NAME": "Ritual Of Body",
-		"DESCRIPTION": "Lose 1 Ritual. NL Gain !M! Plated Armor at the start of each turn."
+		"DESCRIPTION": "Spend 1 Ritual. Gain !M! Plated Armor at the start of each turn.",
+		"EXTENDED_DESCRIPTION": ["I don't have enough Ritual!"]
 	},
 	"beaked:NobsRage": {
 		"NAME": "Nob's Rage",
@@ -358,13 +358,13 @@
 		"UPGRADE_DESCRIPTION": "The first Attack you play each turn deals triple damage."
 	},
 	"beaked:SentriesPulse": {
-		"NAME": "Sentries Pulse",
+		"NAME": "Sentry's Pulse",
 		"DESCRIPTION": "Remove ALL Buffs from an enemy.",
 		"UPGRADE_DESCRIPTION": "Remove ALL Buffs from ALL enemies."
 	},
 	"beaked:BooksFlurry": {
 		"NAME": "Book's Flurry",
-		"DESCRIPTION": "Deal !M! damage for every card played this combat. NL Unaffected by Strength."
+		"DESCRIPTION": "Deal !M! (non-attack) damage for every card played this combat."
 	},
 	"beaked:LeadersExecution": {
 		"NAME": "Leader's Execution",
@@ -387,8 +387,18 @@
 		"NAME": "Head's Impatience",
 		"DESCRIPTION": "Whenever you play a card, gain !M! Strength until the end of your turn."
 	},
+	"beaked:ReptomancersBite": {
+		"NAME": "Reptomancer's Bite",
+		"DESCRIPTION": "Apply 99 Weak. NL Apply 99 Vulnerable. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Apply 99 Weak and 99 Vulnerable to ALL enemies. NL Exhaust."
+	},
 	"beaked:KnowThyFoe": {
 		"NAME": "Know Thy Foe",
 		"DESCRIPTION": "Add a random Elite card to your hand. NL Exhaust."
+	},
+	"beaked:VigorBurst": {
+		"NAME": "Vigor Burst",
+		"DESCRIPTION": "Unplayable. NL When drawn, heal !M! HP. NL When obtained, gain 5 Max HP. If removed or transformed from your deck, lose 5 Max HP.",
+		"UPGRADE_DESCRIPTION": "Unplayable. NL When drawn, heal !M! HP. NL When obtained, gain 5 Max HP."
 	}
 }

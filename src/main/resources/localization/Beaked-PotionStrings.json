@@ -5,5 +5,11 @@
       "Gain #b",
       " Ritual."
     ]
+  },
+  "beaked:MendingBrew": {
+    "NAME": "Mending Brew",
+    "DESCRIPTIONS": [
+      "Whenever you play a card, heal #b%s HP."
+    ]
   }
 }

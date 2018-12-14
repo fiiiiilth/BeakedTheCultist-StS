@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -24,7 +25,7 @@ public class LeadersExecution extends CustomCard {
     public static final int UPGRADE_DAMAGE = 2;
 
     public LeadersExecution() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.ENEMY);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.ENEMY);
 
         this.baseDamage = DAMAGE;
         this.tags.add(ELITE_CARD);

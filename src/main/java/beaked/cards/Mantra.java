@@ -30,22 +30,29 @@ public class Mantra extends CustomCard {
     public Mantra() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseDamage = this.damage = DAMAGE;
-        Beaked.setDescription(this, DESCRIPTION);
+        recalculateWither();
+    }
+
+    public void recalculateWither(){
+        if (AbstractDungeon.player == null) {
+            Beaked.setDescription(this, DESCRIPTION);
+        }
+        else {
+            this.magicNumber = this.baseMagicNumber = countWitherCards();
+            Beaked.setDescription(this, DESCRIPTION + EXTENDED_DESCRIPTION[0]);
+        }
     }
 
     @Override
     public void applyPowers(){
-        this.baseMagicNumber = this.magicNumber = countWitherCards();
-        Beaked.setDescription(this, DESCRIPTION + EXTENDED_DESCRIPTION[0]);
+        recalculateWither();
         super.applyPowers();
     }
 
-    @Override
-    public void onMoveToDiscard() {
-        Beaked.setDescription(this,DESCRIPTION);
-    }
-
     public int countWitherCards(){
+
+        if (AbstractDungeon.player == null || AbstractDungeon.player.masterDeck == null) return 0;
+
         int count=0;
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group){
             if (c instanceof AbstractWitherCard){

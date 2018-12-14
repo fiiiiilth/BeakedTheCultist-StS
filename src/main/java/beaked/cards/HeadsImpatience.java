@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.HeadsImpatiencePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -23,7 +24,7 @@ public class HeadsImpatience extends CustomCard {
     public static final int UPGRADE_POWER_STACKS = 1;
 
     public HeadsImpatience() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.SELF);
 
         this.magicNumber = this.baseMagicNumber = POWER_STACKS;
         this.tags.add(ELITE_CARD);

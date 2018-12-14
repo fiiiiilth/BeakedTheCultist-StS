@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.LagavulinsFerocityPlusPower;
 import beaked.powers.LagavulinsFerocityPower;
@@ -23,7 +24,7 @@ public class LagavulinsFerocity extends CustomCard {
     public static int COST = 0;
 
     public LagavulinsFerocity() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.SELF);
 
         this.tags.add(ELITE_CARD);
     }

@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import basemod.*;
+import basemod.helpers.BaseModCardTags;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import beaked.cards.*;
@@ -15,9 +16,11 @@ import beaked.patches.AbstractCardEnum;
 import beaked.patches.BeakedEnum;
 import beaked.patches.CardTagsEnum;
 import beaked.patches.PluralizeFieldsPatch;
+import beaked.potions.MendingBrew;
 import beaked.potions.RitualPotion;
 import beaked.relics.*;
 import beaked.variables.*;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -57,7 +60,7 @@ public class Beaked implements PostInitializeSubscriber,
 
     private static final String MODNAME = "BeakedTheCultist the Cultist";
     private static final String AUTHOR = "fiiiiilth, Moocowsgomoo";
-    private static final String DESCRIPTION = "v0.1\n Adds Beaked the Cultist as a new playable characters.";
+    private static final String DESCRIPTION = "Adds Beaked the Cultist as a new playable character.";
 
     private static final Color YELLOW = CardHelper.getColor(255.0f, 255.0f, 0.0f);
     private static final String BEAKED_ASSETS_FOLDER = "beaked_img";
@@ -292,6 +295,7 @@ public class Beaked implements PostInitializeSubscriber,
             BaseMod.addEliteEncounter(TheBeyond.ID, new MonsterInfo(SuperParasite.ID,1.0f));
         }
         BaseMod.addPotion(RitualPotion.class, YELLOW, YELLOW, YELLOW, RitualPotion.POTION_ID, BeakedEnum.BEAKED_THE_CULTIST);
+        BaseMod.addPotion(MendingBrew.class,Color.GREEN,Color.WHITE,Color.GREEN,MendingBrew.POTION_ID,BeakedEnum.BEAKED_THE_CULTIST);
     }
 
     public void changeCostume(){
@@ -342,6 +346,7 @@ public class Beaked implements PostInitializeSubscriber,
             BaseMod.addRelic(new ShinyBauble(), RelicType.SHARED);
             BaseMod.addRelic(new MawFillet(), RelicType.SHARED);
             BaseMod.addRelic(new SacredNecklace(), RelicType.SHARED);
+            BaseMod.addRelic(new SacredNecklace2(), RelicType.SHARED);
         }
         else {
             BaseMod.addRelicToCustomPool(new ShinyBauble(), AbstractCardEnum.BEAKED_YELLOW);
@@ -435,6 +440,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new MimicMachine());
         BaseMod.addCard(new CrazyRituals());
         BaseMod.addCard(new RitualOfBody());
+        BaseMod.addCard(new VigorBurst());
 
 
         //Rare
@@ -466,6 +472,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new NemesisSlickness());
         BaseMod.addCard(new WalkersFury());
         BaseMod.addCard(new HeadsImpatience());
+        BaseMod.addCard(new ReptomancersBite());
 
         // make sure everything is always unlocked
         UnlockTracker.unlockCard(Strike_Y.ID);
@@ -547,6 +554,7 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(CrazyRituals.ID);
         UnlockTracker.unlockCard(RitualOfBody.ID);
         UnlockTracker.unlockCard(KnowThyFoe.ID);
+        UnlockTracker.unlockCard(VigorBurst.ID);
 
 
         UnlockTracker.unlockCard(Inspiration.ID);
@@ -563,6 +571,7 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(NemesisSlickness.ID);
         UnlockTracker.unlockCard(WalkersFury.ID);
         UnlockTracker.unlockCard(HeadsImpatience.ID);
+        UnlockTracker.unlockCard(ReptomancersBite.ID);
 
         logger.info("done editing cards");
     }
@@ -605,7 +614,7 @@ public class Beaked implements PostInitializeSubscriber,
     public void receiveEditKeywords() {
         logger.info("setting up custom keywords");
         BaseMod.addKeyword(new String[] {"ritual"}, "Gain #yStrength at the beginning of your turn.");
-        BaseMod.addKeyword(new String[] {"wither"}, "Permanently decrease this card's power by the wither amount. When it reaches #b0, the card becomes #yDepleted.");
+        BaseMod.addKeyword(new String[] {"wither"}, "Permanently decrease this card's power by the wither amount. When it reaches #b0, the card becomes #yDepleted. Can be replenished at Rest Sites.");
         BaseMod.addKeyword(new String[] {"depleted"}, "#yUnplayable unless the #yWither effect is reversed.");
         BaseMod.addKeyword(new String[] {"inspiration"}, "An unplayable status card. When drawn, it #yExhausts and draws #b2 more cards.");
         BaseMod.addKeyword(new String[] {"respite"}, "An unplayable status card. Heals #b2 HP at the end of your turn.");
@@ -626,6 +635,14 @@ public class Beaked implements PostInitializeSubscriber,
         cardsPlayedThisCombat ++;
     }
 
+    public static void onMasterDeckChange(){
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group){
+            if (c instanceof Mantra) {
+                ((Mantra) c).recalculateWither();
+            }
+        }
+    }
+
     @Override
     public void receiveOnBattleStart(AbstractRoom room) {
         cardsPlayedThisCombat = 0;
@@ -643,8 +660,10 @@ public class Beaked implements PostInitializeSubscriber,
         }
         if (isFlying) {
             isFlying = false;
-            AbstractDungeon.player.drawY = initialPlayerHeight;
-            AbstractDungeon.player.state.setTimeScale(1);
+            if (AbstractDungeon.player != null) {
+                AbstractDungeon.player.drawY = initialPlayerHeight;
+                if (AbstractDungeon.player.state != null) AbstractDungeon.player.state.setTimeScale(1);
+            }
         }
     }
 
@@ -662,8 +681,10 @@ public class Beaked implements PostInitializeSubscriber,
     public void receivePostDungeonInitialize() {
         if (AbstractDungeon.player != null && isFlying) {
             isFlying = false;
-            AbstractDungeon.player.drawY = initialPlayerHeight;
-            AbstractDungeon.player.state.setTimeScale(1);
+            if (AbstractDungeon.player != null) {
+                AbstractDungeon.player.drawY = initialPlayerHeight;
+                if (AbstractDungeon.player.state != null) AbstractDungeon.player.state.setTimeScale(1);
+            }
         }
     }
 
@@ -727,7 +748,18 @@ public class Beaked implements PostInitializeSubscriber,
         card.initializeDescription();
     }
 
+    public static boolean hasWitherCards() {
+        if (AbstractDungeon.player == null) return false;
+        for(AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+            if(card instanceof AbstractWitherCard) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean hasWitheredCards() {
+        if (AbstractDungeon.player == null) return false;
         for(AbstractCard card : AbstractDungeon.player.masterDeck.group) {
             if(card instanceof AbstractWitherCard && ((AbstractWitherCard)card).misc != ((AbstractWitherCard)card).baseMisc) {
                 return true;
@@ -745,5 +777,29 @@ public class Beaked implements PostInitializeSubscriber,
             }
         }
         return list.get(AbstractDungeon.cardRandomRng.random(list.size() -1));
+    }
+
+    public static AbstractCard getColorRepresentativeCard(AbstractCard.CardColor color){
+        final ArrayList<AbstractCard> cards = CardLibrary.getCardList(CardLibrary.LibraryType.valueOf(color.name()));
+        // look for a basic defend
+        for (AbstractCard card : cards){
+            if (card.hasTag(BaseModCardTags.BASIC_DEFEND)){
+                return card;
+            }
+        }
+        // no? any basic skill? (needs to be a skill to fit inside the portrait box)
+        for (AbstractCard card : cards){
+            if (card.rarity == AbstractCard.CardRarity.BASIC && card.type == AbstractCard.CardType.SKILL){
+                return card;
+            }
+        }
+        // ANY skill at all?
+        for (AbstractCard card : cards){
+            if (card.type == AbstractCard.CardType.SKILL){
+                return card;
+            }
+        }
+        // I give up, just take the first card
+        return cards.get(0);
     }
 }

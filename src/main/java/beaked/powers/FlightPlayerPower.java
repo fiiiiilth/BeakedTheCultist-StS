@@ -7,6 +7,7 @@ import beaked.Beaked;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -39,10 +40,12 @@ public class FlightPlayerPower extends AbstractPower {
 
 	@Override
 	public void onInitialApplication(){
-		AbstractDungeon.player.state.setTimeScale(5);
-		Beaked.isFlying = true;
-		Beaked.initialPlayerHeight = AbstractDungeon.player.drawY;
-		AbstractDungeon.player.drawY += Settings.HEIGHT*FLY_HEIGHT * Settings.scale;
+		if (AbstractDungeon.player != null) {
+			if (AbstractDungeon.player.state != null) AbstractDungeon.player.state.setTimeScale(5);
+			Beaked.isFlying = true;
+			Beaked.initialPlayerHeight = AbstractDungeon.player.drawY;
+			AbstractDungeon.player.drawY += Settings.HEIGHT*FLY_HEIGHT * Settings.scale;
+		}
 	}
 
 	@Override
@@ -82,9 +85,11 @@ public class FlightPlayerPower extends AbstractPower {
 
 	@Override
 	public void onRemove() {
-		Beaked.isFlying = false;
-		AbstractDungeon.player.drawY = Beaked.initialPlayerHeight;
-		AbstractDungeon.player.state.setTimeScale(1);
-		AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.owner, this.owner, new StunnedPower(this.owner,1), 1));
+		if (AbstractDungeon.player != null) {
+			Beaked.isFlying = false;
+			AbstractDungeon.player.drawY = Beaked.initialPlayerHeight;
+			if (AbstractDungeon.player.state != null) AbstractDungeon.player.state.setTimeScale(1);
+			AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.owner, this.owner, new StunnedPower(this.owner, 1), 1));
+		}
 	}
 }

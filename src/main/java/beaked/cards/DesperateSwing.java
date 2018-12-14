@@ -43,6 +43,10 @@ public class DesperateSwing extends CustomCard {
 
     @Override
     public void applyPowers(){
+
+        if (this.baseMagicNumber <= 0) this.baseMagicNumber = 1;
+        if (this.magicNumber <= 0) this.magicNumber = 1;
+
         if (this.realBaseDamage == -1) this.realBaseDamage = this.baseDamage; // in case something like ring of chaos modified base damage
         this.baseDamage = this.realBaseDamage + ((AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth) / this.magicNumber);
         super.applyPowers();
@@ -52,6 +56,10 @@ public class DesperateSwing extends CustomCard {
 
     @Override
     public void calculateCardDamage(AbstractMonster mo){
+
+        if (this.baseMagicNumber <= 0) this.baseMagicNumber = 1;
+        if (this.magicNumber <= 0) this.magicNumber = 1;
+
         if (this.realBaseDamage == -1) this.realBaseDamage = this.baseDamage; // in case something like ring of chaos modified base damage
         this.baseDamage = this.realBaseDamage + ((AbstractDungeon.player.maxHealth - AbstractDungeon.player.currentHealth) / this.magicNumber);
         super.calculateCardDamage(mo);

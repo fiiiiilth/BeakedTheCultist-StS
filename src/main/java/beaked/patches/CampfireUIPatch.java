@@ -19,23 +19,21 @@ public class CampfireUIPatch {
     public static void Postfix(Object meObj) {
         CampfireUI campfire = (CampfireUI)meObj;
         try {
-            @SuppressWarnings("unchecked")
             ArrayList<AbstractCampfireOption> campfireButtons = (ArrayList<AbstractCampfireOption>)
                     ReflectionHacks.getPrivate(campfire, CampfireUI.class, "buttons");
 
-            int height = 180;
-
-            if(AbstractDungeon.player instanceof BeakedTheCultist) {
-                if(Beaked.hasWitheredCards()) {
-                    campfireButtons.add(new ReverseWitherOption(true));
-                } else {
-                    campfireButtons.add(new ReverseWitherOption(false));
+            if(AbstractDungeon.player instanceof BeakedTheCultist || Beaked.hasWitherCards()) {
+                campfireButtons.add(new ReverseWitherOption());
+                float x = 950.f;
+                float y = 990.0f - (270.0f * (float)((campfireButtons.size() + 1) / 2));
+                if (campfireButtons.size() % 2 == 0) {
+                    x = 1110.0f;
+                    campfireButtons.get(campfireButtons.size() - 2).setPosition(800.0f * Settings.scale, y * Settings.scale);
                 }
-                campfireButtons.get(campfireButtons.size() - 1).setPosition(950 * Settings.scale, height * Settings.scale);
+                campfireButtons.get(campfireButtons.size() - 1).setPosition(x * Settings.scale, y * Settings.scale);
             }
 
         } catch (SecurityException | IllegalArgumentException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

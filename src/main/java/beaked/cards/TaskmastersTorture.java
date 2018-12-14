@@ -1,6 +1,7 @@
 package beaked.cards;
 
 import basemod.abstracts.CustomCard;
+import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.BleedPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -28,7 +29,7 @@ public class TaskmastersTorture extends CustomCard {
     public static final int UPGRADE_BLEED = 3;
 
     public TaskmastersTorture() {
-        super(ID, NAME, null, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.ENEMY);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.ENEMY);
 
         this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = BLEED;

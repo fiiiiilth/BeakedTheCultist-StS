@@ -20,13 +20,19 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
 public class ReverseWitherEffect extends AbstractGameEffect {
 
+    // modified from base game's CampfireSmithEffect if you want to see how something works.
+
     private static final float DUR = 1.5f;
     private boolean openedScreen = false;
     private Color screenColor = AbstractDungeon.fadeColor.cpy();
+    public boolean isFree = false;
+    public ReverseWitherOption button;
 
-    public ReverseWitherEffect() {
+    public ReverseWitherEffect(ReverseWitherOption button, boolean isFree) {
         this.duration = DUR;
         this.screenColor.a = 0.0f;
+        this.isFree = isFree;
+        this.button = button;
         AbstractDungeon.overlayMenu.proceedButton.hide();
     }
 
@@ -57,10 +63,18 @@ public class ReverseWitherEffect extends AbstractGameEffect {
         }
         if(this.duration < 0.0f) {
             this.isDone = true;
-            if(CampfireUI.hidden) {
-                AbstractRoom.waitTimer = 0.0f;
-                AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
-                ((RestRoom)AbstractDungeon.getCurrRoom()).cutFireSound();
+            if (this.isFree) {
+                // reopen options menu
+                if (AbstractDungeon.getCurrRoom() instanceof RestRoom)
+                    button.setImageAndDescription();
+                    ((RestRoom) AbstractDungeon.getCurrRoom()).campfireUI.reopen();
+            }else{
+                // complete room and bring up continue button
+                if(CampfireUI.hidden) {
+                    AbstractRoom.waitTimer = 0.0f;
+                    AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
+                    ((RestRoom) AbstractDungeon.getCurrRoom()).cutFireSound();
+                }
             }
         }
     }
@@ -80,5 +94,9 @@ public class ReverseWitherEffect extends AbstractGameEffect {
         } else {
             this.screenColor.a = Interpolation.fade.apply(0.0f, 1.0f, this.duration / 1.5f);
         }
+    }
+
+    @Override
+    public void dispose() {
     }
 }
