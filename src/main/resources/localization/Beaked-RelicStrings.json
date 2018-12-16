@@ -34,11 +34,11 @@
       "#ySuper-Rare! NL Gain [E] at the start of each turn."
     ]
   },
-  "beaked:SacredNecklace2": {
-    "NAME": "Fake-red Necklace",
-    "FLAVOR": "A sparkling trinket from an exotic land...",
+  "beaked:SacredDeck": {
+    "NAME": "Sacred Deck",
+    "FLAVOR": "Contains the deepest secrets of all who have entered the Spire.",
     "DESCRIPTIONS": [
-      "#ySuper-Rare! NL Upon pick up, choose ANY one card to obtain."
+      "#ySuper-Rare! NL Upon pick up, choose ANY card of any color to obtain."
     ]
   },
   "beaked:MawFillet": {

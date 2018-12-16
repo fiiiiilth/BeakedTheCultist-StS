@@ -19,15 +19,15 @@ import com.megacrit.cardcrawl.vfx.FastCardObtainEffect;
 
 import java.util.ArrayList;
 
-public class SacredNecklace2 extends CustomRelic implements SuperRareRelic{
-    public static final String ID = "beaked:SacredNecklace2";
+public class SacredDeck extends CustomRelic implements SuperRareRelic{
+    public static final String ID = "beaked:SacredDeck";
     public boolean isChoosingClass = false;
     public boolean isChoosingCard = false;
 
-    public SacredNecklace2() {
-        super(ID, new Texture("beaked_img/relics/" + "SacredNecklace" + ".png"),
-                new Texture("beaked_img/relics/outline/" + "SacredNecklace" + ".png"),
-                RelicTier.BOSS, LandingSound.CLINK);
+    public SacredDeck() {
+        super(ID, new Texture("beaked_img/relics/" + "SacredDeck" + ".png"),
+                new Texture("beaked_img/relics/outline/" + "SacredDeck" + ".png"),
+                RelicTier.BOSS, LandingSound.FLAT);
     }
 
     @Override

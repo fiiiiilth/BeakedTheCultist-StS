@@ -23,6 +23,7 @@ public class MasterDeckChangePatch {
 
     // TODO: Note for Yourself event doesn't use an ObtainEffect for whatever reason, so patch that too.
 
+    @SpirePatch(clz = FastCardObtainEffect.class, method = "update")
     public static class FastCardObtainEffectPatch {
         public static void Postfix(FastCardObtainEffect obj) {
             if (obj.duration <= 0.0F){

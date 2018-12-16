@@ -30,7 +30,7 @@ public class BarbedWire extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (AbstractDungeon.player.hasPower(StrengthPower.POWER_ID)){
             int str = AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount;
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new ThornsPower(p,str),str));
+            if (str > 0) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new ThornsPower(p,str),str));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new StrengthPower(p,-str),-str));
         }
     }

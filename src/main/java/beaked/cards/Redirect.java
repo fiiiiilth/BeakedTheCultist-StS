@@ -40,7 +40,7 @@ public class Redirect extends AbstractWitherCard {
 
         if (AbstractDungeon.player.hasPower(StrengthPower.POWER_ID)){
             final int str = AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount;
-            if (str > 0) AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p,-str),-str));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p,-str),-str));
         }
     }
 

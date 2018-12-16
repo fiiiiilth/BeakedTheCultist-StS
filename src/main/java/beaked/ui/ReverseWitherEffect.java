@@ -26,6 +26,7 @@ public class ReverseWitherEffect extends AbstractGameEffect {
     private boolean openedScreen = false;
     private Color screenColor = AbstractDungeon.fadeColor.cpy();
     public boolean isFree = false;
+    public boolean choseCard = false;
     public ReverseWitherOption button;
 
     public ReverseWitherEffect(ReverseWitherOption button, boolean isFree) {
@@ -49,6 +50,7 @@ public class ReverseWitherEffect extends AbstractGameEffect {
             AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(card.makeStatEquivalentCopy()));
             AbstractDungeon.topLevelEffects.add(new CardGlowBorder(card));
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
+            choseCard = true;
             ((RestRoom)AbstractDungeon.getCurrRoom()).fadeIn();
         }
         if(this.duration < 1.0f && !this.openedScreen) {
@@ -63,7 +65,7 @@ public class ReverseWitherEffect extends AbstractGameEffect {
         }
         if(this.duration < 0.0f) {
             this.isDone = true;
-            if (this.isFree) {
+            if (this.isFree && choseCard) {
                 // reopen options menu
                 if (AbstractDungeon.getCurrRoom() instanceof RestRoom)
                     button.setImageAndDescription();

@@ -2,6 +2,7 @@ package beaked;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
@@ -19,21 +20,19 @@ import beaked.patches.PluralizeFieldsPatch;
 import beaked.potions.MendingBrew;
 import beaked.potions.RitualPotion;
 import beaked.relics.*;
+import beaked.ui.ModRelicPreview;
 import beaked.variables.*;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.CultistMask;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
@@ -49,7 +48,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.helpers.CardHelper;
 
 @SpireInitializer
 public class Beaked implements PostInitializeSubscriber,
@@ -107,11 +105,17 @@ public class Beaked implements PostInitializeSubscriber,
     public static final String PROP_CUSTOM_CEREMONY = "customModeCeremony";
     public static final String PROP_RELIC_SHARING = "relicSharing";
     public static final String PROP_COSTUME_COLOR = "costumeColor";
+    public static final String PROP_SACRED_NECKLACE = "sacredNecklace";
+    public static final String PROP_SACRED_DECK = "sacredDeck";
     public static boolean crazyRituals = false;
     public static boolean enableParasite = true;
     public static boolean customModeCeremony = true;
     public static boolean relicSharing = true;
     public static int costumeColor = 0;
+
+    public static ArrayList<AbstractRelic> shareableRelics = new ArrayList<>();
+    public static HashMap<String, ArrayList<ModLabeledToggleButton>> specialRelicRadioBtns = new HashMap<>();
+
     public static final int NUM_COSTUMES = 4;
     public static final String[] COSTUME_STRINGS = {
             "Yellow","Blue","Green","Angry"
@@ -176,6 +180,8 @@ public class Beaked implements PostInitializeSubscriber,
         beakedDefaults.setProperty(PROP_CUSTOM_CEREMONY, "TRUE");
         beakedDefaults.setProperty(PROP_RELIC_SHARING, "TRUE");
         beakedDefaults.setProperty(PROP_COSTUME_COLOR, "0");
+        beakedDefaults.setProperty(PROP_SACRED_NECKLACE, "2");
+        beakedDefaults.setProperty(PROP_SACRED_DECK,"2");
 
         try {
             SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
@@ -253,7 +259,7 @@ public class Beaked implements PostInitializeSubscriber,
         });
         settingsPanel.addUIElement(bossesBtn);
 
-        ModLabeledToggleButton relicSharingBtn = new ModLabeledToggleButton("Enable Beaked relics for other characters (REQUIRES RESTART)",
+        ModLabeledToggleButton relicSharingBtn = new ModLabeledToggleButton("Enable regular Beaked relics for other characters (REQUIRES RESTART)",
                 350.0f, 500.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 relicSharing, settingsPanel, (label) -> {
         }, (button) -> {
@@ -262,13 +268,14 @@ public class Beaked implements PostInitializeSubscriber,
                 SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
                 config.setBool(PROP_RELIC_SHARING, relicSharing);
                 config.save();
+                //adjustSharedRelics();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
         settingsPanel.addUIElement(relicSharingBtn);
 
-        ModLabel costumeLabelTxt = new ModLabel("Costume change:",350.0f, 400.0f,settingsPanel,(me)->{});
+        ModLabel costumeLabelTxt = new ModLabel("Costume change:",350.0f, 415.0f,settingsPanel,(me)->{});
         settingsPanel.addUIElement(costumeLabelTxt);
         ModLabel costumeColorTxt = new ModLabel(COSTUME_STRINGS[costumeColor],670.0f, 415.0f,settingsPanel,(me)->{});
         settingsPanel.addUIElement(costumeColorTxt);
@@ -286,6 +293,14 @@ public class Beaked implements PostInitializeSubscriber,
         });
         settingsPanel.addUIElement(costumeRightBtn);
 
+        ModLabel specialRelicsText = new ModLabel("Special Relics:",350.0f, 350.0f,settingsPanel,(me)->{});
+        settingsPanel.addUIElement(specialRelicsText);
+        ModLabel requiresRestartText = new ModLabel("(Special relic changes require restart)",1050.0f, 350.0f,settingsPanel,(me)->{});
+        settingsPanel.addUIElement(requiresRestartText);
+
+        addSpecialRelicRadioOptions(settingsPanel,600f,290f,new SacredNecklace(),PROP_SACRED_NECKLACE);
+        addSpecialRelicRadioOptions(settingsPanel, 820f,290f, new SacredDeck(),PROP_SACRED_DECK);
+
         Settings.isDailyRun = false;
         Settings.isTrial = false;
         Settings.isDemo = false;
@@ -296,6 +311,140 @@ public class Beaked implements PostInitializeSubscriber,
         }
         BaseMod.addPotion(RitualPotion.class, YELLOW, YELLOW, YELLOW, RitualPotion.POTION_ID, BeakedEnum.BEAKED_THE_CULTIST);
         BaseMod.addPotion(MendingBrew.class,Color.GREEN,Color.WHITE,Color.GREEN,MendingBrew.POTION_ID,BeakedEnum.BEAKED_THE_CULTIST);
+    }
+
+    public void addSpecialRelicRadioOptions(ModPanel settingsPanel, float x, float y, AbstractRelic relic,String saveProperty){
+
+        int relicSetting = -1;
+        try {
+            SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+            config.load();
+            relicSetting = config.getInt(saveProperty);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        ModRelicPreview sacredNecklaceImg = new ModRelicPreview(x, y,relic,settingsPanel);
+        settingsPanel.addUIElement(sacredNecklaceImg);
+
+        ModLabeledToggleButton radioBtnOff = new ModLabeledToggleButton("Off",
+                x, y-10f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                relicSetting == 0, settingsPanel, (label) -> {
+        }, (button) -> {
+            try {
+                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+                config.setInt(saveProperty,0);
+                config.save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //adjustSharedRelics();
+            updateButtonStates();
+        });
+        settingsPanel.addUIElement(radioBtnOff);
+
+        ModLabeledToggleButton radioBtnBeaked = new ModLabeledToggleButton("Beaked Only",
+                x, y-50f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                relicSetting == 1, settingsPanel, (label) -> {
+        }, (button) -> {
+            try {
+                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+                config.setInt(saveProperty,1);
+                config.save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //adjustSharedRelics();
+            updateButtonStates();
+        });
+        settingsPanel.addUIElement(radioBtnBeaked);
+
+        ModLabeledToggleButton radioBtnAll = new ModLabeledToggleButton("Everyone",
+                x, y-90f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                relicSetting == 2, settingsPanel, (label) -> {
+        }, (button) -> {
+            try {
+                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+                config.setInt(saveProperty,2);
+                config.save();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //adjustSharedRelics();
+            updateButtonStates();
+        });
+        settingsPanel.addUIElement(radioBtnAll);
+
+        ArrayList<ModLabeledToggleButton> btns = new ArrayList<>();
+        btns.add(radioBtnOff);
+        btns.add(radioBtnBeaked);
+        btns.add(radioBtnAll);
+        specialRelicRadioBtns.put(saveProperty,btns);
+    }
+
+    public void updateButtonStates(){
+        for (String s : specialRelicRadioBtns.keySet()){
+            int count = 0;
+            int relicSetting=-1;
+            try {
+                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+                config.load();
+                relicSetting = config.getInt(s);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            for (ModLabeledToggleButton btn : specialRelicRadioBtns.get(s)){
+                btn.toggle.enabled = (count == relicSetting);
+                count ++;
+            }
+        }
+    }
+
+    public void adjustSharedRelics(){
+
+        // as soon as removeRelicFromCustomPool works in BaseMod, re-enable it and adjustSharedRelics calls, and we're home free.
+
+        for (AbstractRelic relic : shareableRelics){
+            Beaked.logger.debug("Removing relic " + relic.name);
+            BaseMod.removeRelic(relic);
+            //BaseMod.removeRelicFromCustomPool(relic,AbstractCardEnum.BEAKED_YELLOW);
+        }
+        AbstractRelic sNeck = (RelicLibrary.getRelic(SacredNecklace.ID));
+        if (sNeck != null) {
+            BaseMod.removeRelic(sNeck);
+            //BaseMod.removeRelicFromCustomPool(sNeck,AbstractCardEnum.BEAKED_YELLOW);
+        }
+        AbstractRelic sDeck = (RelicLibrary.getRelic(SacredDeck.ID));
+        if (sDeck != null) {
+            BaseMod.removeRelic(sDeck);
+            //BaseMod.removeRelicFromCustomPool(sNeck,AbstractCardEnum.BEAKED_YELLOW);
+        }
+
+        addSharedRelics();
+    }
+
+    public void addSharedRelics(){
+
+        for (AbstractRelic relic : shareableRelics){
+            Beaked.logger.debug("Adding relic " + relic.name);
+            if (relicSharing) BaseMod.addRelic(relic, RelicType.SHARED);
+            else BaseMod.addRelicToCustomPool(relic, AbstractCardEnum.BEAKED_YELLOW);
+        }
+
+        try {
+            SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
+            config.load();
+
+            int necklaceVal = config.getInt(PROP_SACRED_NECKLACE);
+            if (necklaceVal == 1) BaseMod.addRelicToCustomPool(new SacredNecklace(),AbstractCardEnum.BEAKED_YELLOW);
+            else if (necklaceVal == 2) BaseMod.addRelic(new SacredNecklace(),RelicType.SHARED);
+            int deckVal = config.getInt(PROP_SACRED_DECK);
+            if (deckVal == 1) BaseMod.addRelicToCustomPool(new SacredDeck(),AbstractCardEnum.BEAKED_YELLOW);
+            else if (deckVal == 2) BaseMod.addRelic(new SacredDeck(),RelicType.SHARED);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void changeCostume(){
@@ -342,19 +491,16 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addRelicToCustomPool(new ThroatLozenge(), AbstractCardEnum.BEAKED_YELLOW);
         BaseMod.addRelicToCustomPool(new RitualPlumage(), AbstractCardEnum.BEAKED_YELLOW);
         BaseMod.addRelicToCustomPool(new SacrificeDoll(), AbstractCardEnum.BEAKED_YELLOW);
-        if (relicSharing){
-            BaseMod.addRelic(new ShinyBauble(), RelicType.SHARED);
-            BaseMod.addRelic(new MawFillet(), RelicType.SHARED);
-            BaseMod.addRelic(new SacredNecklace(), RelicType.SHARED);
-            BaseMod.addRelic(new SacredNecklace2(), RelicType.SHARED);
-        }
-        else {
-            BaseMod.addRelicToCustomPool(new ShinyBauble(), AbstractCardEnum.BEAKED_YELLOW);
-            BaseMod.addRelicToCustomPool(new MawFillet(), AbstractCardEnum.BEAKED_YELLOW);
-            BaseMod.addRelicToCustomPool(new SacredNecklace(), AbstractCardEnum.BEAKED_YELLOW);
-        }
+        addShareableRelic(new ShinyBauble());
+        addShareableRelic(new MawFillet());
+
+        addSharedRelics();
 
         logger.info("done editing relics");
+    }
+
+    public void addShareableRelic(AbstractRelic relic){
+        shareableRelics.add(relic);
     }
 
     @Override

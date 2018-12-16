@@ -50,6 +50,7 @@ public class VigorBurst extends CustomCard {
 
     @Override
     public void triggerWhenDrawn() {
+        this.flash();
         AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player,AbstractDungeon.player,this.magicNumber));
     }
 
