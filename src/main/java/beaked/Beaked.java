@@ -295,7 +295,7 @@ public class Beaked implements PostInitializeSubscriber,
 
         ModLabel specialRelicsText = new ModLabel("Special Relics:",350.0f, 350.0f,settingsPanel,(me)->{});
         settingsPanel.addUIElement(specialRelicsText);
-        ModLabel requiresRestartText = new ModLabel("(Special relic changes require restart)",1050.0f, 350.0f,settingsPanel,(me)->{});
+        ModLabel requiresRestartText = new ModLabel("(Special relic changes require restart)",1000.0f, 350.0f,settingsPanel,(me)->{});
         settingsPanel.addUIElement(requiresRestartText);
 
         addSpecialRelicRadioOptions(settingsPanel,600f,290f,new SacredNecklace(),PROP_SACRED_NECKLACE);
@@ -309,8 +309,9 @@ public class Beaked implements PostInitializeSubscriber,
             BaseMod.addMonster(SuperParasite.ID, "Giant Parasite", () -> new SuperParasite());
             BaseMod.addEliteEncounter(TheBeyond.ID, new MonsterInfo(SuperParasite.ID,1.0f));
         }
+
         BaseMod.addPotion(RitualPotion.class, YELLOW, YELLOW, YELLOW, RitualPotion.POTION_ID, BeakedEnum.BEAKED_THE_CULTIST);
-        BaseMod.addPotion(MendingBrew.class,Color.GREEN,Color.WHITE,Color.GREEN,MendingBrew.POTION_ID,BeakedEnum.BEAKED_THE_CULTIST);
+        BaseMod.addPotion(MendingBrew.class,Color.GREEN.cpy(),Color.WHITE.cpy(),Color.GREEN.cpy(),MendingBrew.POTION_ID,BeakedEnum.BEAKED_THE_CULTIST);
     }
 
     public void addSpecialRelicRadioOptions(ModPanel settingsPanel, float x, float y, AbstractRelic relic,String saveProperty){

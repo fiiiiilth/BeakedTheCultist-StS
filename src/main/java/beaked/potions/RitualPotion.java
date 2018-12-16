@@ -1,5 +1,6 @@
 package beaked.potions;
 
+import basemod.abstracts.CustomPotion;
 import beaked.powers.RitualPlayerPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,7 +11,7 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-public class RitualPotion extends AbstractPotion {
+public class RitualPotion extends CustomPotion {
     public static final String POTION_ID = "beaked:RitualPotion";
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
     public static final String NAME = potionStrings.NAME;
@@ -24,7 +25,7 @@ public class RitualPotion extends AbstractPotion {
         this.isThrown = false;
         this.tips.add(new PowerTip(this.name, this.description));
         this.tips.add(new PowerTip(RitualPlayerPower.NAME, RitualPlayerPower.DESCRIPTIONS[0] + this.getPotency() +
-                RitualPlayerPower.DESCRIPTIONS[2]));
+                RitualPlayerPower.DESCRIPTIONS[1]));
     }
 
     @Override

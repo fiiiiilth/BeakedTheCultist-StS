@@ -1,5 +1,6 @@
 package beaked.potions;
 
+import basemod.abstracts.CustomPotion;
 import beaked.powers.MendingPower;
 import beaked.powers.RitualPlayerPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.MagnetismPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-public class MendingBrew extends AbstractPotion {
+public class MendingBrew extends CustomPotion {
     public static final String POTION_ID = "beaked:MendingBrew";
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
     public static final String NAME = potionStrings.NAME;
