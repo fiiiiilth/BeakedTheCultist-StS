@@ -116,7 +116,9 @@ public class CrazyRitualsPower extends AbstractPower {
         }
         fullDescription = fullDescription.replace("*","");
         for (DynamicVariable dv : BaseMod.cardDynamicVariableMap.values()){
-            fullDescription = fullDescription.replace("!"+dv.key()+"!",""+dv.value(nextCard));
+            if (fullDescription.contains("!" + dv.key() + "!")) {
+                fullDescription = fullDescription.replace("!" + dv.key() + "!", "" + dv.baseValue(nextCard));
+            }
         }
         Beaked.logger.log(Level.INFO,"Crazy Rituals playing " + nextCard.name + ": " + fullDescription);
         nextCard.purgeOnUse = true;
