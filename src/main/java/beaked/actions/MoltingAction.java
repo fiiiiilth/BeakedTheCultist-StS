@@ -19,7 +19,6 @@ public class MoltingAction extends AbstractGameAction {
     private AbstractPlayer p;
     public int block;
     public int bonusBlock;
-    public static int numExhausted;
 
     public MoltingAction(AbstractCreature target, AbstractCreature source,int block,int bonusBlock) {
         this.p = (AbstractPlayer)target;
@@ -39,19 +38,17 @@ public class MoltingAction extends AbstractGameAction {
                 return;
             }
 
-            int i;
             if (this.p.hand.size() == 1) {
-                numExhausted = 1;
 
                 AbstractCard c = this.p.hand.getTopCard();
                 gainBlock(c);
                 this.p.hand.moveToExhaustPile(c);
 
                 CardCrawlGame.dungeon.checkForPactAchievement();
+                this.isDone = true;
                 return;
             }
 
-            numExhausted = 1;
             AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false);
             this.tickDuration();
             return;

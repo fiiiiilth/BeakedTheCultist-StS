@@ -38,7 +38,6 @@ public class ReverseWitherOption extends AbstractCampfireOption {
     public void useOption() {
         if(this.usable) {
             AbstractDungeon.effectList.add(new ReverseWitherEffect(this,this.isFree));
-            this.isFree = false;
         }
     }
 }

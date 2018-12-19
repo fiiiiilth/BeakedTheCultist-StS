@@ -25,7 +25,7 @@ public class ReverseWitherEffect extends AbstractGameEffect {
     private static final float DUR = 1.5f;
     private boolean openedScreen = false;
     private Color screenColor = AbstractDungeon.fadeColor.cpy();
-    public boolean isFree = false;
+    public boolean isFree;
     public boolean choseCard = false;
     public ReverseWitherOption button;
 
@@ -51,6 +51,7 @@ public class ReverseWitherEffect extends AbstractGameEffect {
             AbstractDungeon.topLevelEffects.add(new CardGlowBorder(card));
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             choseCard = true;
+            button.isFree = false; // we chose a card, so next time we click the reverse withering button it won't be a free action.
             ((RestRoom)AbstractDungeon.getCurrRoom()).fadeIn();
         }
         if(this.duration < 1.0f && !this.openedScreen) {
