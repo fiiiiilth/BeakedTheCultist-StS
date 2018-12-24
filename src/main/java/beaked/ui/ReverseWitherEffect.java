@@ -68,14 +68,19 @@ public class ReverseWitherEffect extends AbstractGameEffect {
             this.isDone = true;
             if (this.isFree && choseCard) {
                 // reopen options menu
-                if (AbstractDungeon.getCurrRoom() instanceof RestRoom)
+                if (AbstractDungeon.getCurrRoom() instanceof RestRoom) {
                     button.setImageAndDescription();
                     ((RestRoom) AbstractDungeon.getCurrRoom()).campfireUI.reopen();
+                    // there was a bug with the fire sound persisting and I'm not sure why,
+                    // so this is basically a randomly thrown out preventative measure.
+                    ((RestRoom) AbstractDungeon.getCurrRoom()).cutFireSound();
+                }
             }else{
                 // complete room and bring up continue button
                 if(CampfireUI.hidden) {
                     AbstractRoom.waitTimer = 0.0f;
                     AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
+                    // this is where the fire sound actually should cut off, logically.
                     ((RestRoom) AbstractDungeon.getCurrRoom()).cutFireSound();
                 }
             }

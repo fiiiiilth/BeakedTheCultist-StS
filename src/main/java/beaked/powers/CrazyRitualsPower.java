@@ -5,6 +5,7 @@ import basemod.abstracts.DynamicVariable;
 import beaked.Beaked;
 import beaked.actions.CrazyRitualsPlayAction;
 import beaked.actions.QueueCardFrontAction;
+import beaked.patches.BeakedCardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.ShowCardAction;
@@ -99,6 +100,7 @@ public class CrazyRitualsPower extends AbstractPower {
                 nextCard.rarity == AbstractCard.CardRarity.CURSE ||
                 nextCard.type == AbstractCard.CardType.STATUS ||
                 nextCard.cost == -2 ||
+                nextCard.hasTag(BeakedCardTags.NO_CRAZY_RITUALS) ||
                 // Yohane's summons require a special FriendlyMinions-enabled character, which Beaked is not.
                 nextCard.cardID.startsWith("Yohane:Little_Demon_") ||
                 // Mad Scientist's Mechanize apparently doesn't work

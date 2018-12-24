@@ -5,6 +5,7 @@ import basemod.abstracts.CustomRelic;
 import beaked.Beaked;
 import beaked.cards.fakeCards.BackButtonCard;
 import beaked.cards.fakeCards.CharacterSelectCard;
+import beaked.patches.BeakedCardTags;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.SuperRareRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -56,9 +57,9 @@ public class SacredDeck extends CustomRelic implements SuperRareRelic{
         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         ArrayList<AbstractCard> cards = CardLibrary.getCardList(CardLibrary.LibraryType.valueOf(selected.cardColor.name()));
 
-        // add ALL cards
+        // add ALL cards except specifically-tagged ones
         for (AbstractCard card:cards){
-            group.addToTop(card.makeCopy());
+            if (!card.hasTag(BeakedCardTags.NO_SACRED_DECK)) group.addToTop(card.makeCopy());
         }
         group.sortByType(true);
         group.sortByRarityPlusStatusCardType(true);

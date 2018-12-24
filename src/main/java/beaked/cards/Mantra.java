@@ -25,7 +25,7 @@ public class Mantra extends CustomCard {
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 2;
     public static final int DAMAGE = 4;
-    public static final int UPGRADE_NEW_COST = 1;
+    public static final int UPGRADE_PLUS_DAMAGE = 1;
 
     public Mantra() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
@@ -79,7 +79,7 @@ public class Mantra extends CustomCard {
     public void upgrade() {
         if(!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(UPGRADE_NEW_COST);
+            this.upgradeDamage(UPGRADE_PLUS_DAMAGE);
         }
     }
 

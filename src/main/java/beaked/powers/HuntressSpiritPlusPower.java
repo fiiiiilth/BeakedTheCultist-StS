@@ -64,7 +64,10 @@ public class HuntressSpiritPlusPower extends AbstractPower
             if(card.cost == -1) {
                 cost = EnergyPanel.getCurrentEnergy();
             }
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, cost*2), cost*2));
+            // don't add the power if card costs 0 (no change to dex)
+            if (cost != 0) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, cost * 2), cost * 2));
+            }
             --this.amount;
             if (this.amount == 0) {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));

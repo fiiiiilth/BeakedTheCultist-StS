@@ -1,0 +1,12 @@
+Here is where we highlight any features in Beaked that are intended to interact with other mods, or that other mods can easily configure.
+
+ - NO_CRAZY_RITUALS Tag:
+Beaked has a card named Crazy Rituals that plays random cards of ANY color, including other mods' cards.
+Currently it excludes special rarity cards, curses, statuses, and unplayable cards automatically.
+If you have a card that you do NOT want Crazy Rituals to use, give it the BeakedCardTags.NO_CRAZY_RITUALS tag.
+
+ - NO_SACRED_DECK Tag:
+Beaked has a super-rare boss relic called Sacred Deck that allows you to add ANY one card in the game to your deck.
+No cards are currently excluded, so you can even choose cards of special rarity and ones you couldn't normally obtain.
+This relic is in the spirit of fun rather than balance, and there are tons of overpowered cards available to pick, so don't worry much about keeping things fair.
+If you have a card that should NOT appear in Sacred Deck's selection (as in, obtaining it would literally cause the game to break), give it the BeakedCardTags.NO_SACRED_DECK tag.

@@ -63,7 +63,10 @@ public class WarriorSpiritPower extends AbstractPower
             if(card.cost == -1) {
                 cost = EnergyPanel.getCurrentEnergy();
             }
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, cost), cost));
+            // don't add the power if card costs 0 (no change to str)
+            if (cost != 0) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, cost), cost));
+            }
             --this.amount;
             if (this.amount == 0) {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));

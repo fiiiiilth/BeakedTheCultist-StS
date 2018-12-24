@@ -206,8 +206,8 @@
 	"beaked:BleedPower": {
 		"NAME": "Bleed",
 		"DESCRIPTIONS": [
-			"This monster takes #b",
-			" damage at the end of the round. Does not decrease over time."
+			"At the end of its turn, takes #b",
+			" damage."
 		]
 	},
 	"beaked:HeadsImpatiencePower": {

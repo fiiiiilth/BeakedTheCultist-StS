@@ -45,7 +45,7 @@
     "NAME": "Maw Fillet",
     "FLAVOR": "The stench attracts the hungriest, repels the wealthiest.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of each turn. Shops are replaced with Elites."
+      "Gain [E] at the start of each turn. Shop spaces are replaced with Elite spaces."
     ]
   },
   "beaked:BlessedCoat": {
