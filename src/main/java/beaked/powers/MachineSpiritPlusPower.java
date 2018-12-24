@@ -64,7 +64,7 @@ public class MachineSpiritPlusPower extends AbstractPower
                 AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, cost * 5));
             }
             else if (cost < 0){
-                AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner,this.owner,cost*5));
+                AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner,this.owner,-cost*5));
             }
             --this.amount;
             if (this.amount == 0) {

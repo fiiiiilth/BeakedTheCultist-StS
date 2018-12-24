@@ -1,6 +1,8 @@
 package beaked.variables;
 
 import basemod.abstracts.DynamicVariable;
+import beaked.Beaked;
+import beaked.cards.AbstractWitherCard;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
@@ -15,8 +17,6 @@ public class WitherMiscVariable extends DynamicVariable
     @Override
     public boolean isModified(AbstractCard card)
     {
-        //if (card instanceof AbstractWitherCard) return (((AbstractWitherCard) card).baseMisc != card.misc);
-        //return card.misc != 0;
         return false;
     }
 
@@ -37,7 +37,7 @@ public class WitherMiscVariable extends DynamicVariable
     @Override
     public boolean upgraded(AbstractCard card)
     {
-        return false;
+        return card instanceof AbstractWitherCard && ((AbstractWitherCard) card).upgradedMisc;
     }
 
     @Override

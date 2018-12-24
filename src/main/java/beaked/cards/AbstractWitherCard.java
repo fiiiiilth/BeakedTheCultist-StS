@@ -2,6 +2,7 @@ package beaked.cards;
 
 import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
+import beaked.Beaked;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
 import com.badlogic.gdx.graphics.Color;
@@ -21,6 +22,7 @@ public abstract class AbstractWitherCard extends CustomCard {
     public static final String DEPLETED_DESCRIPTION = "Depleted. NL ";
     // misc (found in AbstractCard):    // the current power of the card. Wither effects change this. Use !I! in card descriptions to show this value.
     public int baseMisc;                // the starting power of the card. Does not change as the card withers.
+    public boolean upgradedMisc = false;
     public boolean isDepleted = false;  // if the card's power has withered to 0.
     public String witherEffect = "";    // a description of what value the Wither effect changes.
     public int witherAmount = 0;        // how much the card withers, ie. the 2 in "Wither 2." Also used by replenish effects.
@@ -144,6 +146,7 @@ public abstract class AbstractWitherCard extends CustomCard {
     protected void upgradeMisc(int amount){
         this.baseMisc += amount;
         this.misc += amount;
+        this.upgradedMisc = true;
         applyPowers();
     }
 }

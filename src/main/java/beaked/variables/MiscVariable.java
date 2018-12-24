@@ -37,6 +37,6 @@ public class MiscVariable extends DynamicVariable
     @Override
     public boolean upgraded(AbstractCard card)
     {
-        return false;
+        return card instanceof AbstractWitherCard && ((AbstractWitherCard) card).upgradedMisc;
     }
 }

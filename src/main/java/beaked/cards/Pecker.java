@@ -23,7 +23,6 @@ public class Pecker extends AbstractWitherCard {
     private static final int NUM_HITS = 5;
     private static final int WITHER_MINUS_NUM_HITS = 1;
     private static final int UPGRADE_PLUS_NUM_HITS = 2;
-    private static final int UPGRADE_NEW_COST = 1;
 
     public Pecker() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK,
@@ -52,7 +51,6 @@ public class Pecker extends AbstractWitherCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMisc(UPGRADE_PLUS_NUM_HITS);
-            this.upgradeBaseCost(UPGRADE_NEW_COST);
         }
     }
 }
