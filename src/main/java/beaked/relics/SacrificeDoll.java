@@ -2,6 +2,7 @@ package beaked.relics;
 
 import basemod.abstracts.CustomRelic;
 import beaked.actions.SacrificeDollAction;
+import beaked.actions.SacrificeDollInitialAction;
 import beaked.tools.TextureLoader;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,6 +32,6 @@ public class SacrificeDoll extends CustomRelic {
 
     @Override
     public void atBattleStart() {
-        AbstractDungeon.actionManager.addToBottom(new SacrificeDollAction());
+        AbstractDungeon.actionManager.addToBottom(new SacrificeDollInitialAction());
     }
 }

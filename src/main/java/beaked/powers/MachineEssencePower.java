@@ -4,8 +4,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.beyond.MindBloom;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.MarkOfTheBloom;
 
 public class MachineEssencePower extends AbstractPower {
     public static final String POWER_ID = "beaked:MachineEssencePower";
@@ -26,10 +28,11 @@ public class MachineEssencePower extends AbstractPower {
 
     @Override
     public int onHeal(final int healAmount) {
-        if (!AbstractDungeon.player.hasPower(NoHealPower.POWER_ID)){
+        if (!AbstractDungeon.player.hasPower(NoHealPower.POWER_ID) && healAmount > 0){
             this.flash();
         }
-        return healAmount + amount;
+        if (healAmount > 0) return healAmount + amount;
+        else return healAmount;
     }
 
     @Override

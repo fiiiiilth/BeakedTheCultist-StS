@@ -259,7 +259,7 @@ public class Beaked implements PostInitializeSubscriber,
         });
         settingsPanel.addUIElement(bossesBtn);
 
-        ModLabeledToggleButton relicSharingBtn = new ModLabeledToggleButton("Enable regular Beaked relics for other characters (REQUIRES RESTART)",
+        ModLabeledToggleButton relicSharingBtn = new ModLabeledToggleButton("Allow other characters to encounter some Beaked relics.",
                 350.0f, 500.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 relicSharing, settingsPanel, (label) -> {
         }, (button) -> {
@@ -268,7 +268,7 @@ public class Beaked implements PostInitializeSubscriber,
                 SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
                 config.setBool(PROP_RELIC_SHARING, relicSharing);
                 config.save();
-                //adjustSharedRelics();
+                adjustSharedRelics();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -281,7 +281,7 @@ public class Beaked implements PostInitializeSubscriber,
         settingsPanel.addUIElement(costumeColorTxt);
 
         ModButton costumeLeftBtn = new ModButton(605.0f, 400.0f, ImageMaster.loadImage("img/tinyLeftArrow.png"),settingsPanel,(me)->{
-            costumeColor = (costumeColor-1)%NUM_COSTUMES;
+            costumeColor = costumeColor-1>=0?costumeColor-1:NUM_COSTUMES-1;
             costumeColorTxt.text = COSTUME_STRINGS[costumeColor];
             changeCostume();
         });
@@ -295,8 +295,6 @@ public class Beaked implements PostInitializeSubscriber,
 
         ModLabel specialRelicsText = new ModLabel("Special Relics:",350.0f, 350.0f,settingsPanel,(me)->{});
         settingsPanel.addUIElement(specialRelicsText);
-        ModLabel requiresRestartText = new ModLabel("(Special relic changes require restart)",1000.0f, 350.0f,settingsPanel,(me)->{});
-        settingsPanel.addUIElement(requiresRestartText);
 
         addSpecialRelicRadioOptions(settingsPanel,600f,290f,new SacredNecklace(),PROP_SACRED_NECKLACE);
         addSpecialRelicRadioOptions(settingsPanel, 820f,290f, new SacredDeck(),PROP_SACRED_DECK);
@@ -339,7 +337,7 @@ public class Beaked implements PostInitializeSubscriber,
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            //adjustSharedRelics();
+            adjustSharedRelics();
             updateButtonStates();
         });
         settingsPanel.addUIElement(radioBtnOff);
@@ -355,7 +353,7 @@ public class Beaked implements PostInitializeSubscriber,
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            //adjustSharedRelics();
+            adjustSharedRelics();
             updateButtonStates();
         });
         settingsPanel.addUIElement(radioBtnBeaked);
@@ -371,7 +369,7 @@ public class Beaked implements PostInitializeSubscriber,
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            //adjustSharedRelics();
+            adjustSharedRelics();
             updateButtonStates();
         });
         settingsPanel.addUIElement(radioBtnAll);
@@ -403,22 +401,20 @@ public class Beaked implements PostInitializeSubscriber,
 
     public void adjustSharedRelics(){
 
-        // as soon as removeRelicFromCustomPool works in BaseMod, re-enable it and adjustSharedRelics calls, and we're home free.
-
         for (AbstractRelic relic : shareableRelics){
             Beaked.logger.debug("Removing relic " + relic.name);
             BaseMod.removeRelic(relic);
-            //BaseMod.removeRelicFromCustomPool(relic,AbstractCardEnum.BEAKED_YELLOW);
+            BaseMod.removeRelicFromCustomPool(relic,AbstractCardEnum.BEAKED_YELLOW);
         }
         AbstractRelic sNeck = (RelicLibrary.getRelic(SacredNecklace.ID));
         if (sNeck != null) {
             BaseMod.removeRelic(sNeck);
-            //BaseMod.removeRelicFromCustomPool(sNeck,AbstractCardEnum.BEAKED_YELLOW);
+            BaseMod.removeRelicFromCustomPool(sNeck,AbstractCardEnum.BEAKED_YELLOW);
         }
         AbstractRelic sDeck = (RelicLibrary.getRelic(SacredDeck.ID));
         if (sDeck != null) {
             BaseMod.removeRelic(sDeck);
-            //BaseMod.removeRelicFromCustomPool(sNeck,AbstractCardEnum.BEAKED_YELLOW);
+            BaseMod.removeRelicFromCustomPool(sDeck,AbstractCardEnum.BEAKED_YELLOW);
         }
 
         addSharedRelics();
