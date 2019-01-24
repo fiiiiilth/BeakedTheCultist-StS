@@ -31,6 +31,7 @@ public class SurvivalInstinct extends CustomCard {
     public SurvivalInstinct() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
         this.baseMagicNumber = this.magicNumber = INTANGIBLE;
+        this.isEthereal = true;
     }
 
     @Override

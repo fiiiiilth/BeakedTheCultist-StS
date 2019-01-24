@@ -23,6 +23,7 @@ public class HuntressSpirit extends CustomCard {
 
     public HuntressSpirit() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.SELF);
+        this.exhaust = true;
     }
 
     @Override

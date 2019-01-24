@@ -178,18 +178,18 @@
 	},
 	"beaked:WarriorSpirit": {
 		"NAME": "Warrior Spirit",
-		"DESCRIPTION": "Your next Attack this turn is played twice. NL Gain Strength equal to its cost.",
-		"UPGRADE_DESCRIPTION": "Your next Attack this turn is played twice. NL Gain Strength equal to twice its cost."
+		"DESCRIPTION": "Your next Attack this turn is played twice. NL Gain Strength equal to its cost. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Your next Attack this turn is played twice. NL Gain Strength equal to twice its cost. NL Exhaust."
 	},
 	"beaked:HuntressSpirit": {
 		"NAME": "Huntress Spirit",
-		"DESCRIPTION": "Your next Skill this turn is played twice. NL Gain Dexterity equal to its cost.",
-		"UPGRADE_DESCRIPTION": "Your next Skill this turn is played twice. NL Gain Dexterity equal to twice its cost."
+		"DESCRIPTION": "Your next Skill this turn is played twice. NL Gain Dexterity equal to its cost. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Your next Skill this turn is played twice. NL Gain Dexterity equal to twice its cost. NL Exhaust."
 	},
 	"beaked:MachineSpirit": {
 		"NAME": "Machine Spirit",
-		"DESCRIPTION": "Your next Power this turn is played twice. NL Heal for 3 times its cost.",
-		"UPGRADE_DESCRIPTION": "Your next Power this turn is played twice. NL Heal for 5 times its cost."
+		"DESCRIPTION": "Your next Power this turn is played twice. NL Heal for 3 times its cost. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Your next Power this turn is played twice. NL Heal for 5 times its cost. NL Exhaust."
 	},
 	"beaked:WildInstinct": {
 		"NAME": "Wild Instinct",
@@ -301,7 +301,7 @@
 	},
 	"beaked:SurvivalInstinct": {
 		"NAME": "Survival Instinct",
-		"DESCRIPTION": "Can only be played if you haven't played any other cards this turn. NL Gain 1 Intangible. NL Become Entangled.",
+		"DESCRIPTION": "Ethereal. NL Can only be played if you haven't played any other cards this turn. NL Gain 1 Intangible. NL Become Entangled.",
 		"EXTENDED_DESCRIPTION": ["I have played other cards this turn!"]
 	},
 	"beaked:ShadowFade": {
