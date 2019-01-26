@@ -134,7 +134,8 @@
 	},
 	"beaked:Brainwash": {
 		"NAME": "Brainwash",
-		"DESCRIPTION": "Exhaust all Depleted cards in your hand. NL Retain your hand this turn. NL Exhaust."
+		"DESCRIPTION": "Exhaust all Depleted cards in your hand. NL Retain your hand this turn. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Retain. NL Exhaust all Depleted cards in your hand. NL Retain your hand this turn. NL Exhaust."
 	},
 	"beaked:DarkTribute": {
 		"NAME": "Dark Tribute",

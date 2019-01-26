@@ -5,6 +5,8 @@ import beaked.Beaked;
 import beaked.actions.ExhaustAllDepletedAction;
 import beaked.actions.FlashHandAction;
 import beaked.patches.AbstractCardEnum;
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -21,8 +23,8 @@ public class Brainwash extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final int COST = 3;
-    public static final int UPGRADED_COST = 2;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final int COST = 0;
 
     public Brainwash() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.NONE);
@@ -45,7 +47,9 @@ public class Brainwash extends CustomCard {
     public void upgrade() {
         if(!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(UPGRADED_COST);
+            this.rawDescription = this.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+            AlwaysRetainField.alwaysRetain.set(this,true);
         }
     }
 

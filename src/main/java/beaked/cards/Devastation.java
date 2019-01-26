@@ -19,7 +19,7 @@ public class Devastation extends CustomCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final int COST = 3;
+    public static final int COST = 1;
     public static final int DRAW = 1;
     public static final int UPGRADE_PLUS_DRAW = 1;
 

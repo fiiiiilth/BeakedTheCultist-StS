@@ -19,7 +19,7 @@ public class Tradeoff extends AbstractWitherCard {
     private static CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final int COST = 1;
+    public static final int COST = 2;
     public static final int EXHAUST = 1;
     public static final int WITHER_MINUS_EXHAUST = -1;
     public static final int DRAW = 5;

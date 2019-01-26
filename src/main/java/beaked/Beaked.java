@@ -551,7 +551,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new Roost());
         BaseMod.addCard(new HuntressEssence());
         BaseMod.addCard(new Hexing());
-        BaseMod.addCard(new SowTheSeeds());
+        //BaseMod.addCard(new SowTheSeeds());
         BaseMod.addCard(new Pecker());
         BaseMod.addCard(new Negation());
         BaseMod.addCard(new Recite());
@@ -565,7 +565,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new MachineSpirit());
         BaseMod.addCard(new BloodForTheGods());
         BaseMod.addCard(new Replenish());
-        BaseMod.addCard(new PrayerOfSafety());
+        //BaseMod.addCard(new PrayerOfSafety());
         BaseMod.addCard(new BarbedWire());
         BaseMod.addCard(new SacrificialAttack());
         BaseMod.addCard(new DigDeeper());
@@ -575,7 +575,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.addCard(new SacrificialDive());
         BaseMod.addCard(new Mantra());
         BaseMod.addCard(new MaddeningMurmurs());
-        BaseMod.addCard(new TurnTheTables());
+        //BaseMod.addCard(new TurnTheTables());
         BaseMod.addCard(new StunningBlow());
         BaseMod.addCard(new WindBringer());
         BaseMod.addCard(new MimicWarrior());
@@ -640,7 +640,7 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(DesperateSwing.ID);
         UnlockTracker.unlockCard(Foresight.ID);
         UnlockTracker.unlockCard(Resilience.ID);
-        UnlockTracker.unlockCard(SowTheSeeds.ID);
+        //UnlockTracker.unlockCard(SowTheSeeds.ID);
         UnlockTracker.unlockCard(Pecker.ID);
         UnlockTracker.unlockCard(TuckingFeathers.ID);
         UnlockTracker.unlockCard(Negation.ID);
@@ -671,7 +671,7 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(CursingBlood.ID);
         UnlockTracker.unlockCard(DigDeep.ID);
         UnlockTracker.unlockCard(DigDeeper.ID);
-        UnlockTracker.unlockCard(PrayerOfSafety.ID);
+        //UnlockTracker.unlockCard(PrayerOfSafety.ID);
         UnlockTracker.unlockCard(BarbedWire.ID);
         UnlockTracker.unlockCard(SacrificialAttack.ID);
         UnlockTracker.unlockCard(BloodRitual.ID);
@@ -682,7 +682,7 @@ public class Beaked implements PostInitializeSubscriber,
         UnlockTracker.unlockCard(Mantra.ID);
         UnlockTracker.unlockCard(Windmill.ID);
         UnlockTracker.unlockCard(MaddeningMurmurs.ID);
-        UnlockTracker.unlockCard(TurnTheTables.ID);
+        //UnlockTracker.unlockCard(TurnTheTables.ID);
         UnlockTracker.unlockCard(Cower.ID);
         UnlockTracker.unlockCard(VolatileMisfortune.ID);
         UnlockTracker.unlockCard(SurvivalInstinct.ID);
