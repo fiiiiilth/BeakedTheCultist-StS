@@ -2,9 +2,9 @@
 	"modid": "beakedthecultist-sts",
 	"name": "Beaked The Cultist",
 	"author_list": ["EARL", "fiiiiilth","Moocowsgomoo", "TemmieAnimations", "BlueKnight", "Giuseppe", "MagicHampster", "Ashe","MunderW","Midn8","kiooeht","Reina","Rhapsody and community"],
-	"description": "Adds Beaked the Cultist as a new playable character.\nBEAKED REQUIRES THE STSLIB MOD!\n\n0.6.1\n- Googly Eyes Mod Support!\n- Machine Essence no longer boosts 0-HP heals.\n- Sacrifice Doll + Gambling Chip fix.\n- Costume arrows now loop properly.\n\n0.6.0:\n- Mantra now always 2-cost, upgrades to 5 damage.\n- Pecker now always 2-cost.\n- Bugfixes for Spirit cards.\n- Attempt to fix campfire SFX bug.\n\nIf you contributed and don't see your name in the credits, please let us know!",
+	"description": "Adds Beaked the Cultist as a new playable character.\nBEAKED REQUIRES THE STSLIB MOD!\n\n0.6.2\n- Relic art by Ashe for Maw Fillet, Sacred Deck, and Throat Lozenge!\n- \"Spirit\" cards now Exhaust.\n- Survival Instinct now Ethereal.\n- Brainwash cost 3 -> 0, upgrades to Retain.\n- Devastation cost 3 -> 1.\n- Tradeoff cost 1 -> 2.\n- Volatile Misfortune cost 3 -> 1.\n- Removed Sow the Seeds.\n- Removed Prayer of Safety.\n- Removed Turn the Tables.\n\n.0.6.1\n- Googly Eyes Mod Support!\n- Machine Essence no longer boosts 0-HP heals.\n- Sacrifice Doll + Gambling Chip fix.\n- Costume arrows now loop properly.\n\nIf you contributed and don't see your name in the credits, please let us know!",
 	"dependencies": ["basemod","stslib"],
-	"version": "0.6.1",
+	"version": "0.6.2",
 	"sts_version": "01-03-2018",
 	"mts_version": "3.6.0",
 	"update_json": "https://api.github.com/repos/fiiiiilth/BeakedTheCultist-StS/releases/latest"
