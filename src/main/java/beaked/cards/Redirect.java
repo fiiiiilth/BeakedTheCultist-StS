@@ -19,6 +19,7 @@ public class Redirect extends AbstractWitherCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION[0];
+    public static final String WITHER_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION[1];
     private static final int COST = 1;
     private static final int BLOCK_PER_STRENGTH = 6;
     private static final int WITHER_MINUS_BLOCK_PER_STRENGTH = 1;
@@ -29,7 +30,7 @@ public class Redirect extends AbstractWitherCard {
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
 
         this.baseMisc = this.misc = BLOCK_PER_STRENGTH;
-        this.witherEffect = "Decreases the #yStrength multiplier.";
+        this.witherEffect = WITHER_DESCRIPTION;
         this.witherAmount = WITHER_MINUS_BLOCK_PER_STRENGTH;
     }
 

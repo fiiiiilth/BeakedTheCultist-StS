@@ -20,6 +20,7 @@ public class Psalm extends AbstractWitherCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     private static final int COST = 0;
     private static final int DAMAGE = 4;
     private static final int WITHER_MINUS_DAMAGE = 2;
@@ -33,7 +34,7 @@ public class Psalm extends AbstractWitherCard {
         this.baseDamage = this.damage = DAMAGE;
         this.baseMisc = this.misc = damage;
         this.isMultiDamage = true;
-        this.witherEffect = "Decreases damage.";
+        this.witherEffect = EXTENDED_DESCRIPTION[0];
         this.linkWitherAmountToMagicNumber = true;
         if (Beaked.isReplayLoaded) {
             this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse

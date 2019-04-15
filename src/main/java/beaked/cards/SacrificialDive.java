@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
@@ -50,7 +51,7 @@ public class SacrificialDive extends CustomCard {
 
                 AbstractDungeon.actionManager.addToBottom(new LoseHPAction(p,p,(int)(intentDmgField.getInt(m)*hits*0.5f)));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m,p,new StrengthPower(m,-99),-99));
-                if (m != null && !m.hasPower("Artifact")) {
+                if (m != null && !m.hasPower(ArtifactPower.POWER_ID)) {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new GainStrengthPower(m, 99), 99));
                 }
             }catch(Exception e){

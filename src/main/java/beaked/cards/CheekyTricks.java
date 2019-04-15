@@ -19,6 +19,7 @@ public class CheekyTricks extends AbstractWitherCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     private static final int COST = 2;
     private static final int NEGATION = 4;
     private static final int WITHER_MINUS_NEGATION = 1;
@@ -29,7 +30,7 @@ public class CheekyTricks extends AbstractWitherCard {
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
         this.baseMisc = this.misc = NEGATION;
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_NEGATION;
-        this.witherEffect = "Decreases #yWither effects ignored. This card does not prevent its own #yWither effect.";
+        this.witherEffect = EXTENDED_DESCRIPTION[0];
         this.linkWitherAmountToMagicNumber = true;
         Beaked.setDescription(this,DESCRIPTION);
         if (Beaked.isReplayLoaded) {

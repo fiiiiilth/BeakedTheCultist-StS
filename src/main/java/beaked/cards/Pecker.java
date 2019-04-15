@@ -18,6 +18,7 @@ public class Pecker extends AbstractWitherCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     private static final int COST = 2;
     private static final int DAMAGE = 1;
     private static final int NUM_HITS = 5;
@@ -30,7 +31,7 @@ public class Pecker extends AbstractWitherCard {
 
         this.baseDamage = this.damage = DAMAGE;
         this.baseMisc = this.misc = NUM_HITS;
-        this.witherEffect = "Decreases the number of hits.";
+        this.witherEffect = EXTENDED_DESCRIPTION[0];
         this.witherAmount = WITHER_MINUS_NUM_HITS;
         Beaked.setDescription(this,DESCRIPTION);
     }

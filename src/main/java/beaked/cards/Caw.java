@@ -31,6 +31,7 @@ public class Caw extends AbstractWitherCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = -1;
     public static final int DAMAGE = 5;
     public static final int WITHER_MINUS_DAMAGE = 1;
@@ -42,7 +43,7 @@ public class Caw extends AbstractWitherCard {
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_DAMAGE;
         this.baseMisc = this.misc = this.damage;
         this.isMultiDamage = true;
-        this.witherEffect = "Decreases damage.";
+        this.witherEffect = EXTENDED_DESCRIPTION[0];
         this.linkWitherAmountToMagicNumber = true;
         if (Beaked.isReplayLoaded) {
             this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse

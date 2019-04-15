@@ -2,15 +2,18 @@ package beaked.ui;
 
 import beaked.Beaked;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 
 public class ReverseWitherOption extends AbstractCampfireOption {
 
-    public static final String LABEL = "Reverse Withering";
-    public static final String FREE_DESCRIPTION = "(Free action) Fully replenish a Wither card.";
-    public static final String DESCRIPTION = "Fully replenish another Wither card.";
-    public static final String UNUSABLE_DESCRIPTION = "You have no Wither cards to replenish.";
+    public static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("beaked:ReverseWitherCampfireButton");
+    public static final String LABEL = uiStrings.TEXT[0];
+    public static final String FREE_DESCRIPTION = uiStrings.TEXT[1];
+    public static final String DESCRIPTION = uiStrings.TEXT[2];
+    public static final String UNUSABLE_DESCRIPTION = uiStrings.TEXT[3];
     public boolean isFree = true;
 
     public ReverseWitherOption() {

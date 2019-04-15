@@ -1,0 +1,12 @@
+{
+  "Beaked": {
+    "NAMES": [
+      "the Beaked",
+      "Beaked The Cultist"
+    ],
+    "TEXT": [
+      "Relies on healing and familiar techniques to power through, NL resorting to potent but hard to replicate spells.",
+      "CA-CAW!!!" // attacking spire heart, and vampire event
+    ]
+  }
+}

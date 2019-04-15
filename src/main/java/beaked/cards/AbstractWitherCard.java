@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
@@ -19,7 +20,8 @@ import java.util.List;
 
 public abstract class AbstractWitherCard extends CustomCard {
 
-    public static final String DEPLETED_DESCRIPTION = "Depleted. NL ";
+    public static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("beaked:WitherCard");
+    public static final String DEPLETED_DESCRIPTION = uiStrings.TEXT[0];
     // misc (found in AbstractCard):    // the current power of the card. Wither effects change this. Use !I! in card descriptions to show this value.
     public int baseMisc;                // the starting power of the card. Does not change as the card withers.
     public boolean upgradedMisc = false;
@@ -55,7 +57,7 @@ public abstract class AbstractWitherCard extends CustomCard {
     @Override
     public boolean hasEnoughEnergy (){
         if (this.isDepleted) {
-            this.cantUseMessage = "This card is #rDepleted!";
+            this.cantUseMessage = uiStrings.TEXT[1];
             return false;
         }
         return super.hasEnoughEnergy();
@@ -71,12 +73,12 @@ public abstract class AbstractWitherCard extends CustomCard {
     @Override
     public List<TooltipInfo> getCustomTooltips() {
         List<TooltipInfo> tips = new ArrayList<>();
-        tips.add(new TooltipInfo("Wither Effect",this.witherEffect + this.getMiscValueText()));
+        tips.add(new TooltipInfo(uiStrings.TEXT[2],this.witherEffect + this.getMiscValueText()));
         return tips;
     }
 
     public String getMiscValueText(){
-        return " NL (Current value: #b" + this.misc + ")";
+        return uiStrings.TEXT[3] + this.misc + uiStrings.TEXT[4];
     }
 
     @Override

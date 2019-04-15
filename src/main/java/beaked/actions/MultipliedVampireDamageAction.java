@@ -4,6 +4,8 @@ import com.megacrit.cardcrawl.actions.*;
 import com.megacrit.cardcrawl.cards.*;
 import com.megacrit.cardcrawl.core.*;
 import com.megacrit.cardcrawl.dungeons.*;
+import com.megacrit.cardcrawl.powers.BufferPower;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.vfx.combat.*;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.*;
@@ -45,10 +47,10 @@ public class MultipliedVampireDamageAction extends AbstractGameAction
             healAmount = this.target.currentHealth;
         }
         if (healAmount > 0) {
-            if (healAmount > 1 && this.target.hasPower("Buffer")) {
+            if (healAmount > 1 && this.target.hasPower(BufferPower.POWER_ID)) {
                 return;
             }
-            if (healAmount > 1 && this.target.hasPower("IntangiblePlayer")) {
+            if (healAmount > 1 && this.target.hasPower(IntangiblePlayerPower.POWER_ID)) {
                 healAmount = 1;
             }
             healAmount *= this.healMult;

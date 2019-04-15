@@ -27,6 +27,7 @@ public class Flinch extends AbstractWitherCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     private static final int COST = 1;
     private static final int BLOCK_AMT = 16;
     private static final int WITHER_MINUS_BLOCK = 2;
@@ -39,7 +40,7 @@ public class Flinch extends AbstractWitherCard {
         this.baseMisc = this.misc = BLOCK_AMT;
         this.baseBlock = this.block = misc;
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_BLOCK;
-        this.witherEffect = "Decreases #yBlock.";
+        this.witherEffect = EXTENDED_DESCRIPTION[0];
         this.linkWitherAmountToMagicNumber = true;
         if (Beaked.isReplayLoaded) {
             this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse

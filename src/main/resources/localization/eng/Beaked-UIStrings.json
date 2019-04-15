@@ -1,0 +1,73 @@
+{
+  "beaked:WitherCard": {
+    "TEXT": [
+      "Depleted. NL ", // appears on the card
+      "This card is #rDepleted!", // what the character says when trying to play card
+      "Wither Effect", // title of tooltip describing wither effects
+      " NL (Current value: #b",
+      ")" // displaying current wither card power in the tooltip. Reads "(Current value: 5)" in-game
+    ]
+  },
+  "beaked:UICard": {
+    "TEXT": [
+      "Back", // name of back button card used in Sacred Deck menu
+      "Choose a different card color." // description of back button card
+    ]
+  },
+  "beaked:ReplenishWitherCardAction": {
+    "TEXT": [
+      "replenish" // full text reads "choose a card to replenish."
+    ]
+  },
+  "beaked:FaceTrader":{
+    "TEXT": [
+      "[Trade] #g50%: #gGood #gFace. #r50%: #rBad #rFace. #b100%: #bBest #bFace."
+    ]
+  },
+  "beaked:ReverseWitherCampfireButton":{
+    "TEXT": [
+      "Reverse Withering",
+      "(Free action) Fully replenish a Wither card.",
+      "Fully replenish another Wither card.",
+      "You have no Wither cards to replenish."
+    ]
+  },
+  "beaked:RelicPreview":{
+    "TEXT": [
+      "#rBoss #rRelic NL ",
+      "#bSpecial #bRelic NL ",
+      "#yShop #yRelic NL "
+    ]
+  },
+  "beaked:CostumeColors":{
+    "TEXT": [
+      "Yellow",
+      "Blue",
+      "Green",
+      "Angry"
+    ]
+  },
+  "beaked:ConfigMenuText": {
+    "TEXT": [
+      "Replace 2 of your starting Ceremony cards with Crazy Rituals.",
+      "Start with some Ceremony cards in deck-modifying Custom modes.",
+      "Enable Content: Giant Parasite Act 3 Elite (REQUIRES RESTART)",
+      "Allow other characters to encounter some Beaked relics.",
+      "Costume change:",
+      "Special Relics:",
+      "Giant Parasite"
+    ]
+  },
+  "beaked:SpecialRelicSettings": {
+    "TEXT": [
+      "Off",
+      "Beaked Only",
+      "Everyone"
+    ]
+  },
+  "beaked:CAW": {
+    "TEXT": [
+      "CAW"
+    ]
+  }
+}

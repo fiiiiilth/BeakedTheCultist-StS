@@ -21,6 +21,7 @@ public class DarkTribute extends AbstractWitherCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 3;
     public static final int POISON = 3;
     public static final int WITHER_MINUS_POISON = -3;
@@ -31,7 +32,7 @@ public class DarkTribute extends AbstractWitherCard {
         this.tags.add(CardTags.HEALING);
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_POISON;
         this.baseMisc = this.misc = POISON;
-        this.witherEffect = "Increases #yPoison.";
+        this.witherEffect = EXTENDED_DESCRIPTION[0];
         this.linkWitherAmountToMagicNumber = true;
     }
 

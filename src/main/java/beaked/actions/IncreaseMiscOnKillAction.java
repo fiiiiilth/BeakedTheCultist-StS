@@ -37,7 +37,6 @@ public class IncreaseMiscOnKillAction extends AbstractGameAction {
                 while(var1.hasNext()) {
                     AbstractCard c = (AbstractCard)var1.next();
                     if (c.cardID.equals(card.cardID) && c.misc == card.misc) {
-                        BaseMod.logger.debug("INCREASING MISC VALUE");
                         c.misc += this.increaseAmount;
                         c.applyPowers();
                         break;

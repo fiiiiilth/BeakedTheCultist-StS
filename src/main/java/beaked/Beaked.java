@@ -1,5 +1,6 @@
 package beaked;
 
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,6 +26,8 @@ import beaked.variables.*;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -56,7 +59,7 @@ public class Beaked implements PostInitializeSubscriber,
         StartGameSubscriber, OnStartBattleSubscriber, PostDungeonInitializeSubscriber{
     public static final Logger logger = LogManager.getLogger(Beaked.class.getName());
 
-    private static final String MODNAME = "BeakedTheCultist the Cultist";
+    private static final String MODNAME = "Beaked the Cultist";
     private static final String AUTHOR = "fiiiiilth, Moocowsgomoo";
     private static final String DESCRIPTION = "Adds Beaked the Cultist as a new playable character.";
 
@@ -117,9 +120,6 @@ public class Beaked implements PostInitializeSubscriber,
     public static HashMap<String, ArrayList<ModLabeledToggleButton>> specialRelicRadioBtns = new HashMap<>();
 
     public static final int NUM_COSTUMES = 4;
-    public static final String[] COSTUME_STRINGS = {
-            "Yellow","Blue","Green","Angry"
-    };
     public static final String[] PORTRAIT_STRINGS = {
             "charSelect/beakedPortrait_y.jpg",
             "charSelect/beakedPortrait.jpg",
@@ -132,6 +132,8 @@ public class Beaked implements PostInitializeSubscriber,
             "_g",
             "_sticks"
     };
+
+    public String cawText;
 
     public static final boolean isReplayLoaded;
     public static final boolean isInfiniteLoaded;
@@ -211,9 +213,12 @@ public class Beaked implements PostInitializeSubscriber,
         ModPanel settingsPanel = new ModPanel();
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
-        Beaked.logger.debug("==========================================POST INITIALIZE");
+        UIStrings configStrings = CardCrawlGame.languagePack.getUIString("beaked:ConfigMenuText");
+        UIStrings costumeStrings = CardCrawlGame.languagePack.getUIString("beaked:CostumeColors");
+        UIStrings cawStrings = CardCrawlGame.languagePack.getUIString("beaked:CAW");
+        cawText = cawStrings.TEXT[0];
 
-        ModLabeledToggleButton crazyBtn = new ModLabeledToggleButton("Replace 2 of your starting Ceremony cards with Crazy Rituals.",
+        ModLabeledToggleButton crazyBtn = new ModLabeledToggleButton(configStrings.TEXT[0],
                 350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 crazyRituals, settingsPanel, (label) -> {
         }, (button) -> {
@@ -229,7 +234,7 @@ public class Beaked implements PostInitializeSubscriber,
         });
         settingsPanel.addUIElement(crazyBtn);
 
-        ModLabeledToggleButton customModeCeremonyBtn = new ModLabeledToggleButton("Start with some Ceremony cards in deck-modifying Custom modes.",
+        ModLabeledToggleButton customModeCeremonyBtn = new ModLabeledToggleButton(configStrings.TEXT[1],
                 350.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 customModeCeremony, settingsPanel, (label) -> {
         }, (button) -> {
@@ -244,7 +249,7 @@ public class Beaked implements PostInitializeSubscriber,
         });
         settingsPanel.addUIElement(customModeCeremonyBtn);
 
-        ModLabeledToggleButton bossesBtn = new ModLabeledToggleButton("Enable Content: Giant Parasite Act 3 Elite (REQUIRES RESTART)",
+        ModLabeledToggleButton bossesBtn = new ModLabeledToggleButton(configStrings.TEXT[2],
                 350.0f, 550.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 enableParasite, settingsPanel, (label) -> {
         }, (button) -> {
@@ -259,7 +264,7 @@ public class Beaked implements PostInitializeSubscriber,
         });
         settingsPanel.addUIElement(bossesBtn);
 
-        ModLabeledToggleButton relicSharingBtn = new ModLabeledToggleButton("Allow other characters to encounter some Beaked relics.",
+        ModLabeledToggleButton relicSharingBtn = new ModLabeledToggleButton(configStrings.TEXT[3],
                 350.0f, 500.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 relicSharing, settingsPanel, (label) -> {
         }, (button) -> {
@@ -275,25 +280,25 @@ public class Beaked implements PostInitializeSubscriber,
         });
         settingsPanel.addUIElement(relicSharingBtn);
 
-        ModLabel costumeLabelTxt = new ModLabel("Costume change:",350.0f, 415.0f,settingsPanel,(me)->{});
+        ModLabel costumeLabelTxt = new ModLabel(configStrings.TEXT[4],350.0f, 415.0f,settingsPanel,(me)->{});
         settingsPanel.addUIElement(costumeLabelTxt);
-        ModLabel costumeColorTxt = new ModLabel(COSTUME_STRINGS[costumeColor],670.0f, 415.0f,settingsPanel,(me)->{});
+        ModLabel costumeColorTxt = new ModLabel(costumeStrings.TEXT[costumeColor],670.0f, 415.0f,settingsPanel,(me)->{});
         settingsPanel.addUIElement(costumeColorTxt);
 
         ModButton costumeLeftBtn = new ModButton(605.0f, 400.0f, ImageMaster.loadImage("img/tinyLeftArrow.png"),settingsPanel,(me)->{
             costumeColor = costumeColor-1>=0?costumeColor-1:NUM_COSTUMES-1;
-            costumeColorTxt.text = COSTUME_STRINGS[costumeColor];
+            costumeColorTxt.text = costumeStrings.TEXT[costumeColor];
             changeCostume();
         });
         settingsPanel.addUIElement(costumeLeftBtn);
         ModButton costumeRightBtn = new ModButton(765.0f, 400.0f, ImageMaster.loadImage("img/tinyRightArrow.png"),settingsPanel,(me)->{
             costumeColor = (costumeColor+1)%NUM_COSTUMES;
-            costumeColorTxt.text = COSTUME_STRINGS[costumeColor];
+            costumeColorTxt.text = costumeStrings.TEXT[costumeColor];
             changeCostume();
         });
         settingsPanel.addUIElement(costumeRightBtn);
 
-        ModLabel specialRelicsText = new ModLabel("Special Relics:",350.0f, 350.0f,settingsPanel,(me)->{});
+        ModLabel specialRelicsText = new ModLabel(configStrings.TEXT[5],350.0f, 350.0f,settingsPanel,(me)->{});
         settingsPanel.addUIElement(specialRelicsText);
 
         addSpecialRelicRadioOptions(settingsPanel,600f,290f,new SacredNecklace(),PROP_SACRED_NECKLACE);
@@ -304,7 +309,7 @@ public class Beaked implements PostInitializeSubscriber,
         Settings.isDemo = false;
 
         if (enableParasite){
-            BaseMod.addMonster(SuperParasite.ID, "Giant Parasite", () -> new SuperParasite());
+            BaseMod.addMonster(SuperParasite.ID, configStrings.TEXT[6], () -> new SuperParasite());
             BaseMod.addEliteEncounter(TheBeyond.ID, new MonsterInfo(SuperParasite.ID,1.0f));
         }
 
@@ -313,6 +318,8 @@ public class Beaked implements PostInitializeSubscriber,
     }
 
     public void addSpecialRelicRadioOptions(ModPanel settingsPanel, float x, float y, AbstractRelic relic,String saveProperty){
+
+        UIStrings btnStrings = CardCrawlGame.languagePack.getUIString("beaked:SpecialRelicSettings");
 
         int relicSetting = -1;
         try {
@@ -326,7 +333,7 @@ public class Beaked implements PostInitializeSubscriber,
         ModRelicPreview sacredNecklaceImg = new ModRelicPreview(x, y,relic,settingsPanel);
         settingsPanel.addUIElement(sacredNecklaceImg);
 
-        ModLabeledToggleButton radioBtnOff = new ModLabeledToggleButton("Off",
+        ModLabeledToggleButton radioBtnOff = new ModLabeledToggleButton(btnStrings.TEXT[0],
                 x, y-10f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 relicSetting == 0, settingsPanel, (label) -> {
         }, (button) -> {
@@ -342,7 +349,7 @@ public class Beaked implements PostInitializeSubscriber,
         });
         settingsPanel.addUIElement(radioBtnOff);
 
-        ModLabeledToggleButton radioBtnBeaked = new ModLabeledToggleButton("Beaked Only",
+        ModLabeledToggleButton radioBtnBeaked = new ModLabeledToggleButton(btnStrings.TEXT[1],
                 x, y-50f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 relicSetting == 1, settingsPanel, (label) -> {
         }, (button) -> {
@@ -358,7 +365,7 @@ public class Beaked implements PostInitializeSubscriber,
         });
         settingsPanel.addUIElement(radioBtnBeaked);
 
-        ModLabeledToggleButton radioBtnAll = new ModLabeledToggleButton("Everyone",
+        ModLabeledToggleButton radioBtnAll = new ModLabeledToggleButton(btnStrings.TEXT[2],
                 x, y-90f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 relicSetting == 2, settingsPanel, (label) -> {
         }, (button) -> {
@@ -723,26 +730,14 @@ public class Beaked implements PostInitializeSubscriber,
     public void receiveEditStrings() {
         logger.info("begin editing strings");
 
-        // RelicStrings
-        String relicStrings = Gdx.files.internal("localization/Beaked-RelicStrings.json").readString(
-                String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
-        // CardStrings
-        String cardStrings = Gdx.files.internal("localization/Beaked-CardStrings.json").readString(
-                String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
-        //PowerStrings
-        String powerStrings = Gdx.files.internal("localization/Beaked-PowerStrings.json").readString(
-                String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
-        //MonsterStrings
-        String monsterStrings = Gdx.files.internal("localization/Beaked-MonsterStrings.json").readString(
-                String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(MonsterStrings.class, monsterStrings);
-        //PotionStrings
-        String potionStrings = Gdx.files.internal("localization/Beaked-PotionStrings.json").readString(
-                String.valueOf(StandardCharsets.UTF_8));
-        BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
+        String language = "eng";
+        if (Settings.language == Settings.GameLanguage.ZHS) language = "zhs";
+        BaseMod.loadCustomStringsFile(RelicStrings.class, "localization/"+language+"/Beaked-RelicStrings.json");
+        BaseMod.loadCustomStringsFile(CardStrings.class, "localization/"+language+"/Beaked-CardStrings.json");
+        BaseMod.loadCustomStringsFile(PotionStrings.class, "localization/"+language+"/Beaked-PotionStrings.json");
+        BaseMod.loadCustomStringsFile(PowerStrings.class, "localization/"+language+"/Beaked-PowerStrings.json");
+        BaseMod.loadCustomStringsFile(UIStrings.class, "localization/"+language+"/Beaked-UIStrings.json");
+        BaseMod.loadCustomStringsFile(CharacterStrings.class, "localization/"+language+"/Beaked-CharacterStrings.json");
 
         logger.info("done editing strings");
     }
@@ -752,20 +747,25 @@ public class Beaked implements PostInitializeSubscriber,
 
     }
 
+    private static String loadJson(String jsonPath) {
+        return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
+    }
 
     @Override
     public void receiveEditKeywords() {
         logger.info("setting up custom keywords");
-        BaseMod.addKeyword(new String[] {"ritual"}, "Gain #yStrength at the beginning of your turn.");
-        BaseMod.addKeyword(new String[] {"wither"}, "Permanently decrease this card's power by the wither amount. When it reaches #b0, the card becomes #yDepleted. Can be replenished at Rest Sites.");
-        BaseMod.addKeyword(new String[] {"depleted"}, "#yUnplayable unless the #yWither effect is reversed.");
-        BaseMod.addKeyword(new String[] {"inspiration"}, "An unplayable status card. When drawn, it #yExhausts and draws #b2 more cards.");
-        BaseMod.addKeyword(new String[] {"respite"}, "An unplayable status card. Heals #b2 HP at the end of your turn.");
-        BaseMod.addKeyword(new String[] {"psalm"}, "A 0-cost attack card that deals #b3 damage to ALL enemies and has #yWither #b2.");
-        BaseMod.addKeyword(new String[] {"stick"}, "A 0-cost skill card that increases Stick Smack damage and returns a Stick Smack to your hand.");
-        BaseMod.addKeyword(new String[] {"entangled"}, "You cannot play #yAttack cards for one turn.");
-        BaseMod.addKeyword(new String[] {"regret"}, "An unplayable curse card. While in your hand, lose #b1 HP for each card in your hand at the end of the turn.");
-        BaseMod.addKeyword(new String[] {"bleed"}, "Deals damage at the end of the round. Does not decrease over time.");
+        String language = "eng";
+
+        if (Settings.language == Settings.GameLanguage.ZHS) language = "zhs";
+
+        Type typeToken = new TypeToken<Map<String, Keyword>>(){}.getType();
+        Gson gson = new Gson();
+        String strings = loadJson("localization/" + language + "/Beaked-KeywordStrings.json");
+        @SuppressWarnings("unchecked")
+        Map<String,Keyword> keywords = (Map<String,Keyword>)gson.fromJson(strings, typeToken);
+        for (Keyword kw : keywords.values()) {
+            BaseMod.addKeyword(kw.NAMES, kw.DESCRIPTION);
+        }
     }
 
     @Override
@@ -773,7 +773,7 @@ public class Beaked implements PostInitializeSubscriber,
         if(AbstractDungeon.player.hasRelic(CultistMask.ID)) {
             CardCrawlGame.sound.playA("VO_CULTIST_1C", MathUtils.random(-0.2f, 0.2f));
             AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.0f,
-                    "CAW", true));
+                    cawText, true));
         }
         cardsPlayedThisCombat ++;
     }

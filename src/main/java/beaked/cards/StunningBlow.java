@@ -24,6 +24,7 @@ public class StunningBlow extends AbstractWitherCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 3;
     public static final int DAMAGE = 9;
     public static final int INTANGIBLE = 1;
@@ -35,7 +36,7 @@ public class StunningBlow extends AbstractWitherCard {
         this.baseMisc = this.misc = DAMAGE;
         this.baseDamage = this.damage = this.misc;
         this.baseMagicNumber = this.magicNumber = WITHER_MINUS_DAMAGE;
-        this.witherEffect = "Decreases damage.";
+        this.witherEffect = EXTENDED_DESCRIPTION[0];
         this.linkWitherAmountToMagicNumber = true;
         if (Beaked.isReplayLoaded) {
             this.tags.add(CardFieldStuff.CHAOS_NEGATIVE_MAGIC); // higher magic number is worse

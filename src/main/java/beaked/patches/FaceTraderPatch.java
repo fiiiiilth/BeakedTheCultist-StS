@@ -5,10 +5,13 @@ import beaked.Beaked;
 import beaked.characters.BeakedTheCultist;
 import beaked.ui.ReverseWitherOption;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.shrines.FaceTrader;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.relics.CultistMask;
 import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
@@ -20,6 +23,9 @@ import java.util.ArrayList;
             method="buttonEffect")
 
 public class FaceTraderPatch {
+
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("beaked:FaceTrader");
+
     public static void Postfix(FaceTrader meObj, final int buttonPressed) {
         if (!(AbstractDungeon.player instanceof BeakedTheCultist)) return;
 
@@ -31,7 +37,7 @@ public class FaceTraderPatch {
             //curScreenEnumField.setAccessible(true);
             switch (screenField.get(meObj).toString()) {
                 case "MAIN":
-                    meObj.imageEventText.updateDialogOption(1,"[Trade] #g50%: #gGood #gFace. #r50%: #rBad #rFace. #b100%: #bBest #bFace.");
+                    meObj.imageEventText.updateDialogOption(1,uiStrings.TEXT[0]);
                     break;
 
                 case "RESULT":

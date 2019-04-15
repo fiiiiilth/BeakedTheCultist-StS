@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -31,6 +32,7 @@ import basemod.abstracts.CustomPlayer;
 
 public class BeakedTheCultist extends CustomPlayer {
     public static final int ENERGY_PER_TURN = 3;
+    public static final CharacterStrings charStrings = CardCrawlGame.languagePack.getCharacterString("Beaked");
 
     public static final String[] orbTextures = {
             "beaked_img/char/beaked/orb/layer1.png",
@@ -81,17 +83,17 @@ public class BeakedTheCultist extends CustomPlayer {
 
     @Override
     public String getLocalizedCharacterName(){
-        return "Beaked The Cultist";
+        return charStrings.NAMES[1];
     }
 
     @Override
     public AbstractPlayer newInstance() {
-        return new BeakedTheCultist("Beaked The Cultist", BeakedEnum.BEAKED_THE_CULTIST);
+        return new BeakedTheCultist(charStrings.NAMES[1], BeakedEnum.BEAKED_THE_CULTIST);
     }
 
     @Override
     public String getSpireHeartText() {
-        return "CA-CAW!!!";
+        return charStrings.TEXT[1];
     }
 
     @Override
@@ -112,7 +114,7 @@ public class BeakedTheCultist extends CustomPlayer {
 
     @Override
     public String getVampireText() {
-        return "CA-CAW!!!";
+        return charStrings.TEXT[1];
     }
 
     @Override
@@ -177,16 +179,15 @@ public class BeakedTheCultist extends CustomPlayer {
 
     @Override
     public CharSelectInfo getLoadout() {
-        return new CharSelectInfo("Beaked the Cultist",
-                "Relies on healing and familiar techniques to power through, NL " +
-                        "resorting to potent but hard to replicate spells.",
+        return new CharSelectInfo(charStrings.NAMES[1],
+                charStrings.TEXT[0],
                 50, 50, 0, 99, 5, this,
                 getStartingRelics(), getStartingDeck(), false);
     }
 
     @Override
     public String getTitle(PlayerClass playerClass) {
-        return "The Beaked";
+        return charStrings.NAMES[0];
     }
 
     @Override

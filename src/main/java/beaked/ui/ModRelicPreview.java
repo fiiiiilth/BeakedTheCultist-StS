@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
@@ -21,6 +22,8 @@ import java.util.function.Consumer;
 
 public class ModRelicPreview implements IUIElement {
     private static final float HB_SHRINK = 14.0f;
+
+    public static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("beaked:RelicPreview");
 
     private Consumer<ModButton> click;
     private Hitbox hb;
@@ -49,11 +52,11 @@ public class ModRelicPreview implements IUIElement {
         // not comprehensive obviously, more doing this for super-rares rather than the general case.
         switch (tier){
             case BOSS:
-                return "#rBoss #rRelic NL ";
+                return uiStrings.TEXT[0];
             case SPECIAL:
-                return "#bSpecial #bRelic NL ";
+                return uiStrings.TEXT[1];
             case SHOP:
-                return "#yShop #yRelic NL ";
+                return uiStrings.TEXT[2];
         }
         return "";
     }

@@ -22,6 +22,7 @@ public class BooksFlurry extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 0;
     public static final int DAMAGE = 2;
     public static final int UPGRADE_DAMAGE = 1;
@@ -48,9 +49,9 @@ public class BooksFlurry extends CustomCard {
 
     public void setDescription() {
         if(Beaked.cardsPlayedThisCombat > 1) {
-            this.rawDescription = DESCRIPTION + " NL (" + Beaked.cardsPlayedThisCombat + " cards)";
+            this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + Beaked.cardsPlayedThisCombat + EXTENDED_DESCRIPTION[1];
         } else {
-            this.rawDescription = DESCRIPTION + " NL (" + Beaked.cardsPlayedThisCombat + " card)";
+            this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + Beaked.cardsPlayedThisCombat + EXTENDED_DESCRIPTION[2];
         }
         this.initializeDescription();
     }

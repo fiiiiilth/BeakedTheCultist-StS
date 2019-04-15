@@ -48,7 +48,7 @@ public class SacredDeck extends CustomRelic implements SuperRareRelic{
             group.addToTop(new CharacterSelectCard(color));
         }
 
-        AbstractDungeon.gridSelectScreen.open(group, 1, "Choose a card color to view.", false);
+        AbstractDungeon.gridSelectScreen.open(group, 1, DESCRIPTIONS[1], false);
     }
 
     public void openCardSelectMenu(CharacterSelectCard selected){
@@ -67,7 +67,7 @@ public class SacredDeck extends CustomRelic implements SuperRareRelic{
         // add back buttons to the top and bottom for convenience
         group.addToTop(new BackButtonCard());
         group.addToBottom(new BackButtonCard());
-        AbstractDungeon.gridSelectScreen.open(group, 1, "Choose a card to obtain.", false);
+        AbstractDungeon.gridSelectScreen.open(group, 1, DESCRIPTIONS[2], false);
     }
 
     @Override

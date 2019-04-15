@@ -19,6 +19,7 @@ public class Tradeoff extends AbstractWitherCard {
     private static CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 2;
     public static final int EXHAUST = 1;
     public static final int WITHER_MINUS_EXHAUST = -1;
@@ -29,7 +30,7 @@ public class Tradeoff extends AbstractWitherCard {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.NONE);
         this.misc = this.baseMisc = EXHAUST;
         this.magicNumber = this.baseMagicNumber = DRAW;
-        this.witherEffect = "Increases number of #yExhausted cards.";
+        this.witherEffect = EXTENDED_DESCRIPTION[0];
         this.witherAmount = WITHER_MINUS_EXHAUST;
         Beaked.setDescription(this,DESCRIPTION);
     }

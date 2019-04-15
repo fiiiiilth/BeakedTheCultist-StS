@@ -14,6 +14,9 @@ public class ReplenishCardInHandAction extends AbstractGameAction
     private AbstractPlayer p;
     private ArrayList<AbstractCard> cannotReplenish;
 
+    private static final UIStrings uiStrings;
+    public static final String[] TEXT;
+
     public ReplenishCardInHandAction(int numUses) {
         this.cannotReplenish = new ArrayList<AbstractCard>();
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -45,7 +48,7 @@ public class ReplenishCardInHandAction extends AbstractGameAction
             }
             this.p.hand.group.removeAll(this.cannotReplenish);
             if (this.p.hand.group.size() > 1) {
-                AbstractDungeon.handCardSelectScreen.open("replenish", 1, false, false, false, false);
+                AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, false);
                 this.tickDuration();
                 return;
             }
@@ -73,5 +76,10 @@ public class ReplenishCardInHandAction extends AbstractGameAction
             this.p.hand.addToTop(c);
         }
         this.p.hand.refreshHandLayout();
+    }
+
+    static {
+        uiStrings = CardCrawlGame.languagePack.getUIString("beaked:ReplenishWitherCardAction");
+        TEXT = uiStrings.TEXT;
     }
 }

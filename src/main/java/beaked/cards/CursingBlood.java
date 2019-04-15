@@ -19,6 +19,7 @@ public class CursingBlood extends AbstractWitherCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final int COST = 1;
     public static final int STR_DOWN = 4;
     public static final int WITHER_MINUS_STR_DOWN = 1;
@@ -29,7 +30,7 @@ public class CursingBlood extends AbstractWitherCard {
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.ENEMY);
 
         this.baseMisc = this.misc = STR_DOWN;
-        this.witherEffect = "Decreases #yStrength reduction.";
+        this.witherEffect = EXTENDED_DESCRIPTION[0];
         this.magicNumber = this.baseMagicNumber = WITHER_MINUS_STR_DOWN;
         this.linkWitherAmountToMagicNumber = true;
         if (Beaked.isReplayLoaded) {
