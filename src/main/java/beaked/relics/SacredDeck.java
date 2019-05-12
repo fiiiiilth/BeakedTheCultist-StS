@@ -20,7 +20,7 @@ import com.megacrit.cardcrawl.vfx.FastCardObtainEffect;
 
 import java.util.ArrayList;
 
-public class SacredDeck extends CustomRelic implements SuperRareRelic{
+public class SacredDeck extends CustomRelic{
     public static final String ID = "beaked:SacredDeck";
     public boolean isChoosingClass = false;
     public boolean isChoosingCard = false;
