@@ -308,6 +308,8 @@ public class Beaked implements PostInitializeSubscriber,
         Settings.isTrial = false;
         Settings.isDemo = false;
 
+        logger.debug(configStrings.TEXT[6]);
+
         if (enableParasite){
             BaseMod.addMonster(SuperParasite.ID, configStrings.TEXT[6], () -> new SuperParasite());
             BaseMod.addEliteEncounter(TheBeyond.ID, new MonsterInfo(SuperParasite.ID,1.0f));
@@ -737,6 +739,7 @@ public class Beaked implements PostInitializeSubscriber,
         BaseMod.loadCustomStringsFile(PotionStrings.class, "localization/"+language+"/Beaked-PotionStrings.json");
         BaseMod.loadCustomStringsFile(PowerStrings.class, "localization/"+language+"/Beaked-PowerStrings.json");
         BaseMod.loadCustomStringsFile(UIStrings.class, "localization/"+language+"/Beaked-UIStrings.json");
+        BaseMod.loadCustomStringsFile(MonsterStrings.class, "localization/"+language+"/Beaked-MonsterStrings.json");
         BaseMod.loadCustomStringsFile(CharacterStrings.class, "localization/"+language+"/Beaked-CharacterStrings.json");
 
         logger.info("done editing strings");

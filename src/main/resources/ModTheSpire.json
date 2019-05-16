@@ -2,9 +2,9 @@
 	"modid": "beakedthecultist-sts",
 	"name": "Beaked The Cultist",
 	"author_list": ["EARL", "fiiiiilth","Moocowsgomoo", "TemmieAnimations", "BlueKnight", "Giuseppe", "MagicHampster", "Ashe","MunderW","Midn8","kiooeht","Reina","Rhapsody and community"],
-	"description": "Adds Beaked the Cultist as a new playable character.\nBEAKED REQUIRES THE STSLIB MOD!\n\n0.6.4\n- Sacred Deck no longer Super-Rare.\n\n0.6.3\n- Sacrifice Doll relic art (Ashe)\n- New Character Select button art (Ashe)\n\nIf you contributed and don't see your name in the credits, please let us know!",
+	"description": "Adds Beaked the Cultist as a new playable character.\nBEAKED REQUIRES THE STSLIB MOD!\n\n0.6.5\n- Fixed Giant Parasite crash.\n\n0.6.4\n- Sacred Deck no longer Super-Rare.\n\n0.6.3\n- Sacrifice Doll relic art (Ashe)\n- New Character Select button art (Ashe)\n\nIf you contributed and don't see your name in the credits, please let us know!",
 	"dependencies": ["basemod","stslib"],
-	"version": "0.6.4",
+	"version": "0.6.5",
 	"sts_version": "01-23-2019",
 	"mts_version": "3.6.0",
 	"update_json": "https://api.github.com/repos/fiiiiilth/BeakedTheCultist-StS/releases/latest"
