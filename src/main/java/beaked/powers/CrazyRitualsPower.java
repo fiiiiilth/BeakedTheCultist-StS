@@ -13,8 +13,6 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DescriptionLine;
-import com.megacrit.cardcrawl.cards.red.Abandon;
-import com.megacrit.cardcrawl.cards.replayxover.black.SuperSneckoCrazyCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -114,7 +112,7 @@ public class CrazyRitualsPower extends AbstractPower {
 
         String fullDescription = "";
         for (DescriptionLine line : nextCard.description){
-            fullDescription += line.text + " ";
+            fullDescription += line.getText() + " ";
         }
         fullDescription = fullDescription.replace("*","");
         for (DynamicVariable dv : BaseMod.cardDynamicVariableMap.values()){

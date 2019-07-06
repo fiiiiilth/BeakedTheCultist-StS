@@ -65,6 +65,17 @@
       "Everyone"
     ]
   },
+  "beaked:CharScreenText": {
+    "TEXT": [
+      "Crazy Rituals",
+      "Start with some Ceremony cards in deck-modifying Custom modes.",
+      "Enable Content: Giant Parasite Act 3 Elite (REQUIRES RESTART)",
+      "Allow other characters to encounter some Beaked relics.",
+      "Costume change:",
+      "Special Relics:",
+      "Giant Parasite"
+    ]
+  },
   "beaked:CAW": {
     "TEXT": [
       "CAW"

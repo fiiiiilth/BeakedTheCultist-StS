@@ -19,7 +19,7 @@ public class CharacterSelectCard extends CustomCard
     public CharacterSelectCard(CardColor cardColor)
     {
         super(ID, "ERROR",
-                null, -2, "", CardType.SKILL, cardColor, CardRarity.SPECIAL, CardTarget.NONE);
+                "beaked_img/cards/BackButtonCard.png", -2, "", CardType.SKILL, cardColor, CardRarity.SPECIAL, CardTarget.NONE);
 
         this.name = getName(cardColor);
         this.initializeTitle();

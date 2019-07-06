@@ -17,7 +17,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.DarkSmokePuffEffect;
 import com.megacrit.cardcrawl.vfx.ExhaustEmberEffect;
-import com.megacrit.cardcrawl.vfx.cardManip.CardDarkFlashVfx;
 import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
 import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 import replayTheSpire.patches.CardFieldStuff;

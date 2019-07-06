@@ -115,6 +115,8 @@ public class Beaked implements PostInitializeSubscriber,
     public static boolean customModeCeremony = true;
     public static boolean relicSharing = true;
     public static int costumeColor = 0;
+    public static int sacredNecklaceAvailability = 2;
+    public static int sacredDeckAvailability = 2;
 
     public static ArrayList<AbstractRelic> shareableRelics = new ArrayList<>();
     public static HashMap<String, ArrayList<ModLabeledToggleButton>> specialRelicRadioBtns = new HashMap<>();
@@ -223,13 +225,7 @@ public class Beaked implements PostInitializeSubscriber,
                 crazyRituals, settingsPanel, (label) -> {
         }, (button) -> {
             crazyRituals = button.enabled;
-            try {
-                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
-                config.setBool(PROP_CRAZY_RITUALS, crazyRituals);
-                config.save();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            saveData();
             resetCharSelect();
         });
         settingsPanel.addUIElement(crazyBtn);
@@ -239,13 +235,7 @@ public class Beaked implements PostInitializeSubscriber,
                 customModeCeremony, settingsPanel, (label) -> {
         }, (button) -> {
             customModeCeremony = button.enabled;
-            try {
-                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
-                config.setBool(PROP_CUSTOM_CEREMONY, customModeCeremony);
-                config.save();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            saveData();
         });
         settingsPanel.addUIElement(customModeCeremonyBtn);
 
@@ -254,13 +244,7 @@ public class Beaked implements PostInitializeSubscriber,
                 enableParasite, settingsPanel, (label) -> {
         }, (button) -> {
             enableParasite = button.enabled;
-            try {
-                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
-                config.setBool(PROP_ENABLE_PARASITE, enableParasite);
-                config.save();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            saveData();
         });
         settingsPanel.addUIElement(bossesBtn);
 
@@ -268,15 +252,9 @@ public class Beaked implements PostInitializeSubscriber,
                 350.0f, 500.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
                 relicSharing, settingsPanel, (label) -> {
         }, (button) -> {
-           relicSharing = button.enabled;
-            try {
-                SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
-                config.setBool(PROP_RELIC_SHARING, relicSharing);
-                config.save();
-                adjustSharedRelics();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            relicSharing = button.enabled;
+            saveData();
+            adjustSharedRelics();
         });
         settingsPanel.addUIElement(relicSharingBtn);
 
@@ -317,6 +295,22 @@ public class Beaked implements PostInitializeSubscriber,
 
         BaseMod.addPotion(RitualPotion.class, YELLOW, YELLOW, YELLOW, RitualPotion.POTION_ID, BeakedEnum.BEAKED_THE_CULTIST);
         BaseMod.addPotion(MendingBrew.class,Color.GREEN.cpy(),Color.WHITE.cpy(),Color.GREEN.cpy(),MendingBrew.POTION_ID,BeakedEnum.BEAKED_THE_CULTIST);
+    }
+
+    public static void saveData() {
+        try {
+            SpireConfig config = new SpireConfig("ConstructMod", "ConstructSaveData", beakedDefaults);
+            config.setBool(PROP_CRAZY_RITUALS, crazyRituals);
+            config.setBool(PROP_ENABLE_PARASITE, enableParasite);
+            config.setBool(PROP_CUSTOM_CEREMONY, customModeCeremony);
+            config.setBool(PROP_RELIC_SHARING, relicSharing);
+            config.setInt(PROP_COSTUME_COLOR, costumeColor);
+            config.setInt(PROP_SACRED_NECKLACE, sacredNecklaceAvailability);
+            config.setInt(PROP_SACRED_DECK, sacredDeckAvailability);
+            config.save();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void addSpecialRelicRadioOptions(ModPanel settingsPanel, float x, float y, AbstractRelic relic,String saveProperty){
@@ -454,13 +448,7 @@ public class Beaked implements PostInitializeSubscriber,
     }
 
     public void changeCostume(){
-        try {
-            SpireConfig config = new SpireConfig("TheBeaked", "BeakedConfig",beakedDefaults);
-            config.setInt(PROP_COSTUME_COLOR, costumeColor);
-            config.save();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        saveData();
         BaseMod.playerPortraitMap.remove(BeakedEnum.BEAKED_THE_CULTIST);
         BaseMod.playerPortraitMap.put(BeakedEnum.BEAKED_THE_CULTIST, makePath(PORTRAIT_STRINGS[costumeColor]));
         beakedCharacter.reloadAnimation();

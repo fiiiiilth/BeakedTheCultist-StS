@@ -27,7 +27,7 @@ public class WitherAction extends AbstractGameAction {
             return;
         }
 
-        this.card.darkFlash(Color.RED);
+        this.card.superFlash(Color.RED);
 
         Iterator var2 = AbstractDungeon.player.masterDeck.group.iterator();
 
