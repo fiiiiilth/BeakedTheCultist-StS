@@ -38,7 +38,7 @@ public class VigorBurst extends CustomCard {
     }
 
     public void onAddedToMasterDeck(){
-        AbstractDungeon.player.increaseMaxHp(MAX_HP,true);
+        AbstractDungeon.player.increaseMaxHp(MAX_HP,false);
     }
 
     public void onRemovedFromMasterDeck(){

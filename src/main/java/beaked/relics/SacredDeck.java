@@ -45,7 +45,13 @@ public class SacredDeck extends CustomRelic{
         isChoosingCard = false;
         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard.CardColor color : AbstractCard.CardColor.values()) {
-            group.addToTop(new CharacterSelectCard(color));
+            if(BaseMod.getBgColor(color) != null ||
+               color == AbstractCard.CardColor.RED || color == AbstractCard.CardColor.GREEN || color == AbstractCard.CardColor.BLUE ||
+               color == AbstractCard.CardColor.COLORLESS || color == AbstractCard.CardColor.CURSE
+            )
+            {
+                group.addToTop(new CharacterSelectCard(color));
+            }
         }
 
         AbstractDungeon.gridSelectScreen.open(group, 1, DESCRIPTIONS[1], false);
