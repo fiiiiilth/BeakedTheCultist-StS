@@ -41,7 +41,7 @@ public class FetchRandomCardToHandAction extends AbstractGameAction {
                 card.fadingOut = false;
                 group.removeCard(card);
                 card.applyPowers();
-                if (this.amount != 0) card.modifyCostForTurn(this.amount);
+                if (this.amount != 0) card.setCostForTurn(card.costForTurn + amount);
             }
 
             AbstractDungeon.player.hand.refreshHandLayout();

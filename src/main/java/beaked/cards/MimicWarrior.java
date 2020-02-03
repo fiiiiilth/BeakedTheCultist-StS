@@ -32,7 +32,7 @@ public class MimicWarrior extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard c;
         do {
-            c = CardLibrary.getRandomColorSpecificCard(AbstractCard.CardColor.RED, AbstractDungeon.cardRandomRng).makeCopy();
+            c = Beaked.returnTrulyRandomCardOfColor(AbstractCard.CardColor.RED, AbstractDungeon.cardRandomRng).makeCopy();
         } while (c.rarity == CardRarity.BASIC || c.rarity == CardRarity.SPECIAL);
         c.setCostForTurn(-9);
         if (this.upgraded) c.upgrade();

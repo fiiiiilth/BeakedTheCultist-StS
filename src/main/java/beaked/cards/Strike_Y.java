@@ -29,7 +29,7 @@ public class Strike_Y extends CustomCard {
                 AbstractCard.CardTarget.ENEMY);
 
         this.baseDamage = ATTACK_DMG;
-        this.tags.add(BaseModCardTags.BASIC_STRIKE);
+        this.tags.add(CardTags.STARTER_STRIKE);
         this.tags.add(CardTags.STRIKE);
     }
 

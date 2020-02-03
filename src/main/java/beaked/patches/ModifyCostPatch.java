@@ -13,13 +13,13 @@ public class ModifyCostPatch {
     // Cost-modifying actions normally set the cost to 0 if it goes below 0, for obvious reasons.
     // With awakened form+, we need to patch and set a new minimum.
 
-    @SpirePatch(cls = "com.megacrit.cardcrawl.cards.AbstractCard", method = "modifyCostForTurn")
+    @SpirePatch(cls = "com.megacrit.cardcrawl.cards.AbstractCard", method = "setCostForTurn")
     public static class ModifyCostForTurn {
         public static SpireReturn Prefix(AbstractCard obj, int amt) {
             // allow for reducing costForTurn below 0 if awakened
             if (obj.cost >= 0 && AbstractDungeon.player != null && AbstractDungeon.player.hasPower(AwakenedPlusPower.POWER_ID)){
                 // can't be reduced below awakened stack amount
-                obj.costForTurn = Math.max(-AbstractDungeon.player.getPower(AwakenedPlusPower.POWER_ID).amount, obj.costForTurn + amt);
+                obj.costForTurn = Math.max(-AbstractDungeon.player.getPower(AwakenedPlusPower.POWER_ID).amount, amt);
                 if (obj.costForTurn != obj.cost) {
                     obj.isCostModifiedForTurn = true;
                 }

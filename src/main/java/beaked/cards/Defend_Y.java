@@ -26,7 +26,7 @@ public class Defend_Y extends CustomCard {
                 AbstractCardEnum.BEAKED_YELLOW, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
 
         this.baseBlock = BLOCK_AMT;
-        this.tags.add(BaseModCardTags.BASIC_DEFEND);
+        this.tags.add(CardTags.STARTER_DEFEND);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -18,11 +18,14 @@ public class RitualPotion extends CustomPotion {
     public static final String DESCRIPTIONS[] = potionStrings.DESCRIPTIONS;
 
     public RitualPotion() {
-    super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.SPHERE, PotionColor.POWER);
+        super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.SPHERE, PotionColor.POWER);
+        this.isThrown = false;
+    }
 
+    public void initializeData() {
         this.potency = this.getPotency();
         this.description = RitualPotion.DESCRIPTIONS[0] + this.potency + RitualPotion.DESCRIPTIONS[1];
-        this.isThrown = false;
+        this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
         this.tips.add(new PowerTip(RitualPlayerPower.NAME, RitualPlayerPower.DESCRIPTIONS[0] + this.getPotency() +
                 RitualPlayerPower.DESCRIPTIONS[1]));

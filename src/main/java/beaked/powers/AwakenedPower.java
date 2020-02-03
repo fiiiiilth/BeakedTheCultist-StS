@@ -124,7 +124,7 @@ public class AwakenedPower extends AbstractPower {
         // cost < 0 means it's X-cost (-1) or unplayable (-2), don't want to mess with those.
         if (c.cost < 0) return;
 
-        c.modifyCostForTurn(amt);
+        c.setCostForTurn(c.costForTurn+amt);
 
         /*
         c.costForTurn += amt;

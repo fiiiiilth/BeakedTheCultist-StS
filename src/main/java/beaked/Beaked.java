@@ -2,10 +2,7 @@ package beaked;
 
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 import basemod.*;
 import basemod.helpers.BaseModCardTags;
@@ -913,11 +910,20 @@ public class Beaked implements PostInitializeSubscriber,
         return list.get(AbstractDungeon.cardRandomRng.random(list.size() -1));
     }
 
+    public static AbstractCard returnTrulyRandomCardOfColor(AbstractCard.CardColor color, com.megacrit.cardcrawl.random.Random rand) {
+        ArrayList<String> tmp = new ArrayList<String>();
+        for (Map.Entry<String, AbstractCard> c : CardLibrary.cards.entrySet()) {
+            if (((AbstractCard)c.getValue()).color == color)
+                tmp.add(c.getKey());
+        }
+        return (AbstractCard)CardLibrary.cards.get(tmp.get(rand.random(0, tmp.size() - 1)));
+    }
+
     public static AbstractCard getColorRepresentativeCard(AbstractCard.CardColor color){
         final ArrayList<AbstractCard> cards = CardLibrary.getCardList(CardLibrary.LibraryType.valueOf(color.name()));
         // look for a basic defend
         for (AbstractCard card : cards){
-            if (card.hasTag(BaseModCardTags.BASIC_DEFEND)){
+            if (card.hasTag(AbstractCard.CardTags.STARTER_DEFEND)){
                 return card;
             }
         }

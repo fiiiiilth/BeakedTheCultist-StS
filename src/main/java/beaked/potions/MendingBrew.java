@@ -20,11 +20,14 @@ public class MendingBrew extends CustomPotion {
     public static final String DESCRIPTIONS[] = potionStrings.DESCRIPTIONS;
 
     public MendingBrew() {
-    super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.HEART, PotionColor.GREEN);
+        super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.HEART, PotionColor.GREEN);
+        this.isThrown = false;
+    }
 
+    public void initializeData() {
         this.potency = this.getPotency();
         this.description = String.format(MendingBrew.DESCRIPTIONS[0], this.potency,1);
-        this.isThrown = false;
+        this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
     }
 
