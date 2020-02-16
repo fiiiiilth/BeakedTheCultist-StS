@@ -3,7 +3,6 @@ package beaked.relics;
 import basemod.abstracts.CustomRelic;
 import beaked.Beaked;
 import beaked.powers.NegationPower;
-import beaked.powers.RitualPlayerPower;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

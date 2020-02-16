@@ -1,62 +1,30 @@
 {
-  "RITUAL":{
-    "NAMES": [
-      "ritual"
-    ],
-    "DESCRIPTION": "Gain #yStrength at the beginning of your turn."
-  },
   "WITHER":{
+    "PROPER_NAME": "Wither",
     "NAMES": [
       "wither"
     ],
     "DESCRIPTION": "Permanently decrease this card's power by the wither amount. When it reaches #b0, the card becomes #yDepleted. Can be replenished at Rest Sites."
   },
   "DEPLETED":{
+    "PROPER_NAME": "Depleted",
     "NAMES": [
       "depleted"
     ],
     "DESCRIPTION": "#yUnplayable unless the #yWither effect is reversed."
   },
-  "INSPIRATION":{
-    "NAMES": [
-      "inspiration"
-    ],
-    "DESCRIPTION": "An unplayable status card. When drawn, it #yExhausts and draws #b2 more cards."
-  },
-  "RESPITE":{
-    "NAMES": [
-      "respite"
-    ],
-    "DESCRIPTION": "An unplayable status card. Heals #b2 HP at the end of your turn."
-  },
-  "PSALM":{
-    "NAMES": [
-      "psalm"
-    ],
-    "DESCRIPTION": "A 0-cost attack card that deals #b3 damage to ALL enemies and has #yWither #b2."
-  },
-  "STICK":{
-    "NAMES": [
-      "stick"
-    ],
-    "DESCRIPTION": "A 0-cost skill card that increases Stick Smack damage and returns a Stick Smack to your hand."
-  },
   "ENTANGLED":{
+    "PROPER_NAME": "Entangled",
     "NAMES": [
       "entangled"
     ],
     "DESCRIPTION": "You cannot play #yAttack cards for one turn."
   },
-  "REGRET":{
-    "NAMES": [
-      "regret"
-    ],
-    "DESCRIPTION": "An unplayable curse card. While in your hand, lose #b1 HP for each card in your hand at the end of the turn."
-  },
   "BLEED":{
+    "PROPER_NAME": "Bleed",
     "NAMES": [
       "bleed"
     ],
-    "DESCRIPTION": "Deals damage at the end of the round. Does not decrease over time."
+    "DESCRIPTION": "Bleeding creatures take damage at the end of their turn. Bleed does not decrease over time."
   }
 }

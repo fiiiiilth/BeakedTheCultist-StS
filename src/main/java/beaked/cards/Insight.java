@@ -22,6 +22,7 @@ public class Insight extends CustomCard {
 
     public Insight() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
+        cardsToPreview = new Inspiration();
     }
 
     @Override

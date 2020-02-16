@@ -18,8 +18,8 @@
 	},
 	"beaked:Insight": {
 		"NAME": "Insight",
-		"DESCRIPTION": "At the start of your turn, shuffle an Inspiration into your draw pile.",
-		"UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, shuffle an Inspiration into your draw pile."
+		"DESCRIPTION": "At the start of your turn, shuffle an *Inspiration into your draw pile.",
+		"UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, shuffle an *Inspiration into your draw pile."
 	},
 	"beaked:Inspiration": {
 		"NAME": "Inspiration",
@@ -32,19 +32,19 @@
 	},
 	"beaked:Daydream": {
 		"NAME": "Daydream",
-		"DESCRIPTION": "Shuffle !M! Inspiration into your draw pile."
+		"DESCRIPTION": "Shuffle !M! *Inspiration into your draw pile."
 	},
 	"beaked:Overpower": {
 		"NAME": "Overpower",
-		"DESCRIPTION": "Deal !D! damage. NL Deals 1 more damage for every !M! HP you currently have."
+		"DESCRIPTION": "Deal !D! damage. NL Damage increases by 1 for every !M! HP you currently have."
 	},
 	"beaked:DarkPact": {
 		"NAME": "Dark Pact",
-		"DESCRIPTION": "Gain !M! Plated Armor. NL Shuffle a Regret into your draw pile."
+		"DESCRIPTION": "Gain !M! Plated Armor. NL Shuffle a *Regret into your draw pile."
 	},
 	"beaked:Flinch": {
 		"NAME": "Flinch",
-		"DESCRIPTION": "Gain !beaked:wB! Block. NL Wither !M!.",
+		"DESCRIPTION": "Gain !beaked:wB! Block. NL beaked:Wither !M!.",
 		"EXTENDED_DESCRIPTION": ["Decreases #yBlock."] // wither effect tooltip
 	},
 	"beaked:Roost": {
@@ -74,7 +74,7 @@
 	},
 	"beaked:Redirect": {
 		"NAME": "Redirect",
-		"DESCRIPTION": "Gain Block equal to !beaked:wI! times your Strength, then lose all Strength. NL Wither 1.",
+		"DESCRIPTION": "Gain Block equal to !beaked:wI! times your Strength, then lose all Strength. NL beaked:Wither 1.",
 		"EXTENDED_DESCRIPTION": [
 			"(Gain !B! Block.) NL ",
 			"Decreases the #yStrength multiplier." // wither effect tooltip
@@ -82,7 +82,7 @@
 	},
 	"beaked:DesperateSwing": {
 		"NAME": "Desperate Swing",
-		"DESCRIPTION": "Deal !D! damage. NL Deals 1 more damage for every !M! points of HP missing."
+		"DESCRIPTION": "Deal !D! damage. NL Damage increases by 1 for every !M! points of HP missing."
 	},
 	"beaked:Foresight": {
 		"NAME": "Foresight",
@@ -95,7 +95,7 @@
 	},
 	"beaked:SowTheSeeds": {
 		"NAME": "Sow the Seeds",
-		"DESCRIPTION": "Shuffle !M! Respite into your draw pile."
+		"DESCRIPTION": "Shuffle !M! *Respite into your draw pile."
 	},
 	"beaked:Respite": {
 		"NAME": "Respite",
@@ -103,7 +103,7 @@
 	},
 	"beaked:Pecker": {
 		"NAME": "Pecker",
-		"DESCRIPTION": "Deal !D! damage !beaked:wI! time{^s^}. NL Wither 1.",
+		"DESCRIPTION": "Deal !D! damage !beaked:wI! time{^s^}. NL beaked:Wither 1.",
 		"EXTENDED_DESCRIPTION": ["Decreases the number of hits."] // wither effect tooltip
 	},
 	"beaked:TuckingFeathers": {
@@ -112,16 +112,16 @@
 	},
 	"beaked:Negation": {
 		"NAME": "Negation",
-		"DESCRIPTION": "Ignore the next Wither effect this combat. NL Exhaust.",
-		"UPGRADE_DESCRIPTION": "Ignore the next !M! Wither effects this combat. NL Exhaust."
+		"DESCRIPTION": "Ignore the next beaked:Wither effect this combat. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Ignore the next !M! beaked:Wither effects this combat. NL Exhaust."
 	},
 	"beaked:Recite": {
 		"NAME": "Recite",
-		"DESCRIPTION": "Add !M! Psalm cards to your hand."
+		"DESCRIPTION": "Add !M! *Psalm{s} to your hand."
 	},
 	"beaked:Psalm": {
 		"NAME": "Psalm",
-		"DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies. NL Wither !M!.",
+		"DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies. NL beaked:Wither !M!.",
 		"EXTENDED_DESCRIPTION": [ "Decreases damage." ] // wither effect tooltip
 	},
 	"beaked:Struggle": {
@@ -131,21 +131,21 @@
 	},
 	"beaked:Devastation": {
 		"NAME": "Devastation",
-		"DESCRIPTION": "When you draw a Depleted card, draw !M! more card.",
-		"UPGRADE_DESCRIPTION": "When you draw a Depleted card, draw !M! more cards."
+		"DESCRIPTION": "When you draw a beaked:Depleted card, draw !M! more card.",
+		"UPGRADE_DESCRIPTION": "When you draw a beaked:Depleted card, draw !M! more cards."
 	},
 	"beaked:Sacrifice": {
 		"NAME": "Sacrifice",
-		"DESCRIPTION": "Deal !D! damage. NL Enemy heals for !M! HP. NL If this kills a non-minion enemy, gain 3 Max HP. Exhaust."
+		"DESCRIPTION": "Deal !D! damage. NL Enemy heals for !M! HP. NL If Fatal, raise your Max HP by 3. Exhaust."
 	},
 	"beaked:Brainwash": {
 		"NAME": "Brainwash",
-		"DESCRIPTION": "Exhaust all Depleted cards in your hand. NL Retain your hand this turn. NL Exhaust.",
-		"UPGRADE_DESCRIPTION": "Retain. NL Exhaust all Depleted cards in your hand. NL Retain your hand this turn. NL Exhaust."
+		"DESCRIPTION": "Exhaust all beaked:Depleted cards in your hand. NL Retain your hand this turn. NL Exhaust.",
+		"UPGRADE_DESCRIPTION": "Retain. NL Exhaust all beaked:Depleted cards in your hand. NL Retain your hand this turn. NL Exhaust."
 	},
 	"beaked:DarkTribute": {
 		"NAME": "Dark Tribute",
-		"DESCRIPTION": "Heal ALL HP. NL Gain !beaked:wI! Poison. NL Wither !M!.",
+		"DESCRIPTION": "Heal ALL HP. NL Gain !beaked:wI! Poison. NL beaked:Wither !M!.",
 		"EXTENDED_DESCRIPTION": ["Increases #yPoison."] // wither effect description
 	},
 	"beaked:LiftOff": {
@@ -154,13 +154,13 @@
 	},
 	"beaked:FullHouse": {
 		"NAME": "Full House",
-		"DESCRIPTION": "Draw !beaked:wI! card{^s^}. NL Wither !M!.",
+		"DESCRIPTION": "Draw !beaked:wI! card{^s^}. NL beaked:Wither !M!.",
 		"EXTENDED_DESCRIPTION": ["Decreases the number of cards drawn."] // wither effect description
 	},
 	"beaked:Caw": {
 		"NAME": "CAW!",
-		"DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies X times. Apply X Weak and Vulnerable to ALL enemies. NL Wither !M!.",
-		"UPGRADE_DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies X+1 times. Apply X+1 Weak and Vulnerable to ALL enemies. NL Wither !M!.",
+		"DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies X times. Apply X Weak and Vulnerable to ALL enemies. NL beaked:Wither !M!.",
+		"UPGRADE_DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies X+1 times. Apply X+1 Weak and Vulnerable to ALL enemies. NL beaked:Wither !M!.",
 		"EXTENDED_DESCRIPTION": ["Decreases damage."] // wither effect description
 	},
 	"beaked:SacrificialScars": {
@@ -179,12 +179,12 @@
 	},
 	"beaked:StickSmack": {
 		"NAME": "Stick Smack",
-		"DESCRIPTION": "Deal !D! damage. NL Shuffle a Stick into your draw pile.",
-		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle an Upgraded Stick into your draw pile."
+		"DESCRIPTION": "Deal !D! damage. NL Shuffle a *Stick into your draw pile.",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL Shuffle an Upgraded *Stick into your draw pile."
 	},
 	"beaked:Stick": {
 		"NAME": "Stick",
-		"DESCRIPTION": "ALL Stick-Smack cards deal !M! additional damage this combat. Return the last played Stick-Smack card to your hand."
+		"DESCRIPTION": "ALL *Stick *Smacks deal !M! additional damage this combat. Return the last-played *Stick *Smack to your hand."
 	},
 	"beaked:WarriorSpirit": {
 		"NAME": "Warrior Spirit",
@@ -207,7 +207,7 @@
 	},
 	"beaked:Tradeoff": {
 		"NAME": "Tradeoff",
-		"DESCRIPTION": "Exhaust !beaked:wI! random card{^s^} in your hand. NL Wither -1. NL Draw !M! card{s}.",
+		"DESCRIPTION": "Exhaust !beaked:wI! random card{^s^} in your hand. NL beaked:Wither -1. NL Draw !M! card{s}.",
 		"EXTENDED_DESCRIPTION":[ "Increases number of #yExhausted cards." ] // wither effect tooltip
 	},
 	"beaked:BloodForTheGods": {
@@ -220,7 +220,7 @@
 	},
 	"beaked:Replenish": {
 		"NAME": "Replenish",
-		"DESCRIPTION": "Replenish !M! use{s} of a Wither card in your hand."
+		"DESCRIPTION": "Replenish !M! use{s} of a beaked:Wither card in your hand."
 	},
 	"beaked:BraceForImpact": {
 		"NAME": "Brace for Impact",
@@ -232,12 +232,12 @@
 	},
 	"beaked:CursingBlood": {
 		"NAME": "Cursing Blood",
-		"DESCRIPTION": "Enemy loses !beaked:wI! Strength. Wither !M!.",
+		"DESCRIPTION": "Enemy loses !beaked:wI! Strength. beaked:Wither !M!.",
 		"EXTENDED_DESCRIPTION": ["Decreases #yStrength reduction."] // wither effect tooltip
 	},
 	"beaked:Molting": {
 		"NAME": "Molting",
-		"DESCRIPTION": "Exhaust a card. NL Gain !B! Block, or !beaked:B+M! Block if it was a Depleted card."
+		"DESCRIPTION": "Exhaust a card. NL Gain !B! Block, or !beaked:B+M! Block if it was a beaked:Depleted card."
 	},
 	"beaked:DigDeep": {
 		"NAME": "Dig Deep",
@@ -266,7 +266,7 @@
 	},
 	"beaked:RuinSticks": {
 		"NAME": "Ruin Sticks",
-		"DESCRIPTION": "Deal !D! damage. NL Add a Regret to your hand."
+		"DESCRIPTION": "Deal !D! damage. NL Add a *Regret to your hand."
 	},
 	"beaked:BloodRitual": {
 		"NAME": "Blood Ritual",
@@ -284,8 +284,8 @@
 	},
 	"beaked:Mantra": {
 		"NAME": "Mantra",
-		"DESCRIPTION": "Deal !D! damage for every Wither card in your deck.",
-		"EXTENDED_DESCRIPTION": [" NL (You have !M! Wither card{s}.)"]
+		"DESCRIPTION": "Deal !D! damage for every beaked:Wither card in your deck.",
+		"EXTENDED_DESCRIPTION": [" NL (You have !M! beaked:Wither card{s}.)"]
 	},
 	"beaked:Windmill": {
 		"NAME": "Windmill",
@@ -313,7 +313,7 @@
 	},
 	"beaked:SurvivalInstinct": {
 		"NAME": "Survival Instinct",
-		"DESCRIPTION": "Ethereal. NL Can only be played if you haven't played any other cards this turn. NL Gain 1 Intangible. NL Become Entangled.",
+		"DESCRIPTION": "Ethereal. NL Can only be played if you haven't played any other cards this turn. NL Gain 1 Intangible. NL Become beaked:Entangled.",
 		"EXTENDED_DESCRIPTION": ["I have played other cards this turn!"]
 	},
 	"beaked:ShadowFade": {
@@ -322,7 +322,7 @@
 	},
 	"beaked:StunningBlow": {
 		"NAME": "Stunning Blow",
-		"DESCRIPTION": "Deal !beaked:wD! damage. NL Gain 1 Intangible. NL Wither !M!.",
+		"DESCRIPTION": "Deal !beaked:wD! damage. NL Gain 1 Intangible. NL beaked:Wither !M!.",
 		"EXTENDED_DESCRIPTION": ["Decreases damage."] // wither effect description
 	},
 	"beaked:ScreechingChant": {
@@ -331,28 +331,28 @@
 	},
 	"beaked:WindBringer": {
 		"NAME": "Wind Bringer",
-		"DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies. NL Wither !M!.",
+		"DESCRIPTION": "Deal !beaked:wD! damage to ALL enemies. NL beaked:Wither !M!.",
 		"EXTENDED_DESCRIPTION": ["Decreases damage."] // wither effect description
 	},
 	"beaked:CheekyTricks": {
 		"NAME": "Deep Focus",
-		"DESCRIPTION": "Ignore the next !beaked:wI! Wither effect{^s^} this combat. NL Wither !M!.",
+		"DESCRIPTION": "Ignore the next !beaked:wI! beaked:Wither effect{^s^} this combat. NL beaked:Wither !M!.",
 		"EXTENDED_DESCRIPTION": ["Decreases #yWither effects ignored. This card does not prevent its own #yWither effect."] // wither effect description
 	},
 	"beaked:MimicWarrior": {
 		"NAME": "Mimic Warrior",
 		"DESCRIPTION": "Add a random Ironclad card to your hand. It costs 0 this turn.",
-		"UPGRADE_DESCRIPTION": "Add a random upgraded Ironclad card to your hand. It costs 0 this turn."
+		"UPGRADE_DESCRIPTION": "Add a random Upgraded Ironclad card to your hand. It costs 0 this turn."
 	},
 	"beaked:MimicHuntress": {
 		"NAME": "Mimic Huntress",
 		"DESCRIPTION": "Add a random Silent card to your hand. It costs 0 this turn.",
-		"UPGRADE_DESCRIPTION": "Add a random upgraded Silent card to your hand. It costs 0 this turn."
+		"UPGRADE_DESCRIPTION": "Add a random Upgraded Silent card to your hand. It costs 0 this turn."
 	},
 	"beaked:MimicMachine": {
 		"NAME": "Mimic Machine",
 		"DESCRIPTION": "Add a random Defect card to your hand. It costs 0 this turn.",
-		"UPGRADE_DESCRIPTION": "Add a random upgraded Defect card to your hand. It costs 0 this turn."
+		"UPGRADE_DESCRIPTION": "Add a random Upgraded Defect card to your hand. It costs 0 this turn."
 	},
 	"beaked:CrazyRituals": {
 		"NAME": "Crazy Rituals",
@@ -392,7 +392,7 @@
 	},
 	"beaked:TaskmastersTorture": {
 		"NAME": "Taskmaster's Torture",
-		"DESCRIPTION": "Deal !D! damage. NL Apply !M! Bleed."
+		"DESCRIPTION": "Deal !D! damage. NL Apply !M! beaked:Bleed."
 	},
 	"beaked:NemesisSlickness": {
 		"NAME": "Nemesis' Slickness",

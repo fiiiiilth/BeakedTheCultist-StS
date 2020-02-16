@@ -3,11 +3,8 @@ package beaked.cards;
 import basemod.abstracts.CustomCard;
 import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
-import beaked.powers.RitualPlayerPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -30,6 +27,7 @@ public class RuinSticks extends CustomCard {
     public RuinSticks() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseDamage = this.damage = DAMAGE;
+        this.cardsToPreview = new Regret();
     }
 
     @Override

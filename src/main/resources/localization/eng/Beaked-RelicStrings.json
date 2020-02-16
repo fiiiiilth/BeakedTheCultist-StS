@@ -10,7 +10,7 @@
     "NAME": "Flawless Sticks",
     "FLAVOR": "A bundle of surprisingly beautiful sticks.",
     "DESCRIPTIONS": [
-      "At the start of each combat, #yExhaust all #yDepleted cards."
+      "At the start of each combat, #yExhaust all #ybeaked:Depleted cards."
     ]
   },
   "beaked:ShinyBauble": {
@@ -24,7 +24,7 @@
     "NAME": "Throat Lozenge",
     "FLAVOR": "Soothing relief! Not for reuse.",
     "DESCRIPTIONS": [
-      "Ignore the first #yWither effect each combat."
+      "Ignore the first #ybeaked:Wither effect each combat."
     ]
   },
   "beaked:SacredNecklace": {

@@ -4,16 +4,13 @@ import basemod.abstracts.CustomCard;
 import beaked.Beaked;
 import beaked.actions.FastHealAction;
 import beaked.patches.AbstractCardEnum;
-import beaked.powers.RitualPlayerPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PlatedArmorPower;
+import com.megacrit.cardcrawl.powers.RitualPower;
 
 public class DigDeep extends CustomCard {
     public static final String ID = "beaked:DigDeep";
@@ -34,8 +31,8 @@ public class DigDeep extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int ritual = 0;
-        if (AbstractDungeon.player.hasPower(RitualPlayerPower.POWER_ID)){
-            ritual = AbstractDungeon.player.getPower(RitualPlayerPower.POWER_ID).amount;
+        if (AbstractDungeon.player.hasPower(RitualPower.POWER_ID)){
+            ritual = AbstractDungeon.player.getPower(RitualPower.POWER_ID).amount;
         }
 
         for (int i=0;i<ritual;i++){

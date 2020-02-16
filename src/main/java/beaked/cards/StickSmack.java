@@ -29,6 +29,7 @@ public class StickSmack extends CustomCard {
                 AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON,
                 CardTarget.ENEMY);
         this.baseDamage = ATTACK_DMG;
+        this.cardsToPreview = new Stick();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

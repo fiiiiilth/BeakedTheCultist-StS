@@ -4,9 +4,6 @@ import basemod.abstracts.CustomCard;
 import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
 import beaked.powers.BodyRitualPower;
-import beaked.powers.MurmursPlusPower;
-import beaked.powers.MurmursPower;
-import beaked.powers.RitualPlayerPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.RitualPower;
 
 public class RitualOfBody extends CustomCard {
     public static final String ID = "beaked:RitualOfBody";
@@ -34,7 +32,7 @@ public class RitualOfBody extends CustomCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m){
-        if (AbstractDungeon.player.hasPower(RitualPlayerPower.POWER_ID) && AbstractDungeon.player.getPower(RitualPlayerPower.POWER_ID).amount >= RITUAL_COST) {
+        if (AbstractDungeon.player.hasPower(RitualPower.POWER_ID) && AbstractDungeon.player.getPower(RitualPower.POWER_ID).amount >= RITUAL_COST) {
             return true;
         }
         this.cantUseMessage = EXTENDED_DESCRIPTION[0];
@@ -43,8 +41,8 @@ public class RitualOfBody extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (AbstractDungeon.player.hasPower(RitualPlayerPower.POWER_ID) && AbstractDungeon.player.getPower(RitualPlayerPower.POWER_ID).amount >= RITUAL_COST) {
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, RitualPlayerPower.POWER_ID, RITUAL_COST));
+        if (AbstractDungeon.player.hasPower(RitualPower.POWER_ID) && AbstractDungeon.player.getPower(RitualPower.POWER_ID).amount >= RITUAL_COST) {
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, RitualPower.POWER_ID, RITUAL_COST));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BodyRitualPower(p, this.magicNumber), this.magicNumber));
         }
     }

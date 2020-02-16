@@ -25,6 +25,8 @@ public class Recite extends CustomCard {
     public Recite() {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.UNCOMMON, CardTarget.NONE);
         this.magicNumber = this.baseMagicNumber = NUM_CARDS;
+        this.cardsToPreview = new Psalm();
+        Beaked.setDescription(this,DESCRIPTION);
     }
 
     @Override

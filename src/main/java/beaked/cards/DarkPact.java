@@ -27,6 +27,7 @@ public class DarkPact extends CustomCard {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.RARE, CardTarget.SELF);
 
         this.magicNumber = this.baseMagicNumber = PLATED_ARMOR;
+        this.cardsToPreview = new Regret();
     }
 
     @Override

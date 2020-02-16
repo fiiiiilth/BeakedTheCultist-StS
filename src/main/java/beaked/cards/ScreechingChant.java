@@ -3,7 +3,6 @@ package beaked.cards;
 import basemod.abstracts.CustomCard;
 import beaked.Beaked;
 import beaked.patches.AbstractCardEnum;
-import beaked.powers.RitualPlayerPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,7 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PlatedArmorPower;
+import com.megacrit.cardcrawl.powers.RitualPower;
 
 public class ScreechingChant extends CustomCard {
     public static final String ID = "beaked:ScreechingChant";
@@ -28,9 +27,9 @@ public class ScreechingChant extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-       if (p.hasPower(RitualPlayerPower.POWER_ID)) {
-           int ritual = p.getPower(RitualPlayerPower.POWER_ID).amount;
-           AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RitualPlayerPower(p, ritual), ritual));
+       if (p.hasPower(RitualPower.POWER_ID)) {
+           int ritual = p.getPower(RitualPower.POWER_ID).amount;
+           AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RitualPower(p, ritual,true), ritual));
        }
     }
 

@@ -5,7 +5,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import basemod.*;
-import basemod.helpers.BaseModCardTags;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import beaked.cards.*;
@@ -16,11 +15,11 @@ import beaked.patches.BeakedEnum;
 import beaked.patches.CardTagsEnum;
 import beaked.patches.PluralizeFieldsPatch;
 import beaked.potions.MendingBrew;
-import beaked.potions.RitualPotion;
 import beaked.relics.*;
 import beaked.ui.ModRelicPreview;
 import beaked.variables.*;
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.google.gson.Gson;
@@ -48,6 +47,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.Settings;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 
 @SpireInitializer
 public class Beaked implements PostInitializeSubscriber,
@@ -290,7 +290,6 @@ public class Beaked implements PostInitializeSubscriber,
             BaseMod.addEliteEncounter(TheBeyond.ID, new MonsterInfo(SuperParasite.ID,1.0f));
         }
 
-        BaseMod.addPotion(RitualPotion.class, YELLOW, YELLOW, YELLOW, RitualPotion.POTION_ID, BeakedEnum.BEAKED_THE_CULTIST);
         BaseMod.addPotion(MendingBrew.class,Color.GREEN.cpy(),Color.WHITE.cpy(),Color.GREEN.cpy(),MendingBrew.POTION_ID,BeakedEnum.BEAKED_THE_CULTIST);
     }
 
@@ -718,7 +717,7 @@ public class Beaked implements PostInitializeSubscriber,
         logger.info("begin editing strings");
 
         String language = "eng";
-        if (Settings.language == Settings.GameLanguage.ZHS) language = "zhs";
+        //if (Settings.language == Settings.GameLanguage.ZHS) language = "zhs";
         BaseMod.loadCustomStringsFile(RelicStrings.class, "localization/"+language+"/Beaked-RelicStrings.json");
         BaseMod.loadCustomStringsFile(CardStrings.class, "localization/"+language+"/Beaked-CardStrings.json");
         BaseMod.loadCustomStringsFile(PotionStrings.class, "localization/"+language+"/Beaked-PotionStrings.json");
@@ -750,9 +749,9 @@ public class Beaked implements PostInitializeSubscriber,
         Gson gson = new Gson();
         String strings = loadJson("localization/" + language + "/Beaked-KeywordStrings.json");
         @SuppressWarnings("unchecked")
-        Map<String,Keyword> keywords = (Map<String,Keyword>)gson.fromJson(strings, typeToken);
+        Map<String, Keyword> keywords = (Map<String,Keyword>)gson.fromJson(strings, typeToken);
         for (Keyword kw : keywords.values()) {
-            BaseMod.addKeyword(kw.NAMES, kw.DESCRIPTION);
+            BaseMod.addKeyword("beaked:",kw.PROPER_NAME,kw.NAMES, kw.DESCRIPTION);
         }
     }
 

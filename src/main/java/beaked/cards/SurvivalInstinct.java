@@ -37,7 +37,15 @@ public class SurvivalInstinct extends CustomCard {
     @Override
     public boolean cardPlayable(AbstractMonster m){
         this.cantUseMessage = EXTENDED_DESCRIPTION[0];
-        return super.cardPlayable(m) && AbstractDungeon.actionManager.cardsPlayedThisTurn.size() == 0;
+        return super.cardPlayable(m) && AbstractDungeon.actionManager.cardsPlayedThisTurn.isEmpty();
+    }
+
+    public void triggerOnGlowCheck() {
+        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.isEmpty()) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

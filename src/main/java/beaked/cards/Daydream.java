@@ -24,6 +24,7 @@ public class Daydream extends CustomCard {
         super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.BEAKED_YELLOW, CardRarity.COMMON, CardTarget.SELF);
 
         this.magicNumber = this.baseMagicNumber = INSPIRATION_COUNT;
+        this.cardsToPreview = new Inspiration();
     }
 
     @Override
