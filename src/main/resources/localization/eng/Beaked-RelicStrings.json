@@ -61,7 +61,8 @@
     "NAME": "Ritual Plumage",
     "DESCRIPTIONS": [
       "If you end your turn without playing any cards, gain #b",
-      " #yRitual. Only works once per combat."
+      " #yRitual. Only works once per combat.",
+      "#yRitual #yPlumage: If you end your turn now, gain #b2 #yRitual."
     ],
     "FLAVOR": "The Strength of a Demon courses through you."
   },

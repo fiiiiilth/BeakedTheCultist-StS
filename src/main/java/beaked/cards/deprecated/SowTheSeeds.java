@@ -1,4 +1,4 @@
-package beaked.cards;
+package beaked.cards.deprecated;
 
 import basemod.abstracts.CustomCard;
 import beaked.Beaked;

@@ -7,12 +7,11 @@ import beaked.cards.fakeCards.BackButtonCard;
 import beaked.cards.fakeCards.CharacterSelectCard;
 import beaked.patches.BeakedCardTags;
 import com.badlogic.gdx.graphics.Texture;
-import com.evacipated.cardcrawl.mod.stslib.relics.SuperRareRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.cards.tempCards.Beta;
+import com.megacrit.cardcrawl.cards.tempCards.Expunger;
+import com.megacrit.cardcrawl.cards.tempCards.Omega;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -45,12 +44,11 @@ public class SacredDeck extends CustomRelic{
         isChoosingCard = false;
         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard.CardColor color : AbstractCard.CardColor.values()) {
-            if(BaseMod.getBgColor(color) != null ||
-               color == AbstractCard.CardColor.RED || color == AbstractCard.CardColor.GREEN || color == AbstractCard.CardColor.BLUE ||
-               color == AbstractCard.CardColor.COLORLESS || color == AbstractCard.CardColor.CURSE
-            )
+            if(BaseMod.getBgColor(color) != null || BaseMod.isBaseGameCardColor(color))
             {
-                group.addToTop(new CharacterSelectCard(color));
+                if (Beaked.doesColorHaveAnyCards(color)){
+                    group.addToTop(new CharacterSelectCard(color));
+                }
             }
         }
 
@@ -65,7 +63,11 @@ public class SacredDeck extends CustomRelic{
 
         // add ALL cards except specifically-tagged ones
         for (AbstractCard card:cards){
-            if (!card.hasTag(BeakedCardTags.NO_SACRED_DECK)) group.addToTop(card.makeCopy());
+            if (!(card.hasTag(BeakedCardTags.NO_SACRED_DECK) ||
+                    card.cardID == Beta.ID ||
+                    card.cardID == Omega.ID ||
+                    card.cardID == Expunger.ID))
+                group.addToTop(card.makeCopy());
         }
         group.sortByType(true);
         group.sortByRarityPlusStatusCardType(true);

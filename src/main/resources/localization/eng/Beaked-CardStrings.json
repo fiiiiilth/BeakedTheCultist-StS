@@ -36,11 +36,11 @@
 	},
 	"beaked:Overpower": {
 		"NAME": "Overpower",
-		"DESCRIPTION": "Deal !D! damage. NL Damage increases by 1 for every !M! HP you currently have."
+		"DESCRIPTION": "Deal !D! damage. NL Deals 1 additional damage for every !M! HP you currently have."
 	},
 	"beaked:DarkPact": {
 		"NAME": "Dark Pact",
-		"DESCRIPTION": "Gain !M! Plated Armor. NL Shuffle a *Regret into your draw pile."
+		"DESCRIPTION": "Gain !M! beaked:Plated_Armor. NL Shuffle a *Regret into your draw pile."
 	},
 	"beaked:Flinch": {
 		"NAME": "Flinch",
@@ -82,7 +82,7 @@
 	},
 	"beaked:DesperateSwing": {
 		"NAME": "Desperate Swing",
-		"DESCRIPTION": "Deal !D! damage. NL Damage increases by 1 for every !M! points of HP missing."
+		"DESCRIPTION": "Deal !D! damage. NL Deals 1 additional damage for every !M! points of HP missing."
 	},
 	"beaked:Foresight": {
 		"NAME": "Foresight",
@@ -224,7 +224,7 @@
 	},
 	"beaked:BraceForImpact": {
 		"NAME": "Brace for Impact",
-		"DESCRIPTION": "Gain !M! Plated Armor."
+		"DESCRIPTION": "Gain !M! beaked:Plated_Armor."
 	},
 	"beaked:Brace": {
 		"NAME": "Brace",
@@ -360,7 +360,7 @@
 	},
 	"beaked:RitualOfBody": {
 		"NAME": "Ritual Of Body",
-		"DESCRIPTION": "Spend 1 Ritual. Gain !M! Plated Armor at the start of each turn.",
+		"DESCRIPTION": "Spend 1 Ritual. Gain !M! beaked:Plated_Armor at the start of each turn.",
 		"EXTENDED_DESCRIPTION": ["I don't have enough Ritual!"]
 	},
 	"beaked:NobsRage": {

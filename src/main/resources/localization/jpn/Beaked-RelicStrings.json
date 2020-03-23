@@ -1,0 +1,76 @@
+{
+  "beaked:MendingPlumage": {
+    "NAME": "修繕の羽毛",
+    "FLAVOR": "自分の羽と同化していく羽毛。そしてだんだん...",
+    "DESCRIPTIONS": [
+      "カードをプレイするたびに、HPを #b1 回復する。"
+    ]
+  },
+  "beaked:FlawlessSticks": {
+    "NAME": "完璧な枝の束",
+    "FLAVOR": "驚くほど綺麗な枝の束。",
+    "DESCRIPTIONS": [
+      "戦闘開始時、 #ybeaked:枯渇 したカードを全て #y廃棄 する。"
+    ]
+  },
+  "beaked:ShinyBauble": {
+    "NAME": "きらめくオーナメント",
+    "FLAVOR": "この輝きを奪うことはできない。",
+    "DESCRIPTIONS": [
+      "休憩所を通過した次の戦闘において、 #y儀式 #b1 を得た状態でスタートする。"
+    ]
+  },
+  "beaked:ThroatLozenge": {
+    "NAME": "のど飴",
+    "FLAVOR": "安らぎのひと時！再利用はできません。",
+    "DESCRIPTIONS": [
+      "戦闘中、最初の #ybeaked:衰退 を無効化する。"
+    ]
+  },
+  "beaked:SacredNecklace": {
+    "NAME": "神聖な首飾り",
+    "FLAVOR": "この小さな輝く首飾りは、どこか違う国から来たらしい...",
+    "DESCRIPTIONS": [
+      "#yスーパーレア！ NL ターン開始時、 [E] を得る。"
+    ]
+  },
+  "beaked:SacredDeck": {
+    "NAME": "聖なるデッキ",
+    "FLAVOR": "塔に入った者全ての秘密が内包されている、それも最も深い。",
+    "DESCRIPTIONS": [
+      "獲得時、 #y好きなクラスの好きなカード #b1 枚を取得できる。",
+      "見たいクラスを選択",
+      "取得したいカードを選択"
+    ]
+  },
+  "beaked:MawFillet": {
+    "NAME": "モーのヒレ肉",
+    "FLAVOR": "この悪臭は最も飢えた者を引き寄せ、最も富んだ者を遠ざける。",
+    "DESCRIPTIONS": [
+      "ショップがエリートに置き換わる。ターン開始時 [E] を得る。"
+    ]
+  },
+  "beaked:BlessedCoat": {
+    "NAME": "祝福のコート",
+    "FLAVOR": "羽毛の代わりに身を守ってくれる。",
+    "DESCRIPTIONS": [
+      "#p修繕の羽毛 と置き換える。カードをプレイするたびに、HPを #b1 回復する。1ターンの間に #b3 枚カードをプレイするたび、 #y再生 #b1 を得る。"
+    ]
+  },
+  "beaked:RitualPlumage": {
+    "NAME": "祭式の羽毛",
+    "DESCRIPTIONS": [
+      "カードをプレイせずにターンを終了したとき、 #y儀式 #b",
+      " を得る。戦闘ごとに1回のみ発動する。",
+      "" //#yRitual #yPlumage: If you end your turn now, gain #b2 #yRitual.
+    ],
+    "FLAVOR": "悪魔のパワーがあなたを駆け巡る。"
+  },
+  "beaked:SacrificeDoll": {
+    "NAME": "身代わり人形",
+    "DESCRIPTIONS": [
+      "戦闘開始時、手札を全てプレイする。このとき対象はランダムで、コストは0。"
+    ],
+    "FLAVOR": "この人形はあの...ロボットを思い出す。まるで常に見守られているような気分だ。"
+  }
+}

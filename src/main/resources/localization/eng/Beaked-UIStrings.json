@@ -1,7 +1,7 @@
 {
   "beaked:WitherCard": {
     "TEXT": [
-      "Depleted. NL ", // appears on the card
+      "beaked:Depleted. NL ", // appears on the card
       "This card is #rDepleted!", // what the character says when trying to play card
       "Wither Effect", // title of tooltip describing wither effects
       " NL (Current value: #b",

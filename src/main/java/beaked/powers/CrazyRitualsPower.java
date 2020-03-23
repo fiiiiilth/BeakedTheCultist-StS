@@ -108,7 +108,9 @@ public class CrazyRitualsPower extends AbstractPower {
                 // blakkmod
                 nextCard.cardID == "BlakkBlade" ||
                 // blakkmod
-                nextCard.cardID == "LegSlice");
+                nextCard.cardID == "LegSlice" ||
+                // cast exception when trying to turn a non-gremlin character into a nob
+                nextCard.cardID == "Gremlin:Nob");
 
         String fullDescription = "";
         for (DescriptionLine line : nextCard.description){

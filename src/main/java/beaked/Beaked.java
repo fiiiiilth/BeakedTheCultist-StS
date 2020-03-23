@@ -5,15 +5,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import basemod.*;
+import basemod.helpers.BaseModCardTags;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import beaked.cards.*;
 import beaked.characters.BeakedTheCultist;
 import beaked.monsters.SuperParasite;
-import beaked.patches.AbstractCardEnum;
-import beaked.patches.BeakedEnum;
-import beaked.patches.CardTagsEnum;
-import beaked.patches.PluralizeFieldsPatch;
+import beaked.patches.*;
 import beaked.potions.MendingBrew;
 import beaked.relics.*;
 import beaked.ui.ModRelicPreview;
@@ -25,6 +23,9 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.optionCards.*;
+import com.megacrit.cardcrawl.cards.red.Defend_Red;
+import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
@@ -212,6 +213,7 @@ public class Beaked implements PostInitializeSubscriber,
         ModPanel settingsPanel = new ModPanel();
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
+        UIStrings endTurnStrings = CardCrawlGame.languagePack.getUIString("beaked:EndTurnButton");
         UIStrings configStrings = CardCrawlGame.languagePack.getUIString("beaked:ConfigMenuText");
         UIStrings costumeStrings = CardCrawlGame.languagePack.getUIString("beaked:CostumeColors");
         UIStrings cawStrings = CardCrawlGame.languagePack.getUIString("beaked:CAW");
@@ -291,6 +293,14 @@ public class Beaked implements PostInitializeSubscriber,
         }
 
         BaseMod.addPotion(MendingBrew.class,Color.GREEN.cpy(),Color.WHITE.cpy(),Color.GREEN.cpy(),MendingBrew.POTION_ID,BeakedEnum.BEAKED_THE_CULTIST);
+
+        // make it so Watcher's option cards can't be played by stuff, since that's weird and might not work
+        CardLibrary.getCard(FameAndFortune.ID).tags.add(BeakedCardTags.NO_SACRED_DECK);
+        CardLibrary.getCard(FameAndFortune.ID).tags.add(BeakedCardTags.NO_CRAZY_RITUALS);
+        CardLibrary.getCard(LiveForever.ID).tags.add(BeakedCardTags.NO_SACRED_DECK);
+        CardLibrary.getCard(LiveForever.ID).tags.add(BeakedCardTags.NO_CRAZY_RITUALS);
+        CardLibrary.getCard(BecomeAlmighty.ID).tags.add(BeakedCardTags.NO_SACRED_DECK);
+        CardLibrary.getCard(BecomeAlmighty.ID).tags.add(BeakedCardTags.NO_CRAZY_RITUALS);
     }
 
     public static void saveData() {
@@ -512,7 +522,7 @@ public class Beaked implements PostInitializeSubscriber,
 
         //Special
         BaseMod.addCard(new Inspiration());
-        BaseMod.addCard(new Respite());
+        //BaseMod.addCard(new Respite());
         BaseMod.addCard(new Psalm());
         BaseMod.addCard(new Stick());
 
@@ -694,7 +704,7 @@ public class Beaked implements PostInitializeSubscriber,
 
 
         UnlockTracker.unlockCard(Inspiration.ID);
-        UnlockTracker.unlockCard(Respite.ID);
+        //UnlockTracker.unlockCard(Respite.ID);
         UnlockTracker.unlockCard(Psalm.ID);
         UnlockTracker.unlockCard(Stick.ID);
 
@@ -717,7 +727,7 @@ public class Beaked implements PostInitializeSubscriber,
         logger.info("begin editing strings");
 
         String language = "eng";
-        //if (Settings.language == Settings.GameLanguage.ZHS) language = "zhs";
+        if (Settings.language == Settings.GameLanguage.JPN) language = "jpn";
         BaseMod.loadCustomStringsFile(RelicStrings.class, "localization/"+language+"/Beaked-RelicStrings.json");
         BaseMod.loadCustomStringsFile(CardStrings.class, "localization/"+language+"/Beaked-CardStrings.json");
         BaseMod.loadCustomStringsFile(PotionStrings.class, "localization/"+language+"/Beaked-PotionStrings.json");
@@ -757,7 +767,7 @@ public class Beaked implements PostInitializeSubscriber,
 
     @Override
     public void receiveCardUsed(AbstractCard c) {
-        if(AbstractDungeon.player.hasRelic(CultistMask.ID)) {
+        if(AbstractDungeon.player instanceof BeakedTheCultist && AbstractDungeon.player.hasRelic(CultistMask.ID)) {
             CardCrawlGame.sound.playA("VO_CULTIST_1C", MathUtils.random(-0.2f, 0.2f));
             AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.0f,
                     cawText, true));
@@ -918,6 +928,10 @@ public class Beaked implements PostInitializeSubscriber,
         return (AbstractCard)CardLibrary.cards.get(tmp.get(rand.random(0, tmp.size() - 1)));
     }
 
+    public static boolean doesColorHaveAnyCards(AbstractCard.CardColor color){
+        return CardLibrary.getCardList(CardLibrary.LibraryType.valueOf(color.name())).size() > 0;
+    }
+
     public static AbstractCard getColorRepresentativeCard(AbstractCard.CardColor color){
         final ArrayList<AbstractCard> cards = CardLibrary.getCardList(CardLibrary.LibraryType.valueOf(color.name()));
         // look for a basic defend
@@ -938,7 +952,11 @@ public class Beaked implements PostInitializeSubscriber,
                 return card;
             }
         }
-        // I give up, just take the first card
-        return cards.get(0);
+        // ...Does a card exist?
+        if (cards.size() > 0){
+            return cards.get(0);
+        }
+        // if not, return a red defend - this shouldn't happen
+        return new Defend_Red();
     }
 }

@@ -1,0 +1,8 @@
+{
+  "beaked:MendingBrew": {
+    "NAME": "修繕の醸造酒",
+    "DESCRIPTIONS": [
+      "カードをプレイする度に、HPを #b%s 回復する。"
+    ]
+  }
+}

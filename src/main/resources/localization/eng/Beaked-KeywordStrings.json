@@ -26,5 +26,13 @@
       "bleed"
     ],
     "DESCRIPTION": "Bleeding creatures take damage at the end of their turn. Bleed does not decrease over time."
+  },
+  "PLATED_ARMOR_BEAKED":{
+    "PROPER_NAME": "Plated Armor",
+    "NAMES": [
+      "plated armor",
+      "plated_armor"
+    ],
+    "DESCRIPTION": "At the end of your turn, gain #yBlock. Receiving unblocked attack damage reduces #yPlated #yArmor by #b1."
   }
 }

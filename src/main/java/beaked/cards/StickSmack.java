@@ -53,6 +53,7 @@ public class StickSmack extends CustomCard {
             this.upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
             this.initializeDescription();
+            this.cardsToPreview.upgrade();
         }
     }
 }

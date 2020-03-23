@@ -1,8 +1,7 @@
-package beaked.cards;
+package beaked.cards.deprecated;
 
 import basemod.abstracts.CustomCard;
 import beaked.Beaked;
-import beaked.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.SetDontTriggerAction;
@@ -26,7 +25,7 @@ public class Respite extends CustomCard {
     public static final int HEAL_AMT = 2;
 
     public Respite() {
-        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.STATUS, AbstractCardEnum.BEAKED_YELLOW, CardRarity.SPECIAL, CardTarget.NONE);
+        super(ID, NAME, "beaked_img/cards/"+ Beaked.getActualID(ID)+".png", COST, DESCRIPTION, CardType.STATUS, CardColor.COLORLESS, CardRarity.COMMON, CardTarget.NONE);
         this.tags.add(CardTags.HEALING);
         this.magicNumber = this.baseMagicNumber = HEAL_AMT;
     }

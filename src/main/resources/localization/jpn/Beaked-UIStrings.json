@@ -1,0 +1,84 @@
+{
+  "beaked:WitherCard": {
+    "TEXT": [
+      "枯渇 NL ", // appears on the card
+      "このカードは #r枯渇 している!", // what the character says when trying to play card
+      "衰退の効果", // title of tooltip describing wither effects
+      " NL (現在の数値: #b",
+      ")" // displaying current wither card power in the tooltip. Reads "(Current value: 5)" in-game
+    ]
+  },
+  "beaked:UICard": {
+    "TEXT": [
+      "戻る", // name of back button card used in Sacred Deck menu
+      "別のクラスを選ぶ" // description of back button card
+    ]
+  },
+  "beaked:ReplenishWitherCardAction": {
+    "TEXT": [
+      "継ぎ足し" // full text reads "choose a card to replenish."
+    ]
+  },
+  "beaked:FaceTrader":{
+    "TEXT": [
+      "[取引する] #g50%: #g善き顔。 #r50%: #r悪しき顔。 #b100%: #b最良の顔。"
+    ]
+  },
+  "beaked:ReverseWitherCampfireButton":{
+    "TEXT": [
+      "逆転",
+      "( 1 回タダ) 衰退したカードを 1 枚完全に補充する。",
+      "衰退したカードを 1 枚完全に補充する。",
+      "補充が必要なカードがない。"
+    ]
+  },
+  "beaked:RelicPreview":{
+    "TEXT": [
+      "#rボス NL ",
+      "#bスペシャル NL ",
+      "#yショップ NL "
+    ]
+  },
+  "beaked:CostumeColors":{
+    "TEXT": [
+      "イエロー",
+      "ブルー",
+      "グリーン",
+      "アングリー"
+    ]
+  },
+  "beaked:ConfigMenuText": {
+    "TEXT": [
+      "初期デッキの内、おまじない 2 枚を奇妙なおまじないに置き換える。",
+      "カスタムモードのデッキが 2 枚のおまじないを所持した状態でスタートする。",
+      "有効化: Act3のエリートに巨大パラサイトが出現する。 (再起動が必要です。)",
+      "カルティストのレリックを他のキャラクターでも出現するようにする。",
+      "コスチュームチェンジ:",
+      "スペシャルレリック:",
+      "巨大パラサイト"
+    ]
+  },
+  "beaked:SpecialRelicSettings": {
+    "TEXT": [
+      "オフ",
+      "カルティストのみ",
+      "誰でも"
+    ]
+  },
+  "beaked:CharScreenText": {
+    "TEXT": [
+      "奇妙なおまじない",
+      "初期デッキの内、おまじない 2 枚を奇妙なおまじないに置き換える。",
+      "有効化: Act3のエリートに巨大パラサイトが出現する。 (再起動が必要です。)",
+      "カルティストのレリックを他のキャラクターでも出現するようにする。",
+      "コスチュームチェンジ:",
+      "スペシャルレリック:",
+      "巨大パラサイト"
+    ]
+  },
+  "beaked:CAW": {
+    "TEXT": [
+      "カァー！"
+    ]
+  }
+}

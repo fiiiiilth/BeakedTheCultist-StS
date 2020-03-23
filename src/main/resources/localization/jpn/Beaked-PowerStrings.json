@@ -1,0 +1,243 @@
+{
+	"beaked:RitualPlayer": {
+		"NAME": "儀式",
+		"DESCRIPTIONS": [
+			"ターン開始時、 #y筋力 #b",
+			" を得る。"
+		]
+	},
+	"beaked:InsightPower": {
+		"NAME": "インサイト",
+		"DESCRIPTIONS": [
+			"ターン開始時、 #y天啓 を #b",
+			" 枚山札に加える。"
+		]
+	},
+	"beaked:MachineEssencePower": {
+		"NAME": "機械の本質",
+		"DESCRIPTIONS": [
+			"回復するたびに追加で #b",
+			" 回復する。"
+		]
+	},
+	"beaked:HexingPower": {
+		"NAME": "呪術",
+		"DESCRIPTIONS": [
+			"ターン開始時、攻撃を予定していない敵に #y脱力 #b",
+			"  と #y弱体 #b",
+			" を与える。"
+		]
+	},
+	"beaked:NegationPower": {
+		"NAME": "否定",
+		"DESCRIPTIONS": [
+			"この戦闘中次の #y衰退 を #b",
+			" 回無効化する。"
+		]
+	},
+	"beaked:DevastationPower": {
+		"NAME": "廃虚",
+		"DESCRIPTIONS": [
+			"#y枯渇 したカードを引いたとき、 #b",
+			" 枚カードを引く。"
+		]
+	},
+	"beaked:FlightPlayerPower": {
+		"NAME": "飛行",
+		"DESCRIPTIONS": [
+			"#yアタック による被ダメージが #b50% 減少。 1 ターンに #b",
+			" 回攻撃を受けると、このパワーは解除され次のターン行動できなくなる。"
+		]
+	},
+	"beaked:StunnedPower": {
+		"NAME": "スタン",
+		"DESCRIPTIONS": [
+			"次のターン行動できない。"
+		]
+	},
+	"beaked:NoHealPower": {
+		"NAME": "回復不可能",
+		"DESCRIPTIONS": [
+			"#b",
+			" ターンの間回復できない。"
+		]
+	},
+	"beaked:AwakenedPower": {
+		"NAME": "依代化",
+		"DESCRIPTIONS": [
+			"全てのカードのコストは #b",
+			" 減少する。"
+		]
+	},
+	"beaked:AwakenedPlusPower": {
+		"NAME": "完全憑依",
+		"DESCRIPTIONS": [
+			"カードのコストが #b-",
+			" になれる。"
+		]
+	},
+	"beaked:WarriorSpiritPower": {
+		"NAME": "戦士の心",
+		"DESCRIPTIONS": [
+			"このターン次の #yアタック を 2 回プレイして、",
+			"このターン次の #yアタック #b",
+			" 枚を 2 回プレイして、",
+			" NL そのコストに等しい #y筋力 を得る。"
+		]
+	},
+	"beaked:WarriorSpiritPlusPower": {
+		"NAME": "戦士の心",
+		"DESCRIPTIONS": [
+			"このターン次の #yアタック を 2 回プレイして、",
+			"このターン次の #yアタック #b",
+			" 枚を 2 回プレイして、",
+			" NL そのコストの 2 倍に等しい #y筋力 を得る。"
+		]
+	},
+	"beaked:HuntressSpiritPower": {
+		"NAME": "狩人の心",
+		"DESCRIPTIONS": [
+			"このターン次の #yスキル を 2 回プレイして、",
+			"このターン次の #yスキル #b",
+			" 枚を 2 回プレイして、",
+			" NL そのコストに等しい #y敏捷性 を得る。"
+		]
+	},
+	"beaked:HuntressSpiritPlusPower": {
+		"NAME": "狩人の心",
+		"DESCRIPTIONS": [
+			"このターン次の #yスキル を 2 回プレイして、",
+			"このターン次の #yスキル #b",
+			" 枚を 2 回プレイして、",
+			" NL そのコストの 2 倍に等しい #y敏捷性 を得る。"
+		]
+	},
+	"beaked:MachineSpiritPower": {
+		"NAME": "機械の心",
+		"DESCRIPTIONS": [
+			"このターン次の #yパワー を 2 回プレイして、",
+			"このターン次の #yパワー #b",
+			" 枚を 2 回プレイして、",
+			" NL そのコストの 3 倍に等しいHPを回復する。"
+		]
+	},
+	"beaked:MachineSpiritPlusPower": {
+		"NAME": "機械の心",
+		"DESCRIPTIONS": [
+			"このターン次の #yパワー を 2 回プレイして、",
+			"このターン次の #yパワー #b",
+			" 枚を 2 回プレイして、",
+			" NL そのコストの 5 倍に等しいHPを回復する。"
+		]
+	},
+	"beaked:NextTurnHealPower": {
+		"NAME": "次ターン回復",
+		"DESCRIPTIONS": [
+			"次ターン開始時、HPを #b",
+			" 回復する。"
+		]
+	},
+	"beaked:WindmillPower": {
+		"NAME": "ウィンドミル",
+		"DESCRIPTIONS": [
+			"このターン #yスキル をプレイするたびに、 #b",
+			" ダメージをランダムな敵に与える。"
+		]
+	},
+	"beaked:MurmursPower": {
+		"NAME": "深淵からのささやき",
+		"DESCRIPTIONS": [
+			"ターン開始時、捨て札からランダムな ",
+			"1 枚を手札に加える。このターンそのコストは 1 減少する。",
+			" 枚を手札に加える。このターンそれらのコストは 1 減少する。"
+		]
+	},
+	"beaked:MurmursPlusPower": {
+		"NAME": "深淵からのささやき+",
+		"DESCRIPTIONS": [
+			"ターン開始時、捨て札からランダムな ",
+			"1 枚を手札に加える。このターンそのコストは 0 になる。",
+			" 枚を手札に加える。このターンそれらのコストは 0 になる。"
+		]
+	},
+	"beaked:MisfortunePower": {
+		"NAME": "気まぐれな不運",
+		"DESCRIPTIONS": [
+			"ターン終了時、全ての #y使用不可 なカードを #y保留 する。その枚数分、ランダムな敵に #b",
+			" ダメージ与える。(このダメージには #y筋力 ボーナスが乗る。)"
+		]
+	},
+	"beaked:CrazyRitualsPower": {
+		"NAME": "奇妙なおまじない",
+		"DESCRIPTIONS": [
+			"ターン開始時、ランダムなクラスの、ランダムなカードを、ランダムな敵にプレイする。"
+		]
+	},
+	"beaked:BodyRitual": {
+		"NAME": "鋼のおまじない",
+		"DESCRIPTIONS": [
+			"ターン開始時、 #yプレートアーマー #b",
+			" を得る。"
+		]
+	},
+	"beaked:NobsRagePower": {
+		"NAME": "怒り",
+		"DESCRIPTIONS": [
+			"攻撃されるたびに、 #y筋力 #b",
+			" を得る。"
+		]
+	},
+	"beaked:LagavulinsFerocityPower": {
+		"NAME": "獰猛",
+		"DESCRIPTIONS": [
+			"最初にプレイする #yアタック のダメージが 2 倍になる。",
+			"最初から #b",
+			" 枚までの #yアタック のダメージが 2 倍になる。"
+		]
+	},
+	"beaked:LagavulinsFerocityPlusPower": {
+		"NAME": "獰猛",
+		"DESCRIPTIONS": [
+			"最初にプレイする #yアタック のダメージが 3 倍になる。",
+			"最初から #b",
+			" 枚までの #yアタック のダメージが 3 倍になる。"
+		]
+	},
+	"beaked:BleedPower": {
+		"NAME": "出血",
+		"DESCRIPTIONS": [
+			"対象のターン終了時に、 #b",
+			" ダメージを与える。"
+		]
+	},
+	"beaked:HeadsImpatiencePower": {
+		"NAME": "焦り",
+		"DESCRIPTIONS": [
+			"カードをプレイするたびに、 #y筋力 #b",
+			" をターン終了時まで得る。"
+		]
+	},
+	"beaked:Hungry": {
+		"NAME": "飢え",
+		"DESCRIPTIONS": [
+			"ターン終了時、 ",
+			" #y筋力 #b",
+			" を得る。"
+		]
+	},
+	"beaked:AdaptiveArmor": {
+		"NAME": "適応力",
+		"DESCRIPTIONS": [
+			"ターン終了時、 ",
+			" #yプレートアーマー #b",
+			" を得る。(最大 #b",
+			")."
+		]
+	},
+	"beaked:Mending": {
+		"NAME": "修繕",
+		"DESCRIPTIONS": [
+			"カードをプレイするたびに、HPを #b%s 回復する。"
+		]
+	}
+}

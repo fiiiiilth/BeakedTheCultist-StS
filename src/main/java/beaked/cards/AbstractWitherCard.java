@@ -1,10 +1,12 @@
 package beaked.cards;
 
+import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
 import beaked.Beaked;
 import beaked.actions.WitherAction;
 import beaked.patches.AbstractCardEnum;
+import beaked.powers.NegationPower;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -16,6 +18,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public abstract class AbstractWitherCard extends CustomCard {
@@ -29,6 +32,8 @@ public abstract class AbstractWitherCard extends CustomCard {
     public String witherEffect = "";    // a description of what value the Wither effect changes.
     public int witherAmount = 0;        // how much the card withers, ie. the 2 in "Wither 2." Also used by replenish effects.
     public boolean linkWitherAmountToMagicNumber = false; // is witherAmount always equal to this card's magicNumber?
+
+    protected static final Color PURPLE_BORDER_GLOW_COLOR = new Color(0.55F, 0.2F, 1.0F, 0.25F);
 
     // Use dynamic variables !beaked:wI!, !beaked:wD!, !beaked:wB! to represent the card's current power in purple.
 
@@ -132,6 +137,30 @@ public abstract class AbstractWitherCard extends CustomCard {
 
         this.flash();
         applyPowers();
+    }
+
+    public void triggerOnGlowCheck() {
+        if (AbstractDungeon.player.hasPower(NegationPower.POWER_ID)) {
+
+            // glow green if the wither would be negated
+            this.glowColor = AbstractCard.GREEN_BORDER_GLOW_COLOR.cpy();
+
+        } else {
+
+            // glow purple if this would wither a card in the master deck when played
+            Iterator var2 = AbstractDungeon.player.masterDeck.group.iterator();
+            while(var2.hasNext()) {
+                AbstractCard c = (AbstractCard)var2.next();
+                if (c.uuid.equals(uuid)) {
+                    this.glowColor = PURPLE_BORDER_GLOW_COLOR.cpy();
+                    return;
+                }
+            }
+
+            // glow blue if the card will wither in combat, but won't affect master deck
+            // this might be too confusing to players idk
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
+        }
     }
 
     @Override

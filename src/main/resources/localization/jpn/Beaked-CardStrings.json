@@ -1,0 +1,428 @@
+{
+	"beaked:Strike_Y": {
+		"NAME": "ストライク",
+		"DESCRIPTION": "!D! ダメージを与える。"
+	},
+	"beaked:Defend_Y": {
+		"NAME": "防御",
+		"DESCRIPTION": "!B! ブロック を得る。"
+	},
+	"beaked:Ceremony": {
+		"NAME": "おまじない",
+		"DESCRIPTION": "エセリアル NL 儀式 1 を得る。",
+		"UPGRADE_DESCRIPTION": "儀式 1 を得る。"
+	},
+	"beaked:Tweet": {
+		"NAME": "さえずり",
+		"DESCRIPTION": "弱体 !M! を与える。"
+	},
+	"beaked:Insight": {
+		"NAME": "インサイト",
+		"DESCRIPTION": "ターン開始時、 1 枚 天啓 を山札に加える。",
+		"UPGRADE_DESCRIPTION": "天賦 NL ターン開始時、 1 枚 天啓 を山札に加える。"
+	},
+	"beaked:Inspiration": {
+		"NAME": "天啓",
+		"DESCRIPTION": "使用不可 NL このカードを引いたとき、 廃棄 してカードを 2 枚引く。"
+	},
+	"beaked:Evade": {
+		"NAME": "狡猾",
+		"DESCRIPTION": "敵が攻撃を予定しているなら、 [E] [E] を得る。",
+		"EXTENDED_DESCRIPTION": ["この敵は攻撃を予定していない。"]
+	},
+	"beaked:Daydream": {
+		"NAME": "白昼夢",
+		"DESCRIPTION": "!M! 枚 天啓 を山札に加える。"
+	},
+	"beaked:Overpower": {
+		"NAME": "圧倒",
+		"DESCRIPTION": "!D! ダメージを与える。 NL 現在のHPが !M! あるごとに、与えるダメージが 1 増加する。"
+	},
+	"beaked:DarkPact": {
+		"NAME": "闇の契約",
+		"DESCRIPTION": "プレートアーマー !M! を得て、 NL 後悔 を 1 枚山札に加える。"
+	},
+	"beaked:Flinch": {
+		"NAME": "たじろぎ",
+		"DESCRIPTION": "!beaked:wB! ブロック を得る。 NL !M! 衰退 する。",
+		"EXTENDED_DESCRIPTION": ["#yブロック が減少する。"] // wither effect tooltip
+	},
+	"beaked:Roost": {
+		"NAME": "止まり木",
+		"DESCRIPTION": "!B! ブロック を得る。 NL このカードは使うたび、コストが 1 戦闘終了まで増加する。"
+	},
+	"beaked:HuntressEssence": {
+		"NAME": "狩人の本質",
+		"DESCRIPTION": "廃棄 されているカード 1 枚につき、HPを !M! 回復しカードを 1 枚引く。 NL 廃棄"
+	},
+	"beaked:MachineEssence": {
+		"NAME": "機械の本質",
+		"DESCRIPTION": "回復するたびに、追加で !M! 回復する。"
+	},
+	"beaked:WarriorEssence": {
+		"NAME": "戦士の本質",
+		"DESCRIPTION": "!D! ダメージをランダムな敵に X 回与える。防御されなかったダメージの 25 ％分、HPを回復する。 NL 廃棄",
+		"UPGRADE_DESCRIPTION": "!D! ダメージをランダムな敵に X+1 回与える。防御されなかったダメージの 25 ％分、HPを回復する。 NL 廃棄"
+	},
+	"beaked:FakeOut": {
+		"NAME": "すり替え",
+		"DESCRIPTION": "!D! ダメージを敵全体に与えて、 NL 山札と捨て札を入れ替える。"
+	},
+	"beaked:Hexing": {
+		"NAME": "呪術",
+		"DESCRIPTION": "ターン開始時、攻撃を予定していない敵に 脱力 2 と 弱体 1 を与える。"
+	},
+	"beaked:Redirect": {
+		"NAME": "軌道操作",
+		"DESCRIPTION": "筋力 の !beaked:wI! 倍に等しいブロック を得て、 筋力 をすべて失う。 NL 1 衰退 する。",
+		"EXTENDED_DESCRIPTION": [
+			"(!B! ブロック を得る。) NL ",
+			"#y筋力 の乗数が減少する" // wither effect tooltip
+		]
+	},
+	"beaked:DesperateSwing": {
+		"NAME": "やけくその一撃",
+		"DESCRIPTION": "!D! ダメージを与える。 NL 今失っているHP !M! につき、ダメージが 1 増加する。"
+	},
+	"beaked:Foresight": {
+		"NAME": "千里眼",
+		"DESCRIPTION": "!B! ブロック を得る。 NL 次のターン、 [E] を得る。",
+		"UPGRADE_DESCRIPTION": "!B! ブロック を得る。 NL 次のターン、 [E] [E] を得る。"
+	},
+	"beaked:Resilience": {
+		"NAME": "復元薬",
+		"DESCRIPTION": "筋力 3 と NL HPを !M! 失い、 NL アーティファクト 2 を得る。"
+	},
+	"beaked:SowTheSeeds": {
+		"NAME": "種まき",
+		"DESCRIPTION": "!M! 枚 小休止 を山札に加える。"
+	},
+	"beaked:Respite": {
+		"NAME": "小休止",
+		"DESCRIPTION": "使用不可 NL ターン終了時、HPを !M! 回復する。"
+	},
+	"beaked:Pecker": {
+		"NAME": "くちばし",
+		"DESCRIPTION": "!D! ダメージを !beaked:wI! 回与える。 NL 1 衰退 する",
+		"EXTENDED_DESCRIPTION": ["攻撃回数が減少する"] // wither effect tooltip
+	},
+	"beaked:TuckingFeathers": {
+		"NAME": "毛づくろい",
+		"DESCRIPTION": "カードを !M! 枚引く。それらのコストの合計に等しい ブロック を得る。"
+	},
+	"beaked:Negation": {
+		"NAME": "否定",
+		"DESCRIPTION": "この戦闘中次の 衰退 を無効化できる。 NL 廃棄",
+		"UPGRADE_DESCRIPTION": "この戦闘中次の 衰退 を !M! 回無効化できる。 NL 廃棄"
+	},
+	"beaked:Recite": {
+		"NAME": "暗唱",
+		"DESCRIPTION": "手札に !M! 枚 讃美歌 を加える。"
+	},
+	"beaked:Psalm": {
+		"NAME": "讃美歌",
+		"DESCRIPTION": "敵全体に !beaked:wD! ダメージを与える。 NL !M! 衰退 する",
+		"EXTENDED_DESCRIPTION": [ "ダメージが減少する。" ] // wither effect tooltip
+	},
+	"beaked:Struggle": {
+		"NAME": "取っ組み合い",
+		"DESCRIPTION": "!D! ダメージを、手札の枚数分与える。 NL ターンを終了する。",
+		"EXTENDED_DESCRIPTION": ["(!M! 回攻撃する。) NL "]
+	},
+	"beaked:Devastation": {
+		"NAME": "廃虚",
+		"DESCRIPTION": "枯渇 したカードを引いたとき、 !M! 枚カードを引く。",
+		"UPGRADE_DESCRIPTION": "枯渇 したカードを引いたとき、 !M! 枚カードを引く。"
+	},
+	"beaked:Sacrifice": {
+		"NAME": "生贄",
+		"DESCRIPTION": "!D! ダメージを与えてから、HPを !M! 回復させる。 NL 致命 時、最大HP+ 3 。 NL 廃棄"
+	},
+	"beaked:Brainwash": {
+		"NAME": "洗脳",
+		"DESCRIPTION": "手札の 枯渇 したカードを全て 廃棄 する。 NL このターン手札を 保留 する。 NL 廃棄",
+		"UPGRADE_DESCRIPTION": "保留 NL 手札の 枯渇 したカードを全て 廃棄 する。 NL このターン手札を 保留 する。 NL 廃棄"
+	},
+	"beaked:DarkTribute": {
+		"NAME": "闇への賛辞",
+		"DESCRIPTION": "HPを全回復し、 NL 毒 !beaked:wI! を受ける。 NL !M! 衰退 する",
+		"EXTENDED_DESCRIPTION": ["受ける #y毒 が増加する。"] // wither effect description
+	},
+	"beaked:LiftOff": {
+		"NAME": "発進！",
+		"DESCRIPTION": "攻撃によるダメージを50％減らす。 1 ターンに !M! 回攻撃されると、このパワーを失い次のターン行動できなくなる。"
+	},
+	"beaked:FullHouse": {
+		"NAME": "フルハウス",
+		"DESCRIPTION": "!beaked:wI! 枚カードを引く。 NL !M! 衰退 する",
+		"EXTENDED_DESCRIPTION": ["引けるカードの数が減少する。"] // wither effect description
+	},
+	"beaked:Caw": {
+		"NAME": "カァー！クワァーー！",
+		"DESCRIPTION": "!beaked:wD! ダメージを敵全体に X 回与えて、 脱力 と 弱体 を X 与える。 NL !M! 衰退 する",
+		"UPGRADE_DESCRIPTION": "!beaked:wD! ダメージを敵全体に X+1 回与えて、 脱力 と 弱体 を X+1 与える。 NL !M! 衰退 する",
+		"EXTENDED_DESCRIPTION": ["ダメージが減少する。"] // wither effect description
+	},
+	"beaked:SacrificialScars": {
+		"NAME": "儀式の代償",
+		"DESCRIPTION": "HPを 6 失い、 NL 最大HP+ !M! 。 NL 3ターンの間回復できない。 NL 廃棄",
+		"UPGRADE_DESCRIPTION": "HPを 7 失い、 NL 最大HP+ !M! 。 NL 3ターンの間回復できない。 NL 廃棄"
+	},
+	"beaked:AwakenedForm": {
+		"NAME": "依代化",
+		"DESCRIPTION": "このカードのコストはボスを倒すたびに 1 減少する。 NL 全てのカードコストは 1 減少する。",
+		"UPGRADE_DESCRIPTION": " NL コストが 0 を下回れるようになる。"
+	},
+	"beaked:BounceBack": {
+		"NAME": "心機一転",
+		"DESCRIPTION": "自分のデバフを全て取り除く。 NL 廃棄"
+	},
+	"beaked:StickSmack": {
+		"NAME": "スマック",
+		"DESCRIPTION": "!D! ダメージを与える。 NL 枝 を 1 枚山札に加える。",
+		"UPGRADE_DESCRIPTION": "!D! ダメージを与える。 NL アップグレード した 枝 を 1 枚山札に加える。"
+	},
+	"beaked:Stick": {
+		"NAME": "枝",
+		"DESCRIPTION": "この戦闘中全ての スマック のダメージが !M! 増加する。 NL 一番最後にプレイした スマック は手札に戻る。"
+	},
+	"beaked:WarriorSpirit": {
+		"NAME": "戦士の心",
+		"DESCRIPTION": "このターン次のアタックを 2 回プレイして、 NL そのコストに等しい 筋力 を得る。 NL 廃棄",
+		"UPGRADE_DESCRIPTION": "このターン次のアタックを 2 回プレイして、 NL そのコストの 2 倍に等しい 筋力 を得る。 NL 廃棄"
+	},
+	"beaked:HuntressSpirit": {
+		"NAME": "狩人の心",
+		"DESCRIPTION": "このターン次のスキルを 2 回プレイして、 NL そのコストに等しい 敏捷性 を得る。 NL 廃棄",
+		"UPGRADE_DESCRIPTION": "このターン次のスキルを 2 回プレイして、 NL そのコストの 2 倍に等しい 敏捷性 を得る。 NL 廃棄"
+	},
+	"beaked:MachineSpirit": {
+		"NAME": "機械の心",
+		"DESCRIPTION": "このターン次のパワーを 2 回プレイして、 NL そのコストの 3 倍に等しいHPを回復する。 NL 廃棄",
+		"UPGRADE_DESCRIPTION": "このターン次のパワーを 2 回プレイして、 NL そのコストの 5 倍に等しいHPを回復する。 NL 廃棄"
+	},
+	"beaked:WildInstinct": {
+		"NAME": "闘争本能",
+		"DESCRIPTION": "使用不可 NL このカードを引いたときHPが 50 ％以下なら、 !D! ダメージを敵全体に与える。"
+	},
+	"beaked:Tradeoff": {
+		"NAME": "トレードオフ",
+		"DESCRIPTION": "手札からランダムに !beaked:wI! 枚 廃棄 して、 NL !M! 枚カードを引く。 NL -1 衰退 する。",
+		"EXTENDED_DESCRIPTION":[ "#y廃棄 する枚数が増加する。" ] // wither effect tooltip
+	},
+	"beaked:BloodForTheGods": {
+		"NAME": "我らが神へ",
+		"DESCRIPTION": "!M! ダメージを受ける。 NL 次のターン、その倍HPが回復する。"
+	},
+	"beaked:Poke": {
+		"NAME": "刺突",
+		"DESCRIPTION": "!M! 枚カードを引く。 NL |アタックなら|{アタックを引けた数だけ}, !D! ダメージを与える。"
+	},
+	"beaked:Replenish": {
+		"NAME": "継ぎ足し",
+		"DESCRIPTION": "手札の 衰退 するカード 1 枚の使用回数を !M! 回増やす。"
+	},
+	"beaked:BraceForImpact": {
+		"NAME": "衝撃に備えよ",
+		"DESCRIPTION": "プレートアーマー !M! を得る。"
+	},
+	"beaked:Brace": {
+		"NAME": "補強",
+		"DESCRIPTION": "保留 !B! ブロック を得る。 NL このカードが手札にあるときにプレイした枚数分 ブロック が !M! 増加する。 廃棄"
+	},
+	"beaked:CursingBlood": {
+		"NAME": "血を伝う呪い",
+		"DESCRIPTION": "敵が 筋力 !beaked:wI! を失う。 NL !M! 衰退 する",
+		"EXTENDED_DESCRIPTION": ["失わせる #y筋力 が減少する。"] // wither effect tooltip
+	},
+	"beaked:Molting": {
+		"NAME": "換羽",
+		"DESCRIPTION": "カードを 1 枚 廃棄 して、!B! ブロック を得る。 NL 枯渇 したカードだった場合、 !beaked:B+M! ブロック を得る。"
+	},
+	"beaked:DigDeep": {
+		"NAME": "力の源",
+		"DESCRIPTION": "HP !M! を 儀式 の数だけ回復する。 NL 廃棄"
+	},
+	"beaked:DigDeeper": {
+		"NAME": "結実",
+		"DESCRIPTION": "HP !M! を 筋力 の数だけ回復し、 NL 筋力 を全て失う。 NL 廃棄",
+		"UPGRADE_DESCRIPTION": "HP !M! を 筋力 の数だけ回復し、 NL 筋力 を全て失う。"
+	},
+	"beaked:SacrificialAttack": {
+		"NAME": "儀式の賜物",
+		"DESCRIPTION": "!D! を敵全体に与える。 筋力 の !M! 倍がこのカードのダメージになる。 NL 筋力 を全て失う。"
+	},
+	"beaked:BarbedWire": {
+		"NAME": "有刺鉄線",
+		"DESCRIPTION": "トゲ を 筋力 に等しい数得る。 NL 筋力 を全て失う。"
+	},
+	"beaked:PrayerOfSafety": {
+		"NAME": "安全祈願",
+		"DESCRIPTION": "無形 1 と !B! ブロック を得る。 NL 敏捷性 !M! を失う。"
+	},
+	"beaked:Overexert": {
+		"NAME": "過労",
+		"DESCRIPTION": "現在のエナジーを2倍にする。 NL 増えたダメージの数だけ、HPを !M! 失う。"
+	},
+	"beaked:RuinSticks": {
+		"NAME": "やっちまった",
+		"DESCRIPTION": "!D! ダメージを与えて、 NL 後悔 を 1 枚手札に加える。"
+	},
+	"beaked:BloodRitual": {
+		"NAME": "血の典礼",
+		"DESCRIPTION": "HPを 12 失い、 NL 儀式 !M! を得る。"
+	},
+	"beaked:SacrificialDive": {
+		"NAME": "死中に活",
+		"DESCRIPTION": "対象が攻撃を予定しているなら発動。 NL 自身のHPを予定ダメージの半分失い、このターン対象は 筋力 を 99 失う。 NL 廃棄",
+		"UPGRADE_DESCRIPTION": "対象が攻撃を予定しているなら発動。 NL 自身のHPを予定ダメージの半分失い、このターン対象は 筋力 を 99 失う。",
+		"EXTENDED_DESCRIPTION": ["この敵は攻撃を予定していない。"]
+	},
+	"beaked:FeelMyPain": {
+		"NAME": "我が痛みを知れ",
+		"DESCRIPTION": "現在のHPの 50 %を失い、 NL 筋力 !M! を得る。"
+	},
+	"beaked:Mantra": {
+		"NAME": "マントラ",
+		"DESCRIPTION": "!D! ダメージをデッキの 衰退 カードの枚数に等しい回数与える。",
+		"EXTENDED_DESCRIPTION": [" NL (!M! 枚 衰退 カードを持っている。)"]
+	},
+	"beaked:Windmill": {
+		"NAME": "ウィンドミル",
+		"DESCRIPTION": "!D! ダメージを与える。 NL このターンスキルをプレイするたびに、 !M! ダメージをランダムな敵に与える。"
+	},
+	"beaked:MaddeningMurmurs": {
+		"NAME": "深淵からのささやき",
+		"DESCRIPTION": "ターン開始時、捨て札からランダムな 1 枚を手札に加える。 NL このターンそのコストは 1 減少する。",
+		"UPGRADE_DESCRIPTION": "ターン開始時、捨て札からランダムな 1 枚を手札に加える。 NL このターンそのコストは 0 になる。"
+	},
+	"beaked:TurnTheTables": {
+		"NAME": "形勢逆転",
+		"DESCRIPTION": "敵全員の 脱力 と 弱体 を交換する。",
+		"UPGRADE_DESCRIPTION": "敵全員の 脱力 と 弱体 を交換する。 弱体 1 を敵全体に与える。"
+	},
+	"beaked:Cower": {
+		"NAME": "萎縮",
+		"DESCRIPTION": "弱体 1 を得て、 NL 脱力 !M! を敵全体に与える。"
+	},
+	"beaked:VolatileMisfortune": {
+		"NAME": "気まぐれな不運",
+		"DESCRIPTION": "ターン終了時、全ての 使用不可 なカードを 保留 する。 NL その枚数分、ランダムな敵に 筋力 + 1 に等しいダメージを与える。",
+		"UPGRADE_DESCRIPTION": "天賦 NL ターン終了時、全ての 使用不可 なカードを 保留 する。 NL その枚数分、ランダムな敵に 筋力 + 1 に等しいダメージを与える。",
+        "EXTENDED_DESCRIPTION": ["例外","#y火傷　のような特定の #y使用不可 カードは、ターン終了時に通常通り捨てられる。それらのカードはこのパワーの対象外である。"]
+	},
+	"beaked:SurvivalInstinct": {
+		"NAME": "生存本能",
+		"DESCRIPTION": "エセリアル NL このターン、まだカードをプレイしていならプレイ可能。 NL 無形 1 を得る。 NL 拘束 になる。",
+		"EXTENDED_DESCRIPTION": ["既にカードをプレイしてしまった！"]
+	},
+	"beaked:ShadowFade": {
+		"NAME": "消えゆく影",
+		"DESCRIPTION": "筋力 !M! ごとに 無形 1 を得る。 NL 筋力 を全て失う。"
+	},
+	"beaked:StunningBlow": {
+		"NAME": "スタンブロウ",
+		"DESCRIPTION": "!beaked:wD! ダメージを与えて、 NL 無形 1 を得る。 NL !M! 衰退 する",
+		"EXTENDED_DESCRIPTION": ["ダメージが減少する。"] // wither effect description
+	},
+	"beaked:ScreechingChant": {
+		"NAME": "甲高い詠唱",
+		"DESCRIPTION": "儀式 を 2 倍にする。 NL 廃棄"
+	},
+	"beaked:WindBringer": {
+		"NAME": "風を運ぶもの",
+		"DESCRIPTION": "!beaked:wD! ダメージを敵全体に与える。 NL !M! 衰退 する",
+		"EXTENDED_DESCRIPTION": ["ダメージが減少する。"] // wither effect description
+	},
+	"beaked:CheekyTricks": {
+		"NAME": "ディープフォーカス",
+		"DESCRIPTION": "この戦闘中、次の 衰退 を !beaked:wI! 回無効化する。 NL !M! 衰退 する",
+		"EXTENDED_DESCRIPTION": ["無効化できる #y衰退 の回数が減少する。このカードが 衰退 した後から無効化が適用される。"] // wither effect description
+	},
+	"beaked:MimicWarrior": {
+		"NAME": "戦士の模倣",
+		"DESCRIPTION": "ランダムなアイアンクラッドのカードを 1 枚手札に加える。 NL このターンそのコストは0。",
+		"UPGRADE_DESCRIPTION": "アップグレード された、ランダムなアイアンクラッドのカードを 1 枚手札に加える。 NL このターンそのコストは0。"
+	},
+	"beaked:MimicHuntress": {
+		"NAME": "狩人の模倣",
+		"DESCRIPTION": "ランダムなサイレントのカードを 1 枚手札に加える。 NL このターンそのコストは0。",
+		"UPGRADE_DESCRIPTION": "アップグレード された、ランダムなサイレントのカードを 1 枚手札に加える。 NL このターンそのコストは0。"
+	},
+	"beaked:MimicMachine": {
+		"NAME": "機械の模倣",
+		"DESCRIPTION": "ランダムなディフェクトのカードを 1 枚手札に加える。 NL このターンそのコストは0。",
+		"UPGRADE_DESCRIPTION": "アップグレード された、ランダムなディフェクトのカードを 1 枚手札に加える。 NL このターンそのコストは0。"
+	},
+	"beaked:CrazyRituals": {
+		"NAME": "奇妙なおまじない",
+		"DESCRIPTION": "ターン開始時、ランダムなクラスの、ランダムなカードを、ランダムな敵にプレイする。"
+	},
+	"beaked:RitualOfBody": {
+		"NAME": "鋼のおまじない",
+		"DESCRIPTION": "儀式 1 を払って発動。ターン開始時 プレートアーマー !M! を得る。",
+		"EXTENDED_DESCRIPTION": ["儀式 が足りない！"]
+	},
+	"beaked:NobsRage": {
+		"NAME": "ボスグレムリン：怒り",
+		"DESCRIPTION": "攻撃されるたびに、 筋力 !M! を得る。"
+	},
+	"beaked:LagavulinsFerocity": {
+		"NAME": "ラガヴーリン：獰猛",
+		"DESCRIPTION": "毎ターン、初めてプレイするアタックのダメージが 2 倍になる。",
+		"UPGRADE_DESCRIPTION": "毎ターン、初めてプレイするアタックのダメージが 3 倍になる。"
+	},
+	"beaked:SentriesPulse": {
+		"NAME": "セントリー：パルス",
+		"DESCRIPTION": "敵 1 体のバフを全て取り除く。",
+		"UPGRADE_DESCRIPTION": "敵全員のバフを全て取り除く。"
+	},
+	"beaked:BooksFlurry": {
+		"NAME": "刺創の本：一陣の風",
+		"DESCRIPTION": "!M! (non-attack) ダメージを、この戦闘中にプレイしたカードの数に等しい回数与える。",
+		"EXTENDED_DESCRIPTION": [
+			" NL (",
+			" 枚)",
+			" 枚)"
+		]
+	},
+	"beaked:LeadersExecution": {
+		"NAME": "グレムリンリーダー：処刑",
+		"DESCRIPTION": "!D! ダメージを 3 回与える。"
+	},
+	"beaked:TaskmastersTorture": {
+		"NAME": "タスクマスター：拷問",
+		"DESCRIPTION": "!D! ダメージを与え、 NL 出血 !M! を与える。"
+	},
+	"beaked:NemesisSlickness": {
+		"NAME": "ネメシス：巧み",
+		"DESCRIPTION": "無形 !M! を得る。",
+		"UPGRADE_DESCRIPTION": "無形 !M! を得て、 NL !D! ダメージを敵全体に与える。"
+	},
+	"beaked:WalkersFury": {
+		"NAME": "オーブウォーカー：憤激",
+		"DESCRIPTION": "儀式 !M! を得る。"
+	},
+	"beaked:HeadsImpatience": {
+		"NAME": "ジャイアントヘッド：焦り",
+		"DESCRIPTION": "カードをプレイするたびに、 筋力 !M! を得る。ターン終了時に失う。"
+	},
+	"beaked:ReptomancersBite": {
+		"NAME": "レプトマンサー：咀嚼",
+		"DESCRIPTION": "脱力 99 と、 弱体 99 を与える。",
+		"UPGRADE_DESCRIPTION": "対象の アーティファクト を取り除く。 NL 脱力 99 と、 弱体 99 を与える。"
+	},
+	"beaked:KnowThyFoe": {
+		"NAME": "敵を知り己を知れ",
+		"DESCRIPTION": "ランダムなエリートのカードを 1 枚手札に加える。 NL 廃棄",
+		"EXTENDED_DESCRIPTION": [ // tooltip description
+			"エリートカード",
+			"塔のエリート達の一部を反映した、強力な0コストのカード。"
+		]
+	},
+	"beaked:VigorBurst": {
+		"NAME": "ほとばしる活力",
+		"DESCRIPTION": "使用不可 NL このカードを引いたとき、HPを !M! 回復する。 NL このカードをデッキに加えたとき、最大HP+ 5 。このカードを削除か変化させると、増加したHPは消える。",
+		"UPGRADE_DESCRIPTION": "使用不可 NL このカードを引いたとき、HPを !M! 回復する。 NL このカードをデッキに加えたとき、最大HP+ 5 。"
+	}
+}
