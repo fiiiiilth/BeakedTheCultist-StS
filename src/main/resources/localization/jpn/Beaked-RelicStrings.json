@@ -10,7 +10,7 @@
     "NAME": "完璧な枝の束",
     "FLAVOR": "驚くほど綺麗な枝の束。",
     "DESCRIPTIONS": [
-      "戦闘開始時、 #ybeaked:枯渇 したカードを全て #y廃棄 する。"
+      "At the start of each combat, #yExhaust all #ybeaked:Depleted cards."
     ]
   },
   "beaked:ShinyBauble": {
@@ -62,7 +62,7 @@
     "DESCRIPTIONS": [
       "カードをプレイせずにターンを終了したとき、 #y儀式 #b",
       " を得る。戦闘ごとに1回のみ発動する。",
-      "" //#yRitual #yPlumage: If you end your turn now, gain #b2 #yRitual.
+      "#y祭式の羽毛: 今ターンを終了すると、 #y儀式 #b2 を得る。"
     ],
     "FLAVOR": "悪魔のパワーがあなたを駆け巡る。"
   },

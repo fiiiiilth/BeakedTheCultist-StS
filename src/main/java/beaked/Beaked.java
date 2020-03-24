@@ -751,9 +751,9 @@ public class Beaked implements PostInitializeSubscriber,
     @Override
     public void receiveEditKeywords() {
         logger.info("setting up custom keywords");
-        String language = "eng";
 
-        if (Settings.language == Settings.GameLanguage.ZHS) language = "zhs";
+        String language = "eng";
+        if (Settings.language == Settings.GameLanguage.JPN) language = "jpn";
 
         Type typeToken = new TypeToken<Map<String, Keyword>>(){}.getType();
         Gson gson = new Gson();

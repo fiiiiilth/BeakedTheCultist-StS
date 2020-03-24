@@ -1,11 +1,4 @@
 {
-	"beaked:RitualPlayer": {
-		"NAME": "儀式",
-		"DESCRIPTIONS": [
-			"ターン開始時、 #y筋力 #b",
-			" を得る。"
-		]
-	},
 	"beaked:InsightPower": {
 		"NAME": "インサイト",
 		"DESCRIPTIONS": [
@@ -24,7 +17,7 @@
 		"NAME": "呪術",
 		"DESCRIPTIONS": [
 			"ターン開始時、攻撃を予定していない敵に #y脱力 #b",
-			"  と #y弱体 #b",
+			" と #y弱体 #b",
 			" を与える。"
 		]
 	},
@@ -231,7 +224,7 @@
 			"ターン終了時、 ",
 			" #yプレートアーマー #b",
 			" を得る。(最大 #b",
-			")."
+			")"
 		]
 	},
 	"beaked:Mending": {

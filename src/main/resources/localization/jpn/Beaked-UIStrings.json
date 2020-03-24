@@ -1,7 +1,7 @@
 {
   "beaked:WitherCard": {
     "TEXT": [
-      "枯渇 NL ", // appears on the card
+      "beaked:枯渇 NL ", // appears on the card
       "このカードは #r枯渇 している!", // what the character says when trying to play card
       "衰退の効果", // title of tooltip describing wither effects
       " NL (現在の数値: #b",

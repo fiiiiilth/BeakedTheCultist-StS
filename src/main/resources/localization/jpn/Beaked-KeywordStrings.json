@@ -1,62 +1,38 @@
 {
-  "RITUAL":{
-    "NAMES": [
-      "儀式"
-    ],
-    "DESCRIPTION": "ターン開始時、 #y筋力 を得る。"
-  },
   "WITHER":{
+    "PROPER_NAME": "衰退",
     "NAMES": [
       "衰退"
     ],
     "DESCRIPTION": "プレイする度に、対象の数値が永続的に減少する。数値が #b0 になると、カードは #y枯渇 となりプレイできなくなる。休憩所で回復できる。"
   },
   "DEPLETED":{
+    "PROPER_NAME": "枯渇",
     "NAMES": [
       "枯渇"
     ],
     "DESCRIPTION": "#y衰退 の対象の数値が回復するまで #y使用不可 。"
   },
-  "INSPIRATION":{
-    "NAMES": [
-      "天啓"
-    ],
-    "DESCRIPTION": "プレイ不可能なカード。このカードを引いたとき、このカードは #廃棄 されカードを #b2 枚引ける。"
-  },
-  "RESPITE":{
-    "NAMES": [
-      "小休止"
-    ],
-    "DESCRIPTION": "プレイ不可能なカード。ターン終了時にHPを #b2 回復する。"
-  },
-  "PSALM":{
-    "NAMES": [
-      "讃美歌"
-    ],
-    "DESCRIPTION": "0 コストのアタックカード。 #b3 ダメージを敵全体に与える。 #y衰退 を #b2 持っている。"
-  },
-  "STICK":{
-    "NAMES": [
-      "棒"
-    ],
-    "DESCRIPTION": "0 コストのスキルカード。プレイするとスマックのダメージを増加でき、更に最後にプレイしたスマックを手札に戻す。"
-  },
   "ENTANGLED":{
+    "PROPER_NAME": "拘束",
     "NAMES": [
       "拘束"
     ],
-    "DESCRIPTION": "1 ターンの間 #yアタック をプレイできない。"
-  },
-  "REGRET":{
-    "NAMES": [
-      "後悔"
-    ],
-    "DESCRIPTION": "呪い。ターン終了時、手札の枚数に等しいHPを失う。"
+    "DESCRIPTION": "1ターンの間 #y「アタック」 をプレイできない。"
   },
   "BLEED":{
+    "PROPER_NAME": "出血",
     "NAMES": [
       "出血"
     ],
     "DESCRIPTION": "対象のターン終了時にダメージを与える。この数値はターン経過で減少しない。"
+  },
+  "PLATED_ARMOR_BEAKED":{
+    "PROPER_NAME": "プレートアーマー",
+    "NAMES": [
+      "プレートアーマー",
+      "プレートアーマー"
+    ],
+    "DESCRIPTION": "ターン終了時、 #yブロック を得る。ダメージを受けるたびに #yプレートアーマー が #b1 減少する。"
   }
 }
